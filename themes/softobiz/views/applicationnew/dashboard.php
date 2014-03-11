@@ -31,7 +31,7 @@ if(count($model) > 0  ){
             <div class="app_number pull-left"><span>Business Apps</span><span class="number">(<?php echo count($model); ?>)</span></div>
             <div class="clearfix"></div>
             </div>
-            <div class="row-fluid manage_apps set_tabs">
+            <div class="row-fluid manage_apps set_tabs manage_app_icon">
             <?php         if(count($model) == 0 )  
 				{
 					//$this->redirect(array("applicationnew/details",'type'=>'new','app'=>'localBusiness'));

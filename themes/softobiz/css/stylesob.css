@@ -439,6 +439,7 @@ footer{ padding:13px;}
 .form-actions{
 	display:none !important;
 	float:left;
+
 	
 }
 .rel_wrap{
@@ -487,26 +488,18 @@ footer{ padding:13px;}
 .manage_apps ul li:hover .edit_panel{
 	display:block;
 }
-.app_thumb {
-    border: 1px solid #EEEEEE;
-    display: table-cell;
-    height: 176px;
-    padding: 10px;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    width: 226px;
+.app_thumb{
+	position:relative;
 }
 .app_thumb img{
-	max-height: 176px;
-    max-width: 226px;
+	width:246px;
+	height:196px;
 }
 .manage_apps ul{
 	margin:0;
 }
 .app_box{
 	padding:12px 12px 0;
-	position:relative;
 }
 .app_icon{
 	width:48px;
@@ -561,16 +554,12 @@ footer{ padding:13px;}
 	height:30px;
 	background:url(../img/edit_panel_bg.png);
 	position:absolute;
-	/*width:99.26%;
+	top:50%;
+	width:99.26%;
 	margin-top:-26px;
-	top:34%;
-	*/
-	width:246px;
 	color:#fff;
 	padding:11px 0;
 	display:none;
-	top:82px;
-	left:12px;
 }
 .edit_panel img{
 	width:auto;
@@ -610,7 +599,6 @@ footer{ padding:13px;}
     padding: 5px 2px 5px 10px;
     margin-bottom:10px;
     text-transform:capitalize;
-	min-height: 39px;
 }
 .featurelist ul li a{
 	color:#333;
@@ -1067,7 +1055,7 @@ h4.view_app_title{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 177px;
+    width: 100px;
     font-weight: normal;
 }
 .links_prog{
@@ -1085,3 +1073,31 @@ h4.view_app_title{
 	padding-bottom:5px;
 	 min-height: 34px;
 }
+
+
+/* Manage App icon css */
+.manage_app_icon .app_thumb img{
+	width:auto;
+	height:auto;
+	max-height: 176px;
+    max-width: 226px;
+}
+.manage_app_icon .app_thumb{
+	border:1px solid #eee;
+	width:226px;
+	height:176px;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;
+	padding:10px;
+}
+.manage_app_icon .app_box{
+	position:relative;
+}
+.manage_app_icon .app_box .app_thumb .edit_panel{
+	width:247px;
+	left:12px;
+	top:117px;
+}
+
+/* Manage App icon css ends here */

@@ -10,7 +10,7 @@
 <div class="limited_modal2">
 <ul id="medialistthumb">
 <?php foreach($dataProvider as $data){?>
-<li onclick="liUpdateSelect(this);" class="span2 <?php if(in_array($data->id,$selected)){ ?> enabled <?php }  ?>" id="mediafile_<?php echo $data->id ?>" >
+<li onclick="liUpdateSelect(this);" class="span3 <?php if(in_array($data->id,$selected)){ ?> enabled <?php }  ?>" id="mediafile_<?php echo $data->id ?>" >
 
 			<div class="app_box">
 				<div class="app_thumb">

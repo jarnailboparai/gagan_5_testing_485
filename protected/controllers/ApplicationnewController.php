@@ -1444,6 +1444,15 @@ class ApplicationnewController extends Controller
 			$this->recurFolder($sourcefile, $dest_path);
 			
 			$this->recurFolder($sourcefileCommon, $dest_path);
+			
+			
+			if(!file_exists(Yii::app()->basePath.'/app_images/'.$app_model->icon)){
+				copy(Yii::app()->basePath.'/../app_images/'.$app_model->icon, $dest_path.'/'.$app_model->icon);
+				//die("app icon image");
+			}
+			//print_r($sub->videomedia->filemediaImage->attributes);
+			//copy($sour_pathImage.$sub->videomedia->filemediaImage->attributes['filename'], $dest_path.'/video/'.$sub->videomedia->filemediaImage->attributes['filename']);
+					
 				
 				
 			/*create code end end*/
@@ -3273,9 +3282,9 @@ class ApplicationnewController extends Controller
 		$dataSelectAA = array('staticpage'=>'Static Page',
 				'video'=>'Video Gallary',
 				'photosub'=>'Image Gallery',
+				'location'=>'Location',
 				'optin_forms'=>'Optin Forms',
 				//'contact_us_page'=>'Contact us page',
-				'location'=>'Location',
 				'social_sharing_features'=>'Social Sharing features',
 				'in_app_rating_feature'=>'In-app rating feature',
 				'admob'=>'Admob or tapgage',
