@@ -1,0 +1,18 @@
+*{ margin:0; padding:0;}
+a{ text-decoration:none;}
+img{ border:none; outline:none;}
+ul{ list-style:none;}
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video{ display: block; }
+mark, rp, rt, ruby, summary, time{ display: inline }
+
+
+
+#container{ padding-top:20px; position:relative; margin-top:20px; float:left;}
+#container .slider{ padding-bottom:45px; margin-bottom:65px; float:left; margin-left:43px;  position: relative;}
+.choose_bav{ float:left; padding-top:58px;}
+#container .choose_layout{ border:1px solid #dcdcdc; padding:4px; float:left;}
+#container .choose_layout img{ padding-right:4px; padding-left:4px;}
+.choose_layout ul { float:left;}
+.choose_layout ul li{ float:left;}
+.row { margin:0 ;}
+.clearBoth{ clear:both;}

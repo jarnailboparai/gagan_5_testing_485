@@ -1,0 +1,214 @@
+#jCarouselLiteDemo .carousel  {
+    padding: 10px 0 0 0;
+    margin: 0 0 20px 10px;
+    position: relative;     
+}
+    #jCarouselLiteDemo .digg {
+        position: absolute;
+        left: 610px;
+        top: 110px;
+    }
+    #jCarouselLiteDemo .main {
+      /*  margin-left: 40px;*/
+    }
+
+    #jCarouselLiteDemo .demo em {
+        color: #FF3300;
+        font-weight: bold;
+        font-size: 60%;        
+        font-style: normal;
+    }
+    #jCarouselLiteDemo .carousel button { /*Don't remove this. we still use this for individual demos. only the front pages use images as of now*/
+        float: left;
+    }              
+    #jCarouselLiteDemo .carousel a.prev, #jCarouselLiteDemo .carousel a.next {
+        display: block;
+        float: left;
+        width: 30px;
+        height: 143px;
+        text-decoration: none;
+        background: url("/images/imageNavLeft.gif") left 60px no-repeat;
+    }
+        #jCarouselLiteDemo .carousel a.next {
+            background: url("/images/imageNavRight.gif") right 60px no-repeat;
+        }
+            #jCarouselLiteDemo .carousel a.next:hover {
+                background-image: url("/images/imageNavRightHover.gif");
+            }
+            #jCarouselLiteDemo .carousel a.prev:hover {
+                background-image: url("/images/imageNavLeftHover.gif");
+            }    
+            #jCarouselLiteDemo .carousel a:hover, #jCarouselLiteDemo .carousel a:active {
+                border: none;
+                outline: none;
+            }                 
+    #jCarouselLiteDemo .carousel .jCarouselLite {
+       
+        float: left;
+       
+        
+        /* Needed for rendering without flicker */
+        position: relative;
+        visibility: hidden;
+        left: -5000px;
+    }
+        #jCarouselLiteDemo .carousel ul {
+            margin: 0;
+            margin-top:30px !important;
+        }
+        #jCarouselLiteDemo .carousel li
+        {
+        	margin:0px 58px;
+			min-height:329px !important;
+        }
+        #jCarouselLiteDemo .carousel li img, 
+        #jCarouselLiteDemo .carousel li p {
+            background-color: #fff;
+            
+            width:228px;
+        }
+        
+        #jCarouselLiteDemo .widget img {
+            cursor: pointer;
+        }
+            #jCarouselLiteDemo .mid {
+                margin-left: 80px;
+                width: 400px;
+                height: 300px;
+            }
+            #jCarouselLiteDemo .vertical {
+                margin-left: 170px;
+            }
+                #jCarouselLiteDemo .vertical .jCarouselLite {   /* so that in IE 6, the carousel div doesnt expand to fill the space */
+                    width: 170px;
+                }
+            #jCarouselLiteDemo .imageSlider li img, 
+            #jCarouselLiteDemo .imageSlider li p, 
+            #jCarouselLiteDemo .imageSliderExt li img , 
+            #jCarouselLiteDemo .imageSliderExt li p {
+                width: 400px;
+                height: 300px;
+            }
+            
+/*_____________________________________________ End - Projects - jCarouselLiteDemo _____________________________________________*/
+
+/*_____________________________________________ Start - Projects - aTodoist _____________________________________________*/
+
+/* TODO: Currently not used. Remove */
+#contentInner #atodoist blockquote {
+	margin-left: 10px;
+	margin-right: 10px;
+	font-weight: normal;
+}
+
+#contentInner #atodoist blockquote a {
+	font-weight: bold;
+	color: #FF3300;
+}
+
+#mobilePic {
+	width: 240px;
+	height: 476px;
+	background-image: url("/project/android/atodoist/image/atodoist_projects_screen.png");
+	position: relative;	
+}
+	#mobilePic .cycle {
+		width: 198px;
+		height: 330px;
+		position: absolute;
+		top: 52px;
+		left: 21px;
+	}
+
+
+/*_____________________________________________ Start - Projects - aTodoist _____________________________________________*/
+
+
+/*_____________________________________________ Start - Projects - jCurtain _____________________________________________*/
+
+#contentInner .curtain {
+    position: relative;
+    width: 275px;
+    height: 215px;
+    border: 5px solid lightgray;
+    overflow: hidden;
+}
+
+#contentInner .curtain .curtainInfo {
+    font-size: 12px; 
+    line-height: 1.5; 
+    padding: 10px;
+     
+}
+    #contentInner .curtain .curtainInfo p {
+        margin: 0; 
+    }
+
+#contentInner .curtain .curtainImage {
+    width: 275px;
+    height: 215px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#jCarouselLiteDemo .carousel a.prev, #jCarouselLiteDemo .carousel a.next {
+    background: url("/images/imageNavLeft.gif") no-repeat scroll left 60px rgba(0, 0, 0, 0);
+    display: block;
+    float: left;
+    height: 143px;
+    text-decoration: none;
+    width: 30px;
+}
+
+
+#jCarouselLiteDemo .carousel a.next {
+    background: url("/images/imageNavRight.gif") no-repeat scroll right 60px rgba(0, 0, 0, 0);
+}
+#jCarouselLiteDemo .carousel a.prev, #jCarouselLiteDemo .carousel a.next {
+    background: url("/images/imageNavLeft.gif") no-repeat scroll left 60px rgba(0, 0, 0, 0);
+    display: block;
+    float: left;
+    height: 143px;
+    text-decoration: none;
+    width: 30px;
+}
+
+#prev,#next {
+	float:left;
+	top:300px;
+	z-index:10000;
+}
+
+#prev{   background: url("../images/prev.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 49px;
+    left: -40px;
+    top: 50%; position:absolute; width:52px;  z-index: 999;
+   }
+#next{background: url("../images/frwd.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 49px;
+    right: -40px;
+    top: 50%;position:absolute; width:52px;  z-index: 999;
+    }
+#jCarouselLiteDemo{}
+#phone-body {
+    background-image:url('../images/phone-prev-2.png');
+	background-repeat:repeat;
+	background-size:cover;
+	background-position:0 0;
+    height: 523px;
+    left: 50%;
+    margin-left: -131px;
+    position: absolute;
+    top: -52px;
+    width: 270px;
+    z-index:999;
+}
+
+.features {
+	/*border:5px solid;*/
+	display:block;
+	width:100px;
+	height:100px;
+	background:#1FAEFF;
+}

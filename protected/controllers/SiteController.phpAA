@@ -1,0 +1,262 @@
+<?php
+
+class SiteController extends Controller {
+
+    /**
+     * Declares class-based actions.
+     */
+    public function actions() {
+        return array(
+            // captcha action renders the CAPTCHA image displayed on the contact page
+            'captcha' => array(
+                'class' => 'CCaptchaAction',
+                'backColor' => 0xFFFFFF,
+            ),
+            // page action renders "static" pages stored under 'protected/views/site/pages'
+            // They can be accessed via: index.php?r=site/page&view=FileName
+            'page' => array(
+                'class' => 'CViewAction',
+            ),
+        );
+    }
+
+    /**
+     * This is the default 'index' action that is invoked
+     * when an action is not explicitly requested by users.
+     */
+    public function actionIndex() {
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        //echo Yii::app()->user->getState('username');
+        //echo Yii::app()->user->id;
+        if (Yii::app()->user->isGuest) {
+            $this->redirect(array('site/login'));
+        } else {
+            $role = Yii::app()->user->getState('roles');
+            if (in_array(User::ROLE_USER, $role)) {
+            	
+            	$this->redirect(array('applicationnew/home'));
+                //$this->redirect(array('applicationnew/dashboard'));
+            }
+        }
+
+        $this->render('index');
+    }
+
+    /**
+     * This is the action to handle external exceptions.
+     */
+    public function actionError() {
+        if ($error = Yii::app()->errorHandler->error) {
+            if (Yii::app()->request->isAjaxRequest)
+                echo $error['message'];
+            else
+                $this->render('error', $error);
+        }
+    }
+
+    /**
+     * Displays the contact page
+     */
+    public function actionContact() {
+        $model = new ContactForm;
+        if (isset($_POST['ContactForm'])) {
+            $model->attributes = $_POST['ContactForm'];
+            if ($model->validate()) {
+                $name = '=?UTF-8?B?' . base64_encode($model->name) . '?=';
+                $subject = '=?UTF-8?B?' . base64_encode($model->subject) . '?=';
+                $headers = "From: $name <{$model->email}>\r\n" .
+                        "Reply-To: {$model->email}\r\n" .
+                        "MIME-Version: 1.0\r\n" .
+                        "Content-type: text/plain; charset=UTF-8";
+
+                mail(Yii::app()->params['adminEmail'], $subject, $model->body, $headers);
+                Yii::app()->user->setFlash('contact', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                $this->refresh();
+            }
+        }
+        $this->render('contact', array('model' => $model));
+    }
+
+    /**
+     * Displays the login page
+     */
+    public function actionLogin() {
+
+        if (!Yii::app()->user->isGuest) {
+            $role = Yii::app()->user->getState('roles');
+            if (in_array(User::ROLE_ADMIN, $role)) {
+                $this->redirect(array('site/'));
+            } else {
+                $this->redirect(Yii::app()->user->returnUrl);
+            }
+        }
+
+        $model = new LoginForm;
+        $access_token = '';
+        if (isset($_GET['access_token']) && $_GET['access_token'] != '') {
+            $access_token = $_GET['access_token'];
+            $_SESSION['access_token'] = $access_token;
+        } elseif (isset($_SESSION['access_token'])) {
+            $access_token = $_SESSION['access_token'];
+        }
+		//$access_token = base64_encode(10);
+        if (isset($access_token) && $access_token != '') {
+            $red = isset($_GET['red']) ? $_GET['red'] : '';
+            $amId = base64_decode($access_token);
+            $amemberConnection = Yii::app()->db_amember;
+            $command = $amemberConnection->createCommand('SELECT login, pass, email FROM am_user WHERE user_id = "' . $amId . '" LIMIT 1');
+            $row = $command->queryRow();
+            if (!empty($row)) {
+                $connection = Yii::app()->db;
+                $command = $connection->createCommand('SELECT id FROM users WHERE username = "' . $row['login'] . '" LIMIT 1');
+                $user = $command->queryRow();
+
+                if (!empty($user)) {
+
+                    $attributes['username'] = $row['login'];
+                    $attributes['password'] = $row['pass'];
+                    $attributes['email'] = $row['email'];
+                    $sql = "UPDATE users SET  password='" . $row['pass'] . "' where id='" . $user['id'] . "'";
+                    $command = $connection->createCommand($sql);
+                    $command->execute();
+                } else {
+                    $connection = Yii::app()->db;
+                    $sql = "INSERT INTO users (username, password, email) VALUES('" . $row['login'] . "', '" . $row['pass'] . "', '" . $row['email'] . "')";
+                    $command = $connection->createCommand($sql);
+                    $command->execute();
+                    $uId = Yii::app()->db->lastInsertID;
+
+                    $sql2 = "INSERT INTO authassignment (itemname, userid) VALUES('Authenticated', '" . $uId . "')";
+                    $command = $connection->createCommand($sql2);
+                    $command->execute();
+
+                    $attributes['username'] = $row['login'];
+                    $attributes['password'] = $row['pass'];
+                    $attributes['email'] = $row['email'];
+                }
+            }
+
+            $model->attributes = $attributes;
+// validate user input and redirect to the previous page if valid
+            if ($model->validate() && $model->login()) {
+                if ($red == 'dashboard')
+                    $this->redirect(array('applicationnew/dashboard'));
+                elseif ($red == 'localBusiness')
+                    $this->redirect(array('applicationnew/details', 'type' => 'new', 'app' => 'localBusiness'));
+                elseif ($red == 'niche')
+                    $this->redirect(array('applicationnew/details', 'type' => 'new', 'app' => 'niche'));
+                else
+                    $this->redirect(Yii::app()->user->returnUrl);
+            }
+        }
+
+        // if it is ajax validation request
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+        //$this->redirect(Yii::app()->user->returnUrl);
+        // display the login form
+        $url_panel = Yii::app()->getBaseUrl(true);
+        $url_panel = str_replace('/wizard', '', $url_panel);
+        //$this->redirect($url_panel);
+        $this->render('login',array('model'=>$model));
+    }
+
+    /**
+     * Logs out the current user and redirect to homepage.
+     */
+    public function actionLogout() {
+        Yii::app()->user->logout();
+        //$this->redirect(Yii::app()->homeUrl);
+        $url_panel = Yii::app()->getBaseUrl(true);
+        $url_panel = str_replace('members/wizard', '', $url_panel);
+        $this->redirect($url_panel . 'panel/login/logout');
+    }
+
+    public function actionWelcome() {
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        $request = Yii::app()->request;
+        $id = $request->getQuery('id');
+        if ($id) {
+            $model = Pages::model()->findByPk($id);
+            $child_items = Pages::model()->findAll('parent=' . $model->parent);
+        } else {
+            $model = Pages::model()->find('url_part="site/welcome"');
+            $child_items = Pages::model()->findAll('parent=' . $model->id);
+        }
+
+        $user = Yii::app()->user;
+        $role = $user->getRole();
+        if ($role == 'admin')
+            $isadmin = true;
+        else
+            $isadmin = false;
+        $this->render('welcome', array('model' => $model, 'pages' => $child_items, 'isadmin' => $isadmin));
+    }
+
+    public function actionTraining() {
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        $request = Yii::app()->request;
+        $id = $request->getQuery('id');
+        if ($id) {
+            $model = Pages::model()->findByPk($id);
+            $child_items = Pages::model()->findAll('parent=' . $model->parent);
+        } else {
+            $model = Pages::model()->find('url_part="site/training"');
+            $child_items = Pages::model()->findAll('parent=' . $model->id);
+        }
+
+        $user = Yii::app()->user;
+        $role = $user->getRole();
+        if ($role == 'admin')
+            $isadmin = true;
+        else
+            $isadmin = false;
+
+        $this->render('training_home', array('model' => $model, 'pages' => $child_items, 'isadmin' => $isadmin));
+    }
+
+    public function actionCloud() {
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        $this->render('cloud');
+    }
+
+    public function actionSignup() {
+        $this->render('signup');
+    }
+
+    public function testCurl() {
+        echo "you are here";
+    }
+
+    /* public function actionVideotraining()
+      {
+      $this->render('videotraining');
+      }
+
+      public function actionPdfGuide()
+      {
+      $this->render('pdf_guide');
+      }
+
+      public function actionPage()
+      {
+      $request = Yii::app()->request;
+      $id = $request->getQuery('id');
+      if ($id){
+      $model = Pages::model()->findByPk($id);
+      } else {
+      $model = new Pages;
+      }
+      $allpages = Pages::model()->findAll();
+      echo "<pre>";
+      //print_r($allpages);
+      echo "</pre>";
+      $this->render('page', array('model' => $model, 'pages' => $allpages));
+      } */
+}

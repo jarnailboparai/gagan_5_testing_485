@@ -1,0 +1,150 @@
+﻿#mcts1 
+{
+    width:92%;
+    margin: 0 auto;
+    padding:36px 20px;
+    /* Do not alter the below settings*/
+    white-space:nowrap;
+    position:relative;
+    font-size:0px;
+}
+
+#mcts1>* {display:none;}
+  
+/*-------- div.item is each thumbnail's wrapper created by the javascript ------*/
+#mcts1 div.item 
+{
+    padding:2px;
+    margin-right:6px; /* this specifies the distance between each thumbnail */
+ 
+    text-align:center;
+    position:relative; margin-right:191px;
+}
+
+element.style {
+    width: 560px !important;
+}
+.nav-tabs li a {
+    padding: 10px;
+}
+.nav-tabs > li > a {
+    color: #262626;
+    font-size: 16px;
+}
+.nav-tabs > li > a {
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px 4px 0 0;
+    line-height: 20px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+.nav-tabs > li > a, .nav-pills > li > a {
+    line-height: 14px;
+    margin-right: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.nav > li > a {
+    display: block;
+}
+a {
+    color: #0088CC;
+    text-decoration: none;
+}
+li {
+    line-height: 20px;
+}
+.nav {
+    list-style: none outside none;
+}
+.marketing {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+body {
+    color: #383838;
+}
+body {
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+html {
+    font-size: 100%;
+}
+#phone-body {
+    background: url("../img/phone-prev-2.png") repeat scroll 0 0 / cover rgba(0, 0, 0, 0);
+    height: 512px;
+    left: 50%;
+    margin-left: -133px;
+    position: absolute;
+    top: 0;
+    width: 270px;
+}
+#mcts1 div.item img { width:231px;}
+#mcts1 img 
+{
+    border:none;
+}
+
+
+/*---------built-in navigation buttons-------*/
+#mcts1 .navPrev, #mcts1 .navNext, #mcts1 .navPlay, #mcts1 .navPause 
+{
+    width:16px; height:22px; position:absolute;  
+    background:url(../img/navbuttons.png); 
+    display:inline-block; z-index:5; cursor:pointer;
+}
+#mcts1 .navPrev {background-position:0 -22px;top:48%;left:-40px;  background: url("../img/prev.png") no-repeat; width:52px; height:49px;}
+
+#mcts1 .navPrevDisabled, #mcts1 .navPrevDisabled:hover {background-position:0 0;cursor:default;}
+.navPause{ display:none !important;}
+#mcts1 .navNext {background-position:-16px -22px;top:48%;right:-40px; background: url("../img/frwd.png") no-repeat; width:52px; height:49px;} 
+
+#mcts1 .navNextDisabled, #mcts1 .navNextDisabled:hover {background-position:-16px 0; cursor:default;} 
+
+#mcts1 .navPause, #mcts1 .navPlay {left:360px;top:130px;}
+#mcts1 .navPause {background-position:0 -66px;} 
+#mcts1 .navPause:hover {background-position:0 -88px;} 
+#mcts1 .navPlay {background-position:-16px -66px;} 
+#mcts1 .navPlay:hover {background-position:-16px -88px;} 
+
+
+       
+/*---------built-in navigation bullets--------*/
+/* Note: the navBullets won't be available when "scrollByEachThumb" was set to false in the Javascript.*/
+#mcts1 .navBullets
+{
+    display:none;
+}
+
+/*--------- class1 that is for the slide with HTML content------------*/
+.class1 
+{
+    width:130px;
+    height: 80px;
+    background:#444;
+    text-align:center;
+    color:White;
+    font:normal 11px/14px Arial;
+    white-space:normal;
+}
+.class1 p
+{
+    margin-top:0;
+    margin-bottom:6px;
+    padding-top:6px;
+    font:bold 13px Verdana;
+    color:#F90;
+}
+
+
+/* --------- Others ------- */
+#mcts1
+{
+	transform: translate3d(0,0,0);
+    -ms-transform:translate3d(0,0,0);
+    -moz-transform:translate3d(0,0,0);
+    -o-transform:translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+}

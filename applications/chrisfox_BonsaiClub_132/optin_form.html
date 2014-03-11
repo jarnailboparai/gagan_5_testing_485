@@ -1,0 +1,2001 @@
+<html>
+
+
+
+
+
+
+
+    <head>
+
+
+
+
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+
+
+    
+
+
+
+
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+
+
+        
+
+
+
+        <script>
+
+
+
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+
+
+
+        
+
+
+
+        	$.getScript("cordova-2.0.0.js");
+
+
+
+			$.getScript("phonegap.js");
+
+
+
+			$.getScript("PushNotification.js");			
+
+
+
+		}
+
+
+
+		</script>
+
+
+
+
+
+
+
+
+
+
+
+		<script type="text/javascript">
+
+
+
+           $(document).ready(function() {
+
+
+
+				var articleNumber;
+
+
+
+				$('.backClick').click(function() {
+
+
+
+					$('#content_navigation_content').show();
+
+
+
+					$('#article' + articleNumber).hide();
+
+
+
+				});
+
+
+
+				$('.content_navigation_link h3 a').click(function() {
+
+
+
+					$('#content_navigation_content').hide();
+
+
+
+					articleNumber = $(this).attr('href').substr(-1);
+
+
+
+					$('.content_navigation_link').removeClass('active');
+
+
+
+					$(this).parent().parent().addClass('active');
+
+
+
+					$('#article' + articleNumber).show();                   
+
+
+
+				});
+
+
+
+				
+
+
+
+				 document.addEventListener("deviceready",initPushwoosh,false);
+
+
+
+
+
+
+
+			});		  
+
+
+
+        </script>
+
+
+
+        
+
+
+
+        <script type="text/javascript" src="PushNotification.js"></script>
+
+<script type="text/javascript">
+
+    var pushNotification;
+
+    var app_id = "132";
+
+    var message;
+
+            
+
+    function onDeviceReady() {
+
+                
+
+        pushNotification = window.plugins.pushNotification;
+
+				
+
+        if (device.platform == 'android' || device.platform == 'Android') {
+
+            pushNotification.register(successHandler, errorHandler, {"senderID":"1086232126508","ecb":"onNotificationGCM"});
+
+        } else {
+
+            pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
+
+        }
+
+    }
+
+            
+
+    /* handle APNS notifications for iOS*/
+
+    function onNotificationAPN(event) {
+
+        if (event.alert) {
+
+            navigator.notification.alert(event.alert);
+
+        }
+
+                
+
+        if (event.sound) {
+
+            var snd = new Media(event.sound);
+
+            snd.play();
+
+        }
+
+                
+
+        if (event.badge) {
+
+            pushNotification.setApplicationIconBadgeNumber(successHandler, event.badge);
+
+        }
+
+    }
+
+            
+
+            
+
+    function onNotificationGCM(e) {
+
+        if(e.event == 'message'){
+
+            if(e.payload.app_id == app_id)
+
+                alert(e.message);
+
+        }
+
+    }
+
+            
+
+    function tokenHandler (result) {
+
+        /*$("#app-status-ul").append('<li>token: '+ result +'</li>');*/
+
+        /* Your iOS push server needs to know the token before it can push to this device*/
+
+        /* here is where you might want to send it the token for later use.*/
+
+    }
+
+			
+
+    function successHandler (result) {
+
+        /*$("#app-status-ul").append('<li>success:'+ result +'</li>');*/
+
+    }
+
+            
+
+    function errorHandler (error) {
+
+        /*alert("function_errorHandler");*/
+
+        /*$("#app-status-ul").append('<li>error:'+ error +'</li>');*/
+
+    }
+
+            
+
+    document.addEventListener('deviceready', onDeviceReady, true);
+
+
+
+</script>
+
+
+
+    </head>
+
+
+
+
+
+
+
+    <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Club</h1></center>
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+
+
+            <style type="text/css"> 
+
+
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+
+
+                #homeButton:active{ opacity: 0.7; } 
+
+
+
+            </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+
+
+
+
+                <style type="text/css">
+
+    #WFItem430844 html {
+
+        color:#000 !important;
+
+        background:#FFF !important;
+
+    }
+
+    #WFItem430844 body, #WFItem430844 div, #WFItem430844 dl, #WFItem430844 dt, #WFItem430844 dd, #WFItem430844 ul, #WFItem430844 ol, #WFItem430844 li, #WFItem430844 h1, #WFItem430844 h2, #WFItem430844 h3, #WFItem430844 h4, #WFItem430844 h5, #WFItem430844 h6, #WFItem430844 pre, #WFItem430844 code, #WFItem430844 form, #WFItem430844 fieldset, #WFItem430844 legend, #WFItem430844 input, #WFItem430844 textarea, #WFItem430844 p, #WFItem430844 blockquote, #WFItem430844 th, #WFItem430844 td {
+
+        margin-left:0 !important;
+
+        margin-right:0 !important;
+
+        margin-top:0 !important;
+
+        margin-bottom:0 !important;
+
+        padding-left:0 !important;
+
+        padding-bottom:0 !important;
+
+        padding-right:0 !important;
+
+        padding-top:0 !important;
+
+        width:auto !important;
+
+        background-image:none !important;
+
+    }
+
+    #WFItem430844 div, #WFItem430844 dl, #WFItem430844 dt, #WFItem430844 dd, #WFItem430844 ul, #WFItem430844 ol, #WFItem430844 li, #WFItem430844 h1, #WFItem430844 h2 {
+
+        border:none !important;
+
+        background:none !important;
+
+        float:none !important;
+
+        width:auto !important;
+
+        -moz-box-shadow:0 !important;
+
+        -webkit-box-shadow:0 !important;
+
+        box-shadow:0 !important;
+
+        text-indent:inherit !important;
+
+        position:static !important;
+
+        visibility:inherit !important;
+
+    }
+
+    #WFItem430844 table {
+
+        border-collapse:collapse !important;
+
+        border-spacing:0 !important;
+
+    }
+
+    #WFItem430844 fieldset, #WFItem430844 img {
+
+        border:0 !important;
+
+    }
+
+    #WFItem430844 address, #WFItem430844 caption, #WFItem430844 cite, #WFItem430844 code, #WFItem430844 dfn, #WFItem430844 em, #WFItem430844 th, #WFItem430844 var {
+
+        font-style:normal !important;
+
+        font-weight:normal !important;
+
+    }
+
+    #WFItem430844 strong {
+
+        font-style:normal !important;
+
+        font-weight:bold !important;
+
+    }
+
+    #WFItem430844 em {
+
+        font-style:italic !important;
+
+        font-weight:normal !important;
+
+        position:static !important;
+
+    }
+
+    #WFItem430844 li {
+
+        list-style:none !important;
+
+    }
+
+    caption, #WFItem430844 th {
+
+        text-align:left !important;
+
+    }
+
+    #WFItem430844 h1, #WFItem430844 h2, #WFItem430844 h3, #WFItem430844 h4, #WFItem430844 h5, #WFItem430844 h6 {
+
+        font-size:100% !important;
+
+        font-weight:normal !important;
+
+    }
+
+    #WFItem430844 q:before, #WFItem430844 q:after {
+
+        content:" " !important;
+
+    }
+
+    #WFItem430844 abbr, #WFItem430844 acronym {
+
+        border:0 !important;
+
+        font-variant:normal !important;
+
+    }
+
+    #WFItem430844 sup {
+
+        vertical-align:text-top !important;
+
+    }
+
+    #WFItem430844 sub {
+
+        vertical-align:text-bottom !important;
+
+    }
+
+    #WFItem430844 input, #WFItem430844 textarea, #WFItem430844 select {
+
+        font-family:inherit !important;
+
+        font-size:inherit !important;
+
+        font-weight:inherit !important;
+
+        height:auto !important;
+
+        line-height:auto !important;
+
+    }
+
+    #WFItem430844 input, #WFItem430844 textarea, #WFItem430844 select {
+
+        *font-size:100% !important;
+
+    }
+
+    #WFItem430844 legend {
+
+        color:#000 !important;
+
+    }
+
+    #WFItem430844 .clearfix:after {
+
+        visibility: hidden !important;
+
+        display: block !important;
+
+        font-size: 0 !important;
+
+        content:" " !important;
+
+        clear: both !important;
+
+        height: 0 !important;
+
+    }
+
+    #WFItem430844 .clearer {
+
+        display: block !important;
+
+        clear:both !important;
+
+        font-size:0.1px !important;
+
+        height:0.1px !important;
+
+        line-height:0.1px !important;
+
+        width:100% !important;
+
+    }
+
+    #WFWrapper .close {
+
+        background:url(https://app.getresponse.com/images/common/highslide/close.png) repeat scroll 0 0 transparent !important;
+
+        cursor:pointer !important;
+
+        height:30px !important;
+
+        position:absolute !important;
+
+        right:-15px !important;
+
+        top:-15px !important;
+
+        width:30px !important;
+
+        z-index:1 !important;
+
+    }
+
+    #wfCloseX {
+
+        background:url(https://app.getresponse.com/images/common/highslide/close.png) repeat scroll 0 0 transparent !important;
+
+        cursor:pointer !important;
+
+        height:30px !important;
+
+        position:absolute !important;
+
+        right:0 !important;
+
+        top:0 !important;
+
+        width:30px !important;
+
+        z-index:1 !important;
+
+        cursor:pointer !important;
+
+    }
+
+    #WFItem430844 .clrB {
+
+        clear:both !important;
+
+        text-align:left !important;
+
+    }
+
+    #WFItem430844 * html .clearfix {
+
+        zoom: 1 !important;
+
+    }
+
+    #WFItem430844 *:first-child+html .clearfix {
+
+        zoom: 1 !important;
+
+    }
+
+    #WFItem430844 .wf-contbox {
+
+        width:100% !important;
+
+    }
+
+    .wf-formTpl li:before {
+
+        content:"" !important;
+
+    }
+
+    #WFItem430844 form {
+
+        display:inline-block !important;
+
+        width:100% !important;
+
+    }
+
+    #WFItem430844 label {
+
+        margin:0 !important;
+
+    }
+
+    #WFItem430844 p {
+
+        line-height:18px !important;
+
+        font-size:11px !important;
+
+    }
+
+    #WFItem430844 input[type="submit"] {
+
+        cursor:pointer !important;
+
+        text-shadow:none !important;
+
+        filter:none !important;
+
+        float:none !important;
+
+        text-transform:none !important;
+
+        letter-spacing:0 !important;
+
+        white-space: nowrap !important;
+
+        word-wrap:normal !important;
+
+    }
+
+    #WFItem430844 {
+
+        width:297px !important;
+
+    }
+
+    #WFItem430844 {
+
+        color: #555555 !important;
+
+        font-family: Arial, Helvetica, sans-serif !important;
+
+        font-size: 12px !important;
+
+    }
+
+    #WFItem430844 .wf-body li {
+
+        padding: 10px 15px !important;
+
+        clear: both !important;
+
+    }
+
+    #WFItem430844 .actTinyMceElBodyContent ul li {
+
+        padding: 3px !important;
+
+        list-style-type: disc !important;
+
+    }
+
+    #WFItem430844 .actTinyMceElBodyContent ol li {
+
+        padding: 3px !important;
+
+        list-style-type: decimal !important;
+
+    }
+
+    #WFItem430844 .actTinyMceElBodyContent ul {
+
+        margin-left: 20px !important;
+
+    }
+
+    #WFItem430844 .actTinyMceElBodyContent ol {
+
+        margin-left: 25px !important;
+
+    }
+
+    #WFItem430844 .actTinyMceElBodyContent ol ul, #WFItem430844 .actTinyMceElBodyContent ul ol, #WFItem430844 .actTinyMceElBodyContent ul ul, #WFItem430844 .actTinyMceElBodyContent ol ol {
+
+        margin-top: 0 !important;
+
+        margin-bottom: 0 !important;
+
+    }
+
+    #WFItem430844 .wf-body {
+
+        background-color: #F0F0F0 !important;
+
+        background-image: none !important;
+
+        background-position: left top !important;
+
+        background-repeat: no-repeat !important;
+
+        border-color: #92757d !important;
+
+        border-width: 0px !important;
+
+        border-style: none !important;
+
+        padding-left: 0 !important;
+
+        padding-right: 0 !important;
+
+        padding-top: 0 !important;
+
+        padding-bottom: 0 !important;
+
+        -webkit-border-top-left-radius: 0px !important;
+
+        -moz-border-radius-topleft: 0px !important;
+
+        border-top-left-radius: 0px !important;
+
+        -webkit-border-top-right-radius: 0px !important;
+
+        -moz-border-radius-topright: 0px !important;
+
+        border-top-right-radius: 0px !important;
+
+        -webkit-border-bottom-left-radius: 0px !important;
+
+        -moz-border-radius-bottomleft: 0px !important;
+
+        border-bottom-left-radius: 0px !important;
+
+        -webkit-border-bottom-right-radius: 0px !important;
+
+        -moz-border-radius-bottomright: 0px !important;
+
+        border-bottom-right-radius: 0px !important;
+
+    }
+
+    #WFItem430844 .wf-header {
+
+        color: #2B93D3 !important;
+
+        background-color: #F5F5F5 !important;
+
+        background-image: none !important;
+
+        background-position: left top !important;
+
+        background-repeat: no-repeat !important;
+
+        border-color: #6b6262 !important;
+
+        border-width: 0px !important;
+
+        border-style: none !important;
+
+        padding-left: 10px !important;
+
+        padding-right: 10px !important;
+
+        padding-top: 20px !important;
+
+        padding-bottom: 0px !important;
+
+        display: block !important;
+
+        min-height: 32px !important;
+
+        -webkit-border-top-left-radius: 0px !important;
+
+        -moz-border-radius-topleft: 0px !important;
+
+        border-top-left-radius: 0px !important;
+
+        -webkit-border-top-right-radius: 0px !important;
+
+        -moz-border-radius-topright: 0px !important;
+
+        border-top-right-radius: 0px !important;
+
+        -webkit-border-bottom-left-radius: 0px !important;
+
+        -moz-border-radius-bottomleft: 0px !important;
+
+        border-bottom-left-radius: 0px !important;
+
+        -webkit-border-bottom-right-radius: 0px !important;
+
+        -moz-border-radius-bottomright: 0px !important;
+
+        border-bottom-right-radius: 0px !important;
+
+    }
+
+    #WFItem430844 .wf-footer {
+
+        color: #2B93D3 !important;
+
+        background-color: #F0F0F0 !important;
+
+        background-image: none !important;
+
+        background-position: left top !important;
+
+        background-repeat: no-repeat !important;
+
+        border-color: #6b6262 !important;
+
+        border-width: 0px !important;
+
+        border-style: none !important;
+
+        padding-left: 10px !important;
+
+        padding-right: 10px !important;
+
+        padding-top: 10px !important;
+
+        padding-bottom: 10px !important;
+
+        display: block !important;
+
+        min-height: 25px !important;
+
+        -webkit-border-top-left-radius: 0px !important;
+
+        -moz-border-radius-topleft: 0px !important;
+
+        border-top-left-radius: 0px !important;
+
+        -webkit-border-top-right-radius: 0px !important;
+
+        -moz-border-radius-topright: 0px !important;
+
+        border-top-right-radius: 0px !important;
+
+        -webkit-border-bottom-left-radius: 0px !important;
+
+        -moz-border-radius-bottomleft: 0px !important;
+
+        border-bottom-left-radius: 0px !important;
+
+        -webkit-border-bottom-right-radius: 0px !important;
+
+        -moz-border-radius-bottomright: 0px !important;
+
+        border-bottom-right-radius: 0px !important;
+
+    }
+
+    #WFItem430844 .wf-input {
+
+        padding: 2px 0 !important;
+
+        font-family: Arial !important;
+
+        font-size: 14px !important;
+
+        color: #000000 !important;
+
+        font-weight: normal !important;
+
+        font-style: normal !important;
+
+        text-decoration: none !important;
+
+        background-color: #FFFFFF !important;
+
+        border-width: 1px !important;
+
+        border-color: #D9D9D9 !important;
+
+        border-style: solid !important;
+
+        width: 100% !important;
+
+        -webkit-border-top-left-radius: 8px !important;
+
+        -moz-border-radius-topleft: 8px !important;
+
+        border-top-left-radius: 8px !important;
+
+        -webkit-border-top-right-radius: 8px !important;
+
+        -moz-border-radius-topright: 8px !important;
+
+        border-top-right-radius: 8px !important;
+
+        -webkit-border-bottom-left-radius: 8px !important;
+
+        -moz-border-radius-bottomleft: 8px !important;
+
+        border-bottom-left-radius: 8px !important;
+
+        -webkit-border-bottom-right-radius: 8px !important;
+
+        -moz-border-radius-bottomright: 8px !important;
+
+        border-bottom-right-radius: 8px !important;
+
+    }
+
+    #WFItem430844 .wf-label {
+
+        font-family: Arial !important;
+
+        font-size: 12px !important;
+
+        color: #555555 !important;
+
+        font-weight: bold !important;
+
+        font-style: normal !important;
+
+        text-decoration: none !important;
+
+        padding-top: 3px !important;
+
+        padding-bottom: 3px !important;
+
+        padding-left: 0 !important;
+
+        padding-right: 3px !important;
+
+        display: block !important;
+
+    }
+
+    #WFItem430844 .wf-input {
+
+        font-family: Arial !important;
+
+        font-size: 14px !important;
+
+        color: #555555 !important;
+
+        font-weight: normal !important;
+
+        font-style: normal !important;
+
+        text-decoration: none !important;
+
+        background-color: #FFFFFF !important;
+
+        border-width: 1px !important;
+
+        border-color: #D9D9D9 !important;
+
+        border-style: solid !important;
+
+        width: 100% !important;
+
+        -webkit-border-top-left-radius: 8px !important;
+
+        -moz-border-radius-topleft: 8px !important;
+
+        border-top-left-radius: 8px !important;
+
+        -webkit-border-top-right-radius: 8px !important;
+
+        -moz-border-radius-topright: 8px !important;
+
+        border-top-right-radius: 8px !important;
+
+        -webkit-border-bottom-left-radius: 8px !important;
+
+        -moz-border-radius-bottomleft: 8px !important;
+
+        border-bottom-left-radius: 8px !important;
+
+        -webkit-border-bottom-right-radius: 8px !important;
+
+        -moz-border-radius-bottomright: 8px !important;
+
+        border-bottom-right-radius: 8px !important;
+
+    }
+
+    #WFItem430844 .wf-button {
+
+        font-family: Arial !important;
+
+        font-size: 22px !important;
+
+        color: #FFFFFF !important;
+
+        font-weight: bold !important;
+
+        font-style: normal !important;
+
+        text-decoration: none !important;
+
+        background-color: #0DBAFF !important;
+
+        background-image: url(https://app.getresponse.com/images/core/webforms/gradient_top.png) !important;
+
+        border-width: 0px !important;
+
+        border-color: #000000 !important;
+
+        border-style: none !important;
+
+        padding-left: 16px !important;
+
+        padding-right: 16px !important;
+
+        padding-top: 8px !important;
+
+        padding-bottom: 8px !important;
+
+        -webkit-border-top-left-radius: 8px !important;
+
+        -moz-border-radius-topleft: 8px !important;
+
+        border-top-left-radius: 8px !important;
+
+        -webkit-border-top-right-radius: 8px !important;
+
+        -moz-border-radius-topright: 8px !important;
+
+        border-top-right-radius: 8px !important;
+
+        -webkit-border-bottom-left-radius: 8px !important;
+
+        -moz-border-radius-bottomleft: 8px !important;
+
+        border-bottom-left-radius: 8px !important;
+
+        -webkit-border-bottom-right-radius: 8px !important;
+
+        -moz-border-radius-bottomright: 8px !important;
+
+        border-bottom-right-radius: 8px !important;
+
+    }
+
+    #WFItem430844 .wf-button:hover {
+
+        !important;
+
+    }
+
+    #WFItem430844 .wf-submit {
+
+        text-align: center !important;
+
+    }
+
+    #WFItem430844 .wf-labelpos {
+
+        float: none !important;
+
+        width: auto !important;
+
+        text-align: left !important;
+
+    }
+
+    #WFItem430844 .wf-inputpos {
+
+        float: none !important;
+
+        width: auto !important;
+
+    }
+
+    #WFItem430844 .wf-privacy {
+
+        font-family: Arial !important;
+
+        font-size: 12px !important;
+
+        color: #B8B8B8 !important;
+
+        font-weight: normal !important;
+
+        font-style: italic !important;
+
+        text-decoration: none !important;
+
+        text-align: center !important;
+
+    }
+
+    #WFItem430844 .wf-privacyico {
+
+        padding: 4px 0 0 20px !important;
+
+        background: url(https://app.getresponse.com/images/core/webforms/lock.png) no-repeat left center !important;
+
+    }
+
+    #WFItem430844 .wf-counter {
+
+        font-family: Arial !important;
+
+        font-size: 12px !important;
+
+        color: #44454f !important;
+
+        font-weight: bold !important;
+
+        font-style: normal !important;
+
+        text-decoration: none !important;
+
+        text-align: center !important;
+
+    }
+
+    #WFItem430844 .wf-poweredby {
+
+        font-family: Arial !important;
+
+        font-size: 10px !important;
+
+        color: #B8B8B8 !important;
+
+        font-weight: normal !important;
+
+        font-style: italic !important;
+
+        text-decoration: none !important;
+
+        text-align: center !important;
+
+    }
+
+    #WFItem430844 .wf-link {
+
+        font-family: Arial !important;
+
+        font-size: 12px !important;
+
+        color: #ffffff !important;
+
+        font-weight: normal !important;
+
+        font-style: normal !important;
+
+        text-decoration: none !important;
+
+    }
+
+    #WFItem430844 .wf-link:hover {
+
+        font-family: Arial !important;
+
+        font-size: 12px !important;
+
+        color: #ffffff !important;
+
+        font-weight: normal !important;
+
+        font-style: normal !important;
+
+        text-decoration: none !important;
+
+    }
+
+    #WFItem430844 .wf-text {
+
+        font-family: Arial !important;
+
+        font-size: 12px !important;
+
+        color: #B8B8B8 !important;
+
+    }
+
+    #WFItem430844 .wf-divider {
+
+        border-top-width: 1px !important;
+
+        border-color: #ffffff !important;
+
+        border-style: solid !important;
+
+    }
+
+    #WFItem430844 .wf-image {
+
+        text-align: center !important;
+
+    }
+
+    #WFItem430844 .wf-privacylink {
+
+        color: #B8B8B8 !important;
+
+        font-style: italic !important;
+
+    }
+
+    #WFItem430844 .wf-poweredbylink {
+
+        color: #B8B8B8 !important;
+
+        font-style: italic !important;
+
+    }
+
+    #WFItem430844 .wf-imgbox {
+
+        overflow: hidden !important;
+
+    }
+
+    #WFItem430844 .wf-rc-reload {
+
+        display: inline-block !important;
+
+        width: 16px !important;
+
+        height: 16px !important;
+
+        overflow: hidden !important;
+
+        text-indent: -99999px !important;
+
+        position: relative !important;
+
+        top: 3px !important;
+
+        margin-left: 3px !important;
+
+        background: url(https://app.getresponse.com/images/core/webforms/captchaico.png) no-repeat 0 -32px !important;
+
+    }
+
+    #WFItem430844 .wf-rc-audio {
+
+        display: inline-block !important;
+
+        width: 16px !important;
+
+        height: 16px !important;
+
+        overflow: hidden !important;
+
+        text-indent: -99999px !important;
+
+        position: relative !important;
+
+        top: 3px !important;
+
+        margin-left: 3px !important;
+
+        background: url(https://app.getresponse.com/images/core/webforms/captchaico.png) no-repeat 0 0 !important;
+
+    }
+
+    #WFItem430844 .wf-rc-image {
+
+        display: inline-block !important;
+
+        width: 16px !important;
+
+        height: 16px !important;
+
+        overflow: hidden !important;
+
+        text-indent: -99999px !important;
+
+        position: relative !important;
+
+        top: 3px !important;
+
+        margin-left: 3px !important;
+
+        background: url(https://app.getresponse.com/images/core/webforms/captchaico.png) no-repeat 0 -16px !important;
+
+    }
+
+    #WFItem430844 #recaptcha_image {
+
+        width: 200px !important;
+
+        height: 38px !important;
+
+    }
+
+    #WFItem430844 #recaptcha_image img {
+
+        width: 200px !important;
+
+        height: 38px !important;
+
+    }
+
+    #WFItem430844 .wf-rc-boxm {
+
+        width: 200px !important;
+
+        margin: 0 auto !important;
+
+        overflow: hidden !important;
+
+    }
+
+    #WFItem430844 em {
+
+        color: inherit !important;
+
+        font-style: italic !important;
+
+    }
+
+    #WFItem430844 .wf-header {
+
+        color:#ffffff !important;
+
+        background-color:#5f8300 !important;
+
+        background-image: none !important;
+
+        background-position: left top !important;
+
+        background-repeat: no-repeat !important;
+
+        border-color: #6b6262 !important;
+
+        border-width: 0px !important;
+
+        border-style: none !important;
+
+        padding-left: 10px !important;
+
+        padding-right: 10px !important;
+
+        padding-top: 20px !important;
+
+        padding-bottom: 0px !important;
+
+        display: block !important;
+
+        min-height:30px !important;
+
+        -webkit-border-top-left-radius: 0px !important;
+
+        -moz-border-radius-topleft: 0px !important;
+
+        border-top-left-radius: 0px !important;
+
+        -webkit-border-top-right-radius: 0px !important;
+
+        -moz-border-radius-topright: 0px !important;
+
+        border-top-right-radius: 0px !important;
+
+        -webkit-border-bottom-left-radius: 0px !important;
+
+        -moz-border-radius-bottomleft: 0px !important;
+
+        border-bottom-left-radius: 0px !important;
+
+        -webkit-border-bottom-right-radius: 0px !important;
+
+        -moz-border-radius-bottomright: 0px !important;
+
+        border-bottom-right-radius: 0px !important;
+
+    }
+
+    #WFItem430844 .wf-body {
+
+        background-color:#4a6600 !important;
+
+        background-image: none !important;
+
+        background-position: left top !important;
+
+        background-repeat: no-repeat !important;
+
+        border-color: #92757d !important;
+
+        border-width: 0px !important;
+
+        border-style: none !important;
+
+        padding-left: 0 !important;
+
+        padding-right: 0 !important;
+
+        padding-top: 0 !important;
+
+        padding-bottom: 0 !important;
+
+        -webkit-border-top-left-radius: 0px !important;
+
+        -moz-border-radius-topleft: 0px !important;
+
+        border-top-left-radius: 0px !important;
+
+        -webkit-border-top-right-radius: 0px !important;
+
+        -moz-border-radius-topright: 0px !important;
+
+        border-top-right-radius: 0px !important;
+
+        -webkit-border-bottom-left-radius: 0px !important;
+
+        -moz-border-radius-bottomleft: 0px !important;
+
+        border-bottom-left-radius: 0px !important;
+
+        -webkit-border-bottom-right-radius: 0px !important;
+
+        -moz-border-radius-bottomright: 0px !important;
+
+        border-bottom-right-radius: 0px !important;
+
+    }
+
+    #WFItem430844 .wf-footer {
+
+        color: #2B93D3 !important;
+
+        background-color:#5f8300 !important;
+
+        background-image:url(https://app.getresponse.com/images/common/webforms/1/122/4/img/ico.png) !important;
+
+        background-position:center bottom !important;
+
+        background-repeat: no-repeat !important;
+
+        border-color: #6b6262 !important;
+
+        border-width: 0px !important;
+
+        border-style: none !important;
+
+        padding-left: 10px !important;
+
+        padding-right: 10px !important;
+
+        padding-top: 10px !important;
+
+        padding-bottom: 10px !important;
+
+        display: block !important;
+
+        min-height:85px !important;
+
+        -webkit-border-top-left-radius: 0px !important;
+
+        -moz-border-radius-topleft: 0px !important;
+
+        border-top-left-radius: 0px !important;
+
+        -webkit-border-top-right-radius: 0px !important;
+
+        -moz-border-radius-topright: 0px !important;
+
+        border-top-right-radius: 0px !important;
+
+        -webkit-border-bottom-left-radius: 0px !important;
+
+        -moz-border-radius-bottomleft: 0px !important;
+
+        border-bottom-left-radius: 0px !important;
+
+        -webkit-border-bottom-right-radius: 0px !important;
+
+        -moz-border-radius-bottomright: 0px !important;
+
+        border-bottom-right-radius: 0px !important;
+
+    }
+
+    #WFItem430844 .wf-label {
+
+        font-family: Arial !important;
+
+        font-size: 14px !important;
+
+        color:#a5e200 !important;
+
+        font-weight:bold !important;
+
+        font-style: normal !important;
+
+        text-decoration: none !important;
+
+        padding-top: 3px !important;
+
+        padding-bottom: 3px !important;
+
+        padding-left: 0 !important;
+
+        padding-right: 3px !important;
+
+        display: block !important;
+
+    }
+
+    #WFItem430844 .wf-button {
+
+        font-family: Arial !important;
+
+        font-size:16px !important;
+
+        color:#ffffff !important;
+
+        font-weight:bold !important;
+
+        font-style: normal !important;
+
+        text-decoration: none !important;
+
+        background-color:#a5e200 !important;
+
+        background-image: none !important;
+
+        border-width:1px !important;
+
+        border-color:#374c00 !important;
+
+        border-style: none !important;
+
+        padding-left: 16px !important;
+
+        padding-right: 16px !important;
+
+        padding-top: 8px !important;
+
+        padding-bottom: 8px !important;
+
+        -webkit-border-top-left-radius: 0px !important;
+
+        -moz-border-radius-topleft: 0px !important;
+
+        border-top-left-radius: 0px !important;
+
+        -webkit-border-top-right-radius: 0px !important;
+
+        -moz-border-radius-topright: 0px !important;
+
+        border-top-right-radius: 0px !important;
+
+        -webkit-border-bottom-left-radius: 0px !important;
+
+        -moz-border-radius-bottomleft: 0px !important;
+
+        border-bottom-left-radius: 0px !important;
+
+        -webkit-border-bottom-right-radius: 0px !important;
+
+        -moz-border-radius-bottomright: 0px !important;
+
+        border-bottom-right-radius: 0px !important;
+
+    }
+
+    #WFItem430844 .wf-text {
+
+        font-family: Arial !important;
+
+        font-size: 12px !important;
+
+        color:#a5e200 !important;
+
+    }
+
+    #WFItem430844 .wf-privacylink {
+
+        color: #ffffff !important;
+
+        font-style: italic !important;
+
+    }
+
+    #WFItem430844 .wf-privacy {
+
+        font-family: Arial !important;
+
+        font-size: 12px !important;
+
+        color:#a5e200 !important;
+
+        font-weight: normal !important;
+
+        font-style:italic !important;
+
+        text-decoration: none !important;
+
+        text-align:center !important;
+
+    }
+
+    #WFItem430844 .wf-poweredbylink {
+
+        color: #ffffff !important;
+
+        font-style: italic !important;
+
+    }
+
+    #WFItem430844 .wf-poweredby {
+
+        font-family: Arial !important;
+
+        font-size: 10px !important;
+
+        color: #ffffff !important;
+
+        font-weight: normal !important;
+
+        font-style: italic !important;
+
+        text-decoration: none !important;
+
+        text-align: center !important;
+
+    }
+
+    #WFItem430844 .wf-submit {
+
+        text-align:right !important;
+
+    }
+
+    #WFItem430844 .wf-labelpos {
+
+        float:left !important;
+
+        width:33% !important;
+
+        text-align: left !important;
+
+    }
+
+    #WFItem430844 .wf-inputpos {
+
+        float:right !important;
+
+        width:66% !important;
+
+    }
+
+    #WFItem430844 .wf-input {
+
+        font-family: Arial !important;
+
+        font-size: 14px !important;
+
+        color: #555555 !important;
+
+        font-weight: normal !important;
+
+        font-style: normal !important;
+
+        text-decoration: none !important;
+
+        background-color: #FFFFFF !important;
+
+        border-width:1px !important;
+
+        border-color:#919191 !important;
+
+        border-style: solid !important;
+
+        width: 100% !important;
+
+        -webkit-border-top-left-radius: 0px !important;
+
+        -moz-border-radius-topleft: 0px !important;
+
+        border-top-left-radius: 0px !important;
+
+        -webkit-border-top-right-radius: 0px !important;
+
+        -moz-border-radius-topright: 0px !important;
+
+        border-top-right-radius: 0px !important;
+
+        -webkit-border-bottom-left-radius: 0px !important;
+
+        -moz-border-radius-bottomleft: 0px !important;
+
+        border-bottom-left-radius: 0px !important;
+
+        -webkit-border-bottom-right-radius: 0px !important;
+
+        -moz-border-radius-bottomright: 0px !important;
+
+        border-bottom-right-radius: 0px !important;
+
+    }
+
+</style>
+
+<div id="WFItem430844" class="wf-formTpl">
+
+    <form accept-charset="utf-8" action="https://app.getresponse.com/add_contact_webform.html" method="post">
+
+        <div class="box">
+
+            <div id="WFIheader" class="wf-header el" style="height: 69px; display:  block !important;">
+
+                <div class="actTinyMceElBodyContent">
+
+                    <p>
+
+                        <span style="font-size: 24px;">Get All The Latest Bonsai Growing Tips Sent Directly To Your Email</span>
+
+                    </p>
+
+                </div>
+
+                <em class="clearfix clearer"></em>
+
+            </div>
+
+            <div id="WFIcenter" class="wf-body">
+
+                <ul class="wf-sortable" id="wf-sort-id">
+
+                    <li class="wf-name" rel="undefined" style="display:  block !important;">
+
+                        <div class="wf-contbox">
+
+                            <div class="wf-labelpos">
+
+                                <label class="wf-label">Name:</label>
+
+                            </div>
+
+                            <div class="wf-inputpos">
+
+                                <input class="wf-input" name="name" type="text">
+
+                            </div>
+
+                            <em class="clearfix clearer"></em>
+
+                        </div>
+
+                    </li>
+
+                    <li class="wf-email" rel="undefined" style="display:  block !important;">
+
+                        <div class="wf-contbox">
+
+                            <div class="wf-labelpos">
+
+                                <label class="wf-label">Email:</label>
+
+                            </div>
+
+                            <div class="wf-inputpos">
+
+                                <input class="wf-input wf-req wf-valid__email" name="email" type="text">
+
+                            </div>
+
+                            <em class="clearfix clearer"></em>
+
+                        </div>
+
+                    </li>
+
+                    <li class="wf-submit" rel="undefined" style="display:  block !important;">
+
+                        <div class="wf-contbox">
+
+                            <div class="wf-inputpos">
+
+                                <input style="width: 164px ! important; display:  inline !important;" value="Send me the tips" class="wf-button" name="submit" type="submit">
+
+                            </div>
+
+                            <em class="clearfix clearer"></em>
+
+                        </div>
+
+                    </li>
+
+                    <li class="wf-counter" rel="undefined" style="display:  none !important;">
+
+                        <div class="wf-contbox">
+
+                            <div>
+
+                                <span style="padding: 4px 6px 8px 24px; background: url(https://app.getresponse.com/images/core/webforms/countertemplates.png) no-repeat scroll left 0px transparent;" class="wf-counterbox">
+
+                                    <span class="wf-counterboxbg" style="padding: 4px 12px 8px 5px; background: url(https://app.getresponse.com/images/core/webforms/countertemplates.png) no-repeat scroll right -36px transparent;">
+
+                                        <span class="wf-counterbox0" style="padding: 5px 0px;"></span>
+
+                                        <span style="padding: 5px;" name="https://app.getresponse.com/display_subscribers_count.js?campaign_name=cgfmedialtd&amp;var=0" class="wf-counterbox1 wf-counterq">1008</span>
+
+                                        <span style="padding: 5px 0px;" class="wf-counterbox2">subscribers</span>
+
+                                    </span>
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="wf-captcha" rel="undefined" style="display:  none !important;">
+
+                        <div wf-captchaerror="Incorrect please try again" wf-captchasound="Enter the numbers you hear:" wf-captchaword="Enter the words above:" class="wf-contbox wf-captcha-1" id="wf-captcha-1"></div>
+
+                    </li>
+
+                    <li class="wf-privacy" rel="temporary" style="display:  none !important;">
+
+                        <div class="wf-contbox">
+
+                            <div>
+
+                                <a style="height: 0px ! important; display: inline ! important;" target="_blank" class="wf-privacy wf-privacyico" href="http://www.getresponse.com/permission-seal?lang=en">We respect your privacy<em class="clearfix clearer"></em></a>
+
+                            </div>
+
+                            <em class="clearfix clearer"></em>
+
+                        </div>
+
+                    </li>
+
+                    <li class="wf-poweredby" rel="temporary" style="display:  none !important;">
+
+                        <div class="wf-contbox">
+
+                            <div>
+
+                                <span style="display:  none !important;" class="wf-poweredby wf-poweredbyico">
+
+                                    <a target="_blank" style="display:  inline !important;" class="wf-poweredbylink wf-poweredby" href="http://www.getresponse.com/">Email Marketing</a>by GetResponse</span>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div id="WFIfooter" class="wf-footer el" style="height: 85px; display:  block !important;">
+
+                <div class="actTinyMceElBodyContent"></div>
+
+                <em class="clearfix clearer"></em>
+
+            </div>
+
+        </div>
+
+        <input name="webform_id" value="430844" type="hidden">
+
+    </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+            </div><!-- /content -->
+
+
+
+			
+
+
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="notification.html"] .ui-icon { background:  url("icon(22).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="optin_form.html"] .ui-icon { background:  url("icon(6).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content1.html"] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="content1.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content1.html" class="" onclick="window.open('content1.html','_self', 'location=yes')">Growing</a></li><li><a href="optin_form.html" id="tab2" data-icon="custom" rel="external"  data-gourl="optin_form.html" class="" onclick="window.open('optin_form.html','_self', 'location=yes')">Club</a></li><li><a href="notification.html" id="tab2" data-icon="custom" rel="external"  data-gourl="notification.html" class="" onclick="window.open('notification.html','_self', 'location=yes')">Updates</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+
+
+
+
+        </div>	
+
+
+
+
+
+
+
+    </body>
+
+
+
+
+
+
+
+</html>

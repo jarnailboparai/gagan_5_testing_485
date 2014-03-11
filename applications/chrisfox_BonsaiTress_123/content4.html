@@ -1,0 +1,363 @@
+<html>
+
+
+
+    <head>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+    
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+        
+
+        <script>
+
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+
+        
+
+        	$.getScript("cordova-2.0.0.js");
+
+			$.getScript("phonegap.js");
+
+			$.getScript("PushNotification.js");			
+
+		}
+
+		</script>
+
+
+
+
+
+		<script type="text/javascript">
+
+           $(document).ready(function() {
+
+				var articleNumber;
+
+				$('.backClick').click(function() {
+
+					$('#content_navigation_content').show();
+
+					$('#article' + articleNumber).hide();
+
+				});
+
+				$('.content_navigation_link h3 a').click(function() {
+
+					$('#content_navigation_content').hide();
+
+					articleNumber = $(this).attr('href').substr(-1);
+
+					$('.content_navigation_link').removeClass('active');
+
+					$(this).parent().parent().addClass('active');
+
+					$('#article' + articleNumber).show();                   
+
+				});
+
+				
+
+				 document.addEventListener("deviceready",initPushwoosh,false);
+
+
+
+			});		  
+
+        </script>
+
+        
+
+        <!--Turn off notification-->
+
+    </head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Care</h1></center>
+
+                </div>
+
+
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+                
+
+
+                <style type="text/css">
+                    .content_navigation_content div,.content_navigation_content p,.content_navigation_content ul,.content_navigation_content h2,.content_navigation_content h3,.content_navigation_content h4,.content_navigation_content img{
+                        padding:0px; 
+                        margin:0px;
+                    }
+                    .content_navigation_link h3 a{
+                        text-decoration:none;
+                    }
+                    .content_navigation_link{
+                        width: 100%;
+                        text-align: center;
+                        line-height: 50px;
+                        display: block;
+                        height: 50px;
+                        border-bottom: 1px solid white;
+                    }
+                    #content_navigation_content{
+                        /*                        overflow: hidden;
+                                                width: 200px;*/
+                        background: grey;
+                        margin: 0 auto;
+                        border-radius: 10px;
+                        /*                        position: fixed;
+                                                left: 50%;
+                                                top: 40px;*/
+                        /*margin-left: -100px;*/
+                        border-radius: 10px; 
+                        box-shadow: 8px 8px 8px silver;
+                    }
+                    .content_navigation_link a{
+                        color:white !important;
+                        display:block;
+                    }
+                    .content_navigation_link:hover, .content_navigation_link:active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .content_block{
+                        word-wrap: break-word;
+                        display: none;
+                    }
+                    #navigationContent{
+                        /*position: relative;*/
+                    }
+                    .content_navigation_link:first-child{
+                        border-radius: 10px 10px 0px 0px; 
+                    }
+                    .content_navigation_link:last-child{
+                        border-radius: 0px 0px 10px 10px; 
+                    }
+                    .content_navigation_link .active{
+                        background: none;
+                    }
+                    #backMenu{
+                        position: fixed;
+                        bottom: 75px;
+                        right: 10px; 
+                        opacity: 0.5;
+                        display: none;
+                    }
+                    #backMenu:hover,#backMenu:active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                </style>
+                <div id="navigationContent">
+                    <div id="content_navigation_content" class="content_navigation_content"><div class="content_navigation_link"><h3><a href="#article1">The Basics: Soil, Part I</a></h3></div><div class="content_navigation_link"><h3><a href="#article2">The Basics: Soil, Part II</a></h3></div><div class="content_navigation_link"><h3><a href="#article3">How To Care For: White Pine</a></h3></div><div class="content_navigation_link"><h3><a href="#article4">How To Care For: Maple</a></h3></div><div class="content_navigation_link"><h3><a href="#article5">How To Care For: Blue Junipers</a></h3></div></div>
+                    <div id="content_blocks"><div class="content_block" id="article1"><p>First, a little ultra-simple plant biology. Plants maintain themselves and grow by taking in and processing nutrients, just as animals do. But the obvious difference is that (with few exceptions) plants can't go get them, it has to come to them. One major portion of their needs is met when they absorb sunlight and take oxygen from the air. The rest must come from the soil.</p>
+
+<p>Ready made soil mixtures are available from gardening sections at nurseries, in hardware stores, Wal-Mart and elsewhere. But just like convenience foods they're more expensive and it can be difficult to tell exactly how much of each component they contain. For absolute beginners they're a good temporary choice, though.</p>
+
+<p>Sooner or later, the avid Bonsai enthusiast is going to want to mix his or her own soil. And, since bonsai are confined to a small pot most of the year, year in and year out, that soil will need to be supplemented and occasionally replaced. Make sure yours has the following attributes.</p>
+
+<p>As with so many things about bonsai, apparently contradictory elements must be carefully balanced to maximize the health of the tree and create the desired appearance.</p>
+
+<p>Though a normal, not a dwarf, species, the tree must be pruned to be kept small. Though growing toward the light, as most plants do, it must be wired and shaped to create the desired appearance. But nowhere do these competing elements need to be so precisely balanced as in the preparation of the soil.</p>
+
+<p>Bonsai soil must be able to retain water well, since excessive drying is the easiest, and most common, way to kill a bonsai tree. Many so-called 'mallsai', bonsai bought at a store in the local mall, are nearly dead by the time they're purchased since they don't receive the proper amount of water and care.</p>
+
+<p>Water is essential to life in itself, but it also acts as a vehicle to deliver nutrients through the roots. Humus, the organic components of soil that remain after decomposition of organisms, along with clay are the two major factors that help retain water and nutrients.</p>
+
+<p>But the soil can't be allowed to retain water too well. It has to provide good drainage. When too much moisture remains in the pot, whether through excess watering or compacted soil, root rot is almost inevitable.</p>
+
+<p>Proper drainage is achieved, in part, by infusing the soil with small pieces of gravel. That helps create small spaces in the earth through which water can readily travel. Water then drains through the dirt, into the base and out the hole found in all bonsai pots.</p>
+
+<p>Examine a commercially packaged quantity of bonsai soil and you'll often see small white chunks. Those 'aggregates' as they're called, help provide the soil with the correct amount of drainage.</p>
+
+<p>In addition to allowing water to pass through, and not pool around the base to rot the roots, good draining soil allows for the easy passage of vital gases both in and out of the mixture.</p>
+
+<p>Carbon dioxide, oxygen and nitrogen need to pass in and out of the plant and soil in order for photosynthesis and other essential biochemical processes to proceed properly.</p>
+
+<p>Good soil will have all those health supporting physical characteristics.</p>
+</div><div class="content_block" id="article2"><p>Beyond the need for good water retention and good drainage, soils have to supply all the nutrients trees can't get from the air or produce internally using sunlight for energy. Also, how much water retention is needed and specifically what kind and amount of nutrients will vary somewhat from species to species.</p>
+
+<p>Pines and Junipers require, indeed can tolerate, much less water than other species. Flowering and fruiting species - Bougainvillea, citrus, apple and others - require much more water than average. Not only do they have to feed trunk, branch and leaf systems, but fruits and flowers take in more water and aspirate moisture much more quickly.</p>
+
+<p>Soil is a mixture of inorganic and organic material. Inorganic elements and compounds, such as clay, granite, ash and others help regulate drainage and supply nutrients.</p>
+
+<p>Clay is an excellent water retainer, as is obvious from the existence of clay pots. It performs a similar service, to a smaller degree, when small pieces are embedded throughout the soil. Ash or ground volcanic rock, helps not only regulate water but supplies some of the needed nitrogen as well.</p>
+
+<p>Organic components are made up of decomposed plant and animal matter, which provide nitrogen, phosphates and a host of other vital nutrients.</p>
+
+<p>Mixing these two basic types together in the correct ratio creates the soil appropriate for a given species and climate. By adding relatively more grit, for example, easy drainage is increased. In the absence of more specific guidelines, a 50:50 mixture of grit and peat is a good starting point.</p>
+
+<p>Grit, usually crushed granite or flint, provides good drainage while peat, typically moss peat, provides a spongy earth, making for good aeration and supplying needed nutrients. Leaf mold or composted bark is sometimes a suitable substitute for peat moss.</p>
+
+<p>Proportions will vary depending on species. Pine and Juniper, as noted, should have more inorganic material to provide less water retention. Often the proportions change to as much as 75:25. Provided the base of the pot contains a layer of gravel to keep the screened hole from being plugged, the exact ratio isn't critical.</p>
+
+<p>Akadama, a white Japanese clay, is the most commonly used fine-quality inorganic material used by expert bonsai artists in Japan. But it can be difficult to obtain in the US and UK. Seramis is often used as a substitute. This more standard, orange-colored, clay is a good alternative. It has the added advantage that its color changes slightly as the moisture content varies, giving a good visual indicator of drying.</p>
+
+<p>When preparing soil, keep in mind that all the elements of proper bonsai care are interrelated. Proper soil mixtures vary with watering regiment and are dependent on local climate, air pollution content and several other factors. Consider your individual circumstances carefully.</p>
+
+<p>If you intend to put forth the time, expense and effort to grow bonsai - which require more care than ordinary plants - soil is the last place you want to skimp on money or preparation. Soil quality is often a literal life or death alternative for your bonsai.</p>
+</div><div class="content_block" id="article3"><p>Though no bonsai is easy to train or care for, pine is among the easier species. More tolerant to drying, they adapt well to a pot and often require only regular trimming and biannual repotting.</p>
+
+<p>In the wild, pine commonly grow to 50 feet or more with trunks that are a foot in diameter and larger. Yet they make excellent bonsai trees and look stellar in miniature form. Because of their naturally straight trunks and symmetrical branch arrangements they are well suited to the formal upright (chokkan) style.</p>
+
+<p>In the chokkan style, the trunk is straight and rises vertically from the base, in contrast to the cascade (kengai) that is both curved and grows horizontally across the surface. The chokkan thus makes a good starter species for budding bonsai artists.</p>
+
+<p>Bonsai trees are not a dwarf variety, but a full-sized species that has been carefully trained to emulate conditions in the wild on a very small scale. White pine bonsai, therefore, will have the same characteristics as the full grown variety.</p>
+
+<p>White pine have blue-green needles that form in bunches of five, growing from a small bud. Branches grow in a circular pattern, looking down at the tree from above, with several levels around the tree at intervals up the trunk.</p>
+
+<p>A healthy tree looks healthy, especially in the spring when new growth appears. Needles will be a brighter green and start lengthening. Full-sized pines can add two feet or more to their height during the season. You'll want to remove or reduce some of the new shoots during this period every year or two.</p>
+
+<p>Repotting can be carried out during spring but can wait as late as early autumn, after the summer heat has cooled.</p>
+
+<p>During repotting ensure there is good drainage when you're done. Pines tolerate dryer soil much better than over-watering. A mixture of 50% soil, 10% peat and 40% coarse sand works well for many, but there are many variations on the material and relative amounts.</p>
+
+<p>Repotting is a good time for root trimming, but be conservative. Pines need a deep pot in order to grow a deep root system for stability. No more than 1/3 of the root should be cut off during the procedure.</p>
+
+<p>Branch pruning is best carried out during late autumn.</p>
+
+<p>It's common for some of the needles to become brown and fall off in the summer. This needn't be cause for concern unless the tree is diseased.</p>
+
+<p>Check for large hemispheres of very dark growth on the branch that can indicate the presence of a tumor. If there are none, and only a small percentage of the needles are brown, the condition may well be normal.</p>
+
+<p>Aphids and mealy bugs are common pests, but easily controlled by a commercial or home-grown mixture. Often a slight misting with a dilute liquid dishwashing detergent will take care of the problem temporarily. The needles should be misted with plain water the day after.</p>
+
+<p>Pines can be watered daily provided there is very good drainage, but every other day is fine. Feeding should be done every two to four weeks from early to late spring and again at the end of summer to early autumn. This coincides with the pine's active growing seasons.</p>
+</div><div class="content_block" id="article4"><p>Maples come in a variety of sub-species, but all of them make beautiful bonsai trees. Slightly more difficult to care for, they are nonetheless greatly in demand by bonsai enthusiasts. Their leafy appearance is attractive, particularly in the fall when they turn to yellow and red, just as do the full-sized maples.</p>
+
+<p>Some varieties thrive well as indoor plants, but for the most part bonsai trees are outdoor plants. Opinions vary about how much sun they require, but partial sun/partial shade is a safe bet with most types.</p>
+
+<p>They survive winter well in the wild, but in bonsai form they require some care. Less water in the winter is called for and care should be taken that the roots don't get any frost.</p>
+
+<p>Copious watering in the summer is warranted, provided - as with any bonsai tree - there is good drainage. A little extra moisture isn't a bad thing, though, especially for the flowering varieties. Maples like moist soil.</p>
+
+<p>They adapt well to various styles, but the informal upright (shakan) may be best, given their leafy nature and somewhat brittle branches. It is possible to train them into the han-kengai (semi-cascade) and others, but extreme care must be taken to avoid splitting the trunk and branches.</p>
+
+<p>Han-kengai can be achieved without wiring by a cord attached to a stake in order to curve the trunk. However, this form doesn't typically occur in nature. Since traditional bonsai art aims at emulating nature on a small scale, this form is uncommon.</p>
+
+<p>Feeding once per month is fine, with a slow-release fertilizer from spring to autumn. Taper off during hot summer months, though. An organic type works well, but Peter's 20-20-20 is also a good mix. Hold off any feeding for a few weeks after repotting.</p>
+
+<p>Since they can produce ample branches and leaves, root systems tend to grow accordingly to support them. Pruning, therefore, should be taken as a concerted project. For fewer branches and leaves, roots can be pruned more aggressively.</p>
+
+<p>Branch pruning is best carried out in fall or winter when there are fewer or no leaves. This gives a clearly visible working area, leading to fewer mishaps. Maples heal better if pruning paste is used to seal the wound after branch removal.</p>
+
+<p>Pinch back new growth during the active growing season to keep foliage to a moderate level. Remember you are creating a bonsai, where the goal is somewhat minimalist. A fully leaved tree looks more like an ordinary houseplant.</p>
+
+<p>Wiring is less common with maples for a variety of reasons beyond the somewhat brittle branches. They acquire pleasing shapes with leaf and branch pruning without extra effort and they scar easily.</p>
+
+<p>Like most bonsai trees, repotting every two years is a good practice. When replanting a mixture of 60% soil, 20% peat and 20% coarse sand will provide the correct drainage environment. This is best done in early spring, before buds have started.</p>
+</div><div class="content_block" id="article5"><p>Junipers are, along with pine, another of the common species sought by beginning bonsai enthusiasts. And for good reason: it's a beautiful species that tolerates a wide variety of conditions well.</p>
+
+<p>Junipers make an especially good species for the kengai (cascade) style in which the trunk and branches grow out over the pot and below the horizontal surface.</p>
+
+<p>Junipers enjoy full sun and tolerate moderately dry soil conditions. Soil shouldn't be allowed to dry out completely, however. Copious amounts of water are fine, provided there is adequate drainage.</p>
+
+<p>Feeding should be carried out every three to four weeks from early spring to autumn. Opinions vary, with some preferring organic fertilizers but this seems to be as much an ideology as a view based on good botanical science.</p>
+
+<p>Man-made chemical fertilizers can be harsh, though, and should be used with care to ensure the proper proportions. Half-strength of 20-20-20 NPK (Nitrogen - N, Phosphorus - P, Potassium - K) is common. Avoid applying during the hot months or within a few weeks after repotting.</p>
+
+<p>Repotting is a good time to trim roots, but gradual reduction is best. Cut off no more than 1/3. Trees younger than 10 years old should be repotted every two years, older ones every three to four.</p>
+
+<p>Soil mixture is commonly 60% soil, 10% peat and 30% coarse sand, but there are many variations on the relative amounts and material. Loam, leaf mold and sand in equal proportions is a viable alternative.</p>
+
+<p>Repotting is also a good time to carry out pruning of unwanted branches. Wiring is best done in late autumn, however, after the major growing season has tapered off. If carried out during active growing season results will come quicker, but careful observation is needed to avoid scarring.</p>
+
+<p>Many bonsai artists use pinching to remove the new shoots that occur during the active growing season. Just take the new growth between thumb and forefinger and give a sharp twist to remove. Take care not to move or bend the tree or branch. The procedure should be carried out frequently during the growing season to control the growth of new foliage.</p>
+
+<p>Red spider mites are a common pest of this species. Look for yellowing foliage. Check under the branch for small spots. To double-check, hold a white sheet of paper or a tissue underneath. Sharply tap a branch without too much force. This should dislodge a few if they're present. If they move, you know you have something you don't want on your tree.</p>
+
+<p>A home recipe of nicotine solution can be prepared by soaking tobacco in water overnight, but a commercial insecticidal solution will be more effective.</p>
+
+<p>After the insecticide has operated for a day, spray the foliage with water daily during the growing season and allow to dry in full, but early sun. Full sun should be avoided for a few weeks right after repotting.</p>
+</div></div>
+                    <img id="backMenu" src="./backMenu.png">
+                </div>                
+            
+
+
+
+            </div><!-- /content -->
+
+			
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="content4.html"] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(91).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Tools</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Choices</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Growing</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Care</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+    </body>
+
+
+
+</html>

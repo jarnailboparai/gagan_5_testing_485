@@ -1,0 +1,251 @@
+.selectfeatures{
+	min-height:800px;
+}
+.single_multi_icons{
+	padding:10px;
+}
+
+.single_multi_icons a{
+	width:102px;
+	height:65px;
+	border:1px solid;
+	color:#fff !important;
+	text-align:center;
+	padding:20px 0 13px;
+	display:inline-block;
+	margin-right:10px;
+	transition:all ease .3s;
+	font-size:14px;
+	line-height: 18px !important;
+}
+.single_multi_icons a img{
+	margin-bottom:6px;
+}
+.single_multi_icons a:hover,.single_multi_icons a:active{
+	text-decoration:none;
+}
+.single_multi_icons a.single
+{
+	background:#e74c3c;
+	border-color:#c0392b;
+}
+.single_multi_icons a.single:hover{
+	background:#cb2e1e;
+}
+.single_multi_icons a.multiple
+{
+	background:#27ae60;
+	border-color:#119247;
+}
+.single_multi_icons a.multiple:hover{
+	background:#109347;
+}
+/* single page setting */
+.single_page {
+    padding: 10px;
+	
+}
+
+.title_table{
+	width:70%;
+}
+.title_table tr td{
+	padding-bottom:12px;
+}
+.title_table tr td input[type="text"]{
+	margin-bottom:0;
+	border-radius:0px;
+	height:35px;
+}
+.select_icon{
+	width:40px;
+	height:40px;
+	background:#1aa0d3 !important;
+	cursor:pointer;
+	text-align:center;
+	border:1px solid #0b8ec2 !important;
+	margin-left:20px;
+	transition:all ease .3s;
+}
+.select_icon:hover{
+	background:#0b7ea9 url(../img/select_icon.png) center center no-repeat;
+}
+.pages_link .edit_icon span {
+    margin:0px 3px;
+}
+.pages_link .table tr:first-child td{
+	border-top:none;
+}
+.multipage_link{
+	color:#3d3c44;
+	font-size:14px;
+}
+.button_panel .btn{
+	padding:10px 20px;
+	margin-right:10px;
+	border-radius:0px;
+	min-width:100px;
+	transition:all ease .3s;
+	background:#eeeeee;
+}
+.button_panel .btn:hover{
+	background:#fff;
+}
+.button_panel .btn-success{
+	background:#27ae60;
+}
+.button_panel .btn-success:hover{
+	background:#17904a;
+}
+.button_panel{
+	padding:10px 0 0px 0px;
+}
+.AccordionPanelContent{
+	height:auto !important;
+}
+
+
+
+/* single page setting ends here -->
+/* Multipage Setting */
+.add_page_btn {
+    background: url("../img/add_product.png") no-repeat scroll 10px center #34495E;
+    border: 1px solid #2C3E50;
+    border-radius: 0;
+    color: #FFFFFF !important;
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 10px;
+    padding-left: 23px;
+    text-shadow: none;
+    transition: all 0.3s ease 0s;
+}
+.addSubPageForm{
+	margin-top:10px;
+}
+.add_page_btn:hover{
+	background:#202c38 url(../img/add_product.png) 10px center no-repeat;
+	color:#fff;
+
+}
+/* Multipage setting panel ends Here */
+/* crousel */
+
+.add_features{
+	background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    color: #565656;
+    font-size: 13px;
+    left: 27px;
+    padding: 4px 20px 4px 19px;
+    position: relative;
+    top: 7px;
+    z-index: 100;
+	transition:all .8s;
+	-webkit-transition:all .8s;
+		outline:none !important;
+}
+
+.add_features:hover,.add_features:active,.add_features:focus{
+ text-decoration:none;
+ outline:none;
+}
+.crousel_wrap{
+	background:#f4f4f4;
+	padding:21px 34px 21px 28px;
+	border:1px solid #e2e2e2;
+	position:relative;
+	margin-bottom:12px;
+}
+.crosel_invisible_wrap{
+	width:712px;
+	overflow:hidden;
+	height:108px;
+}
+.crousel_wrap button{
+	background:none;
+	border:none;
+	position:absolute;
+	top:50%;
+	margin-top:-9px;
+	z-index:999;
+	outline:none;
+}
+.crousel_wrap button.next{
+	right:-19px;
+}
+.crousel_wrap button.next.disabled,.crousel_wrap button.prev.disabled{
+	opacity:.7;
+}
+.crousel_wrap button.prev{
+	left:-19px;
+}
+.manual_crousel ul li{
+	background:#fff;
+	width:116px;
+	height:88px;
+	border:1px solid #cccccc;
+	text-align:center;
+	margin-right:30px;
+	padding:14px 0 0 0;
+	position:relative;
+	cursor:pointer;
+}
+.manual_crousel ul li:last-child{
+	margin-right:0px;
+}
+.manual_crousel ul li img{
+	
+	height:48px;
+}
+.manual_crousel ul li .app_feature_title{
+	font-size:13px;
+	color:#3d3c44;
+	position:absolute;
+	display:table-cell;
+	vertical-align:top;
+	width:88%;
+	padding:0px 6%;
+	left:0px;
+	bottom:0px;
+	height:31px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+	
+}
+.manual_crousel ul li .select_feature img{
+	height:auto;
+}
+.manual_crousel ul li:hover .select_feature,.manual_crousel ul li.select_app_feature:hover .select_feature{
+	display:block;
+}
+
+/* Crousel Css Ends Here */
+
+/* 7-jan-editing */
+
+.AccordionPanelTab .feature_icon img{
+	height:40px;
+	
+}
+.featurelist form
+{
+	margin-bottom:0px;
+}
+/*
+.make_abso{
+	position: absolute;
+    right: 6px;
+    top: 14px;
+}
+.pull-right.edit_icon {
+    position: relative;
+    z-index: 1000;
+}
+*/
+
+/* 24-Feb-2014 Updation */
+#wrapperliUl li:first-child{
+	border-top:1px solid #ddd;
+}

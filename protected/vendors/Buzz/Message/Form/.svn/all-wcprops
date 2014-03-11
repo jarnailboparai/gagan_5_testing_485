@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message/Form
+END
+FormUploadInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message/Form/FormUploadInterface.php
+END
+FormRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message/Form/FormRequest.php
+END
+FormRequestInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message/Form/FormRequestInterface.php
+END
+FormUpload.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message/Form/FormUpload.php
+END

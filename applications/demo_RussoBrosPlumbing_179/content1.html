@@ -1,0 +1,360 @@
+<html>
+
+
+
+    <head>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+
+
+        <script>
+
+            if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i))) {
+
+
+
+                $.getScript("cordova-2.0.0.js");
+
+                $.getScript("phonegap.js");
+
+                $.getScript("PushNotification.js");
+
+            }
+
+        </script>
+
+
+
+
+
+        <script type="text/javascript">
+
+            function checkTotleCount() {
+
+                if ($('.content_navigation_link h3 a').length == 1) {
+
+                    $('#content_navigation_content').hide();
+
+                    $('#article1').show();
+
+                }
+
+            }
+
+            $(document).ready(function() {
+
+                var articleNumber;
+
+                $('.backClick').click(function() {
+
+                    $('#content_navigation_content').show();
+
+                    $('#article' + articleNumber).hide();
+
+                    checkTotleCount();
+
+                });
+
+                $('.content_navigation_link h3 a').click(function() {
+
+                    $('#content_navigation_content').hide();
+
+                    articleNumber = $(this).attr('href').substr(-1);
+
+                    $('.content_navigation_link').removeClass('active');
+
+                    $(this).parent().parent().addClass('active');
+
+                    $('#article' + articleNumber).show();
+
+                });
+
+                checkTotleCount();
+
+                document.addEventListener("deviceready", initPushwoosh, false);
+
+
+
+            }
+
+            );
+
+        </script>
+
+
+
+        <!--Turn off notification-->
+
+    </head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Services</h1></center>
+
+                </div>
+
+
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+                
+
+
+                <style type="text/css">
+                    .content_navigation_content div,.content_navigation_content p,.content_navigation_content ul,.content_navigation_content h2,.content_navigation_content h3,.content_navigation_content h4,.content_navigation_content img{
+                        padding:0px; 
+                        margin:0px;
+                    }
+                    .content_navigation_link h3 a{
+                        text-decoration:none;
+                    }
+                    .content_navigation_link{
+                        width: 100%;
+                        text-align: center;
+                        line-height: 50px;
+                        display: block;
+                        height: 50px;
+                        border-bottom: 1px solid white;
+                    }
+                    #content_navigation_content{
+                        /*                        overflow: hidden;
+                                                width: 200px;*/
+                        background: grey;
+                        margin: 0 auto;
+                        border-radius: 10px;
+                        /*                        position: fixed;
+                                                left: 50%;
+                                                top: 40px;*/
+                        /*margin-left: -100px;*/
+                        border-radius: 10px; 
+                        box-shadow: 8px 8px 8px silver;
+                    }
+                    .content_navigation_link a{
+                        color:white !important;
+                        display:block;
+                    }
+                    .content_navigation_link:hover, .content_navigation_link:active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .content_block{
+                        word-wrap: break-word;
+                        display: none;
+                    }
+                    #navigationContent{
+                        /*position: relative;*/
+                    }
+                    .content_navigation_link:first-child{
+                        border-radius: 10px 10px 0px 0px; 
+                    }
+                    .content_navigation_link:last-child{
+                        border-radius: 0px 0px 10px 10px; 
+                    }
+                    .content_navigation_link .active{
+                        background: none;
+                    }
+                    #backMenu{
+                        position: fixed;
+                        bottom: 75px;
+                        right: 10px; 
+                        opacity: 0.5;
+                        display: none;
+                    }
+                    #backMenu:hover,#backMenu:active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                </style>
+                <div id="navigationContent">
+                    <div style="display: none;" id="content_navigation_content" class="content_navigation_content"><div class="content_navigation_link"><h3><a href="#article1">Plumbing</a></h3></div><div class="content_navigation_link"><h3><a href="#article2">Water Quality Testing</a></h3></div><div class="content_navigation_link"><h3><a href="#article3">Heating</a></h3></div></div>
+                    <div id="content_blocks"><div style="display: block;" class="content_block" id="article1"><p><strong>The proper functioning of the plumbing system</strong> is vital in any home or business. Your plumbing brings fresh water in your home, heats and conditions this water for usage and removes waste. In short, it is key to maintaining the health and cleanliness of the building and its occupants. Russo Bros. &amp; Co. handles every type of plumbing situation including:</p>
+
+<ul>
+	<li>&nbsp;&nbsp;&nbsp; Regular repair and maintenance of all plumbing fixtures (sinks, toilets, faucets, whirlpool tubs, showers, etc.)</li>
+	<li>&nbsp;&nbsp;&nbsp; Repair and replacement of water heaters</li>
+	<li>&nbsp;&nbsp;&nbsp; Bathroom and kitchen remodeling</li>
+	<li>&nbsp;&nbsp;&nbsp; Installation and repair of water pipes and water services</li>
+	<li>&nbsp;&nbsp;&nbsp; Installation of gas barbeque grills and gas fireplaces</li>
+	<li>&nbsp;&nbsp;&nbsp; Appliance hookups (dishwashers, dryers, icemakers, etc.)</li>
+	<li>&nbsp;&nbsp;&nbsp; Installation and repair of sump pumps</li>
+	<li>&nbsp;&nbsp;&nbsp; Diagnosis and correction of water drainage problems</li>
+	<li>&nbsp;&nbsp;&nbsp; Installation and repair of well and booster pumps</li>
+	<li>&nbsp;&nbsp;&nbsp; Winterization of homes and buildings</li>
+	<li>&nbsp;&nbsp;&nbsp; Analysis of water conditions</li>
+	<li>&nbsp;&nbsp;&nbsp; Installation and repair of water softeners</li>
+</ul>
+
+<p>&nbsp;</p>
+</div><div class="content_block" id="article2"><p>The quality of the water entering any home or business may vary greatly due many factors. Among these is the age of the building’s plumbing system and whether the water is supplied by a municipal authority or from a well. Russo Bros. &amp; Co. can supply you with a professional water analysis and recommend steps that may be taken to improve thequality of your water. These solutions include:</p>
+
+<p>&nbsp;&nbsp;&nbsp; Nature’s Miracle whole house filtration</p>
+
+<p>&nbsp;&nbsp;&nbsp; Water Softeners</p>
+
+<p>&nbsp;&nbsp;&nbsp; Water Filters</p>
+
+<p>&nbsp;&nbsp;&nbsp; Neutralizers</p>
+
+<p>&nbsp;&nbsp;&nbsp; Water Analysis</p>
+
+<p>&nbsp;&nbsp;&nbsp; Reverse Osmosis filtration</p>
+</div><div class="content_block" id="article3"><p>
+<style type="text/css"><!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Cambria;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ascii-font-family:Times;
+	mso-fareast-font-family:Cambria;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Times;
+	mso-bidi-font-family:"Times New Roman";}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</p>
+
+<p style="margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm">When the heat goes out in your home or office, you are not only uncomfortable, but you run the genuine risk of damage to your plumbing systems and additional costly repairs. Russo Bros. &amp; Co. can maintain your heating system so that it runs at optimal efficiency. Our heating services include:</p>
+
+<p style="margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm">&nbsp;&nbsp;&nbsp; Custom design and installation of radiant heating and snow melting</p>
+
+<p style="margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm"><strong><span style="font-family:Times">&nbsp;&nbsp;&nbsp; Maintenance of hot water and steam boilers (full tune-ups)</span></strong></p>
+
+<p style="margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm">&nbsp;&nbsp;&nbsp; Installation of high efficiency boilers</p>
+
+<p style="margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm">&nbsp;&nbsp;&nbsp; <strong><span style="font-family:Times">Oil to gas conversions of existing heating systems</span></strong></p>
+
+<p style="margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm">&nbsp;&nbsp;&nbsp; Repair and replacement of boiler controls and valves</p>
+
+<p style="margin-top:.1pt;margin-right:0cm;margin-bottom:.1pt;margin-left:0cm">&nbsp;&nbsp;<strong><span style="font-family:Times">&nbsp; Installation and repair of radiators and baseboard heating elements</span></strong></p>
+</div></div>
+                    <img id="backMenu" src="./backMenu.png">
+                </div>                
+            
+
+
+
+            </div><!-- /content -->
+
+
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="content1.html"] .ui-icon { background:  url("icon(166).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="aboutUs.html"] .ui-icon { background:  url("icon(171).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="https://mobile.twitter.com/search?q=bonsai"] .ui-icon { background:  url("icon(388).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="http://m.facebook.com/bonsaiempire?v=feed"] .ui-icon { background:  url("icon(356).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="youtubeKeywords.html"] .ui-icon { background:  url("icon(380).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="youtubeKeywords.html" id="tab2" data-icon="custom" rel="external"  data-gourl="youtubeKeywords.html" class="" onclick="window.open('youtubeKeywords.html','_self', 'location=yes')">Youtube</a></li><li><a href="http://m.facebook.com/bonsaiempire?v=feed" id="tab2" data-icon="custom" rel="external"  data-gourl="http://m.facebook.com/bonsaiempire?v=feed" class="" onclick="window.open('http://m.facebook.com/bonsaiempire?v=feed','_self', 'location=yes')">Facebook</a></li><li><a href="https://mobile.twitter.com/search?q=bonsai" id="tab2" data-icon="custom" rel="external"  data-gourl="https://mobile.twitter.com/search?q=bonsai" class="" onclick="window.open('https://mobile.twitter.com/search?q=bonsai','_self', 'location=yes')">Twitter</a></li><li><a href="aboutUs.html" id="tab2" data-icon="custom" rel="external"  data-gourl="aboutUs.html" class="" onclick="window.open('aboutUs.html','_self', 'location=yes')">About Us</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+    </body>
+
+
+
+</html>

@@ -1,0 +1,151 @@
+<html>
+
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+        <link rel="stylesheet" href="theme.css" />
+
+        <script src="cordova-2.0.0.js"></script>
+
+		<script type="text/javascript" src="phonegap.js"></script>
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+
+
+
+
+        <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
+
+        <script type="text/javascript">
+
+	                        
+
+            $(document).ready(function() {
+
+                document.addEventListener("deviceready",onDeviceReadyChildBrowser,false);
+
+            });
+
+    
+
+            function onDeviceReadyChildBrowser() {
+
+                $(document).ready(function() {
+
+                    $("a.open-child-browser").click(function() {
+
+                        var goUrl = $(this).attr("data-gourl");
+
+                        window.plugins.childBrowser.showWebPage(goUrl, { showLocationBar: true });
+
+                        return false;
+
+                    });
+
+                        
+
+                    $("a.open-external-browser").click(function() {
+
+                        var goUrl = $(this).attr("data-gourl");
+
+                        window.plugins.childBrowser.openExternal(goUrl);
+
+                        return false;
+
+                    });
+
+                });
+
+            }
+
+			
+
+                        
+
+        </script>
+
+
+
+        
+
+        <style type="text/css">
+
+            .clipout{
+
+                display: inline;
+
+                position:relative;
+
+                width:30px;
+
+                height:30px;
+
+            }
+
+            .clipin{
+
+                display: inline;
+
+                position:absolute;
+
+                clip:rect(20px,55px,50px,5px);
+
+                top:-25px;
+
+                left:-25px;
+
+            }
+
+        </style>
+
+        <!--Turn off notification-->
+
+    </head>
+
+    <body>
+
+
+
+        <div data-role="page">
+
+
+
+            <div data-role="header">
+
+                <div class="ui-bar ui-bar-a"><center><h1>More</h1></center>
+
+                </div>
+
+            </div>
+
+
+
+            <div data-role="content">
+
+                <ul data-role="listview" data-inset="true" data-theme="a" id="mainUl"><li class="odd"><a href="index.html" rel="external" class="more-link"><img src="64Px_-_504-249.png" class="ui-li-icon" width="20px" height="20px"><span class="more-link">Home</span></a></li><li id="1" class="">
+					<a href="content.html" data-gourl="content.html" rel="external" class="" onclick="window.plugins.childbrowser.openExternal('content.html')">
+							<img src="more_64Px_-_504-103.png" class="ui-li-icon" width="20px" height="20px"><span class="more-link">Content</span>
+						</a>
+					</li></ul>
+
+            </div><!-- /content -->
+
+
+
+
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style>
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="content.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content.html" class="" onclick="window.plugins.childbrowser.openExternal('content.html')">Content</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+        </div>	
+
+    </body>
+
+</html>

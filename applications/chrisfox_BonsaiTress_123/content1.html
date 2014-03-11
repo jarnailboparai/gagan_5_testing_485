@@ -1,0 +1,416 @@
+<html>
+
+
+
+    <head>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+    
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+        
+
+        <script>
+
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+
+        
+
+        	$.getScript("cordova-2.0.0.js");
+
+			$.getScript("phonegap.js");
+
+			$.getScript("PushNotification.js");			
+
+		}
+
+		</script>
+
+
+
+
+
+		<script type="text/javascript">
+
+           $(document).ready(function() {
+
+				var articleNumber;
+
+				$('.backClick').click(function() {
+
+					$('#content_navigation_content').show();
+
+					$('#article' + articleNumber).hide();
+
+				});
+
+				$('.content_navigation_link h3 a').click(function() {
+
+					$('#content_navigation_content').hide();
+
+					articleNumber = $(this).attr('href').substr(-1);
+
+					$('.content_navigation_link').removeClass('active');
+
+					$(this).parent().parent().addClass('active');
+
+					$('#article' + articleNumber).show();                   
+
+				});
+
+				
+
+				 document.addEventListener("deviceready",initPushwoosh,false);
+
+
+
+			});		  
+
+        </script>
+
+        
+
+        <!--Turn off notification-->
+
+    </head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Styles</h1></center>
+
+                </div>
+
+
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+                
+
+
+                <style type="text/css">
+                    .content_navigation_content div,.content_navigation_content p,.content_navigation_content ul,.content_navigation_content h2,.content_navigation_content h3,.content_navigation_content h4,.content_navigation_content img{
+                        padding:0px; 
+                        margin:0px;
+                    }
+                    .content_navigation_link h3 a{
+                        text-decoration:none;
+                    }
+                    .content_navigation_link{
+                        width: 100%;
+                        text-align: center;
+                        line-height: 50px;
+                        display: block;
+                        height: 50px;
+                        border-bottom: 1px solid white;
+                    }
+                    #content_navigation_content{
+                        /*                        overflow: hidden;
+                                                width: 200px;*/
+                        background: grey;
+                        margin: 0 auto;
+                        border-radius: 10px;
+                        /*                        position: fixed;
+                                                left: 50%;
+                                                top: 40px;*/
+                        /*margin-left: -100px;*/
+                        border-radius: 10px; 
+                        box-shadow: 8px 8px 8px silver;
+                    }
+                    .content_navigation_link a{
+                        color:white !important;
+                        display:block;
+                    }
+                    .content_navigation_link:hover, .content_navigation_link:active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .content_block{
+                        word-wrap: break-word;
+                        display: none;
+                    }
+                    #navigationContent{
+                        /*position: relative;*/
+                    }
+                    .content_navigation_link:first-child{
+                        border-radius: 10px 10px 0px 0px; 
+                    }
+                    .content_navigation_link:last-child{
+                        border-radius: 0px 0px 10px 10px; 
+                    }
+                    .content_navigation_link .active{
+                        background: none;
+                    }
+                    #backMenu{
+                        position: fixed;
+                        bottom: 75px;
+                        right: 10px; 
+                        opacity: 0.5;
+                        display: none;
+                    }
+                    #backMenu:hover,#backMenu:active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                </style>
+                <div id="navigationContent">
+                    <div id="content_navigation_content" class="content_navigation_content"><div class="content_navigation_link"><h3><a href="#article1">The Basic Styles, Part I</a></h3></div><div class="content_navigation_link"><h3><a href="#article2">The Basic Styles, Part II</a></h3></div><div class="content_navigation_link"><h3><a href="#article3">The Basic Styles, Part III</a></h3></div><div class="content_navigation_link"><h3><a href="#article4">Advanced Styles</a></h3></div><div class="content_navigation_link"><h3><a href="#article5">Unusual Styles</a></h3></div><div class="content_navigation_link"><h3><a href="#article6"> Exotic Choices</a></h3></div></div>
+                    <div id="content_blocks"><div class="content_block" id="article1"><p>Over the centuries the artists of bonsai have developed hundreds of unique styles. But within this complexity there are a few that form the basis of most of the variations.</p>
+
+<p>Chokkan (Formal Upright)</p>
+
+<p>The simplest, but still exquisitely beautiful, is the chokkan or formal upright. Though still a miniature, this style most resembles the full grown tree. The form is erect and partly symmetrical, roughly classic Christmas-tree shaped, but sometimes with a rounded crown.</p>
+
+<p>Branches are approximately horizontal and the lowest pair are frequently trained to point toward the viewer, with a third pointing away at a level between the two in front.</p>
+
+<p>Though the chokkan is more regular than other styles, it need not be planted directly in the center of the pot. Visual variety can be achieved by planting a third from one end, either left or right as you face the tree.</p>
+
+<p>Smaller branches nearer the base should be trimmed off, and others should be balanced around the trunk. The first branch starts at about one-third up the total height of the trunk.</p>
+
+<p>Remember that to achieve the right result, you must have a good beginning. That starts with selection of the proper species. A tree that, left unmodified, would naturally grow straight is the best choice.</p>
+
+<p>One of the less difficult styles to achieve - no bonsai is easy to train - it nevertheless can exhibit significant variations. Using different species, such as Larch, or Pine, or Spruce can result in distinct looks.</p>
+
+<p>Moyogi (Informal Upright)</p>
+
+<p>The moyogi shares many similarities with the chokkan, but vertical and horizontal regularity is altered. The moyogi is less even in appearance, but to the bonsai enthusiast no less beautiful than its more symmetrical brother.</p>
+
+<p>Branches are trained in the same manner, but the top is modified to bend slightly toward the viewer. The trunk may also be slanted, but not curved, slightly.</p>
+
+<p>Slanting can be achieved by training, or by selecting a type with a natural tendency to veer from the vertical. Check similar instances of a species from the top looking down to detect deviations from the vertical.</p>
+
+<p>To achieve a slant that tilts away from the viewer, plant or train in the pot so that the roots move forward, to the front of the pot. This can be encouraged by wiring and selective watering that favors the front of the container. As the trunk slants backward the roots will point ahead naturally as the tree attempts to maximize its support.</p>
+
+<p>Moyogi, like the chokkan, generally have full crowns with branches that start about one-third up the trunk. Deciduous species, such as the Japanese Maple, or beeches, are naturally well-suited to this style. Some fruit trees, such as Pomegranate or Crab Apple, may also serve the purpose.</p>
+
+<p>All bonsai, regardless of style, require much patience and care over many years in order to achieve health and longevity. But these two styles are the least difficult to attain and may serve as a good beginning for the novice.</p>
+
+<p>&nbsp;</p>
+</div><div class="content_block" id="article2"><p>Shakan (Slanting)</p>
+
+<p>Japanese bonsai artists have developed many intricate and detailed forms of bonsai, in which each element is positioned just so. This is evident in the shakan, or slanting, style.</p>
+
+<p>As the name suggests, the trunk is slanted, usually at a moderately steep angle, mid-way between an upright and a cascade style. The slant will be anywhere from 30 degrees to as much as 75 degrees.</p>
+
+<p>The lowest branch is made to point away from the direction of the trunk, lending a visual balance important to the bonsai artist.</p>
+
+<p>Full-sized trees in nature acquire these characteristics as the result of early development in an environment where wind has a tendency to blow more in one direction than another. Another key factor is the amount of shade present above the young tree.</p>
+
+<p>Contributing to the effect is gravity acting on a trunk weaker in one direction than another. The shape of the ground holding the tree and the location and amount of water also influence the outcome, though to a lesser degree.</p>
+
+<p>All these factors can be emulated by the bonsai artist.</p>
+
+<p>As with any bonsai training, it's best to start with a species or instance that is amenable to the style. Luckily for the bonsai artist, many trees will experience a natural slant to some degree. Bringing this out to a more pronounced state is simply a matter of training and patience.</p>
+
+<p>The trunk, though slanted will be straight rather than curved. Of course, as with all bonsai artistry, within this apparently rigid classification there is much variation. Bonsai, though a disciplined art always finds room for the artist's individual interpretation.</p>
+
+<p>Even so, care should be taken to keep the result in balance. Longer branches should be distributed away from the slant, shorter branches in the same direction. Longer roots should be encouraged away from the slant, again for balance.</p>
+
+<p>Within the style there are several sub-types, such as dai-shakan and chu-shakan. Each sub-type refers to the direction in which the branches are trained relative to the angle of the trunk. In the chu-shakan style, for example, the branch is trained back toward the trunk. Dai-shakan, by contrast, spreads the branches away from the trunk.</p>
+
+<p>Conifers, such as White Pine, make good 'modeling clay' for this style. In order to display them to best advantage, they should be planted in the center of a rectangular pot.</p>
+</div><div class="content_block" id="article3"><p>Kengai (Cascade)</p>
+
+<p>The cascade style is among the more beautiful and desired, but also more difficult to achieve. The trunk grows down below the level of the container, often twisting as it does so.</p>
+
+<p>In nature, a tree growing near a cliff subject to heavy snows, avalanches and wind may assume this inverted position. Those forces are not generally available to the bonsai artist to imitate, however. Nevertheless, with wiring and patience it can be accomplished.</p>
+
+<p>To remove obstacles from growth in this direction, it's important that the tree and pot be placed near the edge of a table or bench so the trunk can hang below the horizontal. Also, since the trunk will be on the side and below, it's important to use a heavy pot for stability.</p>
+
+<p>As the trunk is encouraged to grow in the downward U-shape, branches should be trained to sprout horizontally to give the tree a full appearance. Planting directly in the center, not near the edge of the pot, is standard practice.</p>
+
+<p>Often the tree will be trained to grow up and over, rather than simply over the edge. This gives a flow to the look and is accompanied by a tip that resides directly above the center. Branches should be trimmed to create a 'stair-step' pattern to complement the cascade and give it a 'meandering river' look.</p>
+
+<p>Since the trunk and several branches will reside below the pot, extra care is required to ensure that all receive adequate water and nutrients. Foliar feeding (applying fertilizer solution by spraying leaves or needles, which is then absorbed by the foliage) is recommended.</p>
+
+<p>Han-Kengai (Semi-cascade)</p>
+
+<p>Another style, han-kengai (semi-cascade) is often categorized separately. In this case, the cascade projects over the horizontal plane at the base of the pot, but neither the trunk nor branches grow below that level. In the semi-cascade style, the tip remains above the level of the 'ground'.</p>
+
+<p>The category is not sharply defined, since some han-kengai will have portions that are below 'ground level', while others will project out horizontally. In either case they retain the curving trunk style common to both the kengai and han-kengai styles.</p>
+
+<p>As with any style, using the proper species for your envisioned design is imperative. Fortunately in the case of the kengai and han-kengai, many will serve. Junipers are a popular choice, but flowering cherry trees are also used. Even cedars are used, where the flexible wood makes them an accommodating partner in the project. Some flowering species are used, such as chrysanthemums. 'Weeping' species are also good choices, such as willows.</p>
+
+<p>As with the kengai, it's important to ensure that the slow-moving nutrients make it to the tips. Foliar feeding is easily accomplished but needs to be done regularly as part of the watering and feeding practice.</p>
+
+<p>&nbsp;</p>
+</div><div class="content_block" id="article4"><p>Beyond the basic styles of chokkan (formal upright), shakan (informal upright), kengai (cascade) and so forth there are several that don't fit neatly into those categories. The divisions are arbitrary to an extent, but like any specialty they evolve over time to help bonsai artists guide and discuss their work.</p>
+
+<p>Some of the more common advanced styles are the Fukinagashi (Windswept), the Bankan (Twisted) and the Bunjin (Literati).</p>
+
+<p>Fukinagashi (Windswept)</p>
+
+<p>Like most bonsai trees, the windswept style attempts to emulate nature's effects in miniature.</p>
+
+<p>Its trunk is slanted, as if grown in an environment where the wind tends to blow more strongly in one direction than another. The branches, too, will acquire a preferred direction as a result of growth that is constantly bent.</p>
+
+<p>Areas near cliffs or hills, for example, do this frequently. Coastal regions often experience the conditions that produce fukinagashi. Meandering rivers, although not the result of winds, are formed by similar basic physical forces.</p>
+
+<p>Unfortunately, emulating forceful winds is beyond the technical means of most bonsai artists. But the style is formed by use of similar forces, even when the artist isn't aware of why they are basically the same.</p>
+
+<p>Stressing a living plant in a preferred direction causes them to cooperate and tend to grow in that way. Those stresses (physical stresses, not the sort of chemical stress induced by unhealthy conditions) can be achieved by well-practiced means, developed over centuries.</p>
+
+<p>Just as a kengai (cascade) can be formed in part by harnessing the trunk with a cord tied to a stake, so too can the fukinagashi or windswept. Wire can be used as a supplement, but this is more often used for branches than the basic trunk shape.</p>
+
+<p>Often the foliage is sparse, since in natural conditions much of it would have been blown away by the strong winds that produce the bent effect.</p>
+
+<p>Bankan (Twisted)</p>
+
+<p>The bankan style is thought to have originated in China with the beginnings of penjing, the Chinese art that led to bonsai in Japan.</p>
+
+<p>As the name suggests the trunks are twisted and gnarled, sometimes to the extent of forming animal shapes. The dragon is a popular model for the bankan.</p>
+
+<p>Sub-styles range from the Nejikan, in which the trunk makes only a partial turn to the Takzukuri, or Octopus. In the latter, the trunk is considerably twisted and the branches follow suit, making a kind of vortex shape that emulates the winds that shaped the full-sized species in nature.</p>
+
+<p>Bunjin (Literati)</p>
+
+<p>One of the most popular bonsai styles is the bunjin or literati. The simple style, with a thin, slanted trunk and few branches is deceptively difficult. It was inspired by Chinese paintings that depicted trees growing in harsh climates. The results are often spare but dramatic.</p>
+
+<p>As the trunk frequently twists around, branches are displayed at sharp angles upward and the tree presents a different view from every side. Japanese Red Pines are a popular species for this style, but there are many others. Branches often twist as they rise.</p>
+
+<p>These advanced styles are not usually attempted by the novice, but sooner or later every bonsai artist will want to try them. They require great skill and patience, but the effort is more than amply rewarded by the beautiful results.</p>
+
+<p>&nbsp;</p>
+</div><div class="content_block" id="article5"><p>Beyond the basic styles of bonsai tree art, there are many wonderful variations. The individual aesthetic that each artist brings to the work allows for an infinite variety of forms.</p>
+
+<p>Group or Forest (Yose)</p>
+
+<p>The group display, often called the forest, is just what the name suggests - multiple bonsai trees residing in a single container. Any species will do, but this style often contains all of one kind. Multiple species within a single pot would make soil design and watering management, not to mention climate and sunlight control, extremely difficult.</p>
+
+<p>In the yose style, there are several sub-styles denoted by the number of trunks in the tray. Sambon-Yose (3 trunks), Gohon-Yose (5), Nanahon-Yose (7) and Kyuhon-Yose (9) are the most common and increasingly difficult as the number rises.</p>
+
+<p>In some cases they spring from a single root underground, in which case the trunks are more like above-ground branches. This is termed kabudachi style. The difference from a standard group in this case is that at the base there will be a central cluster in the middle of the pot.</p>
+
+<p>Korabuki (Raft) Style</p>
+
+<p>In nature, trees are not simply blown by wind and rain, but often completely knocked down. Rains softens the ground, roots grow close to the surface, and the earth has small underground holes. All conspire with the wind to undermine the ability of the tree to remain upright.</p>
+
+<p>But trees are amazingly resilient and can adapt to survive under the most arduous conditions. Even when growing horizontally, provided there is adequate contact with the earth by the roots, life can continue.</p>
+
+<p>As with most bonsai styles, the bonsai artist attempts to emulate nature, even in this extreme case. Many of the results are as spectacular as the full-sized examples produced by nature alone.</p>
+
+<p>Sub-styles include the ikadabuki (straight line), in which the trunk is entirely out of the soil. Typically it will rest on the surface, but some can actually grow somewhat like a kengai and are slightly above the ground.</p>
+
+<p>In another sub-style the trunk rests at an angle, partially underground. In this case the bark under the earth will tend to decay from moisture and small soil organisms.</p>
+
+<p>In many cases the trunk will be allowed to sprout multiple branches that look very much like individual trunks. These appear similar to a group or forest style, but all grow from a single tree.</p>
+
+<p>The netsunagari (sinuous) style is one of the more exotic sub-types. Here the roots meander through the soil like many underground rivers and the trunks are highly gnarled and twisted.</p>
+
+<p>The forms of bonsai tree are as varied as the artists who create them. Where the line is drawn between one style and another is often a very individual choice. After all, nature provides many examples of borderline cases. Dividing red from orange along the color spectrum is difficult. And, at what height does tall become average and fade into short?</p>
+
+<p>Like many things in Japanese culture, the blending of apparent opposites, or balance among competing influences, is never more present than in the design and execution of a bonsai tree. It is the most traditional of arts combined with the ultimate in individual expression.</p>
+</div><div class="content_block" id="article6"><p>Most bonsai trees are a coniferous or deciduous species, with the occasional fruit tree forming part of the collection. But there are more exotic choices that allow the bonsai artist to expand his or her skills.</p>
+
+<p>Wisteria makes one excellent alternative to the run-of-the-mill bonsai. A native of China, Korea and Japan, they can reach 30 feet in the wild. Forming them into a bonsai is an interesting challenge, since they don't conform to any of the usual styles.</p>
+
+<p>The flowers, assuming a variety of colors - blue, purple, pink, white - are both beautiful and aromatic. They blossom in the spring when they need lots of water, so long as there is adequate drainage. Wisteria do well in full sun to partial shade. Provide ample fertilizer in spring just before they flower, then again in late summer while the leaves are still present.</p>
+
+<p>Orange Jasmine is another option that will provide both beauty to the eye and delight to the nose. Their fragrant, white blossoms are accompanied by bright red fruit.</p>
+
+<p>Orange Jasmine should be fed every three to four weeks beginning in early spring and continuing through mid-autumn. Light watering is adequate for most of the year, with slightly more in the hotter season.</p>
+
+<p>Since they do better in filtered sun and moderate shade, they are one of the few bonsai that can, and probably should, be raised indoors.</p>
+
+<p>Mimosa, or silk trees as they are sometimes called owing to their long silky filaments, are as fragrant as either of the two choices above. Their lacy foliage and puffy flowers are also just as lovely.</p>
+
+<p>Flowers bloom in late April to early July, during which time they should be given moderate water. Avoid watering the flowers since, like many flowering plants, they wilt rapidly and deteriorate when wet.</p>
+
+<p>The Mimosa will be one of the larger bonsai in your collection. They grow rapidly, have large leaves and are very difficult to sustain at a very small size. So give them lots of room on the display bench.</p>
+
+<p>The Desert Rose is another non-traditional bonsai that can turn an ordinary collection into one full of color and excitement. This native of East Africa can grow up to 10 feet in the wild and produce large, pink, trumpet-bowl flowers.</p>
+
+<p>Very bushy, it makes an excellent design complement to the many trees in a standard bonsai set. They need lots of fresh air and ample sunshine, so keep them outside most of the year.</p>
+
+<p>They're sensitive to cold, though, so in cold climates they should be brought indoors. They don't thrive below 50F (10C), though will lie dormant and healthy from 50-60F (10C-15C). During this period they will need very little water.</p>
+
+<p>Expand your design horizons by trying your hand at a few of these fragrant and beautiful flowering plants. Spaced among some of the standard evergreens - pines, firs and others - they provide a nice contrast. You'll also have an ever-changing display, as they blossom in spring and lose their leaves in the fall.</p>
+
+<p>&nbsp;</p>
+</div></div>
+                    <img id="backMenu" src="./backMenu.png">
+                </div>                
+            
+
+
+
+            </div><!-- /content -->
+
+			
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="content1.html"] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(91).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Tools</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Choices</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Growing</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Care</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+    </body>
+
+
+
+</html>

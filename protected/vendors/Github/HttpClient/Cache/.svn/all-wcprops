@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/HttpClient/Cache
+END
+CacheInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/HttpClient/Cache/CacheInterface.php
+END
+FilesystemCache.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/HttpClient/Cache/FilesystemCache.php
+END

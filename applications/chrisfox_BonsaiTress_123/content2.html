@@ -1,0 +1,348 @@
+<html>
+
+
+
+    <head>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+    
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+        
+
+        <script>
+
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+
+        
+
+        	$.getScript("cordova-2.0.0.js");
+
+			$.getScript("phonegap.js");
+
+			$.getScript("PushNotification.js");			
+
+		}
+
+		</script>
+
+
+
+
+
+		<script type="text/javascript">
+
+           $(document).ready(function() {
+
+				var articleNumber;
+
+				$('.backClick').click(function() {
+
+					$('#content_navigation_content').show();
+
+					$('#article' + articleNumber).hide();
+
+				});
+
+				$('.content_navigation_link h3 a').click(function() {
+
+					$('#content_navigation_content').hide();
+
+					articleNumber = $(this).attr('href').substr(-1);
+
+					$('.content_navigation_link').removeClass('active');
+
+					$(this).parent().parent().addClass('active');
+
+					$('#article' + articleNumber).show();                   
+
+				});
+
+				
+
+				 document.addEventListener("deviceready",initPushwoosh,false);
+
+
+
+			});		  
+
+        </script>
+
+        
+
+        <!--Turn off notification-->
+
+    </head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Tools</h1></center>
+
+                </div>
+
+
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+                
+
+
+                <style type="text/css">
+                    .content_navigation_content div,.content_navigation_content p,.content_navigation_content ul,.content_navigation_content h2,.content_navigation_content h3,.content_navigation_content h4,.content_navigation_content img{
+                        padding:0px; 
+                        margin:0px;
+                    }
+                    .content_navigation_link h3 a{
+                        text-decoration:none;
+                    }
+                    .content_navigation_link{
+                        width: 100%;
+                        text-align: center;
+                        line-height: 50px;
+                        display: block;
+                        height: 50px;
+                        border-bottom: 1px solid white;
+                    }
+                    #content_navigation_content{
+                        /*                        overflow: hidden;
+                                                width: 200px;*/
+                        background: grey;
+                        margin: 0 auto;
+                        border-radius: 10px;
+                        /*                        position: fixed;
+                                                left: 50%;
+                                                top: 40px;*/
+                        /*margin-left: -100px;*/
+                        border-radius: 10px; 
+                        box-shadow: 8px 8px 8px silver;
+                    }
+                    .content_navigation_link a{
+                        color:white !important;
+                        display:block;
+                    }
+                    .content_navigation_link:hover, .content_navigation_link:active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .content_block{
+                        word-wrap: break-word;
+                        display: none;
+                    }
+                    #navigationContent{
+                        /*position: relative;*/
+                    }
+                    .content_navigation_link:first-child{
+                        border-radius: 10px 10px 0px 0px; 
+                    }
+                    .content_navigation_link:last-child{
+                        border-radius: 0px 0px 10px 10px; 
+                    }
+                    .content_navigation_link .active{
+                        background: none;
+                    }
+                    #backMenu{
+                        position: fixed;
+                        bottom: 75px;
+                        right: 10px; 
+                        opacity: 0.5;
+                        display: none;
+                    }
+                    #backMenu:hover,#backMenu:active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                </style>
+                <div id="navigationContent">
+                    <div id="content_navigation_content" class="content_navigation_content"><div class="content_navigation_link"><h3><a href="#article1">Helpful Add-On Tools</a></h3></div><div class="content_navigation_link"><h3><a href="#article2">The Essentials</a></h3></div><div class="content_navigation_link"><h3><a href="#article3">Wiring Preparation</a></h3></div><div class="content_navigation_link"><h3><a href="#article4">Wiring Execution</a></h3></div></div>
+                    <div id="content_blocks"><div class="content_block" id="article1"><p>Bonsai is in a way like photography - it is possible to buy dozens of expensive 'add-ons' to the basic equipment. Some of these are helpful, others merely give you the feeling that 'Gee, I'm really an artist'. Tools do not make the artist - the artist uses tools.</p>
+
+<p>Though not essential, the following will nonetheless help you achieve a sculpted bonsai tree. They can make the difference between a ten second task and drudgery. They can also help you perform the task cleanly, without undue risk to the plant.</p>
+
+<p>A folding saw is helpful when you have thicker branches to remove. Trying to remove these with a cutter can put excessive stress on the tree since it requires you to open up the jaws further than you can easily control.</p>
+
+<p>When you open cutters further than about 60 degrees, unless you have very large hands, you will lose some control. Also, cutters are designed to grasp and snip the entire branch in one cut. If you have to make more than one cut, the tool is too small for the job. That results in cuts which are not clean and ragged wounds don't heal as well as clean ones.</p>
+
+<p>A root rake is used as an aid during re-potting. With it the bonsai artist can clear dirt and rocks from within the roots and comb out any tangled roots for easier trimming. Some novices will be inclined simply to shake the dirt out of the root ball, but this can easily lead to a broken tree.</p>
+
+<p>Tweezers are a good supplement to the thumb and forefinger for pinching off dead or new growth, in order to refine the shape of foliage. Many designed for bonsai work have a small trowel at one end. The trowel can be used as a miniature shovel to compact earth, arrange ground cover and a myriad of other fine-level work.</p>
+
+<p>Small scissors are helpful for another kind of detailed work - snipping off leaves and smaller branchlets where a larger tool would be cumbersome. That kind of 'fine-tuning' can make the difference between 'done' and 'well finished'.</p>
+
+<p>Beyond these there are dozens of specialized tools that make the work easier and many different styles of the basic and helpful tools. Jin pliers, for example, are used to strip bark and create deadwood for decoration. Branch benders are a set of clamps used to supplement wire work. Many different styles of gravers exist for carving work.</p>
+
+<p>Grafting tape and cut paste are helpful for healing accidents introduced during trimming and wire work gone awry. Sharpeners come in all shapes and sizes for maintaining tools. Like photography, the list is endless.</p>
+
+<p>But whatever you find helpful, buy quality. Quality counts. Good tools will last years and maintain a sharp edge when re-sharpened. Spend a little extra up-front and you'll find yourself saving money in the long run and achieving better results on the work of art you spend so much time developing.</p>
+
+<p>&nbsp;</p>
+</div><div class="content_block" id="article2"><p>Bonsai is in a way like photography - it is possible to buy dozens of expensive 'add-ons' to the basic equipment. Some of these are helpful, others merely give you the feeling that 'Gee, I'm really an artist'. Tools do not make the artist - the artist uses tools.</p>
+
+<p>But there are tools which are essential to creating the work of art that is each individual tree. Shears, cutters, tweezers, rakes and others will help you shape the bonsai tree. They can help you make the difference between a small, scraggly plant and a beautifully sculpted bonsai tree.</p>
+
+<p>The first tools recommended will surprise you: paper and colored pencils, or a good design program. 'Begin with the end in mind' is the catchphrase of all thinking artists. You need to envision the final result, which in the case of a bonsai tree may be decades in the making. Your vision needs to be made concrete, in the form of an image that you can refer to over the months and years of shaping.</p>
+
+<p>You don't have to be rigidly locked into your initial idea - the tree will often resist your efforts. But you should have some specific goal in mind that is consistent with the nature of the individual plant before you.</p>
+
+<p>In order to realize that vision you'll need a good set of shears. You will use them for cutting, trimming and shaping.</p>
+
+<p>Quality counts. Poor quality tools dull quickly and don't cut sharply. Spend a little more and get shears specially made for bonsai work. A good pair, well kept, will last many years. A poor quality pair will wear out, rust and be useless within a year or two. In the long run you will spend less by buying quality.</p>
+
+<p>They need to start sharp and to be kept sharp. Ragged edges, which look smooth to your eye but are evident at the tree's level, will produce poorer results. Have you ever noticed, for example, that a ragged wound heals badly, much more so than one cut cleanly?</p>
+
+<p>Concave cutters are essential to shaping the bonsai tree. They are used to remove branches and produce a concave wound. Paradoxically, that rounded scar heals faster than a straight one. The final result will be one that makes it difficult to see that any branch existed in the first place.</p>
+
+<p>Sooner or later you will want to wire your bonsai to shape the trunk and branches, in order to produce varying styles and variations within a style. Wire is essential for that purpose. But unwinding wire after months or years represents a great risk to the tree. It should be cut off instead.</p>
+
+<p>Cutting wire without damaging the tree requires skill in any case. But without the proper wire cutters it is nearly impossible. Wire is wrapped tightly and often covers a large portion of the tree. It needs to be snipped off in small sections without stabbing or snipping the trained branch.</p>
+
+<p>Obtain a pair that can be kept sharp, that can cut thicker wire easily without shaking or pushing the tree. It will be helpful if they are the sort that can cut wire at the very tip. That will aid the bonsai artist in being precise and avoiding damage to the branch.</p>
+
+<p>&nbsp;</p>
+</div><div class="content_block" id="article3"><p>Wiring is the practice of wrapping aluminum or copper wire around the bonsai trunk or branches to shape the tree. Training bonsai is never easy, but it can be made easier by proper preparation and execution. Here are some basic guidelines.</p>
+
+<p>Why?</p>
+
+<p>Pruning a bonsai is a selective process that helps determine the number and position of branches and leaves. But to affect the overall shape, wiring is needed. This practice is critical to achieving the balance and form needed to make the bonsai into a completed work of art.</p>
+
+<p>By wrapping the trunk and branches with wire of the right length and thickness in the correct way, the basic bonsai style is created. No wrapping at all results in a formal upright (chokkan), for example, while to create the cascade (kengai) requires extensive wiring over many months or longer.</p>
+
+<p>Since wiring puts stress along a trunk or branch, it's essential to exercise extreme caution and patience during the process. The alternative can easily result in a cracked branch, or worse, a cracked trunk and a dead tree. Also, it's possible to wrap too tightly or at the wrong season. The result will be scarring that can kill the tree or create damage taking months or years to heal.</p>
+
+<p>How?</p>
+
+<p>Begin with a sketch or computer drawing capturing your vision of the final result. It doesn't have to be final, but you should have an image in mind as your goal. Unless your goal is to only produce a small effect on one or two branches, start at the trunk, then move to larger branches, doing the smallest branches last.</p>
+
+<p>Before wrapping the intended tree, practice. Start with a simple wooden pole or small ordinary tree branch, just to get the feel of the wire and develop the dexterity to hold the branch and wrap at the same time. Once you're comfortable holding the branch with one hand and wrapping with the other, without bending or tugging anything but the wrapped part, you can move to the bonsai tree.</p>
+
+<p>When?</p>
+
+<p>Selecting the proper month to begin can be complex. Different species begin and end their growing and dormant phases at slightly different dates. The amount of growth during a given month also varies by type of tree.</p>
+
+<p>Some deciduous (leafy) trees are more delicate in the spring, when their growing season begins and sap begins to flow. Caution dictates waiting until later when the sap flow is lower. Summer is preferred.</p>
+
+<p>Waiting too long, however will result in lost growing activity, which helps shape the result. Pine wired in autumn, by comparison, can easily experience scarring if the wire isn't checked every couple of weeks.</p>
+
+<p>Wiring in winter is possible, but because of low or no growth during this period will require extra time and patience.</p>
+
+<p>Scarring occurs when wire is wrapped too tightly and/or left on too long and bark begins to grow around the wire. It can take years, sometimes forever, for scarring to heal. An ounce of prevention is worth ten tons of cure, in this case.</p>
+
+<p>To minimize sap flow, wire when the tree has been slightly dried. Too dry and you risk cracking a branch. Too wet and sap flow creates branch pressure, also encouraging cracks.</p>
+
+<p>Wiring, like every other bonsai practice is a delicate balance requiring learning, patience and practice.</p>
+</div><div class="content_block" id="article4"><p>Wiring is the practice of wrapping aluminum or copper wire around the bonsai trunk or branches to shape the tree. Training bonsai is never easy, but it can be made easier by proper preparation and execution. Here are some basic guidelines.</p>
+
+<p>Wire</p>
+
+<p>The first step is to select the appropriate wire for the job. Aluminum (Al) and copper (Cu) are the two most common choices, with copper considered more attractive for the long bonsai training period. Use annealed copper only. Never use steel wire to wrap a bonsai, it is toxic to several species.</p>
+
+<p>In order for the wire to shape the tree, small stresses must be placed at various points along the length of the trunk or branch. This means the wire has to be stiffer than the trunk or branch. Otherwise, the wire bends rather than the tree.</p>
+
+<p>Thicker wire is generally stiffer. Aluminum is easier to bend, hence easier for novices to apply. Copper is generally stiffer, but more prone to scarring the tree if applied incorrectly. A good starting point is wire 1/3 the thickness of the branch that will be shaped.</p>
+
+<p>Practice wrapping on a tree branch of similar species to develop the dexterity needed. Test different thicknesses on test branches from a similar size and species before using any on the tree to be trained. Several different thicknesses will be required to do the entire tree - practice with all of them. Start with 1mm and work your way up to 4mm.</p>
+
+<p>Application</p>
+
+<p>Wrap from the base of the trunk upward, thicker branches next, smallest branches last. When wrapping a branch, start at the base and wrap toward the tip.</p>
+
+<p>Bend gently into shape, listening for cracking. If you hear any, stop immediately and check for damage. Repair with tree paste or glue and do not work again with that branch for at least a year.</p>
+
+<p>Use a wire length about 1/3 longer than the trunk or branch and wrap slowly in a spiral motion around the trunk or branch. Apply firmly, but not too tightly. You don't want to have the bark grow around the wire, resulting in scarring.</p>
+
+<p>Wiring is often done on deciduous trees in late autumn, after the leaves have fallen. This creates a more visible work area. If you choose to wire in summer, as is done with conifers for example, be sure to avoid wrapping wire on top of needles.</p>
+
+<p>It is considered bad form for any wires to cross. There's no physically necessary reason for this, other than some small additional stress on the branch at the point they cross. These points can be the most likely to scar. However, the Japanese and Chinese art of training bonsai is very traditional and respecting it is worth serious consideration.</p>
+
+<p>After wrapping is completed, observe the tree closely over time to watch for a wire that begins to cut into a branch. If you see this about to happen, cut off - don't unwrap - the wire carefully using wire cutters that can snip at the tip.</p>
+
+<p>When the training period is complete, after a few months, again cut, don't unwrap, the wire. To save a few pennies of wire, you are risking cracking a branch that make take years to heal. Cracking a trunk will most likely lead to the death of the tree.</p>
+
+<p>Wrapping properly is a delicate skill, requiring patience to master. But it is within reach of any dedicated practitioner, and the results are well worth the effort.</p>
+</div></div>
+                    <img id="backMenu" src="./backMenu.png">
+                </div>                
+            
+
+
+
+            </div><!-- /content -->
+
+			
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="content2.html"] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(91).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Tools</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Choices</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Growing</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Care</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+    </body>
+
+
+
+</html>

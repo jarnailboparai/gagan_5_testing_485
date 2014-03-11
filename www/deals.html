@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="theme.css" />
+       
+        <script src="jquery-1.6.4.min.js"></script>
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+        <script>
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+        
+        	$.getScript("cordova-2.0.0.js");
+			$.getScript("phonegap.js");
+			$.getScript("PushNotification.js");			
+		}
+		</script>
+
+
+        
+        
+        <script type="text/javascript">
+	                        
+            $(document).ready(function() {
+                //	 alert("1");
+                document.addEventListener("deviceready",onDeviceReadyCheckNetwork,false);
+            });
+    
+            function onDeviceReadyCheckNetwork() {
+                // alert("2");
+                var networkState = navigator.network.connection.type;
+                if (networkState===Connection.UNKNOWN){
+                    alert ("It appears you are currently not connected to the Internet. Please establish a connection and try again.");
+                }
+                else if (networkState===Connection.NONE){
+                    alert ("It appears you are currently not connected to the Internet. Please establish a connection and try again.");
+                }
+
+            }
+        </script>
+
+        <script type="text/javascript">
+  
+            function onBodyLoad() {
+                //alert("1");
+                if( navigator.userAgent.match(/Android/i) ) {
+                    onDeviceReadyDeals();
+                } else if (typeof navigator.device == "undefined"){
+                    //   alert("2");
+                    document.addEventListener("deviceready", onDeviceReadyDeals, false);
+                } else {
+                    //   alert("3");
+                    onDeviceReadyDeals();
+                } 
+            }
+
+            function onDeviceReadyDeals() {
+                //alert("4");
+                navigator.geolocation.getCurrentPosition(rssReaderUserLoc);
+            }
+
+            function rssReaderUserLoc(position){
+                var latitude=position.coords.latitude;
+                var longitude=position.coords.longitude;
+                //	alert(latitude);
+                //EDIT THESE LINES
+                //Title of the blog
+                var TITLE = "Deals";
+                //RSS url
+                var RSS = "https://api.groupon.com/v2/deals.xml?lat=" + latitude + "&lng=" + longitude + "&client_id=340499e6fcbec24b891fb3f1ca84e013b2f1bdce";
+
+                //		alert(RSS);
+                //Stores entries
+                var entries = [];
+                var selectedEntry = "";
+                //                 alert("1");
+                //listen for detail links
+                $(".contentLink").live("click", function() {
+                    selectedEntry = $(this).data("entryid");
+                });
+                //           alert("2");
+                //Listen for main page
+                // $("#mainPage").live("pageinit", function() {
+                //                                  alert("3");
+                //Set the title
+                                        
+                //                          alert("4");
+                $.get(RSS, {}, function(res, code) {
+                    //                                   alert("5");
+                    var xml = $(res);
+                    var items = xml.find("deal");
+                    $.each(items, function(i, v) {
+                        entry = {
+                            title:$(v).find("announcementTitle").text(), 
+                            link:$(v).find("dealUrl").text(), 
+                            description:$.trim($(v).find("pitchHtml").text())
+                        };
+                        entries.push(entry);
+                    });
+                                              
+                    //now draw the list
+                    var s = '';
+                    var replacement='img src="http:';
+                    $.each(entries, function(i, v) {
+                        //	  alert("item");
+                        var cleanDesc=v.description;
+                        var link=v.link;
+                        cleanDesc=cleanDesc.replace(/<p><\/li>/gi, "</li>");
+                        cleanDesc=cleanDesc.replace(/<p> <\/li>/gi, "</li>");
+                        cleanDesc=cleanDesc.replace(/<p>  <\/li>/gi, "</li>");
+                        cleanDesc=cleanDesc.replace(/<ul>/gi, "<p>");
+                        cleanDesc=cleanDesc.replace(/<\/ul>/gi, "</p>");
+                        cleanDesc=cleanDesc.replace(/<li>/gi, " - ");
+                        cleanDesc=cleanDesc.replace(/<\/li>/gi, "</br>");
+                        cleanDesc=cleanDesc.replace(/<p>/gi, "<p style=\"white-space:normal\">");
+                        cleanDesc=cleanDesc.replace(/<h4>/gi, "<h4 style=\"white-space:normal\">");
+                        cleanDesc=cleanDesc.replace(/<li>/gi, "<li style=\"white-space:normal\">");
+                        cleanDesc=cleanDesc.replace(/<ul>/gi, "<ul data-inset=\"true\" style=\"white-space:normal\">");		   
+                        s += '<li style="white-space:normal"><p style="white-space:normal"><h3><a style="white-space:normal" href="' + link + '" rel="external">' + v.title + '</a></h3><br>' + cleanDesc + '</p></li>';});
+                    //	alert("6");
+                    $("#linksList").append(s);
+                    $("#linksList").listview("refresh");
+                });
+                //     alert("7");
+                //     });
+                    
+
+                    
+            }
+				
+                
+                
+
+        </script>
+        <!--Turn off notification-->
+    </head>
+    <body onLoad="onBodyLoad()">
+        <div data-role="page" id="mainPage">
+            <div data-role="header">
+                <div class="ui-bar ui-bar-a"><center><h1>Deals</h1></center>
+                </div>
+            </div>
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+            <style type="text/css"> 
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+                #homeButton:active{ opacity: 0.7; } 
+            </style>
+
+            <div data-role="content">    
+                <ul id="linksList" data-role="listview" data-inset="true"></ul>
+            </div>
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style>
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul></ul></div></div>
+
+
+        </div>
+
+
+        <script type="text/javascript"></script>
+    </body>
+</html>

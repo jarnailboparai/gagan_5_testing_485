@@ -1,0 +1,865 @@
+<html>
+
+
+
+    <head>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+
+
+        <script>
+
+            if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i))) {
+
+
+
+                $.getScript("cordova-2.0.0.js");
+
+                $.getScript("phonegap.js");
+
+                $.getScript("PushNotification.js");
+
+            }
+
+        </script>
+
+
+
+
+
+        <script type="text/javascript">
+
+            function checkTotleCount() {
+
+                if ($('.content_navigation_link h3 a').length == 1) {
+
+                    $('#content_navigation_content').hide();
+
+                    $('#article1').show();
+
+                }
+
+            }
+
+            $(document).ready(function() {
+
+                var articleNumber;
+
+                $('.backClick').click(function() {
+
+                    $('#content_navigation_content').show();
+
+                    $('#article' + articleNumber).hide();
+
+                    checkTotleCount();
+
+                });
+
+                $('.content_navigation_link h3 a').click(function() {
+
+                    $('#content_navigation_content').hide();
+
+                    articleNumber = $(this).attr('href').substr(-1);
+
+                    $('.content_navigation_link').removeClass('active');
+
+                    $(this).parent().parent().addClass('active');
+
+                    $('#article' + articleNumber).show();
+
+                });
+
+                checkTotleCount();
+
+                document.addEventListener("deviceready", initPushwoosh, false);
+
+
+
+            }
+
+            );
+
+        </script>
+
+
+
+        <!--Turn off notification-->
+
+    </head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Facebook Business Page</h1></center>
+
+                </div>
+
+
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+                
+
+
+                <style type="text/css">
+                    .content_navigation_content div,.content_navigation_content p,.content_navigation_content ul,.content_navigation_content h2,.content_navigation_content h3,.content_navigation_content h4,.content_navigation_content img{
+                        padding:0px; 
+                        margin:0px;
+                    }
+                    .content_navigation_link h3 a{
+                        text-decoration:none;
+                    }
+                    .content_navigation_link{
+                        width: 100%;
+                        text-align: center;
+                        line-height: 50px;
+                        display: block;
+                        height: 50px;
+                        border-bottom: 1px solid white;
+                    }
+                    #content_navigation_content{
+                        /*                        overflow: hidden;
+                                                width: 200px;*/
+                        background: grey;
+                        margin: 0 auto;
+                        border-radius: 10px;
+                        /*                        position: fixed;
+                                                left: 50%;
+                                                top: 40px;*/
+                        /*margin-left: -100px;*/
+                        border-radius: 10px; 
+                        box-shadow: 8px 8px 8px silver;
+                    }
+                    .content_navigation_link a{
+                        color:white !important;
+                        display:block;
+                    }
+                    .content_navigation_link:hover, .content_navigation_link:active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .content_block{
+                        word-wrap: break-word;
+                        display: none;
+                    }
+                    #navigationContent{
+                        /*position: relative;*/
+                    }
+                    .content_navigation_link:first-child{
+                        border-radius: 10px 10px 0px 0px; 
+                    }
+                    .content_navigation_link:last-child{
+                        border-radius: 0px 0px 10px 10px; 
+                    }
+                    .content_navigation_link .active{
+                        background: none;
+                    }
+                    #backMenu{
+                        position: fixed;
+                        bottom: 75px;
+                        right: 10px; 
+                        opacity: 0.5;
+                        display: none;
+                    }
+                    #backMenu:hover,#backMenu:active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                </style>
+                <div id="navigationContent">
+                    <div id="content_navigation_content" class="content_navigation_content"><div class="content_navigation_link"><h3><a href="#article1">Introduction</a></h3></div><div class="content_navigation_link"><h3><a href="#article2">Set up Your Business Page</a></h3></div><div class="content_navigation_link"><h3><a href="#article3">Article 3</a></h3></div></div>
+                    <div id="content_blocks"><div class="content_block" id="article1"><p><u style="font-size: large; font-family: Arial, sans-serif; line-height: 1.6em;"><b>Introduction</b></u></p>
+
+<p align="JUSTIFY" lang="en-US"><span style="font-size: medium; font-family: Arial, sans-serif; line-height: 1.6em;">Every business wants to improve its profitability. This is usually achieved by increasing the quality of the product or service, while at the same time ensuring that costs are minimized. Businesses connect to their customers by creating products and services that customers require and then marketing those products to them.</span></p>
+
+<p align="JUSTIFY"><span style="font-family: Arial, sans-serif; font-size: medium; line-height: 1.6em;">Few advertising experts actually understand how advertising works, but what is undeniable is that it does. Towards the end of the twentieth century, the primary modes of advertising were overtly television, radio, print adverts and billboards.</span></p>
+
+<p align="JUSTIFY"><span style="font-size: medium; font-family: Arial, sans-serif; line-height: 1.6em;">Perhaps the best source of advertising and by far the cheapest was word of mouth. Until the invention of the internet, word of mouth rarely found its way into the popular consciousness. Few people would write in to a newspaper to promote their favorite detergent or brand of apparel.</span></p>
+
+<p align="JUSTIFY"><span style="font-size: medium; font-family: Arial, sans-serif; line-height: 1.6em;">The invention of the internet saw word of mouth go global. People and their views are connected as they have never been connected before. There are also a great number of ways of letting people know your opinion, so instead of telling, a neighbor how one product is better than another, people post it on a website and hundreds know about it.</span></p>
+
+<p align="JUSTIFY" lang="en-US"><font color="#333333"><font face="Arial, sans-serif"><font size="3">When you think about your business on the internet, you might be thinking about your website and what you can do with it. You might be thinking about how to get your site to rank high in search engines and where to place your adverts. There is more to it than that now. Social media has developed over the past decade to become one of the primary areas businesses can exploit.</font></font></font></p>
+
+<p align="JUSTIFY"><span style="font-size: medium; font-family: Arial, sans-serif; line-height: 1.6em;">The undoubted star of all social media sites and platforms at the moment is Facebook. MySpace came and went, Twitter has its limits, and other sites are still in the development stage. Here are some statistics that demonstrate just how vast a captive audience there is on Facebook:</span></p>
+
+<ul>
+	<li align="JUSTIFY"><span style="font-size: medium; font-family: Arial, sans-serif; line-height: 1.6em;">Active Users: 800,000,000</span></li>
+	<li align="JUSTIFY" lang="en-US"><font color="#333333"><font face="Arial, sans-serif"><font size="3">Users Active On Any Given Day: 400,000,000</font></font></font></li>
+	<li align="JUSTIFY" lang="en-US"><font color="#333333"><font face="Arial, sans-serif"><font size="3">Average Social Network Size: 130</font></font></font></li>
+	<li align="JUSTIFY" lang="en-US"><font color="#333333"><font face="Arial, sans-serif"><font size="3">Average Page Connections: 80</font></font></font></li>
+	<li align="JUSTIFY" lang="en-US"><font color="#333333"><font face="Arial, sans-serif"><font size="3">Pages, Groups and Events Interacted with Daily: 900,000,000</font></font></font></li>
+	<li align="JUSTIFY" lang="en-US"><font color="#333333"><font face="Arial, sans-serif"><font size="3">Photos Uploaded Daily: 250,000,000</font></font></font></li>
+	<li align="JUSTIFY" lang="en-US"><font color="#333333"><font face="Arial, sans-serif"><font size="3">Apps Installed Daily: 20,000,000</font></font></font></li>
+	<li align="JUSTIFY" lang="en-US"><font color="#333333"><font face="Arial, sans-serif"><font size="3">Languages Available: 70</font></font></font></li>
+	<li align="JUSTIFY" lang="en-US"><font color="#333333"><font face="Arial, sans-serif"><font size="3">Active Mobile Users: 350,000,000</font></font></font></li>
+</ul>
+
+<p align="JUSTIFY"><font color="#333333" style="line-height: 1.6em;"><font face="Arial, sans-serif"><font size="3"><span lang="en-US">Source:&nbsp;</span></font></font></font><a href="http://www.facebook.com/press/info.php?statistics" style="line-height: 1.6em;"><font color="#0782c1"><font face="Arial, sans-serif"><font size="3"><span lang="en-US"><u>Facebook.com</u></span></font></font></font></a><font color="#333333" style="line-height: 1.6em;"><font face="Arial, sans-serif"><font size="3"><span lang="en-US">.</span></font></font></font></p>
+
+<p align="JUSTIFY"><br>
+<span style="font-size: medium; font-family: Arial, sans-serif; line-height: 1.6em;">These statistics are accurate as of 2011. 25% of users on Facebook are from the United States, meaning while there is a strong captive audience for American businesses at home, there is also a vast array of potential users for internationally minded companies as well.</span></p>
+
+<p align="JUSTIFY" lang="en-US"><font color="#333333"><font face="Arial, sans-serif"><font size="3">Modern businesses, like yours, want to know how to exploit Facebook to increase profile and profits. Social media has the potential, if something goes viral, to reach millions if not billions of people across the world. This e-book is aimed at helping you along the first steps in setting up a Facebook business page. It will cover each basic step in the process, with explanations of different features and visual aids. It will also tell you how to maximize the effect of your page, how to connect it, and maybe make a little money from it.</font></font></font></p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+</div><div class="content_block" id="article2"><p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font style="font-size: 16pt"><b>The Facebook Layout</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Before setting up a business page, you need to make sure you have a Facebook account. Now, this can be done with your personal account, but it is not always the best idea to mix the professional with the personal. Create a Facebook account for your business in the same way you would create a normal account.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif" style="line-height: 150%;"><font size="4"><span lang="en-US">Facebook’s primary interface is divided into three basic sections. </span></font></font></p>
+
+<ol>
+	<li align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%;"><font face="Arial, sans-serif" style="line-height: 150%;"><font size="4"><span lang="en-US">The right-hand column will give you status updates, links to events such as birthdays, and a list of people available to chat. </span></font></font></li>
+	<li align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%;"><font face="Arial, sans-serif" style="line-height: 150%;"><font size="4"><span lang="en-US">The central column is your live newsfeed telling you about status updates, photos and links recorded by your contacts. </span></font></font></li>
+	<li align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%;"><font face="Arial, sans-serif" style="line-height: 150%;"><font size="4"><span lang="en-US">The left-hand column includes your favorites, pages, apps, and lists. The most important of these for you is the </span></font></font><font face="Arial, sans-serif" style="line-height: 150%;"><font size="4"><span lang="en-US"><b>pages</b></span></font></font><font face="Arial, sans-serif" style="line-height: 150%;"><font size="4"><span lang="en-US"> page.</span></font></font></li>
+</ol>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><b style="font-size: 16pt; font-family: Arial, sans-serif; line-height: 150%;">&nbsp;Creating a Basic Business Page</b></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><b style="font-size: large; font-family: Arial, sans-serif; line-height: 150%;">Step 1 – Create the Page</b></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">There should be a clickable button saying “more” parallel with the “pages” title in the left-hand column. This will take you to your pages directory. This is a list of the pages that you control. This page will contain a “Create a Page” button. Click it.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><span style="font-size: large; font-family: Arial, sans-serif; line-height: 150%;">If this button is not available, and sometimes it is not for reasons only Facebook knows, then use the search bar at the centre of the screen. Type “Facebook Pages”</span></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><span style="font-size: large; font-family: Arial, sans-serif; line-height: 150%;">1. The Facebook Pages home page.</span></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><span style="font-size: large; font-family: Arial, sans-serif; line-height: 150%;">As Picture 1 shows you, there is a button entitled “Create a Page” in the top right-hand corner of the page. Click this button.</span></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>Step 2 – Choose Your Type of Page</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Facebook, at the time of writing, offers users a choice of six types of page. These types are as follows:</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">2. There are six possible types of page you can create</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">1. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Local business or place</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: The page is perfect for local businesses or places such as a one-off shop, a home-based soap maker or café/restaurant. Use this page to share your company’s business outlook, mission and to connect to your customers.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">2. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Company, organization or institutions</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: This page is geared more towards companies and groups that operate in a larger region, nationally or internationally. </span></font></font></p>
+
+<p align="JUSTIFY" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">3. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Brand or product</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: Sometimes a product can be swallowed up on a company or local business page, therefore, this type of page can be created in order for you to promote the product alone. This is great for building product name recognition.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">4. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Artist, band or Public Figure</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: Unless you want to promote the big boss or are an agency promoting specific clients, this page is not for you.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">5. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Entertainment</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: These pages are geared more towards music, movies and other forms of entertainment rather than business, though may be connected to your company if your company works in these areas.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">6. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Cause or community</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: Used for charitable causes, issue awareness and for community actions. Create one of these pages if your business is linked to a particular cause and you want to promote it.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>Step 3 – Your Type of Company</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Click on the “Company, organization or institution” button. The graphic will roll up to reveal a set of options:</font></font></p>
+
+<p align="CENTER" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="CENTER" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">3. Choose your company name wisely</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Use the scroll-down bar to pick the category of business that best reflects the type of business you are running. It does not matter if you can find an exact match or not, just pick the best fit. This will help Facebook locate your company within its directory.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Next type in your company name. If your name is Joe Blogs &amp; Sons Catering Supplies Limited, then use a shorter and snappier version such as “Joe Blogs &amp; Sons” or “Joe Blogs Catering Supplies.” </font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Click on the “I agree to Facebook Page terms” box to check it, and click the “Get Started” button.</font></font></p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%; page-break-before: always"><font face="Arial, sans-serif"><font style="font-size: 16pt"><b>Step 4 – The Three Step Process</b></font></font></p>
+
+<p align="CENTER" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="CENTER" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">4. Make sure you have a company logo.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Profile Photo</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: </span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">The old adage says that you should not judge a book by its cover, but people do. The same goes for a company’s Facebook page. For example, if a Facebook user, let’s call her Jane, types in “Catering Suppliers” our dummy company and a host of rivals will come up. Jane will make part of her judgment based on this icon or logo. So choose wisely. </font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Click on “Upload an image” to get a picture from your computer or “Import a photo” to select one from your company website.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Get Fans</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: This is your most basic chance to pick up fans. You can click on the “Invite Friends” button to invite your existing Facebook friends to like your company, or you can click on “import contacts.” This second option will allow Facebook to scan the email addresses in your email account(s) and see who is on Facebook. These people will then be invited to like your company. There are also two tick boxes on this page, which if ticked would allow you to first share your new page on your Facebook wall and second, to like your own company.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Basic Info</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: You get two opportunities to help define your company on this page. The first box allows you to post your website’s address. The second one gives you 255 characters write about your company. Keep it simple and keep it brief. This box tells your customers and fans what exactly your company does.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font style="font-size: 16pt"><b>1.13 – Filling In the Details</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Once you have followed those three steps you should get something a little like this:</font></font></p>
+
+<p align="JUSTIFY" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">5. Your basic business page.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">As you will note, there are five options listed in the main column of your new business page. They are as follows:</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">1. Invite your friends</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">2. Tell your fans</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">3. Status updates</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">4. Promote this page on your website</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-left: 1cm; margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">5. Set up your mobile phone</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Options 1 and 2 you would have done during the Three Step Process in 1.12. We will cover status updates in section 1.3, website promotion in 1.4, and we will also cover setting up your mobile phone in section 1.3.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Ignore these sections for now and click on “Edit Info,” which should be just beneath your company’s name. This will load the following page:</font></font></p>
+
+<p align="CENTER" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">6. Top half of your company information page.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">The categories in the top option line should have already been chosen in the Three Step Process you used to create your page. Now click on the “Official Page” line. Write your company’s official name on this line.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">Now create a username for your company. This should not be a personal name, a nickname, or even a job title. This should be a username that reflects your company as a whole. This is because the username will be added to the URL </span></font></font><font color="#0000ff"><u><a class="western" href="http://www.facebook.com/"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">www.facebook.com</span></font></font></a></u></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> to make something like </span></font></font><font color="#0000ff"><u><a class="western" href="http://www.facebook.com/joeblogs"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">www.facebook.com/joeblogs</span></font></font></a></u></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">. The best advice is for you to use a shortened version of your company name.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">Write your company’s name in the </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Name</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> section. This can be the long or shortened version, but remember that the name is what turns up at the top of the page.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Founded</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: write the year your company was founded.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Address:</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> This is optional and can be as vague as the country, state or town where your company is based or as specific as you want. This depends on whether you want customers to be able to contact you or not.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">7. Bottom half of your information page.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>About: </b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">This should have already been filled in, but take this opportunity to review and decide on a snappier line about what your company does.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Description</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: Write a brief description of your company. You can include a brief history, but also mention your location, how many people you employ and your annual profits or growth rate. You want to impress your readers, but you do not want to be stuffy or boring. Keep it light, accessible and appeal to your core audience.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Mission</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: What is the overriding mission of your company? Is is to just sell stuff and make a profit? This might be true, but it does not go down well with social media users. Write her what your mission is, even if it is to provide the best service to customers or to make the toy dinosaurs the world has ever seen. If you are committed to helping the disadvantaged or the environment definitely, mention it.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Awards</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: Has your company won any product, service or other awards? This is your opportunity to show off. Start with the most recent or the most impressive at the top.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Products</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: What are your core products or services? Mix in a few specific examples to illustrate exactly what you are selling.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Email</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: Enter your company’s primary email address.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Phone</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: Enter your company’s primary contact phone number.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Website</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: paste or type your company’s website address here.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">Now you have finished your basic set up. Click the </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Save Changes</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> button and view your page again. If you look on the left hand side just below your company logo/photo, you will see a list of options. The third one down is the </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>info</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> page. Click this and you will see all of the information you have just put into your page.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">8. An example of an information page.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Before we continue to develop your Facebook Page, it is important to examine Search Engine Optimization (SEO) for Facebook.</font></font></p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p style="margin-bottom: 0cm">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%; page-break-before: always"><font face="Arial, sans-serif"><font style="font-size: 16pt"><b>1.2 SEO for Facebook</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font style="font-size: 16pt"><b>1.21 SEO FAQs</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><i><b>What is SEO?</b></i></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">SEO stands for Search Engine Optimization and is a standard internet term for maximizing the ability of your content to get picked up by search engines. Search engines such as Google, Yahoo and Bing use complex algorithms in an attempt to produce the most relevant results to any one search. </font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><i><b>What information do search engines use?</b></i></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Search engines base their results on a number of factors. These often change (see the following question) and you need to keep adjusting your online content to keep up. Some of the elements of a website that a search engine assesses includes the number of webpages a site has, the quality of the content, the use of keywords and their density, and the number of comments, backlinks, and active users.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><i><b>Do sites need to be loaded with keywords?</b></i></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">Keywords are the most important words relating to your company or to a specific post or topic. The main keywords tend to be in the title of the webpage and should be included at a ratio of about 1 per 100 words. If you use more than this you run the risk of loading the page. Google and other search engines actively discriminated against websites that stuff their pages full of keywords. This is especially true of pages that use too many irrelevant keywords. </span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><i><b>Is SEO still important after Google Panda?</b></i></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">In 2011, the search engine Google decided that its results were being skewed by what have become known as “content farms.” These websites build up extensive numbers of webpages crammed with keywords. The new algorithm attempted to allow quality to trump quality. This means businesses need to be more careful with their keywords and their content in order to avoid a low Google ranking. </span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><i><b>Will rivals who spam affect your SEO ranking?</b></i></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Yes, it is possible that they might. This, however, mostly concerns the SEO of your business or personal website. Your Facebook page should be protected by Facebook’s high ranking. If you feel rivals are spamming and are affecting your SEO ranking, you can report them to the search engine. The search engine’s staff might then restore your ranking while ruining the spammer’s.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><i><b>Is SEO relevant to Facebook?</b></i></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Very much so, yes. If you keyword and optimize your status updates they will rank higher in search engine results. The same goes for well optimized pages, information boxes and so on. By building a good Facebook page, getting fans and posting videos and links you will build a good SEO reputation and gain free exposure or advertising through search engine results.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font style="font-size: 16pt"><b>1.22 How to SEO Facebook</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">The first and most important step in optimizing your Facebook Page is to think of a list of keywords that help to define your business. Once you have the words you need to learn to deploy them wisely.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>Your Facebook Page Name</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Choose this name with extreme care. It might seem like a good idea to load generic titles like food, catering, cheap or quality into your title, but Facebook and other search engines are designed to block these terms. Keep it simple and keep it real. Use your company’s actual name in a short and snappy way.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>Your Username</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">The username cannot be changed once it has been accepted. This means you need to pick one wisely and pick one that has not already been taken. Again, any attempt to use generic keywords here will be blocked by Facebook.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>About, Description, Mission and Product Sections</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">These sections can be optimized with keywords. Do not stuff them, but try to use each keyword once per 100 words. The best way to optimize this is to use only a couple of keywords and to make sure the sentences make sense. You should also try to use the most relevant keywords here.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>Tabs and Status Updates</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">We are going to discuss both of these Facebook applications in the subsequent sections. You can increase the SEO rating of your Facebook page by posting updates on a frequent basis (once or twice a day), by linking the status update to twitter, and by posting links on your Facebook page to your company website. </font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font style="font-size: 16pt"><b>1.3 Adding Status Updates, Photos, Videos, Links, and Questions</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">Facebook Pages provide users with five main ways of interacting with fans. Each action will appear on the newsfeeds of your fans and will help your rating. You will find these options by clicking on the </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Wall</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> tab on the left-hand side of the page.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">All updates, pictures, videos, links and polls will appear on this newsfeed. They are arranged in chronological order with the most recent at the top. You have two options for viewing your page wall. You can read either all messages posted on your wall or you can filter it so only your own updates appear.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">November 2011 saw another reason to make use of status updates, links, photos and videos. Facebook added an additional widget known as a ticker on the right-hand side of normal profiles. This gives a real time update of a user’s friends, favorite brands and pages. Now your posts will turn up in this ticker as soon as you make them. This means there is more chance of someone noticing your updates.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>Status Updates</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">These are short messages used to make announcements. If your company has hired a new member of staff, is counting down to a product release, won an award or has an opinion about something you can write a message here.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">The status update is automatically selected on your Facebook page wall. Just type your status update into the text box and click </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>share</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>Adding Photos</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Adding photos help customers connect visually to your company or brand. Photos also give you the opportunity to promote products or give sneak previews of products in development. </font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">You click the photo button then are provided with three options. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Uploading a photo</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> allows you to take a photo off your computer, </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>take a photo</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> will take a picture of wherever your webcam is pointing at that moment, and </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>creating an album</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> allows you to collect together photos on the same theme.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>Adding Videos</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Videos work on the same principle as photographs. They provide a more detailed window into your company. They can be used to promote a product, explain a product or to introduce your fans to your company.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Adding a video works in much the same way as adding a photograph. There are two basic options for doing this. First, you can record a video via your webcam. Second, you can upload a pre-recorded video.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>Posting Links</b></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">Posting a link allows you to link back to your website. This function can be combined with the </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Status Update</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> and used to promote products, announcements and awards. You can also use it to link to news items that a relevant to your business.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><b>Adding Questions</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Improve your SEO by posting direct links to your website on your Facebook page as status updates. The question gives you an opportunity to connect directly with your fans. Questions come with a series of poll options and fans can vote on the options you present. There is also a tick box that allows you to give fans the power to add additional options.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font style="font-size: 16pt"><b>1.4 Using Iframe Tabs for Pages</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Also called the Static Iframe tab, the Iframe tab allows you to attach additional pages to your Business Page. If you have created business pages before you might have created additional pages using Static FBML pages. These were phased out in 2011 and replaced with Iframes. </font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">These pages appear in the form of a tab at the top of your business page profile. When a user clicks on the tab, they are taken to your additional page. The tabs appear on the left hand side of your page just under your logo/icon. </font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">These tabs are excellent for producing pages regarding your business’ activities and products. First, you could use the tab to design an about page that goes into more depth than the official Facebook “about” page does. Second, you could produce pages regarding your main products and services. </font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>The Shop Page</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: If your company sells specific products and has its own shop page on the website, then you can copy the URL of this shop page and paste it into the tab. When a customer clicks on a product, they will be taken to your shop page where they can make a purchase.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">To set up a Static Iframe Page follow these simple instructions:</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">1. Search Facebook for the Iframe App. You should get a page that looks like this:</font></font></p>
+
+<p align="JUSTIFY" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">2. Click the green button labeled </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Install Page Tab</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">. This will take you to the “Tab Settings” page:</span></font></font></p>
+
+<p align="JUSTIFY" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">You can now begin work on defining your tab.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Tab Name: </b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">Theoretically, you can give your tab any name such as “shop” or “history.”</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Non-Fan Page Source</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: Off means non-fans can see your page as well as fans.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Fan Gate:</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> This option (third from bottom) allows you to decide if the friends of your fans can view this page or not.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Fan Gate Workaround: </b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">This option relates to a Facebook bug and might not be present when you create your tab. </span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Form Gate</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: You can decide if viewers need to fill in a form before viewing the content of this tab. </span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Page Source</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: This is where you decide the content of the page. If you select URL and paste a web address this web page (such as a shop) will appear on the tab. Redirect will take you to the webpage itself. Image will load a simple image on your tab, and the HTML option allows you to paste something a bit more complicated.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Once you have finished playing with the options, save the tab settings and return to your main page. Click on the tab title in your left hand options menu to view how the page looks to your fans.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;
+
+
+
+            </div><!-- /content -->
+
+
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="content3.html"] .ui-icon { background:  url("icon(59).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content2.html"] .ui-icon { background:  url("icon(1).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content1.html"] .ui-icon { background:  url("icon(14).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="content1.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content1.html" class="" onclick="window.open('content1.html','_self', 'location=yes')">Facebook Business Page</a></li><li><a href="content2.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content2.html" class="" onclick="window.open('content2.html','_self', 'location=yes')">Advanced</a></li><li><a href="content3.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content3.html" class="" onclick="window.open('content3.html','_self', 'location=yes')">Bonuses</a></li><li><a href="optin_form.html" id="tab2" data-icon="custom" rel="external"  data-gourl="optin_form.html" class="" onclick="window.open('optin_form.html','_self', 'location=yes')">Optin form</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+    </body>
+
+
+
+</html>

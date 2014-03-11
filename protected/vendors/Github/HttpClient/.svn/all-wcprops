@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/HttpClient
+END
+HttpClient.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/HttpClient/HttpClient.php
+END
+HttpClientInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/HttpClient/HttpClientInterface.php
+END
+CachedHttpClient.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/HttpClient/CachedHttpClient.php
+END

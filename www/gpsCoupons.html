@@ -1,0 +1,172 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="theme.css" />
+       
+        <script src="jquery-1.6.4.min.js"></script>
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+        <script>
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+        
+        	$.getScript("cordova-2.0.0.js");
+			$.getScript("phonegap.js");
+			$.getScript("PushNotification.js");			
+		}
+		</script>
+        
+
+        
+        <script type="text/javascript">
+	                        
+            $(document).ready(function() {
+                //	 alert("1");
+                document.addEventListener("deviceready",onDeviceReadyCheckNetwork,false);
+            });
+    
+            function onDeviceReadyCheckNetwork() {
+                // alert("2");
+                var networkState = navigator.network.connection.type;
+                if (networkState===Connection.UNKNOWN){
+                    alert ("It appears you are currently not connected to the Internet. Please establish a connection and try again.");
+                }
+                else if (networkState===Connection.NONE){
+                    alert ("It appears you are currently not connected to the Internet. Please establish a connection and try again.");
+                }
+
+            }
+        </script>
+
+        <script type="text/javascript"
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCbdn-63_hl2McRGbyUIZ9szQu13MjCPkU&sensor=true"></script>
+        <script type="text/javascript">
+
+            var geocoder;
+            var distance;
+            var bounds = new google.maps.LatLngBounds();
+            var destination = '123 street, New York';
+            var distanceLimit= 20;
+            var gotResult=0;
+	  
+
+            function onBodyLoad() {
+                //alert('onBodyLoad started');
+                if( navigator.userAgent.match(/Android/i) ) {
+                    //alert('Android UA matched');
+                    onDeviceReadyGPS();
+                } else if (typeof navigator.device == "undefined"){
+                    document.addEventListener("deviceready", onDeviceReadyGPS, false);
+                } else {
+                    onDeviceReadyGPS();
+                } 
+            }
+
+
+
+
+            function onDeviceReadyGPS() {
+                //alert('onDeviceReady started');
+                timeMsg();
+                navigator.geolocation.getCurrentPosition(middleMan);
+            }
+  
+            function middleMan(position){
+                //alert('middleMan started');
+                calculateDistances(position);
+            }
+    
+            function calculateDistances(position) {
+                var latitude=position.coords.latitude;
+                var longitude=position.coords.longitude;
+                //alert('Lat:' + latitude);
+                //alert('Lng:' + longitude);
+                var origin = new google.maps.LatLng(latitude, longitude);
+                geocoder = new google.maps.Geocoder();
+                var service = new google.maps.DistanceMatrixService();
+                service.getDistanceMatrix(
+                {
+                    origins: [origin],
+                    destinations: [destination],
+                    travelMode: google.maps.TravelMode.DRIVING,
+                    unitSystem: google.maps.UnitSystem.IMPERIAL,
+                    avoidHighways: false,
+                    avoidTolls: false
+                }, callback);
+		  
+            }
+
+            function callback(response, status) {
+                //alert('1');
+                if (status != google.maps.DistanceMatrixStatus.OK) {
+                    //alert('Error was: ' + status);
+                } else {
+                    //alert('2');
+                    var origins = response.originAddresses;
+                    var destinations = response.destinationAddresses;
+                    var outputDiv = document.getElementById('outputDiv');
+                    outputDiv.innerHTML = '';
+                    //alert('3');
+                    for (var i = 0; i < origins.length; i++) {
+                        //alert('4');
+                        var results = response.rows[i].elements;
+                        for (var j = 0; j < results.length; j++) {
+                            //alert('5');
+                            distance = results[j].distance.value;
+                            distance = distance / 1609.344;
+                            //alert('Dist:' + distance);
+                            gotResult=1;
+                            if (distance<distanceLimit){
+                                //alert('success');
+                                outputDiv.innerHTML += '<p>You are in range</p><p>&nbsp;</p>';
+                            }
+                            else{
+                                //alert('fail');
+                                outputDiv.innerHTML += '<p>You are not in range</p>';
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            function timeMsg()
+            {
+                var t=setTimeout('alertMsg()',20000);
+            }
+            function alertMsg()
+            {
+                //alert('timeout');
+                if (gotResult==0){
+                    outputDiv.innerHTML = '';
+                    outputDiv.innerHTML += '<p>You are not in range</p>';
+                }
+            }
+        </script>
+        <!--Turn off notification-->
+    </head>
+    <body onLoad="onBodyLoad()">
+        <div data-role="page" data-add-back-btn="true">
+
+            <div data-role="header">
+                <div class="ui-bar ui-bar-a"><center><h1>Coupons</h1></center>
+                </div>
+            </div>
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+            <style type="text/css"> 
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+                #homeButton:active{ opacity: 0.7; } 
+            </style>
+
+            <div data-role="content">
+                <div id="outputDiv"><center><img src="radar.gif"></center><br>Checking available coupons for your location...</div>
+            </div>
+
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style><div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false">		<div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="blogFeeds.html" id="tab1" data-icon="custom" rel="external"  data-gourl="blogFeeds.html">RSS</a></li><li><a href="news.html" id="tab2" data-icon="custom" rel="external"  data-gourl="news.html">News</a></li><li><a href="events.html" id="tab3" data-icon="custom" rel="external"  data-gourl="events.html">Events</a></li><li><a href="deals.html" id="tab4" data-icon="custom" rel="external"  data-gourl="deals.html">Deals</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+
+
+    </body>
+</html>

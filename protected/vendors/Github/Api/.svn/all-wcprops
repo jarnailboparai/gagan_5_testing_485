@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api
+END
+Gists.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Gists.php
+END
+ApiInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/ApiInterface.php
+END
+AbstractApi.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/AbstractApi.php
+END
+GitData.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/GitData.php
+END
+User.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/User.php
+END
+CurrentUser.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/CurrentUser.php
+END
+Markdown.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Markdown.php
+END
+Authorizations.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Authorizations.php
+END
+Organization.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Organization.php
+END
+Repo.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repo.php
+END
+PullRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/PullRequest.php
+END
+Issue.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Issue.php
+END

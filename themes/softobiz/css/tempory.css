@@ -1,0 +1,86 @@
+/*.slider #ulilili li img{
+	visibility:hidden;
+}
+#jCarouselLiteDemo .carousel ul{
+	margin-left: 228px !important;
+}
+.crousel_wrap button.prev,.crousel_wrap button.next,.date,.rebuild{
+	display: none;
+}
+.manual_crousel ul li{
+	margin:0px 29px !important;
+}
+.crosel_invisible_wrap ul{
+	width: 735px !important;
+}
+*/
+.slider #ulilili li:nth-child(5) .coming_soon{
+	display:none;
+}
+
+.date,.rebuild{
+	display: none;
+}
+.slider #prev,.slider #next{
+	pointer-events:none;
+}
+
+.slider #jCarouselLiteDemo .carousel ul{
+	margin-left: 0px !important;
+}
+
+
+.app_preview.stick{
+	margin-top:-135px !important;
+}
+
+
+/* coming soon Setting */
+.coming_soon {
+    height: 342px;
+    position: absolute;
+    width: 228px;
+}
+.coming_soon .faded_bg {
+    background: none repeat scroll 0 0 #fff;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+	opacity:0.6;
+}
+.coming_soon > img {
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: auto !important;
+	background:none !important;
+	z-index:100;
+}
+#jCarouselLiteDemo .carousel.main li,.crosel_invisible_wrap ul li{
+	position:relative;
+	pointer-events:none;
+}
+#jCarouselLiteDemo .carousel.main li .upcoming_feature,.crosel_invisible_wrap ul li .upcoming_feature
+{
+	background:url(../img/feature_coming_soon.png) right top no-repeat;
+	position:absolute;
+	left:-4px;
+	width:100%;
+	height:100%;
+	top:4px;
+}
+.crosel_invisible_wrap ul li .upcoming_feature{
+	top:-2px;
+	background-size:68%;
+	left:0px;
+	pointer-events:none;
+}
+#jCarouselLiteDemo .carousel.main li:nth-child(1) .upcoming_feature,#jCarouselLiteDemo .carousel.main li:nth-child(2) .upcoming_feature,#jCarouselLiteDemo .carousel.main li:nth-child(3) .upcoming_feature,#jCarouselLiteDemo .carousel.main li:nth-child(4) .upcoming_feature,.crosel_invisible_wrap ul li:nth-child(1) .upcoming_feature,.crosel_invisible_wrap ul li:nth-child(2) .upcoming_feature,.crosel_invisible_wrap ul li:nth-child(3) .upcoming_feature,.crosel_invisible_wrap ul li:nth-child(5) .upcoming_feature{
+	display:none;
+}
+#jCarouselLiteDemo .carousel.main li:nth-child(1),#jCarouselLiteDemo .carousel.main li:nth-child(2),#jCarouselLiteDemo .carousel.main li:nth-child(3),#jCarouselLiteDemo .carousel.main li:nth-child(4),.crosel_invisible_wrap ul li:nth-child(1),.crosel_invisible_wrap ul li:nth-child(2),.crosel_invisible_wrap ul li:nth-child(3),.crosel_invisible_wrap ul li:nth-child(5){
+	pointer-events:auto;
+}
+/* Coming soon settings ends here */

@@ -1,0 +1,141 @@
+ .controls{
+        float: left;
+    }
+
+
+    #customizePreview{
+        float: left;
+        margin-top: -18px;
+        margin-left: -5px;
+    }
+
+    .change_icon_block{
+        width: 45px;
+        height: 45px;
+        position: relative;
+        
+    }
+
+    .change_icon_block_image_wrapper{
+        display: block;
+        width: 43px;
+        height: 43px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid #CCC;
+        border-radius: 3px;
+        background: #E9E9E9;
+        line-height: 40px;
+        cursor: pointer;
+        
+    }
+
+    .change_icon_block_image_wrapper img{
+        max-width: 40px;
+        height: auto;
+        vertical-align: middle;
+    }
+
+    .change_icon_block_popup{
+        width: 400px;
+        height: 300px;
+        background: white;
+        border: 1px solid #CCC;
+        border-radius: 10px 10px 10px 0;
+        position: absolute;
+        left: 43px;
+        bottom: 43px;
+        padding: 5px;
+        background: #F8F8F8;
+        display: none;
+        z-index: 1;
+    }
+
+    .change_icon_block_tabs{
+        height: 30px;
+        overflow:hidden;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        margin-bottom: -1px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .change_icon_block_tabs li{
+        float:left;
+        margin-right: 5px;
+        border:1px solid #ccc;
+        border-radius:5px 5px 0 0;
+        line-height:28px;
+        height:28px;
+        text-align: center;
+        padding: 0 15px;
+        background: #E9E9E9;
+        cursor: pointer;
+    }
+
+    .change_icon_block_tabs li.active{
+        border-bottom-color:#fff;
+        background: #fff;
+    }
+
+    .change_icon_block_tabs_content{
+        overflow:auto;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        height: 269px;
+        border: 1px solid #ccc;
+        border-radius:0 0 5px 5px;
+        background: #fff;
+        position: relative;
+    }
+
+    .change_icon_block_tabs_content li{
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        display: none;
+    }
+
+    .change_icon_block_tabs_content li.current_tab_content{
+        display: block;
+    }
+
+    .change_icon_block_tabs_content li span{
+        display: inline-block;
+        width: 43px;
+        height: 43px;
+        text-align: center;
+        vertical-align: middle;
+        border:1px solid #ccc;
+        margin: 3px;
+        border-radius:3px;
+        background: #E9E9E9;
+    }
+
+    .change_icon_block_tabs_content li span img{
+        max-width: 40px;
+        height: auto;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .change_icon_block_popup em{
+        font-style: normal;
+        font-weight: bold;
+        display: block;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        border: 1px solid #B4B4B4;
+        border-radius: 7px;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        cursor: pointer;
+        z-index: 100;
+    }

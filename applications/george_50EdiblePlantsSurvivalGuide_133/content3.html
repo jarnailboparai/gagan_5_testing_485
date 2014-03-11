@@ -1,0 +1,896 @@
+<html>
+
+
+
+    <head>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+
+
+        <script>
+
+            if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i))) {
+
+
+
+                $.getScript("cordova-2.0.0.js");
+
+                $.getScript("phonegap.js");
+
+                $.getScript("PushNotification.js");
+
+            }
+
+        </script>
+
+
+
+
+
+        <script type="text/javascript">
+
+            function checkTotleCount() {
+
+                if ($('.content_navigation_link  a').length == 1) {
+
+                    $('#content_navigation_content').hide();
+
+                    $('#article1').show();
+
+                }
+
+            }
+
+            $(document).ready(function() {
+
+                var articleNumber;
+
+                $('.backClick').click(function() {
+
+                    $('#content_navigation_content').show();
+
+                    $('#article' + articleNumber).hide();
+
+                    checkTotleCount();
+
+                });
+
+                $('.content_navigation_link  a').click(function() {
+
+                    $('#content_navigation_content').hide();
+
+                    articleNumber = $(this).attr('href').substr(-1);
+
+                    $('.content_navigation_link').removeClass('active');
+
+                    $(this).parent().parent().addClass('active');
+
+                    $('#article' + articleNumber).show();
+
+                });
+
+                checkTotleCount();
+
+                document.addEventListener("deviceready", initPushwoosh, false);
+
+
+
+            }
+
+            );
+
+        </script>
+
+
+
+        <!--Turn off notification-->
+
+    </head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>50 Edible Plants</h1></center>
+
+                </div>
+
+
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+                
+
+
+                <style type="text/css">
+                    /*                    .content_navigation_content div,.content_navigation_content p,.content_navigation_content ul,.content_navigation_content h2,.content_navigation_content h3,.content_navigation_content h4,.content_navigation_content img{
+                                            padding:0px; 
+                                            margin:0px;
+                                        }*/
+                    /*                    .content_navigation_link h3 a{
+                                            text-decoration:none;
+                                        }
+                                        .content_navigation_link{
+                                            width: 100%;
+                                            text-align: center;
+                                            line-height: 50px;
+                                            display: block;
+                                            height: 50px;
+                                        }*/
+                    /*                    #content_navigation_content{
+                                                                    overflow: hidden;
+                                                                    width: 200px;
+                                            background: grey;
+                                            margin: 0 auto;
+                                            border-radius: 10px;
+                                                                    position: fixed;
+                                                                    left: 50%;
+                                                                    top: 40px;
+                                            margin-left: -100px;
+                                            border-radius: 10px; 
+                                            box-shadow: 8px 8px 8px silver;
+                                        }*/
+                    /*                    .content_navigation_link a{
+                                            color:white !important;
+                                            display:block;
+                                        }*/
+                    /*                    .content_navigation_link:hover, .content_navigation_link:active{
+                                            background: #27a1c5;
+                                            cursor:pointer;
+                                        }*/
+                 
+                    .content_block{
+                        word-wrap: break-word;
+                        display: none;
+                    }
+                    #navigationContent{
+                        /*position: relative;*/
+                    }
+                    /*                    .content_navigation_link:first-child{
+                                            border-radius: 10px 10px 0px 0px; 
+                                        }
+                                        .content_navigation_link:last-child{
+                                            border-radius: 0px 0px 10px 10px; 
+                                        }
+                                        .content_navigation_link .active{
+                                            background: none;
+                                        }*/
+                    #backMenu{
+                        position: fixed;
+                        bottom: 75px;
+                        right: 10px; 
+                        opacity: 0.5;
+                        display: none;
+                    }
+                    #backMenu:hover,#backMenu:active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                </style>
+                <div id="navigationContent">
+                    <ul class="content_navigation_content ui-listview ui-listview-inset ui-corner-all ui-shadow" id="content_navigation_content" style="display: none;" data-inset="true" data-theme="a" data-role="listview"><li class="content_navigation_link"><a href="#article1">Article 1</a></li></ul>
+                    <div id="content_blocks"><div class="content_block" id="article1" style="display: block;"><p><strong><em>1 - Amaranth </em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img style="border-width: 2px; border-style: solid; width: 100px; height: 114px; float: right;" alt="Amaranth" src="http://www.doomsday-survival.info/wp-content/uploads/2013/08/amaranth-100x114.jpg"></strong></p>
+
+<p><strong>Leaves</strong> - Late Spring/Early Fall</p>
+
+<p><strong>Seeds</strong> - Late Summer/Late fall</p>
+
+<p><strong>Description:</strong></p>
+
+<p>Amaranth is a weedlike annual and is a hardy and stout herbal weed. It grows anywhere from 5 inches up to over 5 feet. It has rough stems that are&nbsp;hairy or fuzzy and can have many branches. The leaves are anywhere from 3 to 7 inches long and will alternate and they are rough and veiny. The underside of young leaves will be a light purple in color. It flowers in clusters which can be up to 3 inches long.</p>
+
+<p>The seeds are plentiful and will be a shiny dark color, most times black or very dark brown and will be found at the ends of branches and stems. The root will be reddish in color.</p>
+
+<p><strong>Locale: </strong></p>
+
+<p>All across the North America and Canada, mostly in disturbed or waste soil. Not usually found in higher elevations/altitude or desert areas.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The leaves and seeds are the edible portions. Younger leaves can be consumed raw and older or more mature leaves can be boiled as an herbal tea.</p>
+
+<p>An accumulation of nitrates are common with amaranth and with that being said it is wise to not consume large amounts, it can cause stomach discomfort.</p>
+
+<p>The seeds can be used for flour when boiled and ground.</p>
+
+<p><strong>Medicinal Qualities:</strong></p>
+
+<p>Using the leaves, they can be&nbsp;boiled&nbsp;for a tea. This can help with common diarhea.</p>
+
+<p><strong>Misc:</strong></p>
+
+<p>Can be used for other survival tools, stems can be shredded and ground for fire tinder and the longer more straight shafts of the stem when dry&nbsp;can be used for a make shift hand drill for starting a fire.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;</p>
+
+<p><em><strong>2 - Balsam Fir &nbsp; </strong></em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img style="border-width: 2px; border-style: solid; width: 120px; height: 112px; float: right;" alt="Balsam Fir" src="http://www.doomsday-survival.info/wp-content/uploads/2013/08/balsam-fir-with-cones-120x112.jpg"></p>
+
+<p><strong>Inner bark</strong> - Spring</p>
+
+<p><strong>Pitch</strong> - Year around</p>
+
+<p><strong>Description:</strong></p>
+
+<p>The balsam fir can be a tall fir ranging up to over 70 feet in height and it's shape can be related&nbsp;to a steeple and&nbsp;can be relatively&nbsp;slender and can be up to 2 feet indiameter.&nbsp; The needles being anywhere from 1/2 inch up to 1-1/2 inches in length are flat with a rounded base that are dark green&nbsp;on top&nbsp;with 2 distinct white lines on the bottom. The cones vary in size and&nbsp;can be from 1 inch up to 4 or 5 inches in length, they can be &nbsp;purple to a light green color and grow from the tops of the branches standing in an upright position.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>Can be found anywhere from north central US to southern Canada to the north east US. Found in cooler climates in wet&nbsp;or damp&nbsp;wooded areas.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The inner bark is used for flour when removed, dried and ground up. The pitch can be eaten raw and is very concentrated only to be eaten in small quantities.</p>
+
+<p><strong>Medicinal Uses:</strong></p>
+
+<p>The bark and smaller twigs and branches can be crushed up and boiled into a tea and used for kidney, bladder and rheumatiod issues. The pitch can also be used as a topical when applied on abrasions or cuts to help with healing.</p>
+
+<p><strong>Misc:</strong></p>
+
+<p>The pitch can also be boiled down and used for a glue or waterproofing.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;</p>
+
+<p><em><strong>3 - Blackberries &nbsp; &nbsp; &nbsp;</strong></em> &nbsp; &nbsp;<img style="border-width: 2px; border-style: solid; width: 120px; height: 100px; float: right;" alt="Blackberries" src="http://www.doomsday-survival.info/wp-content/uploads/2013/08/Blackberrie-120x100.jpg"></p>
+
+<p><strong>Berries</strong> - Summer</p>
+
+<p><strong>Leaves</strong> - Summer</p>
+
+<p><strong>Young Shoots</strong> - Spring</p>
+
+<p><strong>Description:</strong></p>
+
+<p>The blackberry shrub is almost a nuisance as it is very hardy. It is very thorny and has long viney branches, can grow to lengths up to and beyond 10 feet in height and length. The stem is green and sometimes a purplish red&nbsp;in color and&nbsp;usually very angular or a natural octagonal in shape.</p>
+
+<p>The leaves can be 1-1/2 inches up to 10 inches in length and are grown in groups and usually&nbsp;have&nbsp;3 to &nbsp;7 leaflets. The flowers are white with 5 petals with the berries ranging in color from red to very dark black, hence the name Blackberry. They are very juicy and are an excellent source of survival food.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>Blackberries can be found just about everywhere in the United States and Canada and they are usually found in thickets, forest, along old roadways,&nbsp;near and along creeks and wet areas very abundantly.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The berries and younger stems can be eaten raw, berries can also be boiled into juice,&nbsp;tea or a jelly. The older leaves when dried can be boiled and steeped as a tea.</p>
+
+<p><strong>Misc:</strong></p>
+
+<p>The straight portions of the vine like stems when dried are very hard and stiff and can be used for hand drills or crushed and shredded&nbsp;then used for fire tinder.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;</p>
+
+<p><span style="line-height: 1.6em;"><strong><em>4 - Blueberries/Huckleberries</em></strong> &nbsp; &nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 100px; height: 85px; float: right;" alt="Blueberries" src="http://www.doomsday-survival.info/wp-content/uploads/2013/08/bluberries-100x85.jpg"></span></p>
+
+<p><strong>Berries</strong> - Summer to Fall</p>
+
+<p><strong>Description:</strong></p>
+
+<p><strong><img style="border-width: 2px; border-style: solid; width: 100px; height: 85px; float: right;" alt="Huckleberry" src="http://www.doomsday-survival.info/wp-content/uploads/2013/08/red-huckleberries.jpg"></strong></p>
+
+<p>The blueberry and huckleberry are similar with blueberries being blue or dark purple in color and the huckleberries being a shallow red in color.</p>
+
+<p>The shrub itself can be 2 feet up to 8 feet in height with many branches that are delicate in nature. Usually green in color with sometimes having a light purplish tint. The leaves can be anywhere from 1 to 4 inches in length and alternating. They are deciduous, toothless and eliptical in shape. The flowers are usually white or very light green in color, have small pedals ranging in size from 1/4 inch upto 1/2 inch or more.</p>
+
+<p>The berries can be found in slight variations in color from blue, black or red in color and can be identified by a star shape at the top formed by the calyx.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>Bluberries and huckleberries can be found across the United states and Canada and are usually located in forests, thickets, swamps and wooded areas and are usually found in acidic soils. The&nbsp;exception to this&nbsp;is they are not usually found&nbsp;in desert or plains type areas.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The berries can be eaten raw. They can be cooked and or boiled or dried. As a <strong>cautionary advisory</strong>, blueberries and huckleberries&nbsp;can be confused easily with the buckthorn berry. They are similar in color, the difference is the buckthorn is poisonous and&nbsp;will not have the star shaped calyx formed at the top like the blueberry or huckleberry and the stem of the buckthorn&nbsp;usually will have thorns.</p>
+
+<p><strong>Misc:</strong></p>
+
+<p>The branches that are straight can be used for a hand drill for fire starting or even used as make shift arrow shafts.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<div>
+<p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;</p>
+
+<p><em><strong>5 - Burdock &nbsp; </strong></em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 114px; height: 114px; float: right;" alt="Burdock" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/burdock-resize.jpg"></p>
+
+<p><strong>Stems</strong> - Spring to Summer</p>
+
+<p><strong>Leaves</strong> - Spring</p>
+
+<p><strong>Roots</strong> - Summer</p>
+
+<p><strong>Description:</strong></p>
+
+<p>The burdock plant is an biennial which is usually a&nbsp;large brush type of herb. It grows between 1 and 6 feet in height and has a course type of stem that is fairly stiff and usually has multiple branches. The leaves are ovate and can be very large on the lower portions, almost heart like in shape and have a scaloped and wavy edge. They are&nbsp;considered toothless and have fuzzy or hairy undersides. Most leaves will alternate.</p>
+
+<p>The flower will be red to purple in color. The seed pod will be round shaped and will be cluster like with numerous spurs or&nbsp;burr like small thorns.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>Usually found all over the United States except southern portions&nbsp;and also found in Canada. They can be located in moist ground, wet and forested areas&nbsp;in disturbed types of&nbsp;soils or swampy areas.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The leaves can be boiled and steeped but should be done with several changes of water and used for tea. The stem and the roots can be peeled and boiled and eaten like vegetables. The seeds can be&nbsp;germinated and grown to sprouts&nbsp;and used as a garnish.</p>
+
+<p><strong>Misc:</strong></p>
+
+<p>Long dry stems can be used for hand drills for fire starting or if dried can be crushed and shredded to use as tinder.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<em><strong>6 - Cattails &nbsp;</strong></em> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 114px; height: 125px; float: right;" alt="Cattails" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Cattail.jpg"></p>
+
+<p><strong>Young Shoots and Stalks</strong> - Early Spring</p>
+
+<p><strong>Roots</strong> - Any time summer through Winter</p>
+
+<p><strong>Description:</strong></p>
+
+<p>Simply put the cattail is like the jack of all trades, it has many qualities and uses&nbsp;and is considered the grocery store of the wilderness. It is hardy, has a plethora of edibles and other excellent survival uses.</p>
+
+<p>It is easy to spot and is abundant. It has long or tall stiff stalks, long sword like leaves and a thick&nbsp;brown seed top shaped like a hot dog and nearly the same in length. They can reach heights of over 8 feet. In the spring time it will sprout&nbsp; 2 flower heads, one above the other with the one at the top being the male and the bottom a female.&nbsp;The male as it grows will turn into a tan or light brown&nbsp;pollen cluster while the lower female will turn into the recognizable dark brown fuzzy seed top.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>The cattail can be found all over north America and Canada and will be&nbsp;located easily&nbsp;in swampy type of wetland areas, edges of ponds and lakes. Almost anywhere there is standing water you will find cattails.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Edibles: </strong></p>
+
+<p>As mentioned earlier, the cattail is a&nbsp;wilderness grocery store&nbsp;and is edible year around. In spring time the younger shoots and stalks can be peeled or stripped and can be eaten either raw or by boiling. During late spring the flower heads or seed tops can be stripped down and boiled to eat. The pollen heads, which form in early summer can be picked and eaten raw or dried and ground in to flour. In&nbsp;late summer all the way through winter the roots can be collected and eaten. They are found at the base of the plant and look like horn shaped sprouts, can be eaten raw or&nbsp;boiled. The root stalk can also be gathered and then&nbsp;ground or crushed, placed in water and dissolved&nbsp;in to flour after it is drained and dry. It contains large amounts of starch.</p>
+
+<p><strong>Medicinal Qualities:</strong></p>
+
+<p>Green or ripened cattail flowers can be crushed and used a a balm or salve for burns, cuts and abrasions. There is a milky juice type substance that has high medicinal value which can be found between the young leaves and is used for an antiseptic, anaesthetic and a styptic. It has a numbing effect like novacaine and can be used for pain or discomfort including for a toothache when rubbed on to the gums.</p>
+
+<p><strong>Misc:</strong></p>
+
+<p>The stalks can be used for hand drills for fire starting, shelter building structure, arrows for hunting and other survival tools. The brown seed tops, when pulled or stripped&nbsp;can be used for insulation, fire starter/tinder, bedding and stuffed in to clothing for warmth. The leaves can be used for shelter&nbsp;thatching and basket weaving. It truly is the most versatile plant available in the wilderness.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<em><strong>7 - Chickweed &nbsp; &nbsp; &nbsp; </strong></em>&nbsp; <img style="border-width: 2px; border-style: solid; width: 114px; height: 100px; float: right;" alt="Chickweed" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/chickweed-resize.jpg"></p>
+
+<p><strong>Stems</strong> - All Year</p>
+
+<p><strong>Leaves</strong> - All Year</p>
+
+<p><strong>Description:</strong></p>
+
+<p>Chickweed is a small ground cover type of winter annual that is usually 2 to 10 inches in height with trailing branches that can reach lengths of up to 15 inches. The stem is loose and finely haired with multiple branching. The leaves are usually 1/2 to 1 inch long and alternate and have pointed tips. The flowers are small with a bilobed structure with 5 petals with them having a deep or apparent groove or cleft.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>The chickweed is found all across the United States and Canada and can be&nbsp;located in forested, thickets, fields, woodlands and meadows.</p>
+
+<p><strong>Edibles: </strong></p>
+
+<p>The young tender leaves and stems can be eaten raw or can be boiled to make a tea. Older stems and leaves can be boiled to soften for eating.</p>
+
+<p><strong>Medicinal Qualities:</strong></p>
+
+<p>The leaves and stems can be boiled to make a porridge which can then be applied to treat burns, cuts and abrasions or rashes.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<em><strong>8 - Clovers &nbsp; </strong></em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img style="border-width: 2px; border-style: solid; width: 120px; height: 100px; float: right;" alt="Clover" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Clover.jpg"></p>
+
+<p><strong>Leaves</strong> - Spring to Summer</p>
+
+<p><strong>Flowers</strong> - Spring to Summer</p>
+
+<p><strong>Seeds</strong> - Spring to Summer</p>
+
+<p><strong>Roots</strong> - Fall to Winter</p>
+
+<p><strong>Description:</strong></p>
+
+<p>Clovers are short or low growing herb with heights reaching from 2 to 20 inches. The leaves are round or heart shaped with usually&nbsp;3 leaflets that are most times 1/2 inch up to 2-1/2 inches in size. The flowers are usually a thick or dense head that are 1/2 inch to 1 inch long and have white and sometimes light yellow or pinkish toned petals.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>Located&nbsp;all across the United States and Canada and found in Fields, meadows, dry forest and woods.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The younger leaves can be consumed raw.&nbsp;Older more mature leaves can be boiled and used as an potherb. The flower head can also be&nbsp;boiled and steeped fora tea. The seed heads can be ground and used for flour. The root can be peeled or scraped and then boiled for consuming.&nbsp;A <strong>cautionary advisory, </strong>consuming large amounts of clover leaves can cause upset stomach or indegestion.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<em><strong>9 - Cottonwoods </strong></em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 118px; height: 100px; float: right;" alt="Cottonwood" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/cottonwood-leaves.jpg"></p>
+
+<p><strong>Inner Bark</strong> - Spring</p>
+
+<p><strong>Description:</strong></p>
+
+<p>A large deciduous tree that grows&nbsp;anywhere from 30 to over 100 feet tall, is up to 3 ft in diameter and&nbsp;has a&nbsp;rough type bark<strong>. </strong>The tree's bark is usually a shallow green in color as an immature but as the tree ages the bark will turn darker and much more course and rigid. The leaves are a dense green in color and are anywhere from 2 to 7 inches in length with stems up to 3 or more inches and are heart shaped to a fine point. Usually has small buds that are sticky. The flower is a &nbsp;is a dense, elongated, drooping cluster without petals and is finely covered with a soft&nbsp;fuzz or cotton.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>Usually found all through out the United States and Canada and can be located in dense woods, river bottoms and edge areas&nbsp;close to&nbsp;water ways.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The inner bark, cambium can be peeled and&nbsp;eaten raw/green or in dry form.</p>
+
+<p><strong>Misc:</strong></p>
+
+<p>The small hard&nbsp;or dry branches make excellent material for hand drills for fire starting.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<em><strong>10 - Cranberries </strong></em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 110px; float: right;" alt="Wild Cranberries" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-cranberries.jpg"></p>
+
+<p><strong>Berries </strong>- Fall to Winter</p>
+
+<p><strong>Description:</strong></p>
+
+<p>A woody perennial the cranberry is a low trailing type of shrub. It's leaves are 1/4 to 1 inch long and are an alternating oval. The flower is about 1/2 inch long and is usually white or pink in color with the berries being a reddish in color and are approx. up to 1/2 inch in diameter and carry a lot of seed.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>Found in the northern parts of the United states and Canada. They are usually in Swampy open bogs or rocky open soil.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The berries can be eaten raw or they can be cooked and or boiled. They can be crushed and mixed with water for juice.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<em><strong>11 - Dandelion </strong></em>&nbsp; &nbsp; &nbsp; &nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Dandelion" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Dandelion.jpg"></p>
+
+<p><strong>Leaves</strong> - Early spring</p>
+
+<p><strong>Roots </strong>- Fall to Early Spring</p>
+
+<p><strong>Flower Buds</strong> - Early Spring</p>
+
+<p><strong>Description:</strong></p>
+
+<p>A common herb that is part of the sunflower family usually grows 2 to&nbsp;15 inches in height. The stem is soft and&nbsp;tubular and hollow and when broke or crushed has a milky white sap. The leaves are basal and can be as long 12 inches&nbsp; with uneven or scaloped edges&nbsp;or lobes. The flower is usually anywhere from 3/4 up to 2 inches in diameter&nbsp;with numerous yellow petals. Seed heads consist of long white bristles with seeds and what many of us as children would pick, make a wish a blow the seed heads to the wind.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>Commonly found across the United States and Canada. loacted fileds, meadows, groves and anywhere there is plenty of sun. Also commonly found in lawns.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The young or immature leaves can be eaten raw. More mature leaves and&nbsp;crown heads&nbsp;should be boiled before consuming. The root of the dandelion has been for many, an instant coffee dating back to WWII. The root can be dried and ground and used as a coffee substitute. The flower when dipped in a batter can make excellent fritters.</p>
+
+<p><strong>Medicinal Qualities:</strong></p>
+
+<p>The edible portions of the dandelion can be used for blood circulation. As a <strong>cautionary&nbsp;advisory,</strong> it may have an adverse effect with pharmaceutical medications being taken for those with diabetes. It can intensify&nbsp;blood sugar lowering affects with some of those medications.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<em><strong>12 - Elderberries &nbsp; &nbsp; </strong></em>&nbsp; &nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Elderberries" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Wild-Elderberries.jpg"></p>
+
+<p><strong>Flowers</strong> - Early summer</p>
+
+<p><strong>Berries </strong>- Late Summer to Early Fall</p>
+
+<p><strong>Description:</strong></p>
+
+<p>The elderberry can be a stout shrub ranging from 2-1/2 feet tall up to and more than 10 feet. It has a smooth stem with light gray bark that has a thick white under tissue. The leaves are opposite, meaning across instead of alternating and they are oval to lanceolate and usually 2 to 6 inches long. The flowers are very small and usually in cluster&nbsp; 2 inches up to and around 10 inches aound and are white. The berries are small, round and very juicy and can be white, red, black and purple.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>Found throughout the United States and Canada and are located in wet or damp areas, edge thickets, along river woods and roadsides.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The flowers can be boiled and steeped for tea. Fresh flowers can also be dipped in a batter and fried. The berries, only&nbsp;purple or black&nbsp;can be eaten. They must be&nbsp;boiled or dried, they can be very tart so boiling or drying helps to eliminate that. <strong>Cautionary advisory </strong>- White or red berries are very toxic and the&nbsp;roots and leaves are poisonous. Consuming them can cause severe diarhea and vomiting.</p>
+
+<p><strong>Medicinal qualities: </strong></p>
+
+<p>The flowers can be used as a&nbsp;fever break, the tea made from them induces a sweat. The bark or flower used&nbsp;in a cold tea can be applied to abrasions like a disinfectant which helps with healing.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<em><strong>13 - Evening Primrose</strong></em> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Evening Primrose" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-evening-primrose.jpg"></p>
+
+<p><strong>Leaves</strong> - Late Spring to Mid/Late summer</p>
+
+<p><strong>Description:</strong></p>
+
+<p>The evening primrose can be a tall shrub growing up to 5 feet tall with rough, hairy stems. The stem is very leafy and they are lanceolate and can be&nbsp;2 to 8 inches long and have a lemon scent to them. The flower is small with heart shaped petals&nbsp;which are&nbsp;yellow in color and can be&nbsp;1 to 3 inches around.&nbsp;The root, carrot like in shape is usually whitish in color.</p>
+
+<p><strong>Locale:</strong></p>
+
+<p>Found throughout the United States and Canada and can be located in open areas, along roadsides and in some dry areas and field edges.</p>
+
+<p><strong>Edibles:</strong></p>
+
+<p>The leaves can be eaten raw or boiled. If boiled you should use multiple changes of water. The root can be boiled in multiple changes of water&nbsp;and is best in fall or early spring.</p>
+
+<p><strong>Misc:</strong></p>
+
+<p>The bark is stringy so it can be used for cordage or weaving.</p><p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<em><strong>14 - Fly Honeysuckle</strong></em>&nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Fly Honeysuckle" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/fly-honeysuckle.jpg"></p>
+
+<p><strong>Berries</strong> - Summer</p>
+
+<p><strong>Description:</strong></p><p>Small shrub type plant with upright branches that are stiff. The bark is an exfoliating type. It can be anywhere from 1 to 5 feet tall. The leaves are opposite and are oval, hairy and dark green. The flower is a slender, yellow in color and tubular and usually inverted. The berries are blue in color and have many seeds.</p><p><strong>Locale:</strong> </p><p>Found in north eastern US and Canada and located in wet, damp and moist wooded thickets and areas around swamps and bogs.</p><p><strong>Edibles:</strong></p><p>The berries&nbsp;can be eaten raw or dried and are very tasty.</p><p><strong>Misc:</strong></p><p>The stem and other parts can be sed for tinder and for cordage/weaving&nbsp;material.</p><p>&nbsp;</p><p>&nbsp;</p>
+
+<hr>
+<p><em><strong>15 - Grasses </strong></em>&nbsp; &nbsp; &nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Wild Grasses" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-grass.jpg"></p>
+
+<p><strong>Description:</strong></p><p>Please see "the Core 4" in the directory tabs.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<em><strong>16 - Greenbriers </strong></em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Wild Greenbrier Tips" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-greenbrier-tips.jpg"></p>
+
+<p><strong>Leaves</strong> - Spring to Summer</p>
+
+<p><strong>Roots</strong> - All Year Around</p>
+
+<p><strong>Shoots</strong> - Spring to Summer</p>
+
+<p><strong>Tendrils</strong> - Spring to Summer</p>
+
+<p><strong>Description:</strong></p><p>Greenbriers are a viney type of plant and can reach lengths up to 10 feet long. The stems are free branching and very prickly. The leaves are of the parallel type and can be up to 5 inches long with a leather feel, veined and are oblong, oval or round&nbsp;in shape. The berries are small dark blue or black in color and are usually in small formed clusters. The roots are thick and rough&nbsp;in nature and can be long and slender.</p><p><strong>Locale:</strong></p><p>Found throughout the central and eastern&nbsp;United States and Canada and located in sandy, loam soils, swamp, damp, moist thickets and bottomlands.</p><p><strong>Edibles:</strong></p>
+
+<p>&nbsp;The young shoots, leaves and tendrils can be eaten raw or boiled like vegetables. The roots can be dried and ground for flour for use as a thickener for soups or mixed with water for a tasty drink.</p><p><strong>Misc: </strong></p><p>The vines can be used for baskets, cordage or for making traps.</p>
+
+<hr>
+<p><br>
+<em><strong>17 - Hemlock Trees</strong></em>&nbsp; &nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Hemlock" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-hemlock-tree.jpg"></p>
+
+<p><strong>Inner Bark</strong> - Spring</p>
+
+<p><strong>Needles</strong> - All Year Around</p>
+
+<p><strong>Description:</strong></p><p>The hemlock is an evergreen that is very straight and tall growing up to 150 feet in height. The trunks can be up to and over 3 feet in diameter. The branches often droop and the bark will be thick and dark brown.</p><p>The needles are usually 1/4" up to 1 inch in length and are a yellow to bluish green with a whitish bottom and in rows on both sides of the stem.</p><p>The cones hang and are oval and can be 1 to 2 inches in length.</p><p><strong>Locale:</strong></p><p>Located all across the United States and Canada and can be&nbsp;found in moist or wet woods, shaded and mountainous areas.</p><p><strong>Edibles:</strong></p><p>The inner bark can be dried and&nbsp;ground for flour and the needles can be gathered and chopped up and steeped as a tea. The needles are very high in vitamin C. </p><p>A <strong>cautionary advisory,</strong> do not confuse the&nbsp;Hemlock tree with the shrub of the same name, the shrub is very toxic.</p><p><strong>Misc:</strong></p><p>The dry cones and bark can be excellent fire starter.&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><em><strong></strong></em>&nbsp;</p><p><em><strong>18 - Maple Trees </strong></em>&nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Maple Tree" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Maple-tree-and-leaves.jpg"></p>
+
+<p><strong>Pitch/Sap</strong> - Early Spring</p>
+
+<p><strong>Inner bark</strong> - Spring</p>
+
+<p><strong>Seedlings</strong> - Early Spring</p>
+
+<p><strong>Seeds</strong> - Fall</p>
+
+<p><strong>Description:</strong></p><p>The maple tree<strong> </strong>can be many shapes and sizes and range in height from 5 feet up to and beyond 50 feet. It branches opposite and&nbsp;also the leaves are opposite. &nbsp;The leaves usually&nbsp;are lobed and will have 3 or more pointed lobes. The seeds are winged and are almost a dragon fly shape without&nbsp;a body, when they fall they spin and fly to the ground like helicopter blades.</p><p><strong>Locale:</strong></p><p>Found in damp wooded areas and loamy types of soils and they range all across the United States and Canada.</p><p><strong>Edibles:</strong></p><p>The sap from the maple can be used for tea water or boiled into a syrup. The seedlings can be rinsed and eaten raw. The seeds can be shucked and then boiled to eat. Inner bark can be ground and used for flour. <strong>Cautionary Advisory</strong> - Do not mistake viburnums for the maple.</p><p><strong>Misc:</strong> </p><p>The&nbsp;small limbs&nbsp;can be used for a hand drill for fire starting and the mid size branches can be used for a survival bow. Seed husks or wings when dry&nbsp;can be used for fire tinder.</p><p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><span style="line-height: 1.6em;"><em><strong>19 - Milkweed &nbsp; &nbsp; </strong></em>&nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Milkweed w/Buds" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Milkweed-with-buds.jpg"></span></p>
+
+<p><strong>Flowers</strong> - Summer</p>
+
+<p><strong>Seed Pods</strong> - Late Summer</p>
+
+<p><strong>Young Leaves</strong> - Early Spring</p>
+
+<p><strong>Young Shoots</strong> - Early Spring</p>
+
+<p><strong>Description:</strong></p><p>The milkweed is an annual herb and is usually 2 to 6 feet tall with downy, straight,&nbsp; greenish colored stems and has a milky sap. The flowers are usually white with&nbsp; a dull purplish tint and will be in small domed clusters and usually at the base of the upper leaves. The seeds are green with a pointy knobby look to them.&nbsp;</p><p><strong>Locale:</strong></p><p>Located across the northern United States and Canada and can be found in loose soils, fields, edge areas and disturbed ground.</p><p><strong>Edibles:</strong></p><p>The milkweed actually is not very edible as is.&nbsp;All parts&nbsp;must be boiled to remove the toxic milky sap. This is done by boiling in&nbsp;numerous changes of water and should be boiled for at least 15 minutes total to&nbsp;remove toxicity&nbsp;safely. This includes all portions of the plant even though it is considered to be an edible.</p><p><strong>Misc:</strong></p><p>The stem can be used for cordage when peeled. It can also be used for tinder. The down can be used as an insulation and also be used for tinder for fire starter. The sap can be used for a makeshift glue.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;</p>
+
+<p><em><strong>20 - Nettles </strong></em>&nbsp; &nbsp; &nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Stinging Nettles" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Stinging-Nettles.jpg"></p>
+
+<p><strong>Leaves</strong> - Summer</p>
+
+<p><strong>Shoots</strong> - Spring</p>
+
+<p><strong>Roots</strong> - All Year Around</p>
+
+<p><strong>Description:</strong></p><p>The nettle is a leafy herb that is usually upright or erect and has un-branched&nbsp;stems. The stem has many hollow, fine stinging hairs. The leaves are oblong, ovate and usually 2 to 4 inches in length with deep veins and have many stinging hairs on the undersides of the leaves.&nbsp;</p><p><strong>Locale:</strong></p><p>The nettle can be found in most any damp or wet land area, along creeks or river beds, dense thickets, swamps and shady areas. They are located all across the United states and Canada.</p><p><strong>Edibles:</strong></p><p>The stems, leaves and young shoots can be boiled or steamed for a few minutes&nbsp;to remove toxins and then can be eaten. Do not eat without boiling. The leaves can be boiled and used for a delightful tea. The root can be boiled for a soup base. <strong></strong></p><p><strong>Caution - Do not gather with the bare hands. </strong>The fine hollow hairs contain formic acid and will cause stinging and small welts where ever contacted with skin. Use gloves or some other form of hand protection before gathering. Rubbing crushed Oak leaves (they contain tannic acid, a form of antidote)&nbsp;can help remedy if you have come in contact with nettles to the skin.</p><p><strong>Misc:</strong></p><p>The<strong> </strong>dried stems can be used for a hand drill for fire starting and the fibers from the stems also make an excellent fire tinder. The stem also makes fine cordage.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;</p>
+
+<p><em><strong>21 - New Jersey Tea &nbsp;</strong></em> &nbsp; &nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="New Jersey Tea" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/New-Jersey-Tea.jpg"></p>
+
+<p><strong>Leaves</strong> - Late Spring to Early Fall</p>
+
+<p><strong>Description:</strong></p><p>A small bushy shrub like plant that usually is between 3 to 5 feet in height. It has leaves that are 1 to 3 inches in length, alternate, ovate and often have a&nbsp;heart shaped base with visible veins. The flowers are white and have 5 petals about a 1/4 inch in width and are in cluster form.</p><p><strong>Locale:</strong></p><p>Found all around in central&nbsp;to&nbsp;eastern portions of the United States and Canada and can be located in open woods, dry open hillsides and open thickets.</p><p><strong>Edibles:</strong></p><p>The leaves can be dried and boiled and&nbsp;used for a tea. </p><p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;<em><strong>22 - Passion Flower </strong></em>&nbsp; &nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Passion Flower" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Wild-Passion-Flower.jpg"></p>
+
+<p><strong>Berries/Fruit</strong> - Late Summer to Early Fall</p>
+
+<p><strong>Description:</strong></p><p>The passion flower is a low trailing or climbing type of&nbsp;vine. It can reach lengths up to 40 feet. The young stems are weak and when mature are ribbed, veined&nbsp;and strong and can be up to 1 inch in diameter.&nbsp;</p><p>The leaves are palmate and usually have 3 to 5 cleft lobes which are finely toothed and can be 1 to 4 inches in length. The flowers are usually 2 to 3 inches across and have 5 white petals with 5 white sepals with a purplish corona. </p><p>The fruit is a yellowish/orange&nbsp;and is 1 to 2 inches long, around 1 inch across with a shallow covering like flesh and will be filled with red seeds.</p><p><strong>Locale:</strong></p><p>The passion flower is found in the southern and eastern portions of the United States and can be located along road sides,&nbsp;in open grassy areas, meadows, fields and damp thickets.</p><p><strong>Edibles:</strong></p><p>The fruit can be used as a pulp and eaten raw or mixed with water for a delightful drink. </p><p><strong>Medicinal:</strong></p><p>The leaves can be boiled and steeped as a tea&nbsp;and used as a light or mild sedative.</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;</p>
+
+<p><em><strong>23 - Peppermint &nbsp;</strong></em> &nbsp; &nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Wild Peppermint" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Wild-Peppermint.jpg"></p>
+
+<p><strong>Leaves</strong> - Summer to Fall</p>
+
+<p><strong>Description:</strong></p>
+
+<p>&nbsp;The peppermint is a very prominent and potent aromatic herb. Its stems are square and grow between 1 and 4 feet tall with a purplish tint and branch at the tops. The leaves are opposite, are 1 to&nbsp;2 inches in length, are sharply toothed and have pointed tips. </p><p>The flowers will be about 1/4 to 1/2 inch long and are pink to a pale violet in color, 2 lipped and clustered and are 4 lobed.&nbsp;The fruit is a 4 sided nutlet.</p><p><strong>Locale:</strong></p><p>Found all across the United sates and Canada and can be located in wet, damp areas, damp&nbsp;meadows, near&nbsp;streams or creeks or shores.</p><p><strong>Edibles:</strong></p><p>The leaves can be gathered and steeped as tea and also dried for seasonings. </p><p><strong>Medicinal:</strong></p><p>The leaves are high in vitamin A and C and can be used as a tea&nbsp;for alleviating symptoms of a cold.</p><p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;</p>
+
+<p><span style="line-height: 1.6em;"><em><strong>24 - Pine Trees</strong> </em>&nbsp; &nbsp; &nbsp;&nbsp;<img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Pine Tree" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-pine-tree.jpg"></span></p>
+
+<p><strong>Needles</strong> - All Year Around</p>
+
+<p><strong>Pollen Anthers</strong> - Spring</p>
+
+<p><strong>Cone/seeds</strong> - All Year around</p>
+
+<p><strong>Description: </strong><strong>Please see "The 4 Core"</strong></p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p>&nbsp;</p>
+
+<p><em><strong>25 - Plantain &nbsp; &nbsp;&nbsp;</strong></em><img style="border-width: 2px; border-style: solid; width: 133px; height: 100px; float: right;" alt="Plantain" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Wild-Plantain.jpg"></p>
+
+<p><strong>Leaves</strong> - Early Spring</p>
+
+<p><strong>Seeds</strong> - Summer</p>
+
+<p><strong>Description:</strong></p><p>Plantain is a low growing type of herb and is an annual&nbsp;and or&nbsp;perennial. It grows from 6 inches to 2 feet tall with erect stems. The leaves are basil rosettes and they are usually 4 to 12 inches long, very prominently veined, ovate and elliptical. The flowers are usually a light greenish white in color and are in spike form on leafless stems. </p><p>The fruit is a&nbsp;small capsule&nbsp;containing 2 or more black seeds.</p><p><strong>Locale:</strong></p><p>Found through out the United states and Canada and can be located in disturbed types of soils or damp areas.</p><p><strong>Edibles:</strong></p><p>The leaves can be boiled and eaten as a &nbsp;potherb. The seeds, when dried and&nbsp;ground can be used for flour or they can be boiled and eaten as a cereal.</p><p>&nbsp;</p><p><strong>Medicinal:</strong></p><p>The leaves when crushed and ground up can be used as a remedy for minor wounds, bruises and sprains.&nbsp;1 or 2 seed pods&nbsp;can be taken daily as an insect repellent and are also and&nbsp;excellent&nbsp;source of vitamin B&nbsp;and can be taken daily.&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<hr>
+<p><br>
+<strong>26 - Pond Lily</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img align="right" alt="Pond Lily" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Pond-Lily.jpg"></p>
+
+<p><strong>Seeds</strong> - Late Summer to Fall</p>
+
+<p><strong>Roots</strong> - Fall to Early Spring</p>
+
+<p><strong>Description:</strong></p><p>The pond lily is an aquatic plant. They&nbsp;grow and float on the waters&nbsp;surface. The leaves are usually quite large and will be&nbsp;4 to 16 inches in diameter. They are roundish or heart shaped. </p><p>The flowers are usually 1-1/2 to 3 inches wide and are white and yellowish&nbsp;in color and usually single or a solitary flower to each pod or plant. They are waxy or almost fake looking with 5 to 7 round type petals or sepals.</p><p><strong>Locale:</strong></p><p>Found all across the United states and Canada and are located in ponds, lakes, standing water muskegs and marshes.</p><p><strong>Edibles:</strong></p><p>The seeds can be parched, winnowed and ground into flour or can be fried. The large roots can be boiled or cooked and eaten like potato's. They may have a strong taste or flavor, if so boil in multiple changes of water.</p><p><strong></strong>&nbsp;</p>
+
+<p>&nbsp;</p><p><hr><p></p>
+
+<p><br>
+<strong>27 - Prickly Pears&nbsp;&nbsp;&nbsp;&nbsp; <img align="right" alt="Prickly Pear" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Prickly-Pear.jpg"></strong></p>
+
+<p><strong>Pads</strong> - Spring to Early Summer</p>
+
+<p><strong>Seeds/Fruit</strong> - Late Summer to Fall</p>
+
+<p><strong>Description:</strong></p><p>The prickly pear is a succulent spiny cacti type of herb. They grow 2-1/2 to 3 feet in height and have green to dark green pads. The pads are fleshy, round or oblong in shape and are thick and flat. It has spines or thorns that are either single or in clusters.</p><p>The flowers are yellow in color and are 2 to 3 inches wide with&nbsp;8 to 12 petals. The fruit is 1 to 3 inches long and are reddish in color and are prickly, pulpy and juicy&nbsp;and usually shaped similar to a pear.</p><p><strong>Locale:</strong></p><p>Located through out most of the United States and can be found in dry, arid desert locations, rocky and sandy types of soils.</p><p><strong>Edibles:</strong></p><p>The pads are the main course of food and can be peeled then&nbsp;boiled or roasted. The seeds can be ground into flour. The fruit flesh can be eaten raw. <strong>Cautionary Advisory - </strong>The prickly pear is very spiny and can cause severe punctures. Be careful and remove all spines or thorns before consuming.</p><p><strong>Medicinal:</strong></p><p>The pads contain a mucous&nbsp;and when crushed it can be used as an ointment or dressing for wounds and burns. Can also&nbsp;be used for dry or chaffed&nbsp;skin.</p><p><strong>Misc:</strong></p><p>The larger, more stiff thorns can be used as a needle for emergency sewing.</p><p>&nbsp;</p><p><hr><p></p><p>&nbsp;</p><p><strong>28 - Reed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img align="right" alt="Reeds" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Reeds.jpg"></strong></p>
+
+<p><strong>Leaves</strong> - early Spring</p>
+
+<p><strong>Shoots</strong> - Early Spring</p>
+
+<p><strong>Seeds</strong> - Fall</p>
+
+<p><strong>Young Stems</strong> - Early summer</p>
+
+<p><strong>Roots</strong> - Fall to Early Spring</p>
+
+<p><strong>Description:</strong></p><p>The reed is a tall thick stemmed&nbsp;grass. It can grow 5 feet up to 15 feet in height with stems ranging between 1/2 inch up to 1 inch in diameter. The leaves are green and sword like and are 1 to 2 inches wide and can be up to 2 feet in length, smooth and flat, narrow and pointed.</p><p>The flowers are very small and do not have petals. They are scaled and brownish spikes and are grouped. The roots are creeping or trailing vine like and can be up to&nbsp;10 feet long.</p><p><strong>Locale:</strong></p><p>Found all across the United states and Canada and are located in swamps, bogs, ponds and marshes. They can also be found in shallow water and in moist soils.</p><p><strong>Edibles:</strong></p><p>The young shoots and leaves can be boiled and eaten like a vegetable. The fleshy green stalks can be dried, ground and then roasted&nbsp;and used as a sugar or sweetener. The seeds can be ground and used as a flour or boiled and used as a natural cereal.</p><p>The root stalks can be boiled and eaten like a vegetable or dried and ground for flour.</p><p><strong>Misc:</strong></p><p>The large stiff stalks can be used for arrows. They can also be used for a decent hand drill for fire starting. The blades or leaves can be used for insulation, thatching or basket weaving. Dried stalks can also be scraped and used as fire tinder.</p><p><strong></strong>&nbsp;</p><p><hr><strong></strong><p></p>
+
+<p>&nbsp;</p>
+
+<p><br>
+<strong>29 - Salal</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img align="right" alt="Salal" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/Salal.jpg"></p>
+
+<p><strong>Berries</strong> - Fall</p>
+
+<p><strong>Description:</strong></p><p>The Salal plant is a perennial shrub and is usually&nbsp;grows low&nbsp;and in&nbsp;dense thicket style. It can be from 1 foot up to 8 feet high and is stemmy with many branches. It is strong and flexible and hairy.</p><p>The leaves are evergreen and leathery to the touch and round or heart shaped&nbsp;and fine toothed. They have a shiny glossy green color with a pale green underside.</p><p>The flowers are an urn shape with whitish and pinkish nodes in slender clusters. The fruit or berries are dark purple or black in color, hairy and very thick skinned. They are approx.&nbsp;1/4"&nbsp;to&nbsp;1/2"&nbsp;inch in diameter.</p><p><strong>Locale:</strong></p><p>Found all along the west coast of the United States and Canada &nbsp;and can be located in wet or damp areas, moist soils and prefers humidity.</p><p><strong>Edibles:</strong></p><p>The berries can be eaten raw and or boiled. They can also be boiled and dried and pressed in to patties and stored for later consumption.</p><p><strong>Medicinal:</strong></p><p>The leaves can be boiled, steeped as a tea&nbsp;and used for diarrhea. They can also be chewed and used as a poultice for burns, scrapes&nbsp;and sores.</p><p><strong></strong>&nbsp;</p><p><hr><strong></strong><p></p>
+
+<p>&nbsp;</p>
+
+<p><br>
+<strong>30 - Saw Palmetto&nbsp; <img align="right" alt="Saw Palmetto" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/saw-palmetto-resize-1.jpg"></strong></p>
+
+<p><strong>Fruit</strong> - fall</p>
+
+<p><strong>Terminal Bud</strong> - All Year around</p>
+
+<p><strong>Description:</strong></p><p>Saw palmetto is a shrub like palm plant and grows up to 8 feet in height. The stem or trunk&nbsp;is thick and low to the ground. Its leave stocks&nbsp;are long with short rigid spines and are usually 1 to 3 feet&nbsp; wide and are very stiff and rigid with multiple segments and fan like with pointed tips.</p><p>The flowers are white in color and fragment in clusters. The fruit is oblong in shape and black in color and are usually up to 1 inch across.</p><p><strong>Locale:</strong></p><p>They are found in the south eastern&nbsp;portions of the United states and located in pine forests, thickets and sandy or loamy soils or around prairies.</p><p><strong>Edibles:</strong></p><p>At the bases of the leaves you&nbsp;will find the heart, these can be cut out and eaten raw. The bases of the terminal buds can be boiled and eaten as a vegetable.</p><p>&nbsp;</p><p><hr><p></p>
+
+<p>&nbsp;</p>
+
+<p><strong>31 - Sheep Sorrel&nbsp;&nbsp; <img align="right" alt="Sheep Sorrel" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/sheep-sorrel-resize.jpg"></strong></p>
+
+<p><strong>Leaves</strong> - Spring and Summer</p>
+
+<p><strong>Description:</strong></p><p>The sheep sorrel is a very hardy or vigorous perennial herb. It grows from 5&nbsp;to 12 inches in height with small&nbsp;leaves that are 1/2 up to 2 inches in length and are an arrow head in shape.</p><p>The flowers are very small and are a reddish or green in color that are branching spikelets on the upper portions of the stems. The fruit is seed like and are a shiny dark gold or brown in color. The roots are a red tint and slender runners.</p><p><strong>Locale:</strong></p><p>Found throughout the United States and Canada and mostly located in open areas or loose soils.</p><p><strong>Edibles:</strong></p><p>The leaves can be boiled as a potherb or can be eaten&nbsp;lightly in portion. They can be boiled and steeped as a tea as it is rich in vitamin C. <strong>Cautionary Advisory -</strong> Consuming to large of quantity may cause stomach cramps or discomfort.</p><p><strong>Medicinal:</strong></p><p>The leaves can be crushed and steeped in tea form to be used to help with sore throats or internal bleeding. They can be crushed and used as a poultice for minor wounds or skin problems and can slow external bleeding.</p><p>&nbsp;</p><p><hr><p></p><p>&nbsp;<br><strong>32 - Spruce Tree's&nbsp;&nbsp; <img align="right" alt="Spruce Tree" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/spruce-1.jpg"></strong></p>
+
+<p><strong>Inner Bark</strong> - Spring</p>
+
+<p><strong>Needles</strong> - All year around</p>
+
+<p><strong>Young shoots</strong> - Spring</p>
+
+<p><strong>Description:</strong></p><p>The spruce is a thick crowned steeple shaped evergreen with hanging or drooping branches and grows between 45 and 90 feet tall. Its bark is a silver gray in color and sometimes brownish with long scales. </p><p>Its needles are usually around 1 inch in length and are evergreen with 4 sides, sharp and pointed and stiff and grow in spiral around the small&nbsp;branches.&nbsp;A small wood like base stays on the twig or branch after the needles are removed.</p><p>The seed cones are cylindrical in shape and are approx. 1-1/2 inches up to 3 inches long and are a brown in color with a paper type of scales.</p><p><strong>Locale:</strong></p><p>They can be found throughout the United States and Canada and be located in colder climates, wet or damp uplands and in boggy types of soils.</p><p><strong>Edibles:</strong></p><p>The needles can be boiled and steeped as a tea that is very rich in vitamin C. The inner bark can be peeled and dried and then ground into a flour. The young saplings or shoots&nbsp;can be boiled and eaten like a vegetable.</p><p><strong>Medicinal:</strong></p><p>The needles can be crushed and boiled into a tea and used for a mouth wash for sore throats or open sores&nbsp;and&nbsp;can also be used as a poultice for skin irritations.</p><p><strong>Misc:</strong></p><p>The boughs can be used for many things including shelter thatching and bedding. The needles can be crushed and used a human scent cover.</p><p>&nbsp;</p><p><hr><p></p><p><br><strong>33 - Sumac&nbsp;&nbsp;&nbsp; <img align="right" alt="Sumac" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/sumac.jpg"></strong></p>
+
+<p><strong>Berries</strong> - Summer</p>
+
+<p><strong>Description:</strong></p><p><strong></strong>&nbsp;The sumac is a small shrub and sometimes grows larger to tree form and can be from 3 feet up to 25 feet or more. The stem is erect or upright and is branched mainly towards the tops.</p><p>The dwarf sumac has a&nbsp;winged leaf stock and leaves&nbsp;that are toothless while the staghorn sumac has velvety branches with leaves that are 2 to 4 inches in length and almost feather like.</p><p>The flowers are small and greenish in color&nbsp;and are in terminal clusters that can be up to 6 inches long. </p><p>The fruit is hard and hairy and red in color with &nbsp;a cone like form.</p><p><strong>Locale:</strong></p><p>Found all across the United states and Canada and can be located in fields, dry areas, dry hillsides and loose or poor soil types.</p><p><strong>Edibles:</strong></p><p>The berries or fruit can be dried and stored or can be used like a tea when soaked in cold water, it will make an acidic delightful drink.</p><p><strong>Cautionary Advisory</strong> - Poison sumac has white berries and toothless leaves and will be found in swamp or bog areas. Do Not use this form of sumac, it can cause severe skin irritation or dermatitis.</p><p><strong>Medicinal:</strong></p><p>The dried red berries or fresh berries&nbsp;can be boiled<strong> </strong>and steeped as a hot tea and used&nbsp;as a sore throat gargle.</p><p><strong>Misc:</strong></p><p>Completely dried and&nbsp;hard stems can be used for hand drills for fire starting. The green stems can be used for shelter material as they can be flexible and formed to shape.&nbsp;</p><p><strong></strong>&nbsp;</p><p><hr><strong></strong><p></p>
+
+<p>&nbsp;<br>
+<strong>34 - Wild Sun Flower</strong>&nbsp;&nbsp;&nbsp; <img align="right" alt="Wild Sunflower" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-sunflower.jpg"></p>
+
+<p><strong>Seeds</strong> - Late Summer to Fall</p>
+
+<p><strong>Description:</strong></p><p>The wild sunflower is a large&nbsp;herbaceous plant and can grow from 3 feet&nbsp;up to 10 feet or more in height. The stems are rough and hairy with leaves that are ovate and heart shaped. </p><p>The flower heads can be from 3 inches up to 7 inches in diameter with many yellow protruding petals and a brown disk center seed flower.</p><p><strong>Locale:</strong></p><p>The wild sunflower can be found in the western regions to the&nbsp;central portions of the United States. It can be located in fields, lightly wooded areas, prairies and loose or disturbed types of soils.</p><p><strong>Edibles:</strong></p><p>The sunflower seeds can be eaten raw or crushed and used as flour or a cereal. </p><p>&nbsp;</p><p><hr><p></p><p><strong></strong>&nbsp;</p>
+
+<p><strong>&nbsp;35 - Wild Sweet Fern&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img align="right" alt="Wild Sweet Fern" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-sweet-fern.jpg"></strong></p>
+
+<p><strong>Leaves</strong> - Late spring to Early Fall</p>
+
+<p><strong>Nuts</strong> - Summer to Fall</p>
+
+<p><strong>Description:</strong></p><p>The sweet fern is a small woody type shrub and has many branches. The stem is slender and gray in color and usually grows between 1 to 6 feet tall.&nbsp; The leaves are fern like and are green and sometimes grayish in color and are usually 3 to 8 inches long. </p><p>The fruit is green and are round bristly burr like that are approx. up to 1 inch in length and contain hard glossy&nbsp;brown nutlets that are 1/4 to1/2 inch long.&nbsp; </p><p><strong>Locale:</strong></p><p>The sweet fern is found throughout most of the eastern United states and Canada and can be located in open forest or woodlands, in sandy or loam types of soils and sterile pastures.</p><p><strong>Edibles:</strong></p><p>The leaves can be boiled and steeped for a tea. The nutlets can be eaten raw. </p><p><strong>Medicinal:</strong></p><p>The leaves when boiled and steeped as a tea will help with diarrhea. The leaves can also be crushed and used as a poison ivy remedy and an insect repellent. </p><p><strong>Misc:</strong></p><p>The dried leaves make a very good&nbsp;tinder for fire starting and the small flexible branches can be used for basket or weaving materials.</p><p><strong></strong>&nbsp;</p>
+
+<p><hr>&nbsp;<p></p><p><br>
+<strong>36 - Tamarack&nbsp;&nbsp; <img align="right" alt="Tamarack" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-tamarack.jpg"></strong></p>
+
+<p><strong>Inner Bark</strong> - spring</p>
+
+<p><strong>Shoots</strong> - Spring</p>
+
+<p><strong>Description:</strong></p><p>The tamarack is a unique tree and is usually slender and can grow from 20 to 80 feet in height. It is usually pointed with a thin bark that is grayish to light reddish&nbsp;brown in color. It has deciduous needles that are a pale green in color that grow in dense&nbsp;tufts on short bump like spurs and they will turn a yellowish color in the fall.</p><p>The cones are an oval in shape and will be a reddish to brown in color.</p><p><strong>Locale:</strong></p><p>The tamarack is found in the northern portions of the United States and Canada and can be located in open forest or woodlands, in swampy areas and high alpine areas.</p><p><strong>Edibles:</strong></p><p>The young shoots can be boiled and eaten like vegetables and the inner bark can be ground and used for flour.</p><p><strong>Misc:</strong></p><p>The smaller&nbsp;branches can be used for hand drills for fire starting.&nbsp;</p><p><strong></strong>&nbsp;</p><p><hr><strong></strong><p></p>
+
+<p>&nbsp;</p>
+
+<p><strong>37 - Thistles&nbsp;&nbsp; <img align="right" alt="Thistle" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-Thistle.jpg"></strong></p>
+
+<p><strong>Leaves</strong> - Spring to Early Summer</p>
+
+<p><strong>Stalks</strong> - Summer Pre-Bloom</p>
+
+<p><strong>Roots</strong> - Spring to fall</p>
+
+<p><strong>Description:</strong></p><p>The thistle is a biennial herb and can grow from 1 to 6 feet tall. It has straight stems and can be branched or unbranched and either have&nbsp;thorns or no thorns. The leaves are usually&nbsp;5 to&nbsp;12 inches in &nbsp;length with an alternating pattern. They are spiny, lanceolate and have wavy edges.</p><p>The flower is usually 1 to 2 inches in diameter and each plant can have many flowers or&nbsp;even a singular flower. They have a white to violet colored flower head.</p><p>The root is of the&nbsp;fleshy type that is&nbsp;&nbsp;horizontal and stringy.</p><p><strong>Locale:</strong></p><p>The thistle can be found throughout the United Stats and Canada and can be located in meadows, prairies, open woodlands, roadsides and pastures.</p><p><strong>Edibles:</strong></p><p>The young leaves and stems after removing the thorns can be eaten raw or&nbsp;boiled. The older stems and roots can be peeled and boiled as a vegetable.</p><p><strong>Misc:</strong></p><p>The down or fluff portion of the dried&nbsp;seed heads can be used as an excellent insulation material and also as an excellent fire tinder.</p><p>&nbsp;</p><p><hr><p></p>
+
+<p>&nbsp;</p>
+
+<p><strong>38 - Walnuts&nbsp;&nbsp; <img align="right" alt="Walnut" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/wild-walnut.jpg"></strong></p>
+
+<p><strong>Pitch/Sap</strong> - Early Spring</p>
+
+<p><strong>Nuts</strong> - Fall</p>
+
+<p><strong>Description:</strong></p><p>The walnut tree can grow to be very old. It is&nbsp;an irregular branching type of tree that can grow from 30 feet to over 90 feet tall. The trunk can be anywhere from 2 feet to over 6 feet in diameter with a very rough type of bark that is pale gray to dark gray.</p><p>The leaves can be from 10 to 20 inches long and compound with leaflets from 5 to 7 inches long that are toothed.</p><p>The fruit is a spherical or oblong&nbsp;shaped and covered with a thick green husk with a brown or darkened shell inside carrying the nutlets.</p><p><strong>Locale:</strong></p><p>The walnut can be found&nbsp;all across the United States and Canada and can be located in loamy soils, open orchards and&nbsp;stream bank thickets.</p><p><strong>Edibles:</strong></p><p>The nuts once extracted from the husk and shell can be eaten raw or roasted.&nbsp; They can also be crushed and used for a cereal or flour. The sap can be extracted and boiled into a syrup.</p><p><strong>Misc:</strong></p><p>The dried inner bark makes an excellent fire tinder. Small diameter green branches can be used for thatching or fish basket traps or other weaving material.</p><p>&nbsp;</p><p><hr><p></p>
+
+<p>&nbsp;</p>
+
+<p><strong>39 - Watercress&nbsp;&nbsp; <img align="right" alt="Watercress" src="http://www.doomsday-survival.info/wp-content/uploads/2013/09/watercress.jpg"></strong></p>
+
+<p><strong>Young Leaves</strong> - All Year Around</p>
+
+<p><strong>Stems</strong> - All Year Around</p>
+
+<p><strong>Description:</strong></p><p>The watercress is a creeping perennial that grows from 4 to 12 inches tall. Its stems are a fleshy smooth type and will sometimes form a sort of dense mat layer in muddy or wet areas. </p><p>The leaves are compound and usually carry 3 to 10 oval leaflets with the terminal leaflet being the biggest.</p><p>The flower is small, white in color&nbsp;and in elongated clusters. The seed pods are usually 1/2 inch up to 1 inch in length and grow in an upward curve.</p><p><strong>Locale:</strong></p><p>The watercress is found throughout the Unit
+
+
+
+            </div><!-- /content -->
+
+
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="youtubeKeywords.html"] .ui-icon { background:  url("icon(54).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content4.html"] .ui-icon { background:  url("icon(12).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content3.html"] .ui-icon { background:  url("icon(44).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content2.html"] .ui-icon { background:  url("icon(124).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content3.html"] .ui-icon { background:  url("icon(13).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="content3.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content3.html" class="" onclick="window.open('content3.html','_self', 'location=yes')">Introduction</a></li><li><a href="content2.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content2.html" class="" onclick="window.open('content2.html','_self', 'location=yes')">The 4 Core</a></li><li><a href="content3.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content3.html" class="" onclick="window.open('content3.html','_self', 'location=yes')">50 Edible Plants</a></li><li><a href="content4.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content4.html" class="" onclick="window.open('content4.html','_self', 'location=yes')">Resources</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+    </body>
+
+
+
+</html>

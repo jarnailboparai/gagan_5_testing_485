@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message
+END
+RequestInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message/RequestInterface.php
+END
+Response.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message/Response.php
+END
+MessageInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message/MessageInterface.php
+END
+AbstractMessage.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message/AbstractMessage.php
+END
+Request.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Message/Request.php
+END

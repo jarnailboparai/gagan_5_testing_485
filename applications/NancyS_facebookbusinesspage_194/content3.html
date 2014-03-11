@@ -1,0 +1,394 @@
+<html>
+
+
+
+    <head>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+
+
+        <script>
+
+            if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i))) {
+
+
+
+                $.getScript("cordova-2.0.0.js");
+
+                $.getScript("phonegap.js");
+
+                $.getScript("PushNotification.js");
+
+            }
+
+        </script>
+
+
+
+
+
+        <script type="text/javascript">
+
+            function checkTotleCount() {
+
+                if ($('.content_navigation_link h3 a').length == 1) {
+
+                    $('#content_navigation_content').hide();
+
+                    $('#article1').show();
+
+                }
+
+            }
+
+            $(document).ready(function() {
+
+                var articleNumber;
+
+                $('.backClick').click(function() {
+
+                    $('#content_navigation_content').show();
+
+                    $('#article' + articleNumber).hide();
+
+                    checkTotleCount();
+
+                });
+
+                $('.content_navigation_link h3 a').click(function() {
+
+                    $('#content_navigation_content').hide();
+
+                    articleNumber = $(this).attr('href').substr(-1);
+
+                    $('.content_navigation_link').removeClass('active');
+
+                    $(this).parent().parent().addClass('active');
+
+                    $('#article' + articleNumber).show();
+
+                });
+
+                checkTotleCount();
+
+                document.addEventListener("deviceready", initPushwoosh, false);
+
+
+
+            }
+
+            );
+
+        </script>
+
+
+
+        <!--Turn off notification-->
+
+    </head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Bonuses</h1></center>
+
+                </div>
+
+
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+                
+
+
+                <style type="text/css">
+                    .content_navigation_content div,.content_navigation_content p,.content_navigation_content ul,.content_navigation_content h2,.content_navigation_content h3,.content_navigation_content h4,.content_navigation_content img{
+                        padding:0px; 
+                        margin:0px;
+                    }
+                    .content_navigation_link h3 a{
+                        text-decoration:none;
+                    }
+                    .content_navigation_link{
+                        width: 100%;
+                        text-align: center;
+                        line-height: 50px;
+                        display: block;
+                        height: 50px;
+                        border-bottom: 1px solid white;
+                    }
+                    #content_navigation_content{
+                        /*                        overflow: hidden;
+                                                width: 200px;*/
+                        background: grey;
+                        margin: 0 auto;
+                        border-radius: 10px;
+                        /*                        position: fixed;
+                                                left: 50%;
+                                                top: 40px;*/
+                        /*margin-left: -100px;*/
+                        border-radius: 10px; 
+                        box-shadow: 8px 8px 8px silver;
+                    }
+                    .content_navigation_link a{
+                        color:white !important;
+                        display:block;
+                    }
+                    .content_navigation_link:hover, .content_navigation_link:active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .content_block{
+                        word-wrap: break-word;
+                        display: none;
+                    }
+                    #navigationContent{
+                        /*position: relative;*/
+                    }
+                    .content_navigation_link:first-child{
+                        border-radius: 10px 10px 0px 0px; 
+                    }
+                    .content_navigation_link:last-child{
+                        border-radius: 0px 0px 10px 10px; 
+                    }
+                    .content_navigation_link .active{
+                        background: none;
+                    }
+                    #backMenu{
+                        position: fixed;
+                        bottom: 75px;
+                        right: 10px; 
+                        opacity: 0.5;
+                        display: none;
+                    }
+                    #backMenu:hover,#backMenu:active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                </style>
+                <div id="navigationContent">
+                    <div id="content_navigation_content" class="content_navigation_content"><div class="content_navigation_link"><h3><a href="#article1">Advertising on Facebook</a></h3></div><div class="content_navigation_link"><h3><a href="#article2">Deals</a></h3></div><div class="content_navigation_link"><h3><a href="#article3">1234</a></h3></div></div>
+                    <div id="content_blocks"><div class="content_block" id="article1"><p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="6"><b>1. Introduction to Facebook adverts</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Like in the rest of the world of advertising, adverts in Facebook are not free, but if deployed correctly they can help you gain more followers and promote your products or services to the right people.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">When considering an advertising campaign there are a large number of variables to think about. First, you need to know what you are selling, why and what message you want to convey to your potential customers. It is not for this book to discuss these elements.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">You also want to know whom the advert will reach. For example, you can get good statistics about who views which television programs and at what times. Top rated shows draw in millions of viewers, as seen in the introduction, Facebook has a potential pool of a billion viewers for your advert. The important things to consider are, whom do you want to advertise too? For how long? In addition, how much can you afford to spend?</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Facebook allows you to target specific groups of people within the site. For example, if you are local to a city like Chicago, then you can target your adverts to users from Chicago and its surrounding areas. If you are based in America, but do most of your business in say Guatemala, then again you can target your adverts towards Guatemalans. </font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="6"><b>2 How to set up a Facebook advert</b></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font style="font-size: 16pt"><span lang="en-US"><b>2.1 Design your advert</b></span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">On the right-hand side of your Facebook Page above </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>insights</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> and below </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>notifications,</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> you will see a button called </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>promote with an advert</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">. This button will take you to this page:</span></font></font></p>
+
+<p align="JUSTIFY" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">This page gives you five options for customizing your Facebook advert:</font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">1. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Destination</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: This is a drop down menu where you can select which page you want to create an advert for. If you only have one page then you will only have one option.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">2. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Type</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: There are two options here: sponsored stories and Facebook Adverts. Sponsored stories will get you more distribution for any page, place or app and usually concerns a positive story about your Facebook Page. The default setting is Facebook Adverts and these simply promote your page or website. They do give you the option of creating a custom message such as “buy now.”</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">3. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Story type</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: Again, there are two options here: Page Post Ad and Facebook Adverts for Pages. See below for Facebook Adverts for Pages. Page Post Ads enables the page post selection option, which allows you to pick a specific page or post to promote.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">4. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Page post selection</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: There are two options here. You can select the advert to automatically display your most recent eligible post, say for example an announcement about a new product or service, or select a specific post. Selecting a specific post (custom post ID (advanced)). The advantage of picking a specific post is that if you can keep advertising a specific product or service for the life of the advert, whereas the most eligible post will change as you make new posts on your Facebook page.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">5. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Preview</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: The preview area displays how the options you pick will affect the finished advert. This means if you are unhappy with the advert you can make changes to it before saving or continuing. </span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Facebook Adverts for Pages </b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">gives you a number of additional options. These options make it a better fit for you if you want to just promote your Facebook page rather than your website or a specific product or service. By clicking this option, you will generate a new bottom half to your advert options page:</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">1. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Destination Tab</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: This gives you five options for deciding where clicking on the advert will take users. These five destinations are default, wall, info, friend’s activity and photos. The best options to choose are default or info, as you want users to know about your company.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">2. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Title</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: This is the title of your Facebook page.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">3. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Body</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: What text do you want users to see? Customize this text to give them a quick message. Make it short and snappy.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">4. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Image</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: It is loaded with your default page image, but you can upload a new photograph or picture from your computer if you so wish.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">5. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Preview</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: As above, the preview will give you a real time image of your advert based on the options you have chosen.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">When you have toggled with the options and decided upon the advert that best suits you, press the </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>continue</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> button.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font style="font-size: 16pt"><span lang="en-US"><b>2.2 Targeting</b></span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Targeting is where you select whom you are aiming your adverts at. At this point, it is important to know exactly who your target audience is. The targeting section is sub-divided into four sections. These are location, demographics, interests and connections on Facebook.</font></font></p>
+
+<p align="JUSTIFY" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">1. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Location</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: The first option is for you to define the country or countries where your advert will appear. These work in the same way as tags so just write the name of the country in the box. If you wish to remove a country, press the x next to the name.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">Below this box are three options. If you select “everywhere” this will target the whole country. By selecting “by state/province or by city”, you can make the advert more specific to your location.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">2. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Demographics</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: This option allows you to pick an age range, require an exact age match and decide between men and women. It does not allow you to pick specific racial, ethnic or religious groups.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">3. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Interests</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: If you sell tennis rackets, you can type in tennis, so your advert is aimed at people interested in the sport. The same goes for types of clothes, sports, holiday destinations and even religions or ethnic groups. Remember, this section only aims adverts at people who have already selected these interests, if people are interested in tennis, but have not said so on their Facebook profile, they will not receive an advert.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">4. </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Connections</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>on</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>Facebook</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US">: This sub-section gives you four further options for targeting your adverts. You can choose to target “anyone” who fits the above details, only people who are not your fans, only fans and advanced targeting. If you want to target fans of a particular place or location or of a specific company select “advanced connection targeting” and type their name in a box. </span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">There is one final option that allows you to target only friends of your existing fans.</font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">Click on </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>continue</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> when you have finished.</span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font style="font-size: 16pt"><span lang="en-US"><b>2.3 Campaigns, pricing and scheduling</b></span></font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">The final section deals with your advertising budget. First, you can select which currency you wish to use, then the time zone of your account. After this, you select your campaign name and the budget. This budget can be selected as “per day” or as a “lifetime budget.” A per day budget will keep on going until the schedule runs out, whereas the lifetime budget will stop the campaign as soon as the budget runs out. </font></font></p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" lang="en-US" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4">The schedule section allows you to define when the campaign starts and when it finishes. Finally, the pricing section will define a price per click for your advert based on your targeting options. The price does not include any tax you may incur.</font></font></p>
+
+<p align="JUSTIFY" lang="" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%"><font face="Arial, sans-serif"><font size="4"><span lang="en-US">Once you have finished, press </span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"><b>review advert</b></span></font></font><font face="Arial, sans-serif"><font size="4"><span lang="en-US"> to see how the advert looks and so you can decide to go ahead with it or not.</span></font></font></p>
+
+<p align="JUSTIFY" style="margin-bottom: 0cm; line-height: 150%">&nbsp;</p>
+</div><div class="content_block" id="article2"></div><div class="content_block" id="article3"><p>asdfg</p>
+</div></div>
+                    <img id="backMenu" src="./backMenu.png">
+                </div>                
+            
+
+
+
+            </div><!-- /content -->
+
+
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="content3.html"] .ui-icon { background:  url("icon(59).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content2.html"] .ui-icon { background:  url("icon(1).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content3.html"] .ui-icon { background:  url("icon(14).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="content3.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content3.html" class="" onclick="window.open('content3.html','_self', 'location=yes')">Facebook Business Page</a></li><li><a href="content2.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content2.html" class="" onclick="window.open('content2.html','_self', 'location=yes')">Advanced</a></li><li><a href="content3.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content3.html" class="" onclick="window.open('content3.html','_self', 'location=yes')">Bonuses</a></li><li><a href="optin_form.html" id="tab2" data-icon="custom" rel="external"  data-gourl="optin_form.html" class="" onclick="window.open('optin_form.html','_self', 'location=yes')">Optin form</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+    </body>
+
+
+
+</html>

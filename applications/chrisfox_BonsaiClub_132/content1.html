@@ -1,0 +1,317 @@
+<html>
+
+
+
+    <head>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+    
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+        
+
+        <script>
+
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+
+        
+
+        	$.getScript("cordova-2.0.0.js");
+
+			$.getScript("phonegap.js");
+
+			$.getScript("PushNotification.js");			
+
+		}
+
+		</script>
+
+
+
+
+
+		<script type="text/javascript">
+
+           $(document).ready(function() {
+
+				var articleNumber;
+
+				$('.backClick').click(function() {
+
+					$('#content_navigation_content').show();
+
+					$('#article' + articleNumber).hide();
+
+				});
+
+				$('.content_navigation_link h3 a').click(function() {
+
+					$('#content_navigation_content').hide();
+
+					articleNumber = $(this).attr('href').substr(-1);
+
+					$('.content_navigation_link').removeClass('active');
+
+					$(this).parent().parent().addClass('active');
+
+					$('#article' + articleNumber).show();                   
+
+				});
+
+				
+
+				 document.addEventListener("deviceready",initPushwoosh,false);
+
+
+
+			});		  
+
+        </script>
+
+        
+
+        <!--Turn off notification-->
+
+    </head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Growing</h1></center>
+
+                </div>
+
+
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+                
+
+
+                <style type="text/css">
+                    .content_navigation_content div,.content_navigation_content p,.content_navigation_content ul,.content_navigation_content h2,.content_navigation_content h3,.content_navigation_content h4,.content_navigation_content img{
+                        padding:0px; 
+                        margin:0px;
+                    }
+                    .content_navigation_link h3 a{
+                        text-decoration:none;
+                    }
+                    .content_navigation_link{
+                        width: 100%;
+                        text-align: center;
+                        line-height: 50px;
+                        display: block;
+                        height: 50px;
+                        border-bottom: 1px solid white;
+                    }
+                    #content_navigation_content{
+                        /*                        overflow: hidden;
+                                                width: 200px;*/
+                        background: grey;
+                        margin: 0 auto;
+                        border-radius: 10px;
+                        /*                        position: fixed;
+                                                left: 50%;
+                                                top: 40px;*/
+                        /*margin-left: -100px;*/
+                        border-radius: 10px; 
+                        box-shadow: 8px 8px 8px silver;
+                    }
+                    .content_navigation_link a{
+                        color:white !important;
+                        display:block;
+                    }
+                    .content_navigation_link:hover, .content_navigation_link:active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .content_block{
+                        word-wrap: break-word;
+                        display: none;
+                    }
+                    #navigationContent{
+                        /*position: relative;*/
+                    }
+                    .content_navigation_link:first-child{
+                        border-radius: 10px 10px 0px 0px; 
+                    }
+                    .content_navigation_link:last-child{
+                        border-radius: 0px 0px 10px 10px; 
+                    }
+                    .content_navigation_link .active{
+                        background: none;
+                    }
+                    #backMenu{
+                        position: fixed;
+                        bottom: 75px;
+                        right: 10px; 
+                        opacity: 0.5;
+                        display: none;
+                    }
+                    #backMenu:hover,#backMenu:active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                </style>
+                <div id="navigationContent">
+                    <div style="display: none;" id="content_navigation_content" class="content_navigation_content"><div class="content_navigation_link"><h3><a href="#article1">Nutrients</a></h3></div><div class="content_navigation_link"><h3><a href="#article2">Watering</a></h3></div><div class="content_navigation_link"><h3><a href="#article3">Containers</a></h3></div></div>
+                    <div id="content_blocks"><div style="display: block;" class="content_block" id="article1"><center><p><img alt="" src="http://bonsaiclubimages.s3.amazonaws.com/watering.jpg" style="width: 250px; height: 250px;"></p></center>
+
+<p>Trees are amazingly self-sufficient. They take in needed elements from the environment without having to move to fetch it as animals do. But that can be a limitation as well, since they are dependent on finding what they need nearby.</p>
+
+<p>In the case of most trees, elements leech through the soil and into contact with the roots. Bonsai, since they're confined to a pot, need supplements added artificially. Fortunately, supplying the right ones in the correct amounts at the appropriate times is one of the simpler tasks associated with caring for them.</p>
+
+<p>Bonsai 'food' can readily be obtained from a local nursery or gardening section, or purchased online. The most common type contains NPK, nitrogen (N), phosphates (P) and potassium (K). The last is usually in the form of potash, a material made from the ashes of wood and plants. Beyond these three, bonsai need a number of other nutrients, including iron (Fe) and vitamins (especially B-vitamins).</p>
+
+<p>In a pinch, beer makes a good home-recipe substitute for a B-complex, since it contains several B vitamins. The risk is that, unless the alcohol content is very low, you can damage the tree. Be sure to use a weak American beer and dilute it to at least half-beer, half-water before using.</p>
+
+<p>Whether using beer or commercial B-complex supplements, spraying onto the leaves in cooler or moderately warm weather is an ideal way to apply. Above 85F (29C) the stomata (holes) in leaves close and the tree stops aspirating ('breathing') - the exchange of gases and moisture through the leaves is radically lowered.</p>
+
+<p>Spraying the leaves during hot weather cools them enough to open up, but they lose moisture to the hot air, which drys out the leaves and ultimately the tree. More bonsai are killed from incorrect watering practice than through any other means.</p>
+
+<p>One good way to apply nutrients is to use commercially available pills. Place them on the soil to the left and right of the trunk and water daily. The water and natural leeching process will import the nutrients down through the soil.</p>
+
+<p>How much nutrient to supply depends on a number of factors, including the age, size and species of the tree, how long the tree has been growing since the last re-potting, how good the drainage is, the development of the root system and others.</p>
+
+<p>Some experimentation will be needed, but following the directions on the packet is a good beginning. Watch for burned leaves or drooping flowers, one sign of too much of a good thing.</p>
+
+<p>Nutrient supplements should be added in larger amounts during the growing season, but small amounts are helpful during the fall (Sept-Oct in the Northern Hemisphere) to aid color enhancement. NPK 0-10-10 is useful at this time.</p>
+
+<p>Feeding every 2-4 weeks is best, but don't feed the tree immediately after re-potting. Wait three or four weeks. Feeding is best carried out while the soil is moist, but for the pill-type can be part of the watering regimen.</p>
+</div><div class="content_block" id="article2"><p>Few subjects in bonsai care are as complex as watering. What should be the simplest thing in the world is actually the most complicated. Apprentices in Japan will perform many duties for their first few years before being allowed to water the trees. Incorrect watering practices kill more bonsai than any other factor.</p>
+
+<p>Bonsai soil is quite different from standard potting earth. By design, it is porous and provides very rapid drainage. As a result, frequent and copious watering is needed. But over-watering is just as dangerous, if not more so, to the health of the bonsai. Over-watering can lead to the growth of harmful fungi and to root rot.</p>
+
+<p>Both of these damaging extremes can be avoided, though. By following these tips a complex art can be turned into, if not a simple routine, at least a healthy practice.</p>
+
+<p>Knowing how much water is needed is the first step. It's important to develop a method for testing the soil moisture content.</p>
+
+<p>As a quick check, touch the surface with your thumb. If it feels dry, it is. Gently scrape back any ground cover, gravel or surface earth to perform a better check.</p>
+
+<p>A more accurate test can be accomplished easily by using a standard moisture gauge. Often looking like an ordinary thermometer, analog or digital displays will provide an accurate reading.</p>
+
+<p>They only tell part of the story, however, since they detect water only near the tip. Dry spots can occur within the pot that are harmful, if they're near the roots. As roots spread throughout the pot over time, that can be many places.</p>
+
+<p>To ensure that the entire soil is adequately moistened, once a month dip the pot up to the base of the tree into a bucket or sink filled with water. Let the pot absorb water for a few minutes, then carefully remove by lifting by the pot, never by the tree.</p>
+
+<p>If the soil is correct, and the plant is not root bound, excess moisture will drain out the bottom through the mesh-covered hole and into the tray under or attached to the pot. If the tray is full, dip the pot slightly to allow only a low level of moisture to remain.</p>
+
+<p>Draining excess water from the tray will ensure that any excess water in the pot has somewhere to go, and doesn't collect around the roots.</p>
+
+<p>Water daily, making sure that water flows to the bottom but doesn't pool to the point of filling up the tray. Water left standing in the tray not only makes it impossible for the pot to drain, but encourages mold build-up.</p>
+
+<p>Whether more than daily watering is required depends on the type of soil in the pot and your climate. But, the amount of water needed also varies from species to species.</p>
+
+<p>Pines and other conifers need less water. They benefit from moderate drying periods, as well. Deciduous and flowering trees require and welcome more water than conifers. Look for curled leaves on deciduous trees, indicating dryness. Check that flowers aren't wilting when they should be blooming.</p>
+
+<p>A certain amount of experimentation, accompanied by a careful measuring regime, will be necessary to adjust to your specific tree and circumstances.</p>
+
+<p>&nbsp;</p>
+</div><div class="content_block" id="article3"><p>The Japanese have a word, 'wa', that roughly translates to 'harmony'. It refers to relations between individuals, and man and nature. But it can also refer to the elements comprising a work of art. The art of bonsai uses this concept when coordinating the choice of species and style with the container in which the bonsai tree resides.</p>
+
+<p>Color, material and above all shape and size are considered when matching the right pot to a given tree. Given the variety of tastes in the world, there are no agreed upon rigid rules, but tradition and a sense of symmetry heavily influence the choice. Each is selected to complement the other, giving balance to the overall design.</p>
+
+<p>But there are practical factors to consider, as well, first and foremost.</p>
+
+<p>The size of the pot must physically balance the weight of the moist soil and the tree. Bonsai are typically displayed on a stand or bench or shelf and, being small, are easily tipped over if the pot is too small and light, or the tree is out of balance.</p>
+
+<p>Style affects not only the aesthetic of the bonsai, but this practical factor as well. A kengai (cascade) or han-kengai (semi-cascade) has a trunk and/or branches that travel out from the 'box' of the pot. In the case of the kengai, it dips below the plane of the base of the tree, emulating a tree near a cliff under heavy snowfall.</p>
+
+<p>As a result of this style, a too small pot - which holds less soil and provides a smaller base - will put the tree and pot at risk of falling off the display. Bonsai are fragile and years of effort can be lost by a simple accident.</p>
+
+<p>Also, the pot must hold enough soil to accommodate the roots with ample space for growth of two years or so. Normally, a bonsai tree will be re-potted after that time, in order to refresh the soil, trim the roots and possibly increase the size of the tree.</p>
+
+<p>A pot must have a hole in the bottom with a mesh screen in order to allow for proper drainage. The screen can become clogged if the mesh is too small, and allow soil leakage out the bottom if too large.</p>
+
+<p>The tray underneath or attached as an integral part of the pot must be large enough to allow for overflow. Under-watering a bonsai tree can easily kill it, just as over-watering can. And, the easiest way to over-water one is to allow inadequate drainage, worsened by having the bottom continually in water from a tray that's too shallow or narrow.</p>
+
+<p>The specific sized pot that's correct for the tree will be affected, too, by species. Flowering and fruiting trees require more water and tolerate wetter conditions. Conifers, such as white pine, do better with a drying period between watering.</p>
+
+<p>Experience and a personal aesthetic will determine the specific pot that's best to choose. But fortunately for the enthusiast, there are many good examples around to serve as a guideline or stimulus to the imagination. Some bonsai trees live as long as 200 years, and photos of them are readily available.</p>
+</div></div>
+                    <img id="backMenu" src="./backMenu.png">
+                </div>                
+            
+
+
+
+            </div><!-- /content -->
+
+			
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="notification.html"] .ui-icon { background:  url("icon(22).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="optin_form.html"] .ui-icon { background:  url("icon(6).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content1.html"] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="content1.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content1.html" class="" onclick="window.open('content1.html','_self', 'location=yes')">Growing</a></li><li><a href="optin_form.html" id="tab2" data-icon="custom" rel="external"  data-gourl="optin_form.html" class="" onclick="window.open('optin_form.html','_self', 'location=yes')">Club</a></li><li><a href="notification.html" id="tab2" data-icon="custom" rel="external"  data-gourl="notification.html" class="" onclick="window.open('notification.html','_self', 'location=yes')">Updates</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+    </body>
+
+
+
+</html>

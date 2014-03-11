@@ -1,0 +1,189 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="theme.css" />
+        <script>
+        if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+        
+        	$.getScript("cordova-2.0.0.js");
+			$.getScript("phonegap.js");
+			$.getScript("PushNotification.js");			
+		}
+		</script>
+        <script src="jquery-1.6.4.min.js"></script>
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+        <script>
+        if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+        
+        	$.getScript("cordova-2.0.0.js");
+			$.getScript("phonegap.js");
+			$.getScript("PushNotification.js");			
+		}
+		</script>
+
+
+        
+        
+        <script type="text/javascript">
+	                        
+            $(document).ready(function() {
+                //	 alert("1");
+                document.addEventListener("deviceready",onDeviceReadyCheckNetwork,false);
+            });
+    
+            function onDeviceReadyCheckNetwork() {
+                // alert("2");
+                var networkState = navigator.network.connection.type;
+                if (networkState===Connection.UNKNOWN){
+                    alert ("It appears you are currently not connected to the Internet. Please establish a connection and try again.");
+                }
+                else if (networkState===Connection.NONE){
+                    alert ("It appears you are currently not connected to the Internet. Please establish a connection and try again.");
+                }
+
+            }
+        </script>
+
+
+        <!--<link rel="stylesheet" href="rss-style.css" />-->
+
+        <script type="text/javascript">
+              
+            function strip(html)
+            {
+                var tmp = document.createElement("DIV");
+                tmp.innerHTML = html;
+                return tmp.textContent||tmp.innerText;
+            }
+
+
+              
+                
+            function  rssReader() {
+                // alert("rssReader");
+                    
+                //EDIT THESE LINES
+                //Title of the blog
+                //RSS url
+                var RSS = "http://sports.yahoo.com/nba/rss.xml";
+
+                ///alert(RSS);
+                //Stores entries
+                var entries = [];
+                var selectedEntry = "";
+                //     alert("1");
+                //listen for detail links
+                $(".contentLink").live("click", function() {
+                    selectedEntry = $(this).data("entryid");
+                });
+                //   alert("2");
+                //Listen for main page
+                $("#mainPage").live("pageinit", function() {
+                    //alert("3");
+                    //Set the title
+                                        
+                    //     alert("4");
+                    $.get(RSS, {}, function(res, code) {
+                        //  alert("5");
+                        var xml = $(res);
+                        var items = xml.find("item");
+                        $.each(items, function(i, v) {
+                            entry = {
+                                title:$(v).find("title").text(), 
+                                link:$(v).find("link").text(), 
+                                description:$.trim($(v).find("description").text())
+                            };
+                            entries.push(entry);
+                        });
+  									  
+											  
+											  
+											  
+                        //now draw the list
+                        var s = '';
+                        var replacement='img src="http:';
+                        var cleanDesc;
+                        var itemLink;
+                        var imageSource;
+                        var pulledDescription;
+                        var scraped;
+                        $.each(entries, function(i, v) {
+                            // alert("item");
+                            pulledDescription=v.description;
+                            cleanDesc=strip(v.description);
+                            scraped=pulledDescription.match(/img src=\"(.+?)\"/gi);
+                            imageSource="";
+                            if(!!scraped){
+                                imageSource='<' + scraped + ' style="max-width:80%;"><br><br>';
+                            }
+                            itemLink=v.link;							   
+                            s += '<li data-icon="false"><h3 style="white-space:normal">' + v.title + '</h3><p style="white-space:normal">' + imageSource + cleanDesc + '</p><p><a rel="external" href="'+ v.link + '" data-gourl="'+ v.link + '" class="open-external-browser">Read More</a></p></li>';});
+                        //	alert("6");
+                        $("#linksList").append(s);
+                        $("#linksList").listview("refresh");
+                    });
+                    //     alert("7");
+                });
+                    
+                //Listen for the content page to load
+                $("#contentPage").live("pageshow", function(prepage) {
+                    //Set the title
+                    $("h1", this).text(entries[selectedEntry].title);
+                    var replacement='img src="http:';
+                    var desc=entries[selectedEntry].description;
+                    desc=(desc.replace(/href/gi, "span"));
+                    desc=(desc.replace(/img src=\"/gi, replacement));
+                    var link=entries[selectedEntry].link;
+                    var contentHTML = "";
+                    contentHTML += desc;contentHTML += '<p/><a rel="external" href="'+ link + '" data-gourl="'+ link + '" class="open-external-browser">Read More</a>';$("#entryText",this).html(contentHTML);
+                });
+                    
+            }
+                
+                
+
+        </script>
+        <!--Turn off notification-->
+    </head>
+    <body>
+        <div data-role="page" id="mainPage">
+
+            <div data-role="header">
+                <div class="ui-bar ui-bar-a"><center><h1>RSS</h1></center>
+                </div>
+            </div>
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+            <style type="text/css"> 
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+                #homeButton:active{ opacity: 0.7; } 
+            </style>
+
+
+            <div data-role="content">    
+                <ul id="linksList" data-role="listview" data-inset="true"></ul>
+            </div>
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style><div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false">		<div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="blogFeeds.html" id="tab1" data-icon="custom" rel="external"  data-gourl="blogFeeds.html">RSS</a></li><li><a href="news.html" id="tab2" data-icon="custom" rel="external"  data-gourl="news.html">News</a></li><li><a href="events.html" id="tab3" data-icon="custom" rel="external"  data-gourl="events.html">Events</a></li><li><a href="deals.html" id="tab4" data-icon="custom" rel="external"  data-gourl="deals.html">Deals</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+        </div>
+
+        <div data-role="page" id="contentPage">
+
+            <div data-role="header">
+                <a href="index.html" rel="external">Home</a><a href="#mainPage" data-rel="back">News</a>
+                <h1></h1>
+            </div>
+
+            <div data-role="content" id="entryText">
+            </div>
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style><div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false">		<div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="blogFeeds.html" id="tab1" data-icon="custom" rel="external"  data-gourl="blogFeeds.html">RSS</a></li><li><a href="news.html" id="tab2" data-icon="custom" rel="external"  data-gourl="news.html">News</a></li><li><a href="events.html" id="tab3" data-icon="custom" rel="external"  data-gourl="events.html">Events</a></li><li><a href="deals.html" id="tab4" data-icon="custom" rel="external"  data-gourl="deals.html">Deals</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+        </div>
+
+
+        <script type="text/javascript">rssReader();</script>
+    </body>
+</html>

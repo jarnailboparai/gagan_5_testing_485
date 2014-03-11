@@ -1,0 +1,149 @@
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="theme.css" />
+        <script src="cordova-2.0.0.js"></script>
+		<script type="text/javascript" src="phonegap.js"></script>
+        <script src="jquery-1.6.4.min.js"></script>
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+
+        
+        <script type="text/javascript">
+	                        
+            $(document).ready(function() {
+                document.addEventListener("deviceready",onDeviceReadyChildBrowser,false);
+            });
+    
+            function onDeviceReadyChildBrowser() {
+                $(document).ready(function() {
+                    $("a.open-child-browser").click(function() {
+                        var goUrl = $(this).attr("data-gourl");
+                        window.plugins.childBrowser.showWebPage(goUrl, { showLocationBar: true });
+                        return false;
+                    });
+                        
+                    $("a.open-external-browser").click(function() {
+                        var goUrl = $(this).attr("data-gourl");
+                        window.plugins.childBrowser.openExternal(goUrl);
+                        return false;
+                    });
+                });
+            }
+                        
+        </script>
+        
+        <script type="text/javascript" src="barcodescanner.js"></script>
+        <script type="text/javascript">
+
+            var scanButton;
+            var resultSpan;
+
+            function onLoad() {
+
+                scanButton = document.getElementById("scan-button");
+                resultSpan = document.getElementById("scan-result");
+                document.addEventListener("deviceready", onDeviceReadyBarcodeScanner, false);
+                //         if( navigator.userAgent.match(/Android/i) ) {
+                //              onDeviceReadyBarcodeScanner();
+                //     } else if (typeof navigator.device == "undefined"){
+                //             document.addEventListener("deviceready", onDeviceReadyBarcodeScanner, false);
+                //     } else {
+                //              onDeviceReadyBarcodeScanner();
+                //     } 
+            }
+
+            // Cordova is loaded and it is now safe to make calls Cordova methods
+            //
+            function onDeviceReadyBarcodeScanner() {
+                // Now safe to use the Cordova API
+                console.log("BARCODE SCANNER ONDEVICEREADY");
+                scanButton.addEventListener("click", clickScan, false);
+            }
+
+
+
+            function clickScan() {
+                window.plugins.barcodeScanner.scan(scannerSuccess, scannerFailure);
+            }
+
+
+            //------------------------------------------------------------------------------
+            function scannerSuccess(result) {
+                if(result.cancelled == false) {
+                    $("#touch-to-scan").hide();
+                    $("#post-scan-container").show();
+                    var returnedText = result.text;
+                    var scannedFormat = result.format;
+                    resultSpan.innerHTML = replaceURLWithHTML(returnedText);
+   	                
+                    $("#post-scan").click(function() {
+                        $("#post-scan-container").hide();
+                        $("#touch-to-scan").show();
+                        resultSpan.innerHTML = "";
+                        return false;
+                    });
+                }
+            }
+
+            //------------------------------------------------------------------------------
+            function scannerFailure(message) {
+                //console.log("scannerFailure: message: " + message)
+                resultSpan.innerText = "failed to Scan: " + message;
+            }
+
+            function replaceURLWithHTML(text) {
+                var expUrl = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+                var expImg = /(?:([^:\/?#]+):)?(?:\/\/([^\/?#]*))?([^?#]*\.(?:jpg|gif|png))(?:\?([^#]*))?(?:#(.*))?/ig;
+
+                if(text.match(expUrl)) {
+                    //is URL format
+                    if(text.match(expImg)) {
+                        //is link to image
+                        return text.replace(expUrl,'<img src="$1">'); 
+                    } else { 
+                        window.plugins.childBrowser.openExternal(text);
+                        return text.replace(expUrl,'<a href="$1" class="open-external-browser" data-gourl="$1">$1</a>'); 
+         
+                    }
+                } else {
+                    return text;
+                } 
+            }
+
+    
+        </script>
+        <!--Turn off notification-->
+    </head>
+    <body onLoad="onLoad();">
+        <div data-role="page" id="mainPage">
+
+            <div data-role="header">
+                <div class="ui-bar ui-bar-a"><center><h1>Barcode Scanner</h1></center>
+                </div>
+            </div>
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+            <style type="text/css"> 
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+                #homeButton:active{ opacity: 0.7; } 
+            </style>
+
+            <div id="main-content" data-role="content">
+                <p id="touch-to-scan"> 
+                    <img src="scanner.jpg" id="scan-button" style="width:90%;display:block;margin-left:auto;margin-right:auto;" />
+                    <br />Touch image to Scan
+                </p>
+
+                <p id="post-scan-container" style="display:none;"><a href="#" id="post-scan">Scan another!</a></p>
+
+                <p>Result: <span id="scan-result"></span></p>
+            </div>
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style>
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul></ul></div></div>
+        </div>
+
+    </body>
+</html>

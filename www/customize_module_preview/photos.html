@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Photos</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+        <link href="./photos_files/styles.css" type="text/css" rel="stylesheet" />
+        <link href="./photos_files/photoswipe.css" type="text/css" rel="stylesheet" />
+        <script src="jquery-1.6.4.min.js"></script>
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+        <script type="text/javascript" src="./photos_files/klass.min.js"></script>
+        <script type="text/javascript" src="./photos_files/code.photoswipe-3.0.5.min.js"></script>
+
+
+        <script type="text/javascript">
+                (function(window, PhotoSwipe){
+		
+                    document.addEventListener('DOMContentLoaded', function(){
+			
+                        var
+                        options = {},
+                        instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
+			
+                    }, false);
+			
+			
+                }(window, window.Code.PhotoSwipe));
+                
+        </script>
+        <style>
+            .gallery li a span{
+                display: none;
+            }
+            .gallery li a:hover span{
+                display: block;
+            } 
+        </style>
+    </head>
+    <body>
+
+
+
+        <div data-role="page" data-add-back-btn="true" id="main">
+
+
+
+            <div data-role="header">
+
+                <div class="ui-bar ui-bar-a"><center><h1>Photos</h1></center>
+
+                </div>
+
+            </div>
+
+
+
+            <div data-role="content" id="feedresult">
+
+
+
+                <div id="MainContent">
+
+                    <ul id="Gallery" class="gallery">
+
+                        <li><a href="./photos_files/images/full/001.jpg" rel="external" ><img src="./photos_files/images/thumb/001.jpg" alt="Image 001" /></a></li>
+                        <li><a href="./photos_files/images/full/002.jpg" rel="external" ><img src="./photos_files/images/thumb/002.jpg" alt="Image 002" /></a></li>
+                        <li><a href="./photos_files/images/full/003.jpg" rel="external" ><img src="./photos_files/images/thumb/003.jpg" alt="Image 003" /></a></li>
+                        <li><a href="./photos_files/images/full/004.jpg" rel="external" ><img src="./photos_files/images/thumb/004.jpg" alt="Image 004" /></a></li>
+                        <li><a href="./photos_files/images/full/005.jpg" rel="external" ><img src="./photos_files/images/thumb/005.jpg" alt="Image 005" /></a></li>
+                        <li><a href="./photos_files/images/full/006.jpg" rel="external" ><img src="./photos_files/images/thumb/006.jpg" alt="Image 006" /></a></li>
+                        <li><a href="./photos_files/images/full/007.jpg" rel="external" ><img src="./photos_files/images/thumb/007.jpg" alt="Image 007" /></a></li>
+                        <li><a href="./photos_files/images/full/008.jpg" rel="external" ><img src="./photos_files/images/thumb/008.jpg" alt="Image 008" /></a></li>
+                        <li><a href="./photos_files/images/full/009.jpg" rel="external" ><img src="./photos_files/images/thumb/009.jpg" alt="Image 009" /></a></li>
+                        <li><a href="./photos_files/images/full/010.jpg" rel="external" ><img src="./photos_files/images/thumb/010.jpg" alt="Image 010" /></a></li>
+                        <li><a href="./photos_files/images/full/011.jpg" rel="external" ><img src="./photos_files/images/thumb/011.jpg" alt="Image 011" /></a></li>
+                        <li><a href="./photos_files/images/full/012.jpg" rel="external" ><img src="./photos_files/images/thumb/012.jpg" alt="Image 012" /></a></li>
+                        <li><a href="./photos_files/images/full/013.jpg" rel="external" ><img src="./photos_files/images/thumb/013.jpg" alt="Image 013" /></a></li>
+                        <li><a href="./photos_files/images/full/014.jpg" rel="external" ><img src="./photos_files/images/thumb/014.jpg" alt="Image 014" /></a></li>
+                        <li><a href="./photos_files/images/full/015.jpg" rel="external" ><img src="./photos_files/images/thumb/015.jpg" alt="Image 015" /></a></li>
+                        <li><a href="./photos_files/images/full/016.jpg" rel="external" ><img src="./photos_files/images/thumb/016.jpg" alt="Image 016" /></a></li>
+                        <li><a href="./photos_files/images/full/017.jpg" rel="external" ><img src="./photos_files/images/thumb/017.jpg" alt="Image 017" /></a></li>
+                        <li><a href="./photos_files/images/full/018.jpg" rel="external" ><img src="./photos_files/images/thumb/018.jpg" alt="Image 018" /></a></li>
+
+                    </ul>
+
+                </div>	
+
+            </div><!-- /content -->
+
+
+
+
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style>
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="photo.html" id="tab2" data-icon="custom" rel="external"  data-gourl="photos.html" class="" onclick="window.open('photos.html','_self')">Photo</a></li></ul></div></div>
+
+        </div>	
+
+
+
+    </body>
+</html>

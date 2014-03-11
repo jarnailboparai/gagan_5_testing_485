@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Client
+END
+AbstractCurl.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Client/AbstractCurl.php
+END
+FileGetContents.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Client/FileGetContents.php
+END
+AbstractStream.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Client/AbstractStream.php
+END
+ClientInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Client/ClientInterface.php
+END
+MultiCurl.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Client/MultiCurl.php
+END
+BatchClientInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Client/BatchClientInterface.php
+END
+AbstractClient.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Client/AbstractClient.php
+END
+Curl.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Client/Curl.php
+END

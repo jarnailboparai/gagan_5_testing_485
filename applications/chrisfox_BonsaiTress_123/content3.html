@@ -1,0 +1,382 @@
+<html>
+
+
+
+    <head>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+    
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+        
+
+        <script>
+
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+
+        
+
+        	$.getScript("cordova-2.0.0.js");
+
+			$.getScript("phonegap.js");
+
+			$.getScript("PushNotification.js");			
+
+		}
+
+		</script>
+
+
+
+
+
+		<script type="text/javascript">
+
+           $(document).ready(function() {
+
+				var articleNumber;
+
+				$('.backClick').click(function() {
+
+					$('#content_navigation_content').show();
+
+					$('#article' + articleNumber).hide();
+
+				});
+
+				$('.content_navigation_link h3 a').click(function() {
+
+					$('#content_navigation_content').hide();
+
+					articleNumber = $(this).attr('href').substr(-1);
+
+					$('.content_navigation_link').removeClass('active');
+
+					$(this).parent().parent().addClass('active');
+
+					$('#article' + articleNumber).show();                   
+
+				});
+
+				
+
+				 document.addEventListener("deviceready",initPushwoosh,false);
+
+
+
+			});		  
+
+        </script>
+
+        
+
+        <!--Turn off notification-->
+
+    </head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Growing</h1></center>
+
+                </div>
+
+
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+                
+
+
+                <style type="text/css">
+                    .content_navigation_content div,.content_navigation_content p,.content_navigation_content ul,.content_navigation_content h2,.content_navigation_content h3,.content_navigation_content h4,.content_navigation_content img{
+                        padding:0px; 
+                        margin:0px;
+                    }
+                    .content_navigation_link h3 a{
+                        text-decoration:none;
+                    }
+                    .content_navigation_link{
+                        width: 100%;
+                        text-align: center;
+                        line-height: 50px;
+                        display: block;
+                        height: 50px;
+                        border-bottom: 1px solid white;
+                    }
+                    #content_navigation_content{
+                        /*                        overflow: hidden;
+                                                width: 200px;*/
+                        background: grey;
+                        margin: 0 auto;
+                        border-radius: 10px;
+                        /*                        position: fixed;
+                                                left: 50%;
+                                                top: 40px;*/
+                        /*margin-left: -100px;*/
+                        border-radius: 10px; 
+                        box-shadow: 8px 8px 8px silver;
+                    }
+                    .content_navigation_link a{
+                        color:white !important;
+                        display:block;
+                    }
+                    .content_navigation_link:hover, .content_navigation_link:active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .content_block{
+                        word-wrap: break-word;
+                        display: none;
+                    }
+                    #navigationContent{
+                        /*position: relative;*/
+                    }
+                    .content_navigation_link:first-child{
+                        border-radius: 10px 10px 0px 0px; 
+                    }
+                    .content_navigation_link:last-child{
+                        border-radius: 0px 0px 10px 10px; 
+                    }
+                    .content_navigation_link .active{
+                        background: none;
+                    }
+                    #backMenu{
+                        position: fixed;
+                        bottom: 75px;
+                        right: 10px; 
+                        opacity: 0.5;
+                        display: none;
+                    }
+                    #backMenu:hover,#backMenu:active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                </style>
+                <div id="navigationContent">
+                    <div id="content_navigation_content" class="content_navigation_content"><div class="content_navigation_link"><h3><a href="#article1">Preparing Seeds</a></h3></div><div class="content_navigation_link"><h3><a href="#article2">Ground Cover Choices</a></h3></div><div class="content_navigation_link"><h3><a href="#article3">Containers</a></h3></div><div class="content_navigation_link"><h3><a href="#article4">Watering</a></h3></div><div class="content_navigation_link"><h3><a href="#article5">Nutrients</a></h3></div><div class="content_navigation_link"><h3><a href="#article6">Artificial Ground Cover Choices</a></h3></div></div>
+                    <div id="content_blocks"><div class="content_block" id="article1"><p>Most beginning bonsai artists will purchase a tree at some stage of development and gradually learn to care for it. The novice will graduate later to pruning, wiring and other more advanced practices. At some point in his or her education, the temptation to take on the challenge of growing a bonsai from seed will seem irresistible.</p>
+
+<p>Here are some tips on how to grow your first bonsai from scratch.</p>
+
+<p>Trees grow from seeds. True, many begin as seedlings, prunings or offshoots of mature trees. But the whole enterprise begins with seeds. In order for those seeds to become trees they pass through a stage called germination.</p>
+
+<p>Sitting in the cold, wet soil of winter spring slowly softens the seed's shell or coat and stimulates early growth. Soil bacteria help the process along. Nature provides the clues the bonsai artist should follow in order to give the young plant a proper beginning.</p>
+
+<p>Planting in the fall allows the seeds to experience this process, slowly and naturally. An artificial, and perfectly valid, method of seed preparation is known as 'cold stratification'. It consists, in essence, of preparing seeds artificially by placing them in a container in the refrigerator to simulate natural conditions.</p>
+
+<p>Whether preparing the seeds artificially or allowing nature to do it for you, this breaks the seed's dormancy and leads to germination. It often happens that this will take a year or longer, with seeds beginning to germinate in the spring a year and a half after the fall sowing.</p>
+
+<p>The length of time will vary by species, climate and even individual seed. Plants, like any other species, is composed of individuals with their own timetable.</p>
+
+<p>You can give your seeds some help by proper fertilization, but exercise moderation. Once per month in early spring to mid-summer with 10-10-10 NKP (nitrogen (N), phosphates (P) and potassium (K)) is plenty. Fertilization should begin when the soil begins to warm. If you maintain the pot indoors, this can be controlled artificially with a heat lamp, but this is more effort.</p>
+
+<p>It's important that the soil be kept moist, but not too wet. Moisture is important, but excessively wet soil will kill a developing plant as quickly as soil too dry.</p>
+
+<p>Naturally, finding the right balance will take some experimentation. Those experiments can be sharpened by the use of a moisture gauge, a thermometer-like device that measures water content in the soil. In fact, it's helpful to have a thermometer, too!</p>
+
+<p>Sow them in a container of good soil, then monitor from time to time as the year progresses. Seeds should be planted about 1/2 inch to 1/4 inch under the surface in soil with good drainage.</p>
+
+<p>Once you have a little tree poking a tiny trunk above the surface you are on your way. But keep in mind that developing a bonsai from seeds takes several years. Be prepared for a long term project!</p>
+
+<p>&nbsp;</p>
+</div><div class="content_block" id="article2"><p>The goal of most bonsai artists is to emulate nature, while at the same time stylizing it. This effort extends beyond the caring and shaping of the tree itself to every element of the display. That includes ground cover.</p>
+
+<p>In far too many bonsai simple moss or rocks are used to complement the tree or plant. But with little effort the bonsai enthusiast can expand the choices to include deadwood, ground cover plants, or even entirely artificial miniature sculpture. These, too, occur in natural settings in Japanese gardens.</p>
+
+<p>A popular choice is a plant whose common name is Baby Tears. With small, round, green leaves and a penchant for spreading rapidly, it makes for an easy to start and maintain ground cover for many styles of bonsai. It's also attractive in its own right.</p>
+
+<p>Ground cover helps to keep moisture from evaporating from the soil too rapidly and Baby Tears perform this function well. In fact, over time it can perform it a little too well. Take care not to let the Baby Tears overwhelm the design.</p>
+
+<p>It's rapid spread and thorough ground covering can result in a mass of leafy tendrils lopping over the sides and spilling down onto the display table. Some small amount hanging over the edge of the pot can lend a pleasant touch to the bonsai design. But, the tree should always remain the central focus of any effort.</p>
+
+<p>Baby Tears can be especially prone to distracting the viewer, since its delicate flowers provide color that attracts the eye. It's best used, therefore, with non-flowering bonsai, unless your goal is to create a deliberate color contrast.</p>
+
+<p>Another native Japanese plant that complements a bonsai tree well is the Dwarf Mondo grass. It is a perennial evergreen, meaning that it only needs to be planted once and with proper care will stay green year-round. Some evergreens do brown up slightly in winter, but come back to full color in spring.</p>
+
+<p>Dwarf Mondo does very well in medium-wet, well-drained soil and so is perfect for application to bonsai design. The grass is used in full-sized gardens, as well. It doesn't tolerate full sun well, though, so be sure to keep the pot in a shady spot.</p>
+
+<p>Since Dwarf Mondo grass spreads by underground tubers, you will need to examine under the surface every few years - during re-potting of the bonsai is a perfect time - to ensure that it isn't taking over space needed for the bonsai tree roots.</p>
+
+<p>Remember, too, that a certain amount of sunlight penetrating into the soil is healthy. That provides the warmth and radiation necessary to stimulate growth. As a human example, moderate sunlight helps stimulate the production of Vitamin D in skin cells. So, limit the grass area so that it doesn't cover the ground entirely.</p>
+
+<p>These are just two of the many choices available to heighten the beauty of your bonsai design, while at the same time enhancing the health of the tree. Emulating nature, with an artistic flair, is both lovely and practical!</p>
+
+<p>&nbsp;</p>
+</div><div class="content_block" id="article3"><p>The Japanese have a word, 'wa', that roughly translates to 'harmony'. It refers to relations between individuals, and man and nature. But it can also refer to the elements comprising a work of art. The art of bonsai uses this concept when coordinating the choice of species and style with the container in which the bonsai tree resides.</p>
+
+<p>Color, material and above all shape and size are considered when matching the right pot to a given tree. Given the variety of tastes in the world, there are no agreed upon rigid rules, but tradition and a sense of symmetry heavily influence the choice. Each is selected to complement the other, giving balance to the overall design.</p>
+
+<p>But there are practical factors to consider, as well, first and foremost.</p>
+
+<p>The size of the pot must physically balance the weight of the moist soil and the tree. Bonsai are typically displayed on a stand or bench or shelf and, being small, are easily tipped over if the pot is too small and light, or the tree is out of balance.</p>
+
+<p>Style affects not only the aesthetic of the bonsai, but this practical factor as well. A kengai (cascade) or han-kengai (semi-cascade) has a trunk and/or branches that travel out from the 'box' of the pot. In the case of the kengai, it dips below the plane of the base of the tree, emulating a tree near a cliff under heavy snowfall.</p>
+
+<p>As a result of this style, a too small pot - which holds less soil and provides a smaller base - will put the tree and pot at risk of falling off the display. Bonsai are fragile and years of effort can be lost by a simple accident.</p>
+
+<p>Also, the pot must hold enough soil to accommodate the roots with ample space for growth of two years or so. Normally, a bonsai tree will be re-potted after that time, in order to refresh the soil, trim the roots and possibly increase the size of the tree.</p>
+
+<p>A pot must have a hole in the bottom with a mesh screen in order to allow for proper drainage. The screen can become clogged if the mesh is too small, and allow soil leakage out the bottom if too large.</p>
+
+<p>The tray underneath or attached as an integral part of the pot must be large enough to allow for overflow. Under-watering a bonsai tree can easily kill it, just as over-watering can. And, the easiest way to over-water one is to allow inadequate drainage, worsened by having the bottom continually in water from a tray that's too shallow or narrow.</p>
+
+<p>The specific sized pot that's correct for the tree will be affected, too, by species. Flowering and fruiting trees require more water and tolerate wetter conditions. Conifers, such as white pine, do better with a drying period between watering.</p>
+
+<p>Experience and a personal aesthetic will determine the specific pot that's best to choose. But fortunately for the enthusiast, there are many good examples around to serve as a guideline or stimulus to the imagination. Some bonsai trees live as long as 200 years, and photos of them are readily available.</p>
+</div><div class="content_block" id="article4"><p>Few subjects in bonsai care are as complex as watering. What should be the simplest thing in the world is actually the most complicated. Apprentices in Japan will perform many duties for their first few years before being allowed to water the trees. Incorrect watering practices kill more bonsai than any other factor.</p>
+
+<p>Bonsai soil is quite different from standard potting earth. By design, it is porous and provides very rapid drainage. As a result, frequent and copious watering is needed. But over-watering is just as dangerous, if not more so, to the health of the bonsai. Over-watering can lead to the growth of harmful fungi and to root rot.</p>
+
+<p>Both of these damaging extremes can be avoided, though. By following these tips a complex art can be turned into, if not a simple routine, at least a healthy practice.</p>
+
+<p>Knowing how much water is needed is the first step. It's important to develop a method for testing the soil moisture content.</p>
+
+<p>As a quick check, touch the surface with your thumb. If it feels dry, it is. Gently scrape back any ground cover, gravel or surface earth to perform a better check.</p>
+
+<p>A more accurate test can be accomplished easily by using a standard moisture gauge. Often looking like an ordinary thermometer, analog or digital displays will provide an accurate reading.</p>
+
+<p>They only tell part of the story, however, since they detect water only near the tip. Dry spots can occur within the pot that are harmful, if they're near the roots. As roots spread throughout the pot over time, that can be many places.</p>
+
+<p>To ensure that the entire soil is adequately moistened, once a month dip the pot up to the base of the tree into a bucket or sink filled with water. Let the pot absorb water for a few minutes, then carefully remove by lifting by the pot, never by the tree.</p>
+
+<p>If the soil is correct, and the plant is not root bound, excess moisture will drain out the bottom through the mesh-covered hole and into the tray under or attached to the pot. If the tray is full, dip the pot slightly to allow only a low level of moisture to remain.</p>
+
+<p>Draining excess water from the tray will ensure that any excess water in the pot has somewhere to go, and doesn't collect around the roots.</p>
+
+<p>Water daily, making sure that water flows to the bottom but doesn't pool to the point of filling up the tray. Water left standing in the tray not only makes it impossible for the pot to drain, but encourages mold build-up.</p>
+
+<p>Whether more than daily watering is required depends on the type of soil in the pot and your climate. But, the amount of water needed also varies from species to species.</p>
+
+<p>Pines and other conifers need less water. They benefit from moderate drying periods, as well. Deciduous and flowering trees require and welcome more water than conifers. Look for curled leaves on deciduous trees, indicating dryness. Check that flowers aren't wilting when they should be blooming.</p>
+
+<p>A certain amount of experimentation, accompanied by a careful measuring regime, will be necessary to adjust to your specific tree and circumstances.</p>
+
+<p>&nbsp;</p>
+</div><div class="content_block" id="article5"><p>Trees are amazingly self-sufficient. They take in needed elements from the environment without having to move to fetch it as animals do. But that can be a limitation as well, since they are dependent on finding what they need nearby.</p>
+
+<p>In the case of most trees, elements leech through the soil and into contact with the roots. Bonsai, since they're confined to a pot, need supplements added artificially. Fortunately, supplying the right ones in the correct amounts at the appropriate times is one of the simpler tasks associated with caring for them.</p>
+
+<p>Bonsai 'food' can readily be obtained from a local nursery or gardening section, or purchased online. The most common type contains NPK, nitrogen (N), phosphates (P) and potassium (K). The last is usually in the form of potash, a material made from the ashes of wood and plants. Beyond these three, bonsai need a number of other nutrients, including iron (Fe) and vitamins (especially B-vitamins).</p>
+
+<p>In a pinch, beer makes a good home-recipe substitute for a B-complex, since it contains several B vitamins. The risk is that, unless the alcohol content is very low, you can damage the tree. Be sure to use a weak American beer and dilute it to at least half-beer, half-water before using.</p>
+
+<p>Whether using beer or commercial B-complex supplements, spraying onto the leaves in cooler or moderately warm weather is an ideal way to apply. Above 85F (29C) the stomata (holes) in leaves close and the tree stops aspirating ('breathing') - the exchange of gases and moisture through the leaves is radically lowered.</p>
+
+<p>Spraying the leaves during hot weather cools them enough to open up, but they lose moisture to the hot air, which drys out the leaves and ultimately the tree. More bonsai are killed from incorrect watering practice than through any other means.</p>
+
+<p>One good way to apply nutrients is to use commercially available pills. Place them on the soil to the left and right of the trunk and water daily. The water and natural leeching process will import the nutrients down through the soil.</p>
+
+<p>How much nutrient to supply depends on a number of factors, including the age, size and species of the tree, how long the tree has been growing since the last re-potting, how good the drainage is, the development of the root system and others.</p>
+
+<p>Some experimentation will be needed, but following the directions on the packet is a good beginning. Watch for burned leaves or drooping flowers, one sign of too much of a good thing.</p>
+
+<p>Nutrient supplements should be added in larger amounts during the growing season, but small amounts are helpful during the fall (Sept-Oct in the Northern Hemisphere) to aid color enhancement. NPK 0-10-10 is useful at this time.</p>
+
+<p>Feeding every 2-4 weeks is best, but don't feed the tree immediately after re-potting. Wait three or four weeks. Feeding is best carried out while the soil is moist, but for the pill-type can be part of the watering regimen.</p>
+</div><div class="content_block" id="article6"><p>Adding moss or other living ground cover to your bonsai design can result in a beautiful complement to your tree. Or, it can be a distraction. The goal is to keep the tree at the center of the viewers attention. But that needn't mean it must be the only thing the audience looks at every moment. You can add pictorial elements that provide balance and interest without overwhelming the scene.</p>
+
+<p>One means of achieving that goal is to add sculptural items around the ground beneath the tree branches. Some are cheesy - miniature Buddha have been way over done. But some are elegant, tasteful and even beautiful in their own right.</p>
+
+<p>Deadwood is a popular choice, and for good reason. Gnarled bits of wood add a natural looking element, while at the same time many are a delightful combination of art and artifice. Curved branches of the same species help lend a natural appearance in miniature - the goal of every bonsai design.</p>
+
+<p>Take care when using deadwood, however, that it doesn't become a source of potential disease or decay in the tree or other ground cover. Even tree branches long dead can break down, as they do in nature, and add to the soil. Most of the time that's harmless. But, over-wet deadwood of certain types can support the growth of fungus and soil bacteria.</p>
+
+<p>A mixture of lime and sulphur will bleach the wood and kill most common types that could be troublesome. That bleaching may not be suitable for all types, however, for esthetic reasons. In this case it's possible to counter the effect by using coffee grounds or stain.</p>
+
+<p>Armillatox is an effective herbicide, with anti-bacterial, fungicidal properties. But many wood stains also contain compounds that do more than simply change the wood's color. Many kill organisms.</p>
+
+<p>There are other, more artificial-looking but still beautiful, items that can be added to your bonsai design. Buddha statues may be overdoing it, but a small ceramic or stone sculpture can add a wonderful touch. There are literally hundreds of choices, everything from a small tiger to a completely abstract shape with colors that highlight rather than detract from the tree.</p>
+
+<p>A tiny ladder leaning against the trunk of a miniature fruit tree adds a comic touch. While most bonsai artists will avoid miniature human figures, a pebble-sized ceramic frog can be more than just an artistic addition. In Japanese lore, frogs are said to bring good luck.</p>
+
+<p>Of course the pot itself can be, and often is, a design element. Pot selection in bonsai design is a course by itself, but a few basics can be mentioned. The shape should be appropriate for the species and design, and the color and material should work with not against any ground cover elements. If you have flat-texture stones or sculpture and subtle wood elements on the ground, a highly colorful and shiny pot will clash with them.</p>
+
+<p>Let your imagination roam. Every bonsai design is as unique as the designer.</p>
+</div></div>
+                    <img id="backMenu" src="./backMenu.png">
+                </div>                
+            
+
+
+
+            </div><!-- /content -->
+
+			
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="content3.html"] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(91).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href=""] .ui-icon { background:  url("icon(2).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Tools</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Choices</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Growing</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Care</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+    </body>
+
+
+
+</html>

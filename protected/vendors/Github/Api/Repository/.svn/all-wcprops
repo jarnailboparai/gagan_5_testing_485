@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository
+END
+Downloads.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository/Downloads.php
+END
+Commits.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository/Commits.php
+END
+Statuses.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository/Statuses.php
+END
+Contents.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository/Contents.php
+END
+Labels.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository/Labels.php
+END
+Hooks.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository/Hooks.php
+END
+Forks.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository/Forks.php
+END
+Comments.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository/Comments.php
+END
+Collaborators.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository/Collaborators.php
+END
+DeployKeys.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Repository/DeployKeys.php
+END

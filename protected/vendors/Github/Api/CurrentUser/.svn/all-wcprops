@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/CurrentUser
+END
+Notifications.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/CurrentUser/Notifications.php
+END
+Emails.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/CurrentUser/Emails.php
+END
+Followers.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/CurrentUser/Followers.php
+END
+Watchers.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/CurrentUser/Watchers.php
+END
+DeployKeys.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/CurrentUser/DeployKeys.php
+END

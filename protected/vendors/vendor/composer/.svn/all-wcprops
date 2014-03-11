@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/vendor/composer
+END
+autoload_classmap.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/vendor/composer/autoload_classmap.php
+END
+autoload_real.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/vendor/composer/autoload_real.php
+END
+ClassLoader.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/vendor/composer/ClassLoader.php
+END
+installed.json
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/vendor/composer/installed.json
+END
+autoload_namespaces.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/vendor/composer/autoload_namespaces.php
+END

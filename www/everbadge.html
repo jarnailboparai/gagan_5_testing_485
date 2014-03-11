@@ -1,0 +1,150 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="theme.css" />
+       
+        <script src="jquery-1.6.4.min.js"></script>
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+        <script>
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+        
+        	$.getScript("cordova-2.0.0.js");
+			$.getScript("phonegap.js");
+			$.getScript("PushNotification.js");			
+		}
+		</script>
+
+
+                
+        <script type="text/javascript">
+	                        
+            $(document).ready(function() {
+                //	 alert("1");
+                document.addEventListener("deviceready",onDeviceReadyCheckNetwork,false);
+            });
+    
+            function onDeviceReadyCheckNetwork() {
+                // alert("2");
+                var networkState = navigator.network.connection.type;
+                if (networkState===Connection.UNKNOWN){
+                    alert ("It appears you are currently not connected to the Internet. Please establish a connection and try again.");
+                }
+                else if (networkState===Connection.NONE){
+                    alert ("It appears you are currently not connected to the Internet. Please establish a connection and try again.");
+                }
+
+            }
+        </script>
+
+        <style type="text/css">
+            #main-content{ background:#232927; color:#adadad; }
+            .app{margin-bottom:1px !important; background: 
+                     -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c5457), to(#242a2c)); 
+                 background-image: linear-gradient(bottom, rgb(36,42,44) 38%, rgb(76,84,87) 69%);
+                 background-image: -o-linear-gradient(bottom, rgb(36,42,44) 38%, rgb(76,84,87) 69%);
+                 background-image: -moz-linear-gradient(bottom, rgb(36,42,44) 38%, rgb(76,84,87) 69%);
+                 background-image: -ms-linear-gradient(bottom, rgb(36,42,44) 38%, rgb(76,84,87) 69%);
+                 border-top:1px solid #7f7f7f; padding:15px; font-size: 10px;}
+            a.open-external-browser { color:#FFF; text-decoration:none; text-shadow: 1px 1px 0 #000;}
+            .left{float:left;}
+            .right{float:right;}
+            .clear{clear:both;}
+            .thumbBox{margin-bottom:1px !important; width:79px; vertical-align: middle; padding:5px 3px; border-top:1px solid #FFF; 
+                      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cacaca), to(#7c7c7c)); 
+                      background-image: linear-gradient(bottom, rgb(124,124,124) 38%, rgb(202,202,202) 69%);
+                      background-image: -o-linear-gradient(bottom, rgb(124,124,124) 38%, rgb(202,202,202) 69%);
+                      background-image: -moz-linear-gradient(bottom, rgb(124,124,124) 38%, rgb(202,202,202) 69%);
+                      background-image: -ms-linear-gradient(bottom, rgb(124,124,124) 38%, rgb(202,202,202) 69%);
+                      text-align:center;}
+            .topBar{margin-bottom:1px !important; padding:8px; border-top:1px solid #FFF; 
+                    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#a4a4a4)); 
+                    background-image: linear-gradient(bottom, rgb(164,164,164) 38%, rgb(229,229,229) 69%);
+                    background-image: -o-linear-gradient(bottom, rgb(164,164,164) 38%, rgb(229,229,229) 69%);
+                    background-image: -moz-linear-gradient(bottom, rgb(164,164,164) 38%, rgb(229,229,229) 69%);
+                    background-image: -ms-linear-gradient(bottom, rgb(164,164,164) 38%, rgb(229,229,229) 69%);
+                    text-align:center;}
+            a.appTitle{font-size:11px; text-shadow: 1px 1px 0 #000;}
+            a.appTitle:hover{color:#fff719; text-shadow: 1px 1px 0 #000;}
+            .appType{ font-weight:bold; color:#fff719; }
+            .subBar{ 
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#83ba10), to(#b6ca18)); color:#010101; 
+                background-image: linear-gradient(bottom, rgb(182,202,24) 38%, rgb(131,186,16) 69%);
+                background-image: -o-linear-gradient(bottom, rgb(182,202,24) 38%, rgb(131,186,16) 69%);
+                background-image: -moz-linear-gradient(bottom, rgb(182,202,24) 38%, rgb(131,186,16) 69%);
+                background-image: -ms-linear-gradient(bottom, rgb(182,202,24) 38%, rgb(131,186,16) 69%);
+                font-size:14px; padding:10px; border-top:1px solid #FFF; border-bottom:1px solid #000;font-weight: bold;text-shadow: 1px 1px 0 #FFF;}
+            h1.mainTitle{color:#000; text-shadow: 1px 1px 0 #fff; font-weight:bold; font-size:17px;}
+            .roundedCorners{-webkit-border-radius:10px 10px 10px 10px;-moz-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;}
+            footer{text-align:center;color:#ccc;font-size:11px;}
+            footer a, footer a:visited{color:#ccc;}
+        </style>
+        <script type="text/javascript">
+              
+            function strip(html)
+            {
+                var tmp = document.createElement("DIV");
+                tmp.innerHTML = html;
+                return tmp.textContent||tmp.innerText;
+            }
+   	                
+            $(document).ready(function() {
+                rssReader();
+            });
+
+            function  rssReader() {
+                $("#main-content").html("<p>Please wait...</p>");
+                var RSS = "http://best-android-apps.mobi/&offerwall=1";
+                //var RSS = "http://best-android-apps.mobi/";
+                console.log("EVERBADGE URL: "+RSS);
+                var entries = [];
+                var selectedEntry = "";
+                $.get(RSS, {}, function(res, code) {
+                    //console.log("EVERBADGE RETURN CODE: " + code);
+                    if(code == "success") {
+                        //console.log(res)
+                        var xml = $(res);
+                                    
+                        var content = xml.find("#main");
+                        $("#main-content").html(content);$("td a.appTitle").each(function(index) {
+                            var goUrl = $(this).attr("href");
+                            $(this).addClass("open-external-browser");
+                            $(this).attr("data-gourl",goUrl);
+                        });
+                        $("td.thumbBox a").each(function(index) {
+                            var goUrl = $(this).attr("href");
+                            $(this).addClass("open-external-browser");
+                            $(this).attr("data-gourl",goUrl);
+                        });
+                    } else {
+                        $("#main-content").html("<p>Could not get data, please try again.</p>");
+                    }
+                });
+            }
+                
+        </script>
+        <!--Turn off notification-->
+    </head>
+    <body>
+        <div data-role="page" id="mainPage">
+
+            <div data-role="header">
+                <div class="ui-bar ui-bar-a"><center><h1>Everbadge</h1></center>
+                </div>
+            </div>
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+            <style type="text/css"> 
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+                #homeButton:active{ opacity: 0.7; } 
+            </style>
+
+            <div id="main-content" data-role="content">    
+
+            </div>
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style><div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false">		<div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="blogFeeds.html" id="tab1" data-icon="custom" rel="external"  data-gourl="blogFeeds.html">RSS</a></li><li><a href="news.html" id="tab2" data-icon="custom" rel="external"  data-gourl="news.html">News</a></li><li><a href="events.html" id="tab3" data-icon="custom" rel="external"  data-gourl="events.html">Events</a></li><li><a href="deals.html" id="tab4" data-icon="custom" rel="external"  data-gourl="deals.html">Deals</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+        </div>
+
+
+    </body>
+</html>

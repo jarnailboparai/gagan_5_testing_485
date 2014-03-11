@@ -1,0 +1,331 @@
+<html>
+
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+        <link rel="stylesheet" href="theme.css" />
+
+        
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+<script>
+
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+
+        
+
+        	$.getScript("cordova-2.0.0.js");
+
+			$.getScript("phonegap.js");
+
+			$.getScript("PushNotification.js");			
+
+		}
+
+		</script>
+
+        <style type="text/css" >
+
+            ul li {
+
+                list-style: none;
+
+                margin: 15px;
+
+                padding: 7px;
+
+                box-shadow: 0 0 15px silver;
+
+                -webkit-box-shadow: 0 0 15px silver;
+
+                -moz-box-shadow: 0 0 15px silver;
+
+                border-radius: 10px;
+
+                font-size: 25px;
+
+            }
+
+        </style>
+
+        <script type="text/javascript">
+
+            var pushNotification;
+
+            var app_id = "130";
+
+
+
+            function onDeviceReady() {
+
+
+
+                pushNotification = window.plugins.pushNotification;
+
+
+
+                if (device.platform == 'android' || device.platform == 'Android') {
+
+                    pushNotification.register(successHandler, errorHandler, {"senderID": "chris.greeper@gmail.com", "ecb": "onNotificationGCM"});
+
+                } else {
+
+                    pushNotification.register(tokenHandler, errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "onNotificationAPN"});
+
+                }
+
+            }
+
+
+
+            /* handle APNS notifications for iOS*/
+
+            function onNotificationAPN(event) {
+
+                if (event.alert) {
+
+                    navigator.notification.alert(event.alert);
+
+                }
+
+                if (event.sound) {
+
+                    var snd = new Media(event.sound);
+
+                    snd.play();
+
+                }
+
+
+
+                if (event.badge) {
+
+                    pushNotification.setApplicationIconBadgeNumber(successHandler, event.badge);
+
+                }
+
+            }
+
+
+
+
+
+            function onNotificationGCM(e) {
+
+
+
+                switch (e.event)
+
+                {
+
+                    case 'registered':
+
+
+
+                        if (e.regid.length > 0)
+
+                        {
+
+                            $.ajax({
+
+                                type: "POST",
+
+                                url: "http://appmigos.com/notification/actions.php",
+
+                                data: {
+
+                                    regId: e.regid,
+
+                                    from: "android",
+
+                                    app_id: app_id
+
+                                },
+
+                                success: function(data) {
+
+                                    if (data && data != 'noMessage')
+
+                                        $("#app-status-ul").append('<li>' + data + '</li>');
+
+                                },
+
+                                error: function() {
+
+                                }
+
+                            });
+
+                        }
+
+                        break;
+
+
+
+                    case 'message':
+
+                        {
+
+                            if (e.payload.app_id == app_id && $.trim(e.message) != '')
+
+                                $("#app-status-ul").append('<li>' + e.message + '</li>');
+
+                        }
+
+                        break;
+
+
+
+                    case 'error':
+
+                        $("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
+
+                        break;
+
+
+
+                    default:
+
+                        $("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
+
+                        break;
+
+                }
+
+            }
+
+
+
+            function tokenHandler(result) {
+
+                    $.ajax({
+
+                        type: "POST",
+
+                        url: "http://appmigos.com/notification/actions.php",
+
+                        data: {
+
+                            regId: result,
+
+                            from: "ios",
+
+                            app_id: app_id
+
+                        },
+
+                        success: function(data) {
+
+                            if (data && data != 'noMessage')
+
+                                $("#app-status-ul").append('<li>' + data + '</li>');
+
+                        },
+
+                                
+
+                        error: function(error) {
+
+                      $("#app-status-ul").append('<li>ERROR:' + JSON.stringify(error) + '</li>');
+
+                      
+
+                        }
+
+                    });
+
+
+
+            }
+
+
+
+            function successHandler(result) {
+
+                /*$("#app-status-ul").append('<li>success:'+ result +'</li>');*/
+
+            }
+
+
+
+            function errorHandler(error) {
+
+                /*alert("function_errorHandler");*/
+
+                $("#app-status-ul").append('<li>error:'+ error +'</li>');
+
+            }
+
+
+
+            document.addEventListener('deviceready', onDeviceReady, true);
+
+
+
+        </script>
+
+
+
+    </head>
+
+    <body>
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+            <div data-role="header">
+
+                <div class="ui-bar ui-bar-a"><center><h1>Notification</h1></center>
+
+                </div>
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+            <div data-role="content">
+
+                <div id="app-status-div">
+
+                    <ul id="app-status-ul">
+
+                        
+
+                    </ul>
+
+                </div>
+
+            </div><!-- /content -->
+
+
+
+
+
+            <style type="text/css" > .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style>
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="content1.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content1.html" class="" onclick="window.open('content1.html','_self', 'location=yes')">Content</a></li><li><a href="notification.html" id="tab2" data-icon="custom" rel="external"  data-gourl="notification.html" class="" onclick="window.open('notification.html','_self', 'location=yes')">Notification</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+        </div>	
+
+    </body>
+
+</html>

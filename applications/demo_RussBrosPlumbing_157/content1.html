@@ -1,0 +1,408 @@
+<html>
+
+
+
+    <head>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.1.0.min.css" />
+
+
+
+        <link rel="stylesheet" href="theme.css" />
+
+
+
+
+
+        <script src="jquery-1.6.4.min.js"></script>
+
+        <script src="jquery/jquery.mobile-1.1.0.js"></script>
+
+
+
+        <script>
+
+            if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i))) {
+
+
+
+                $.getScript("cordova-2.0.0.js");
+
+                $.getScript("phonegap.js");
+
+                $.getScript("PushNotification.js");
+
+            }
+
+        </script>
+
+
+
+
+
+        <script type="text/javascript">
+
+            function checkTotleCount() {
+
+                if ($('.content_navigation_link h3 a').length == 1) {
+
+                    $('#content_navigation_content').hide();
+
+                    $('#article1').show();
+
+                }
+
+            }
+
+            $(document).ready(function() {
+
+                var articleNumber;
+
+                $('.backClick').click(function() {
+
+                    $('#content_navigation_content').show();
+
+                    $('#article' + articleNumber).hide();
+
+                    checkTotleCount();
+
+                });
+
+                $('.content_navigation_link h3 a').click(function() {
+
+                    $('#content_navigation_content').hide();
+
+                    articleNumber = $(this).attr('href').substr(-1);
+
+                    $('.content_navigation_link').removeClass('active');
+
+                    $(this).parent().parent().addClass('active');
+
+                    $('#article' + articleNumber).show();
+
+                });
+
+                checkTotleCount();
+
+                document.addEventListener("deviceready", initPushwoosh, false);
+
+
+
+            }
+
+            );
+
+        </script>
+
+
+
+        <!--Turn off notification-->
+
+    </head>
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Services</h1></center>
+
+                </div>
+
+
+
+            </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+
+
+
+
+            <div data-role="content">
+
+
+
+                
+
+                <style type="text/css">
+                    .content_navigation_content div,.content_navigation_content p,.content_navigation_content ul,.content_navigation_content h2,.content_navigation_content h3,.content_navigation_content h4,.content_navigation_content img{
+                        padding:0px; 
+                        margin:0px;
+                    }
+                    .content_navigation_link h3 a{
+                        text-decoration:none;
+                    }
+                    .content_navigation_link{
+                        width: 100%;
+                        text-align: center;
+                        line-height: 50px;
+                        display: block;
+                        height: 50px;
+                        border-bottom: 1px solid white;
+                    }
+                    #content_navigation_content{
+                        /*                        overflow: hidden;
+                                                width: 200px;*/
+                        background: grey;
+                        margin: 0 auto;
+                        border-radius: 10px;
+                        /*                        position: fixed;
+                                                left: 50%;
+                                                top: 40px;*/
+                        /*margin-left: -100px;*/
+                        border-radius: 10px; 
+                        box-shadow: 8px 8px 8px silver;
+                    }
+                    .content_navigation_link a{
+                        color:white !important;
+                        display:block;
+                    }
+                    .content_navigation_link:hover, .content_navigation_link:active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .active{
+                        background: #27a1c5;
+                        cursor:pointer;
+                    }
+                    .content_block{
+                        word-wrap: break-word;
+                        display: none;
+                    }
+                    #navigationContent{
+                        /*position: relative;*/
+                    }
+                    .content_navigation_link:first-child{
+                        border-radius: 10px 10px 0px 0px; 
+                    }
+                    .content_navigation_link:last-child{
+                        border-radius: 0px 0px 10px 10px; 
+                    }
+                    .content_navigation_link .active{
+                        background: none;
+                    }
+                    #backMenu{
+                        position: fixed;
+                        bottom: 75px;
+                        right: 10px; 
+                        opacity: 0.5;
+                        display: none;
+                    }
+                    #backMenu:hover,#backMenu:active{
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                </style>
+                <div id="navigationContent">
+                    <div id="content_navigation_content" class="content_navigation_content"><div class="content_navigation_link"><h3><a href="#article1">Plumbing</a></h3></div><div class="content_navigation_link"><h3><a href="#article2">Water Quality</a></h3></div><div class="content_navigation_link"><h3><a href="#article3">Heating</a></h3></div><div class="content_navigation_link"><h3><a href="#article4">Lawn Sprinklers</a></h3></div><div class="content_navigation_link"><h3><a href="#article5">Drain Cleaning</a></h3></div><div class="content_navigation_link"><h3><a href="#article6">Air Conditioning</a></h3></div><div class="content_navigation_link"><h3><a href="#article7">Backflow Prevention Inspection</a></h3></div></div>
+                    <div id="content_blocks"><div class="content_block" id="article1"><p>The proper functioning of the plumbing system is vital in any home or business. Your plumbing brings fresh water in your home, heats and conditions this water for usage and removes waste. In short, it is key to maintaining the health and cleanliness of the building and its occupants. Russo Bros. & Co. handles every type of plumbing situation including:</p>
+
+<ul>
+	<li>    Regular repair and maintenance of all plumbing fixtures (sinks, toilets, faucets, whirlpool tubs, showers, etc.)</li>
+	<li>    Repair and replacement of water heaters</li>
+	<li>    Bathroom and kitchen remodeling</li>
+	<li>    Installation and repair of water pipes and water services</li>
+	<li>    Installation of gas barbeque grills and gas fireplaces</li>
+	<li>    Appliance hookups (dishwashers, dryers, icemakers, etc.)</li>
+	<li>    Installation and repair of sump pumps</li>
+	<li>    Diagnosis and correction of water drainage problems</li>
+	<li>    Installation and repair of well and booster pumps</li>
+	<li>    Winterization of homes and buildings</li>
+	<li>    Analysis of water conditions</li>
+	<li>    Installation and repair of water softeners</li>
+</ul>
+
+<p> </p>
+</div><div class="content_block" id="article2"><p>The quality of the water entering any home or business may vary greatly due many factors. Among these is the age of the building’s plumbing system and whether the water is supplied by a municipal authority or from a well. Russo Bros. & Co. can supply you with a professional water analysis and recommend steps that may be taken to improve thequality of your water. These solutions include:</p>
+
+<p>    Nature’s Miracle whole house filtration</p>
+
+<p>    Water Softeners</p>
+
+<p>    Water Filters</p>
+
+<p>    Neutralizers</p>
+
+<p>    Water Analysis</p>
+
+<p>    Reverse Osmosis filtration</p>
+</div><div class="content_block" id="article3"><p>When the heat goes out in your home or office, you are not only uncomfortable, but you run the genuine risk of damage to your plumbing systems and additional costly repairs. Russo Bros. & Co. can maintain your heating system so that it runs at optimal efficiency. Our heating services include:</p>
+
+<p>    Custom design and installation of radiant heating and snow melting</p>
+
+<p><strong>    Maintenance of hot water and steam boilers (full tune-ups)</strong></p>
+
+<p>    Installation of high efficiency boilers</p>
+
+<p>    <strong>Oil to gas conversions of existing heating systems</strong></p>
+
+<p>    Repair and replacement of boiler controls and valves</p>
+
+<p>  <strong>  Installation and repair of radiators and baseboard heating elements</strong></p>
+</div><div class="content_block" id="article4"><p class="content">In ground sprinklers can maintain your landscape’s irrigation requirements through the efficient use of water. Our trained sprinkler technicians can design a system for any size yard. We can also enhance your outdoor architecture with the use of landscape lighting. Our lawn sprinkler services include:</p>
+
+<table border="0" height="323" width="272">
+	<tbody>
+		<tr>
+			<td valign="top" width="591">
+			<ul>
+				<li class="content"><strong>Spring start up maintenance on lawn sprinkler systems</strong><br>
+				 </li>
+				<li class="content">Custom design and installation of new sprinkler systems<br>
+				 </li>
+				<li class="content"><strong>Diagnosis and repair of malfunctioning systems</strong><br>
+				 </li>
+				<li class="content">Installation and repair of well booster pumps to increase water pressure<br>
+				 </li>
+				<li class="content"><strong>Winterization of lawn sprinkler systems</strong><br>
+				 </li>
+				<li class="content">Installation, repair and testing of backflow prevention devices as required by the state of New Jersey</li>
+			</ul>
+			</td>
+			<td align="center" valign="top" width="10"> </td>
+		</tr>
+	</tbody>
+</table>
+
+<p><strong><span class="subheads">Sprinkler Agreements</span></strong><br>
+<br>
+<span class="content">Russo Bros. & Co. has a sprinkler agreement tailored to just about any size system.  Sprinkler agreements offer the following benefits:</span></p>
+
+<ul>
+	<li class="content">Preferred service when scheduling appointments.<br>
+	 </li>
+	<li class="content">Turning the system on in the spring, setting the controller for operation, and cleaning/adjusting all sprinkler heads.<br>
+	 </li>
+	<li class="content">A mid season controller adjustment - Russo Bros. & Co. will send a trained technician to check that your system is handling your landscaping needs and will make any necessary adjustments.<br>
+	 </li>
+	<li class="content">Priority scheduling for winterizing the system in the fall.<br>
+	 </li>
+	<li class="content">Winterizing the system in the fall with an air compressor and setting the controller to the off position.<br>
+	 </li>
+	<li class="content"><strong>Discount of 10% </strong>off standard rate on any parts needed for repair and/or replacement.</li>
+</ul>
+
+<p class="content">Interested in a sprinkler agreement but not sure what they cost?  Russo Bros. & Co. prices our agreements according to the size of your system. We have agreements available for the following size systems:</p>
+
+<ul>
+	<li class="content">1-5 zones</li>
+	<li class="content">6-8 zones</li>
+	<li class="content">9-11 zones</li>
+	<li class="content">12-14 zones</li>
+	<li class="content">15-17 zones</li>
+	<li class="content"><strong>Contact us for additional sizes</strong></li>
+</ul>
+</div><div class="content_block" id="article5"><p>No one likes a clogged drain. Keeping a home or office’s drains clear is important to the proper operation of the overall plumbing system. Our drain division can tackle any problem from the smallest clog to a collapsed sewer line as well as:</p>
+
+<ul>
+	<li class="content"><strong>Clean and repair any household drain (such as kitchen, bathtub, shower or laundry tub)</strong><br>
+	 </li>
+	<li class="content">Maintain, repair and replace sewerage ejectors<br>
+	 </li>
+	<li class="content"><strong>Drain jetting and camera inspections</strong><br>
+	 </li>
+	<li class="content">Snaking the main drain from your house to the street<br>
+	 </li>
+	<li class="content"><strong>Clear leader drains of roots and debris by either snaking or jetting</strong><br>
+	 </li>
+	<li class="content">Drain Maid™ featuring BioSmart® – the only drain maintenance product that has met the <span class="caps">EPA</span>’s Design for the Environment Challenge.</li>
+</ul>
+</div><div class="content_block" id="article6"><p>Your air conditioning system is integral to keeping your home cool and comfortable during the hot summer months. It is important that you regularly service your system to maintain its effectiveness and keep it running efficiently. Russo Bros. & Co. understands the urgency of air conditioning repairs and provides a full line of services that will increase the longevity and reliability of your systems.<br>
+Our air conditioning services include:</p>
+
+<ul>
+	<li class="content"><strong>Performing seasonal maintenance</strong><br>
+	 </li>
+	<li class="content">Changing the filters<br>
+	 </li>
+	<li class="content"><strong>Cleaning your indoor and outdoor unit</strong><br>
+	 </li>
+	<li class="content">Adding Refrigerant to your system<br>
+	 </li>
+	<li class="content"><strong>Installing new air conditioning units</strong><br>
+	 </li>
+	<li class="content">Replacing coils, condenser fans, and air handlers<br>
+	 </li>
+	<li class="content"><strong>Troubleshooting air conditioning systems</strong><br>
+	 </li>
+	<li class="content">Relocating outdoor units</li>
+</ul>
+</div><div class="content_block" id="article7"><p>Clean drinking water is essential in all buildings. A backflow preventer prohibits contaminated water from entering a building’s water system. Most local municipalities require annual inspections of backflow preventers to ensure that the water in the building is flowing in the proper direction.</p>
+
+<p class="content">Russo Bros. & Co. is staffed with licensed backflow inspectors that can evaluate your system and ensure that your backflow prevention device adheres to code standards and is in proper working condition.</p>
+
+<p class="content">Our backflow preventer service includes:</p>
+
+<ul>
+	<li class="content"><strong>Checking the quality of the water in the building</strong><br>
+	 </li>
+	<li class="content">If necessary, relocating the backflow to an accessible area, near the water meter<br>
+	 </li>
+	<li class="content"><strong>Coordinating permits with your city’s water supply company</strong><br>
+	 </li>
+	<li class="content">Performing a pressure test to ensure no backwash travels into the building<br>
+	 </li>
+	<li class="content"><strong>Repairs to the backflow preventer and installation of a new backflow preventer</strong></li>
+</ul>
+</div></div>
+                    <img id="backMenu" src="./backMenu.png">
+                </div>                
+            
+
+
+
+            </div><!-- /content -->
+
+
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="photos.html"] .ui-icon { background:  url("icon(321).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="aboutUs.html"] .ui-icon { background:  url("icon(50).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content1.html"] .ui-icon { background:  url("icon(24).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; } .ui-content{ word-wrap: break-word; } </style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="youtubeKeywords.html" id="tab2" data-icon="custom" rel="external"  data-gourl="youtubeKeywords.html" class="" onclick="window.open('youtubeKeywords.html','_self', 'location=yes')">Youtube</a></li><li><a href="https://mobile.twitter.com/search?q=" id="tab2" data-icon="custom" rel="external"  data-gourl="https://mobile.twitter.com/search?q=" class="" onclick="window.open('https://mobile.twitter.com/search?q=','_self', 'location=yes')">Twitter</a></li><li><a href="content1.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content1.html" class="" onclick="window.open('content1.html','_self', 'location=yes')">Services</a></li><li><a href="aboutUs.html" id="tab2" data-icon="custom" rel="external"  data-gourl="aboutUs.html" class="" onclick="window.open('aboutUs.html','_self', 'location=yes')">About Us</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+    </body>
+
+
+
+</html>

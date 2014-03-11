@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/GitData
+END
+Commits.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/GitData/Commits.php
+END
+Tags.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/GitData/Tags.php
+END
+Blobs.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/GitData/Blobs.php
+END
+References.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/GitData/References.php
+END
+Trees.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/GitData/Trees.php
+END

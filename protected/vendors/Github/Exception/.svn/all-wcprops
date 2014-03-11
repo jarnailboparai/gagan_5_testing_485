@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Exception
+END
+MissingArgumentException.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Exception/MissingArgumentException.php
+END
+ValidationFailedException.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Exception/ValidationFailedException.php
+END
+ExceptionInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Exception/ExceptionInterface.php
+END
+RuntimeException.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Exception/RuntimeException.php
+END
+ApiLimitExceedException.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Exception/ApiLimitExceedException.php
+END
+ErrorException.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Exception/ErrorException.php
+END
+InvalidArgumentException.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Exception/InvalidArgumentException.php
+END

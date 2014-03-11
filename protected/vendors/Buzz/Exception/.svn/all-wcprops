@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Exception
+END
+LogicException.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Exception/LogicException.php
+END
+ClientException.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Exception/ClientException.php
+END
+ExceptionInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Exception/ExceptionInterface.php
+END
+RuntimeException.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Exception/RuntimeException.php
+END
+InvalidArgumentException.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Buzz/Exception/InvalidArgumentException.php
+END

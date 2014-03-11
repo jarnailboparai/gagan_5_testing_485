@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title>Photos</title>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+        <link rel="stylesheet" href="../../www/customize_module_preview/jquery/jquery.mobile-1.1.0.min.css" />
+
+        <link href="../../www/customize_module_preview/photos_files/styles.css" type="text/css" rel="stylesheet" />
+
+        <link href="../../www/customize_module_preview/photos_files/photoswipe.css" type="text/css" rel="stylesheet" />
+
+        <script src="../../www/customize_module_preview/jquery-1.6.4.min.js"></script>
+
+        <script src="../../www/customize_module_preview/jquery/jquery.mobile-1.1.0.js"></script>
+
+        <script type="text/javascript" src="../../www/customize_module_preview/photos_files/klass.min.js"></script>
+
+        <script type="text/javascript" src="../../www/customize_module_preview/photos_files/code.photoswipe-3.0.5.min.js"></script>
+
+
+
+
+
+        <script type="text/javascript">
+
+                (function(window, PhotoSwipe){
+
+		
+
+                    document.addEventListener('DOMContentLoaded', function(){
+
+			
+
+                        var
+
+                        options = {},
+
+                        instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
+
+			
+
+                    }, false);
+
+			
+
+			
+
+                }(window, window.Code.PhotoSwipe));
+
+                
+
+        </script>
+
+
+
+    </head>
+
+    <body>
+
+
+
+
+
+
+
+        <div data-role="page" data-add-back-btn="true" id="main">
+
+
+
+
+
+
+
+            <div data-role="header">
+
+
+
+                <div class="ui-bar ui-bar-a"><center><h1>Photos</h1></center>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <div data-role="content" id="feedresult">
+
+
+
+
+
+
+
+                <div id="MainContent">
+
+
+
+                    <ul id="Gallery" class="gallery">
+
+
+
+                        <li><a href="./pizza-114.png" rel="external" ><img src="./pizza-114.png" alt="Image 001" /></a></li><li><a href="./co-114.png" rel="external" ><img src="./co-114.png" alt="Image 002" /></a></li>
+
+
+
+                    </ul>
+
+
+
+                </div>	
+
+
+
+            </div><!-- /content -->
+
+
+
+
+
+
+
+
+
+
+
+            <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("../../www/customize_module_preview/icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style>
+
+
+
+            <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="photo.html" id="tab2" data-icon="custom" rel="external"  data-gourl="rss.html" class="" onclick="window.open('rss.html')">Photo</a></li></ul></div></div>
+
+
+
+        </div>	
+
+
+
+
+
+
+
+    </body>
+
+</html>

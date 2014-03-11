@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Issue
+END
+Labels.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Issue/Labels.php
+END
+Milestones.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Issue/Milestones.php
+END
+Events.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Issue/Events.php
+END
+Comments.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/appmigos/!svn/ver/4/trunk/members/wizard/protected/vendors/Github/Api/Issue/Comments.php
+END

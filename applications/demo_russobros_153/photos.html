@@ -1,0 +1,139 @@
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	
+
+	<link href="jquery/jquery.mobile-1.1.0.min.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="theme.css" />
+
+        <link href="photos_files/styles.css" type="text/css" rel="stylesheet" />
+
+        <link href="photos_files/photoswipe.css" type="text/css" rel="stylesheet" />
+
+	
+
+       
+
+        
+
+	<script type="text/javascript" src="photos_files/klass.min.js"></script>
+
+	<script type="text/javascript" src="jquery-1.6.4.min.js"></script>    
+
+	<script type="text/javascript" src="jquery/jquery.mobile-1.1.0.min.js"></script>
+
+	<script type="text/javascript" src="photos_files/code.photoswipe-3.0.5.min.js"></script>
+
+    <script>
+
+       if( (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i)) ){
+
+        
+
+        	$.getScript("cordova-2.0.0.js");
+
+			$.getScript("phonegap.js");
+
+			$.getScript("PushNotification.js");			
+
+		}
+
+		</script>    
+
+   
+
+	
+
+	<script type="text/javascript">
+
+		
+
+		(function(window, $, PhotoSwipe){
+
+                    $(document).ready(function(){
+
+                        var 
+
+                                options = {},
+
+                                photoSwipeInstance = $("ul.gallery a").photoSwipe(options,  'Gallery1');
+
+                    });
+
+		}(window, window.jQuery, window.Code.PhotoSwipe));
+
+	</script>
+
+        
+
+        
+
+        
+
+        <!--Turn off notification-->
+
+</head>
+
+<body>
+
+
+
+<div data-role="page" data-add-back-btn="true" id="Gallery1" class="gallery-page">
+
+    <div data-role="header">
+
+        <div class="ui-bar ui-bar-a"><center><h1>Photos</h1></center>
+
+        </div>
+
+    </div>
+
+            <a id="homeButton" href="index.html" rel="external" ><img src="./home.png" alt="Home" /></a>
+
+            <style type="text/css"> 
+
+                #homeButton{position: relative;top: -28px;left: 5px;width: 75px;height: 18px;display: block;text-align: center;}
+
+                #homeButton:active{ opacity: 0.7; } 
+
+            </style>
+
+
+
+    <div data-role="content">
+
+        <div id="MainContent">
+
+            <ul id="Gallery" class="gallery">
+
+                    <li><a href="photos_files/images/full/pic11.jpg" rel="external" ><img src="photos_files/images/thumb/pic11.jpg"  /></a></li><li><a href="photos_files/images/full/pic10.jpg" rel="external" ><img src="photos_files/images/thumb/pic10.jpg"  /></a></li><li><a href="photos_files/images/full/pic15.jpg" rel="external" ><img src="photos_files/images/thumb/pic15.jpg"  /></a></li><li><a href="photos_files/images/full/pic16.jpg" rel="external" ><img src="photos_files/images/thumb/pic16.jpg"  /></a></li><li><a href="photos_files/images/full/pic07.jpg" rel="external" ><img src="photos_files/images/thumb/pic07.jpg"  /></a></li><li><a href="photos_files/images/full/pic03.jpg" rel="external" ><img src="photos_files/images/thumb/pic03.jpg"  /></a></li><li><a href="photos_files/images/full/pic02.jpg" rel="external" ><img src="photos_files/images/thumb/pic02.jpg"  /></a></li><li><a href="photos_files/images/full/pic13.jpg" rel="external" ><img src="photos_files/images/thumb/pic13.jpg"  /></a></li><li><a href="photos_files/images/full/pic06.jpg" rel="external" ><img src="photos_files/images/thumb/pic06.jpg"  /></a></li><li><a href="photos_files/images/full/pic01.jpg" rel="external" ><img src="photos_files/images/thumb/pic01.jpg"  /></a></li><li><a href="photos_files/images/full/pic14.jpg" rel="external" ><img src="photos_files/images/thumb/pic14.jpg"  /></a></li><li><a href="photos_files/images/full/pic04.jpg" rel="external" ><img src="photos_files/images/thumb/pic04.jpg"  /></a></li><li><a href="photos_files/images/full/pic05.jpg" rel="external" ><img src="photos_files/images/thumb/pic05.jpg"  /></a></li><li><a href="photos_files/images/full/pic09.jpg" rel="external" ><img src="photos_files/images/thumb/pic09.jpg"  /></a></li><li><a href="photos_files/images/full/pic08.jpg" rel="external" ><img src="photos_files/images/thumb/pic08.jpg"  /></a></li><li><a href="photos_files/images/full/pic12.jpg" rel="external" ><img src="photos_files/images/thumb/pic12.jpg"  /></a></li><li><a href="photos_files/images/full/pic17.jpg" rel="external" ><img src="photos_files/images/thumb/pic17.jpg"  /></a></li><li><a href="photos_files/images/full/pic18.jpg" rel="external" ><img src="photos_files/images/thumb/pic18.jpg"  /></a></li>
+
+            </ul>
+
+        </div>	
+
+    </div>
+
+
+
+    <style> .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; width: 60px!important;}		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }#tab1 .ui-icon { background:  url("icons_tech_1579.png") 50% 50% no-repeat; background-size: 50px 50px; }#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="location.html"] .ui-icon { background:  url("icon(3).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="location.html"] .ui-icon { background:  url("icon(6).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="location.html"] .ui-icon { background:  url("icon(100).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="aboutUs.html"] .ui-icon { background:  url("icon(3).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; }   a[href="content1.html"] .ui-icon { background:  url("icon(24).png") 50% 50% no-repeat !important;background-size: 30px 30px !important; } #tab3 .ui-icon { background:  url("64Px_-_504-11.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab4 .ui-icon { background:  url("64Px_-_504-210.png") 50% 50% no-repeat; background-size: 30px 30px; }#tab5 .ui-icon { background:  url("more.png") 50% 50% no-repeat; background-size: 30px 30px; }</style>
+
+    <div data-role="footer" data-position="fixed" class="nav-glyphish-example" data-id="myfooter" data-theme="a" data-tap-toggle="false"><div data-role="navbar" class="nav-glyphish-example"><ul><li><a href="content1.html" id="tab2" data-icon="custom" rel="external"  data-gourl="content1.html" class="" onclick="window.open('content1.html','_self', 'location=yes')">Services</a></li><li><a href="aboutUs.html" id="tab2" data-icon="custom" rel="external"  data-gourl="aboutUs.html" class="" onclick="window.open('aboutUs.html','_self', 'location=yes')">About Us</a></li><li><a href="location.html" id="tab2" data-icon="custom" rel="external"  data-gourl="location.html" class="" onclick="window.open('location.html','_self', 'location=yes')">Location</a></li><li><a href="" id="tab2" data-icon="custom" rel="external"  data-gourl="" class="" onclick="window.open('','_self', 'location=yes')">Coupons</a></li><li><a href="more.html" id="tab5" data-icon="custom" rel="external">More</a></li></ul></div></div>
+
+</div>
+
+
+
+
+
+</body>
+
+</html>
