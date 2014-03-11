@@ -21,7 +21,7 @@
             <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
             <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-            
+            <li><a href="https://www.facebook.com/groups/appgorilla" target="_blank">App Gorilla FB Group</a></li>
             <li><a href="<?php echo CHtml::normalizeUrl(array('applicationnew/home'))?>">Members Home</a></li>
             <li><a href="<?php echo CHtml::normalizeUrl(array('applicationnew/dashboard'))?>">Manage Apps</a></li>
             <li class="active_menu"><a href="<?php echo CHtml::normalizeUrl(array('applicationnew/details','type' => 'new','app' => 'localBusiness')) ?>"><span>Create App</span></a></li>

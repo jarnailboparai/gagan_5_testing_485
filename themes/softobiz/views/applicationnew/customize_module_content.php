@@ -222,6 +222,7 @@ function customizemodulenew(){
 
 function addSubPage(arg){
 
+	$("#addSubPage").hide();
 	//var url = "/members/wizard/index.php?r=applicationnew/customizeSubModuleContent&flagC=1" ;
 	var url = baseurl+"/index.php?r=applicationnew/customizeSubModuleContent&sub_module_id="+arg+"&flagC=1"
 	$.ajax({

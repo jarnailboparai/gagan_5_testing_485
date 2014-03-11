@@ -50,7 +50,7 @@
 	
 
 	
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-success')); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-success')); ?><input type="button" value="Cancel" name="yt0" class="btn apple_form_btn">
 	
 
 <?php $this->endWidget(); ?>

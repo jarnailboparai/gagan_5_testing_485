@@ -1041,6 +1041,9 @@ footer{ padding:13px;}
     padding:13px 46px;
 	margin-top:20px;
 }
+.apple_form_btn{
+	margin-left:10px;
+}
 h4.view_app_title{
 	margin:25px 0px;
 }
@@ -1098,6 +1101,13 @@ h4.view_app_title{
 	width:247px;
 	left:12px;
 	top:117px;
+}
+.thumb_panel .thumb_btn .thumbalink{
+	width:134px;
+}
+.custom_video_footer.media_gallery_footer .btn-large.done_btn {
+    margin-top: -6px;
+    padding: 6px 25px 7px;
 }
 
 /* Manage App icon css ends here */

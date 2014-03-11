@@ -73,6 +73,7 @@ jQuery(document).ready(function(){
 				//myUpdate();
 				// $('#Demo').perfectScrollbar('update');
 	        	//popdetialHideOther(arg);
+	        	window.staticFlag = 0;
 				console.log(jQuery( "#staticPageFormButton_<?php echo $module_id; ?>" ).trigger( "click" ));
 	        },
 	        error: function(){

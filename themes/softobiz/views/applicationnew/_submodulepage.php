@@ -17,6 +17,7 @@ jQuery(document).ready(function(){
 				var arg = JSON.parse(response);
 	        	//popdetialHideOther(arg);
 				popdetialHideOtherSub(arg,'<?php echo $model->id; ?>');
+				//$("#addSubPage").show();
 	        	
 	        },
 	        error: function(){
@@ -48,8 +49,10 @@ jQuery(document).ready(function(){
 	        	//popdetialHideOther(arg);
 				//popdetialHideOtherSub(arg);
 				addNewLi(arg);
+				$("#addSubPage").show();
 				$("#addSubPageForm").html('');
 				$("#addSubPage").removeClass("make_abso");
+				
 	        	
 	        },
 	        error: function(){
@@ -222,7 +225,7 @@ jQuery(document).ready(function(){
 		<?php if(!$flagC){
 			echo CHtml::button('Cancel', array('class' => 'btn cancel_singlepage','onclick'=>"$('#submodule_$model->id').find('#formId').remove();"));
 		}else{
-			echo CHtml::button('Cancel', array('class' => 'btn cancel_singlepage','onclick'=>'$("#addSubPageForm").html("");$("#addSubPage").removeClass("make_abso");'));
+			echo CHtml::button('Cancel', array('class' => 'btn cancel_singlepage','onclick'=>'$("#addSubPageForm").html("");$("#addSubPage").removeClass("make_abso");$("#addSubPage").show();'));
 		} ?>
 		<?php //echo CHtml::link('Return to Tab List', array('/application/customizemodules'), array('class' => 'btn btn-large btn_radius btn-primary4')); ?>
 		

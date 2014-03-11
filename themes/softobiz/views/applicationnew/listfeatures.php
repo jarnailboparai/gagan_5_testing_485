@@ -2,7 +2,9 @@
 $pathurl = Yii::app()->theme->baseUrl;
 ?>
 <script type="text/javascript"  src="<?= $url ?>/js/nicEdit-latest.js"></script>
-
+<script>
+	window.staticFlag = 0;
+</script>
 <?php
 //$this->renderPartial("app_menu", array('style' => $style));
 ?>
@@ -121,6 +123,25 @@ $pathurl = Yii::app()->theme->baseUrl;
 <script type="text/javascript">
 var loaderDivji = '<div class="loading_content2" style="display:block;"><img src="<?php echo $pathurl?>/img/loading_page.gif"></div>';
 function popupdetial(arg,flag){
+
+	if($(arg).parent().parent().find('a').attr('id') ==  'staticpage'){
+
+		if( window.staticFlag == 0 )
+		{
+			window.staticFlag = 1
+			
+		}else{
+
+			alert("Please save Static page"); 
+			
+			//$(arg).parent().parent().remove('#formId');
+			//$('.loading_content2').hide(); flagloader = false; 
+			return false;
+
+		}
+		
+		
+	}
 	
  	flagloader = true;
 
@@ -136,7 +157,8 @@ function popupdetial(arg,flag){
 	{
 		window.location = $(arg).parent().parent().find('a').attr('href') ;
 	}
-	
+
+
 	
 	$.ajax({
 		type : "POST",
@@ -173,6 +195,18 @@ function popupdetial(arg,flag){
 
 function popdetialHide(arg)
 {
+
+	if($(arg).parent().parent().find('a').attr('id') ==  'staticpage'){
+
+		if( window.staticFlag == 1 )
+		{
+			window.staticFlag = 0
+			
+		}
+		
+		
+	}
+
 	$(arg).parent().parent().find('div#formId').remove();
 	
 	$(arg).attr('onclick','popupdetial(this)');

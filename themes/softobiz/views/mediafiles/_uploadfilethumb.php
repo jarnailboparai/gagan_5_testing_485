@@ -17,9 +17,9 @@ body {
 <div id="queueOpen" class="align-center"></div> 
 	<form>
 <!--  		<div id="queue" class="align-center"></div>  -->
-		<div class="media_gallery_footer">
+		<div class="media_gallery_footer custom_video_footer">
 		<button class="btn btn-success btn-large done_btn" type="button" id="thumbdone">Done</button>
-		<div class="align-center uploads" style="width:15.5%;float:left;" >
+		<div class="align-center uploads" style="width:12.9%;float:left;" >
 			<input id="file_upload" name="file_upload" type="file" multiple="true" class='btn btn-primary'>
 			<a style="position: relative;display:none; top: 8px;" href="javascript:$('#file_upload').uploadifive('upload')">Upload Files</a>
 		</div>

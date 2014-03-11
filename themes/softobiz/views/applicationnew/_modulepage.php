@@ -157,6 +157,7 @@ jQuery(document).ready(function(){
 				//alert('eee');
 				var arg = JSON.parse(response);
 	        	popdetialHideOther(arg);
+	        	window.staticFlag = 0;
 	        },
 	        error: function(){
 	            alert('error');
