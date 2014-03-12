@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wooden Theme</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="../../assets/css/fonts.css" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
+
+<link rel="stylesheet" href="css/wooden_theme.css" />
+
+<link rel="stylesheet" href="css/common_layout.css" />
+
+<link rel="stylesheet" href="css/static_page.css" />
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script type="text/javascript">
+
+   $(document).ready(function() {
+
+      $('#back-link').click(function() {
+
+         history.go(-1) 
+
+       });
+
+   });
+
+</script>
+
+
+
+
+
+<style type="text/css">
+
+img {
+
+	max-width:100%;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<!-- Start of first page -->
+
+<div data-role="page" id="theme_layout" class="theme_bg"> 
+
+  
+
+  <!-- Header Starts Here -->
+
+  <div data-role="header"> <a class="refresh_link" id="back-link" href="#"><img src="images/back_btn.png" alt="home icon" /></a>
+
+    <h1>page_one</h1>
+
+    <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>
+
+  <!-- /header ends here --> 
+
+  <!-- Static Page starts here -->
+
+  
+
+  <div class="staticPage">
+
+  
+
+  <p style="text-align: justify; line-height: 19.200000762939453px; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 12px;">by Michael Barr<span style="font-size: 12px;">If ever there was a piece of embedded software ripe for reuse it is the memory test. This article shows how to test for the most common memory problems with a set of three efficient, portable, public-domain memory test functions.</span></p><h3 style="margin-top: 20px; font-size: 16px; font-weight: normal; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; line-height: normal;">Introduction</h3><p style="text-align: justify; line-height: 19.200000762939453px; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 12px;">One piece of software that nearly every embedded developer must write at some point in his career is a memory test. Often, once the prototype hardware is ready, the board's designer would like some reassurance that she has wired the address and data lines correctly, and that the various memory chips are working properly. And, even if that's not the case, it is desirable to test any onboard RAM at least as often as the system is reset. It is up to the embedded software developer, then, to figure out what can go wrong and design a suite of tests that will uncover problems.<br style="clear: left;"><br style="clear: left;">At first glance, writing a memory test may seem like a fairly simple assignment. However, as you look at the problem more closely you will realize that it can be difficult to detect subtle memory problems with a simple test. In fact, as a result of programmer naïveté, many embedded systems include memory tests that would detect only the most catastrophic memory failures. Perhaps unbelievably, some of these may not even notice that the memory chips have been removed from the board!<br style="clear: left;"><br style="clear: left;">The purpose of a memory test is to confirm that each storage location in a memory device is working. In other words, if you store the number 50 at a particular address, you expect to find that number stored there until another number is written to that same address. The basic idea behind any memory test, then, is to write some set of data to each address in the memory device and verify the data by reading it back. If all the values read back are the same as those that were written, then the memory device is said to pass the test. As you will see, it is only through careful selection of the set of data values that you can be sure that a passing result is meaningful.<br style="clear: left;"><br style="clear: left;">Of course, a memory test like the one just described is necessarily destructive. In the process of testing the memory, you must overwrite its prior contents. Since it is generally impractical to overwrite the contents of nonvolatile memories, the tests described in this article are generally used only for RAM testing. However, if the contents of a non-volatile memory device, like flash, are unimportant-as they are during the product development stage-these same algorithms can be used to test those devices as well.</p><h3 style="margin-top: 20px; font-size: 16px; font-weight: normal; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; line-height: normal;">Common Memory Problems</h3><p style="text-align: justify; line-height: 19.200000762939453px; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 12px;">Before implementing any of the possible test algorithms, you should be familiar with the types of memory problems that are likely to occur. One common misconception among software engineers is that most memory problems occur within the chips themselves. Though a major issue at one time (a few decades ago), problems of this type are increasingly rare. The manufacturers of memory devices perform a variety of post-production tests on each batch of chips. If there is a problem with a particular batch, it is extremely unlikely that one of the bad chips will make its way into your system.<br style="clear: left;"><br style="clear: left;">The one type of memory chip problem you could encounter is a catastrophic failure. This is usually caused by some sort of physical or electrical damage to the chip after manufacture. Catastrophic failures are uncommon and usually affect large portions of the chip. Since a large area is affected, it is reasonable to assume that catastrophic failure will be detected by any decent test algorithm.<br style="clear: left;"><br style="clear: left;">In my experience, the most common source of actual memory problems is the circuit board. Typical circuit board problems are problems with the wiring between the processor and memory device, missing memory chips, and improperly inserted memory chips.<br style="clear: left;"><br style="clear: left;">These are the problems that a good memory test algorithm should be able to detect. Such a test should also be able to detect catastrophic memory failures without specifically looking for them. So, let's discuss the circuit board problems in more detail.</p><h3 style="margin-top: 20px; font-size: 16px; font-weight: normal; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; line-height: normal;">Electrical Wiring Problems</h3><p style="text-align: justify; line-height: 19.200000762939453px; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 12px;">An electrical wiring problem could be caused by an error in design or production of the board or as the result of damage received after manufacture. Each of the wires that connects the memory device to the processor is one of three types: an address line, a data line, or a control line. The address and data lines are used to select the memory location and to transfer the data, respectively. The control lines tell the memory device whether the processor wants to read or write the location and precisely when the data will be transferred. Unfortunately, one or more of these wires could be improperly routed or damaged in such a way that it is either shorted (i.e., connected to another wire on the board) or open (not connected to anything). These problems are often caused by a bit of solder splash or a broken trace, respectively.</p><p style="text-align: justify; line-height: 19.200000762939453px; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 12px;"><img class="aligncenter" src="http://www.esacademy.com/assets/images/wiringproblems.gif" alt="Wiring problems" width="434" height="252" style="margin-left: auto; margin-right: auto;"></p><p style="text-align: justify; line-height: 19.200000762939453px; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 12px;">Problems with the electrical connections to the processor will cause the memory device to behave incorrectly. Data may be stored incorrectly, stored at the wrong address, or not stored at all. Each of these symptoms can be explained by wiring problems on the data, address, and control lines, respectively.<br style="clear: left;"><br style="clear: left;">If the problem is with a data line, several data bits may appear to be "stuck together" (i.e., two or more bits always contain the same value, regardless of the data transmitted). Similarly, a data bit may be either "stuck high" (always 1) or "stuck low" (always 0). These problems can be detected by writing a sequence of data values designed to test that each data pin can be set to 0 and 1, independently of all the others.<br style="clear: left;"><br style="clear: left;">If an address line has a wiring problem, the contents of two memory locations may appear to overlap. In other words, data written to one address will actually overwrite the contents of another address instead. This happens because an address bit that is shorted or open will cause the memory device to see a different address than the one selected by the processor.<br style="clear: left;"><br style="clear: left;">Another possibility is that one of the control lines is shorted or open. Although it is theoretically possible to develop specific tests for control line problems, it is not possible to describe a general test for them. The operation of many control signals is specific to the processor or memory architecture. Fortunately, if there is a problem with a control line, the memory will probably not work at all, and this will be detected by other memory tests. If you suspect a problem with a control line, it is best to seek the advice of the board's designer before constructing a specific test.</p><h3 style="margin-top: 20px; font-size: 16px; font-weight: normal; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; line-height: normal;">Missing Memory Chips</h3><p style="text-align: justify; line-height: 19.200000762939453px; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 12px;">A missing memory chip is clearly a problem that should be detected. Unfortunately, due to the capacitive nature of unconnected electrical wires, some memory tests will not detect this problem. For example, suppose you decided to use the following test algorithm: write the value 1 to the first location in memory, verify the value by reading it back, write 2 to the second location, verify the value, write 3 to the third location, verify, etc. Since each read occurs immediately after the corresponding write, it is possible that the data read back represents nothing more than the voltage remaining on the data bus from the previous write. If the data is read back too quickly, it will appear that the data has been correctly stored in memory-even though there is no memory chip at the other end of the bus!<br style="clear: left;"><br style="clear: left;">To detect a missing memory chip the test must be altered. Instead of performing the verification read immediately after the corresponding write, it is desirable to perform several consecutive writes followed by the same number of consecutive reads. For example, write the value 1 to the first location, 2 to the second location, and 3 to the third location, then verify the data at the first location, the second location, etc. If the data values are unique (as they are in the test just described), the missing chip will be detected: the first value read back will correspond to the last value written (3), rather than the first (1).</p><h3 style="margin-top: 20px; font-size: 16px; font-weight: normal; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; line-height: normal;">Improperly Inserted Chips</h3><p style="text-align: justify; line-height: 19.200000762939453px; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 12px;">If a memory chip is present but improperly inserted in its socket, the system will usually behave as though there is a wiring problem or a missing chip. In other words, some number of the pins on the memory chip will either not be connected to the socket at all or will be connected at the wrong place. These pins will be part of the data bus, address bus, or control wiring. So as long as you test for wiring problems and missing chips, any improperly inserted chips will be detected automatically.</p><h3 style="margin-top: 20px; font-size: 16px; font-weight: normal; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; line-height: normal;">Developing a Test Strategy</h3><p style="text-align: justify; line-height: 19.200000762939453px; color: rgb(0, 0, 0); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 12px;">Before going on, let's quickly review the types of memory problems we must be able to detect. Memory chips only rarely have internal errors, but, if they do, they are probably catastrophic in nature and will be detected by any test. A more common source of problems is the circuit board, where a wiring problem may occur or a memory chip may be missing or improperly inserted. Other memory problems can occur, but the ones described here are the most common.<br style="clear: left;"></p>
+
+  </div>
+
+  
+
+  <!-- Static Page Ends here -->
+
+  
+
+</div>
+
+<!-- /page --> 
+
+
+
+</body>
+
+</html>
