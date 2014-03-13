@@ -62,7 +62,9 @@ function thumbModalNew(arg){
 	}
 
 function submitformVideo(arg)
-{
+{	
+	if($("#video-files-formaqsw").valid())
+	{
 		console.log(arg);
 	    var postData = $(arg).serialize();
 	   // var actionUrl = document.getElementById('video-files-form');
@@ -103,7 +105,7 @@ function submitformVideo(arg)
 	    }); 
 	   
 	return false;
-
+	}
 }
 
 
@@ -140,7 +142,7 @@ function submitformVideo(arg)
 
 				<?php echo $form->textField($model,'mp4_url',array('size'=>60,'maxlength'=>255,'placeholder'=>"Link to MP4 File")); ?>
 				<?php echo $form->textField($model,'threegp_url',array('size'=>60,'maxlength'=>255,'placeholder'=>"Link to 3GP File")); ?>
-				<?php echo $form->textField($model,'m4v',array('size'=>60,'maxlength'=>255,'placeholder'=>"Link to MP4 File")); ?>
+				<?php echo $form->textField($model,'m4v',array('size'=>60,'maxlength'=>255,'placeholder'=>"Link to M4V File")); ?>
 			</div>
 			<div class="span4">
 				<div class="thumb_panel">

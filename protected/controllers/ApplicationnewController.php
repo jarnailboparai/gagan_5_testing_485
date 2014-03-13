@@ -62,6 +62,10 @@ class ApplicationnewController extends Controller
 	{
 		$this->layout = '//layouts/column3';
 		sleep(1);
+		
+		if(!(Yii::app()->user->id))
+			$this->redirect(array('site/login'));
+		
 		return parent::beforeAction($action);
 		
 	}
@@ -1483,12 +1487,12 @@ class ApplicationnewController extends Controller
 			//Copy Application Icon
 
 
-			if ($app_model->launch_image)
-				copy(Yii::getPathOfAlias('webroot') . '/app_images/' . $app_model->launch_image, $dest_path . '/' . $app_model->launch_image);
+			//if ($app_model->launch_image)
+				//copy(Yii::getPathOfAlias('webroot') . '/app_images/' . $app_model->launch_image, $dest_path . '/icon.png' );
 
 
 			if ($app_model->icon)
-				//copy(Yii::getPathOfAlias('webroot') . '/app_images/' . $app_model->icon, $dest_path . '/' . $app_model->icon);
+				copy(Yii::getPathOfAlias('webroot') . '/app_images/' . $app_model->icon, $dest_path . '/icon.png');
 
 			//Change Config.xml
 
@@ -1503,7 +1507,7 @@ class ApplicationnewController extends Controller
 			$strConfig = str_replace('<description>Hello World sample application that responds to the deviceready event.</description>', '<description>' . $app_model->description . '</description>', $strConfig);
 
 
-			$strConfig = str_replace('<icon src="icon.png" />', '<icon src="' . $app_model->icon . '" />', $strConfig);
+			//$strConfig = str_replace('<icon src="icon.png" />', '<icon src="' . $app_model->icon . '" />', $strConfig);
 
 			fwrite($fp, $strConfig, strlen($strConfig));
 

@@ -27,7 +27,7 @@ $pathurl = Yii::app()->theme->baseUrl;
     </h4>
         <fieldset>
             <div class="control-group">
-                <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Title</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="Please use Alphanumeric characters . Special characters such as &amp;, *,$, spaces etc are not possible in your App Title."><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
+                <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Title</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="This will the title of application.Tooltip example of App Title space and special characters not allowed."><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
                 <div class="controls">
                     <?php echo $form->textField($model, 'title', array('placeholder' => 'Enter Your App name', 'id' => 'appTitle', 'class' => 'span5')); ?>
                     <?php echo $form->error($model, 'title',array('class'=>'alert alert-error')); ?>
@@ -49,7 +49,7 @@ $pathurl = Yii::app()->theme->baseUrl;
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label ctrl_style">App Description</label>
+                 <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Description</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="This will description of your application"><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
                 <div class="controls">
                     <?php echo $form->textArea($model, 'description', array('class' => 'span5', 'rows' => 5, 'placeholder' => 'Enter a Description of Your App', 'id' => 'appDescription')); ?>
                     <?php echo $form->error($model, 'description',array('class'=>'alert alert-error')); ?>
@@ -99,6 +99,11 @@ $pathurl = Yii::app()->theme->baseUrl;
 
         </fieldset>
         <?php $this->endWidget(); ?>
+        <script type="text/javascript">
+	jQuery(document).ready(function(){
+    $('.eeee').tooltip('hide')
+	});
+    </script>
         
 <!--     </div> -->
 <!-- </div> -->

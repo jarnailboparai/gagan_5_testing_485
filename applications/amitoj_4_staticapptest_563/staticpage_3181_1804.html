@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wooden Theme</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="../../assets/css/fonts.css" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
+
+<link rel="stylesheet" href="css/wooden_theme.css" />
+
+<link rel="stylesheet" href="css/common_layout.css" />
+
+<link rel="stylesheet" href="css/static_page.css" />
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script type="text/javascript">
+
+   $(document).ready(function() {
+
+      $('#back-link').click(function() {
+
+         history.go(-1) 
+
+       });
+
+   });
+
+</script>
+
+
+
+
+
+<style type="text/css">
+
+img {
+
+	max-width:100%;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<!-- Start of first page -->
+
+<div data-role="page" id="theme_layout" class="theme_bg"> 
+
+  
+
+  <!-- Header Starts Here -->
+
+  <div data-role="header"> <a class="refresh_link" id="back-link" href="#"><img src="images/back_btn.png" alt="home icon" /></a>
+
+    <h1>page one</h1>
+
+    <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>
+
+  <!-- /header ends here --> 
+
+  <!-- Static Page starts here -->
+
+  
+
+  <div class="staticPage">
+
+  
+
+  <br>Static vs. dynamic testing[edit]
+
+There are many approaches to software testing. Reviews, walkthroughs, or inspections are referred to as static testing, whereas actually executing programmed code with a given set of test casesis referred to as dynamic testing. Static testing is often implicit, as proofreading, plus when programming tools/text editors check source code structure or compilers (pre-compilers) check syntax and data flow as static program analysis. Dynamic testing takes place when the program itself is run. Dynamic testing may begin before the program is 100% complete in order to test particular sections of code and are applied to discrete functions or modules. Typical techniques for this are either using stubs/drivers or execution from a debugger environment.
+
+Static testing involves verification, whereas dynamic testing involves validation. Together they help improve software quality. Among the techniques for static analysis, mutation testing can be used to ensure the test-cases will detect errors which are introduced by mutating the source code.
+The box approach[edit]
+
+Software testing methods are traditionally divided into white- and black-box testing. These two approaches are used to describe the point of view that a test engineer takes when designing test cases.
+White-Box testing[edit]
+Main article: White-box testing
+
+White-box testing (also known as clear box testing, glass box testing, transparent box testing and structural testing) tests internal structures or workings of a program, as opposed to the functionality exposed to the end-user. In white-box testing an internal perspective of the system, as well as programming skills, are used to design test cases. The tester chooses inputs to exercise paths through the code and determine the appropriate outputs. This is analogous to testing nodes in a circuit, e.g. in-circuit testing (ICT).
+
+While white-box testing can be applied at the unit, integration and system levels of the software testing process, it is usually done at the unit level. It can test paths within a unit, paths between units during integration, and between subsystems during a system–level test. Though this method of test design can uncover many errors or problems, it might not detect unimplemented parts of the specification or missing requirements.
+
+Techniques used in white-box testing include:
+
+    API testing (application programming interface) – testing of the application using public and private APIs
+    Code coverage – creating tests to satisfy some criteria of code coverage (e.g., the test designer can create tests to cause all statements in the program to be executed at least once)
+    Fault injection methods – intentionally introducing faults to gauge the efficacy of testing strategies
+    Mutation testing methods
+    Static testing methods
+
+Code coverage tools can evaluate the completeness of a test suite that was created with any method, including black-box testing. This allows the software team to examine parts of a system that are rarely tested and ensures that the most important function points have been tested.[22] Code coverage as a software metric can be reported as a percentage for:
+
+        Function coverage, which reports on functions executed
+        Statement coverage, which reports on the number of lines executed to complete the test
+
+100% statement coverage ensures that all code paths, or branches (in terms of control flow) are executed at least once. This is helpful in ensuring correct functionality, but not sufficient since the same code may process different inputs correctly or incorrectly.
+Black-box testing[edit]
+Main article: Black-box testing
+Black box diagram
+
+Black-box testing treats the software as a "black box", examining functionality without any knowledge of internal implementation. The tester is only aware of what the software is supposed to do, not how it does it.[23] Black-box testing methods include: equivalence partitioning, boundary value analysis, all-pairs testing, state transition tables, decision table testing, fuzz testing, model-based testing, use case testing, exploratory testing and specification-based testing.
+
+Specification-based testing aims to test the functionality of software according to the applicable requirements.[24] This level of testing usually requires thorough test cases to be provided to the tester, who then can simply verify that for a given input, the output value (or behavior), either "is" or "is not" the same as the expected value specified in the test case. Test cases are built around specifications and requirements, i.e., what the application is supposed to do. It uses external descriptions of the software, including specifications, requirements, and designs to derive test cases. These tests can be functional or non-functional, though usually functional.
+
+Specification-based testing may be necessary to assure correct functionality, but it is insufficient to guard against complex or high-risk situations.[25]
+
+One advantage of the black box technique is that no programming knowledge is required. Whatever biases the programmers may have had, the tester likely has a different set and may emphasize different areas of functionality. On the other hand, black-box testing has been said to be "like a walk in a dark labyrinth without a flashlight."[26] Because they do not examine the source code, there are situations when a tester writes many test cases to check something that could have been tested by only one test case, or leaves some parts of the program untested.
+
+This method of test can be applied to all levels of software testing: unit, integration, system and acceptance. It typically comprises most if not all testing at higher levels, but can also dominate unit testing as well.
+
+  </div>
+
+  
+
+  <!-- Static Page Ends here -->
+
+  
+
+</div>
+
+<!-- /page --> 
+
+
+
+</body>
+
+</html>

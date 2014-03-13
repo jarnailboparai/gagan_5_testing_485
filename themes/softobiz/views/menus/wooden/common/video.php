@@ -9,8 +9,8 @@
 								
 							//$subMenus .= "<a href='http://www.youtube.com/watch?v={$sub->videomedia->actual_url}'><img src='{$sub->videomedia->thumbnail_url}'  />";
 							$subMenus .= "<a href='#popupVideo_{$sub->videomedia->id}' data-rel='popup' data-position-to='window' ><img src='{$sub->videomedia->thumbnail_url}'  />";
-							$subMenus .= "<h2>".$sub->videomedia->title."</h2>";
-							$subMenus .= "<p>".$sub->videomedia->description."</p>";
+							$subMenus .= "<h2>".substr($sub->videomedia->title,0,100)."</h2>";
+							$subMenus .= "<p>".substr($sub->videomedia->description,0,100)."</p>";
 							$subMenus .= "</a>";
 							
 						}elseif ($sub->videomedia->type == 2)
@@ -23,8 +23,8 @@
 							
 							//$subMenus .= "<a href='{$sub->videomedia->mp4_url}'><img src='{$serverUrlPath}{$sub->videomedia->filemediaImage->attributes['filename']}'  />";
 							$subMenus .= "<a href='#popupVideo_{$sub->videomedia->id}' data-rel='popup' data-position-to='window' ><img src='{$serverUrlPath}{$sub->videomedia->filemediaImage->attributes['filename']}'  />";
-							$subMenus .= "<h2>".$sub->videomedia->title."</h2>";
-							$subMenus .= "<p>".$sub->videomedia->description."</p>";
+							$subMenus .= "<h2>".substr($sub->videomedia->title,0,100)."</h2>";
+							$subMenus .= "<p>".substr($sub->videomedia->description,0,100)."</p>";
 							$subMenus .= "</a>";
 							
 						} 

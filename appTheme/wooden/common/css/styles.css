@@ -81,6 +81,10 @@ div.gallery-item .play_video_icon:hover,div.gallery-item .play_video_icon:active
 	font-weight:600;
 	color:#828180;
 }
+.video_gallery_new .ui-listview .ui-li-has-thumb > img:first-child,.video_gallery_new  .ui-listview .ui-li-has-thumb > .ui-btn > img:first-child, .video_gallery_new .ui-listview .ui-li-has-thumb .ui-li-thumb{
+	height:81px;
+	max-width: 5.5em;
+}
 @media (max-width: 330px){
 	div.gallery-item {
     	width: 49.2%;

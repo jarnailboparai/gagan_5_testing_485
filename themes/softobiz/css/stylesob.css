@@ -1109,5 +1109,83 @@ h4.view_app_title{
     margin-top: -6px;
     padding: 6px 25px 7px;
 }
+#myModalVideoCustom  form label.error{
+	width: 100% !important;
+}
+#myModalVideoCustom #video-files-formaqsw label.error {
+	 color: #FF0000;
+    display: inline;
+    float: left;
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: auto;
+}
+.form-signin .control-label.ctrl_style .tooltip-inner{
+	max-width:238px;
+}
+/* Manage App icon css ends here */
 
 /* Manage App icon css ends here */
+/* Multiple page setting starts here */
+.single_page.multiple_setting{
+	padding-bottom:0px;
+}
+.multiple_setting .title_table .button_panel{
+	padding-top:0px;
+}
+.multiple_setting .title_table .button_panel .btn{
+	padding:14px 10px;
+}
+.subpage_title {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding:6px;
+}
+.subpage_title .btn.pull-left.add_page_btn{
+	margin-top:3px;
+}
+.subpage_title .pull-left{
+	font-size:15px;
+	text-indent:10px;
+	margin-right:10px;
+}
+.sub_page_wrapper{
+	margin:0px 10px 12px;
+	border:1px solid #ddd;
+}
+.sub_page_wrapper .inner_accordin{
+	margin:0px;
+}
+.sub_page_wrapper #wrapperliUl {
+	margin:0px 12px;
+}
+.sub_page_wrapper #wrapperliUl li{
+	background:none;
+	border-left:0px;
+	border-right:0px;
+	line-height:28px;
+	padding-left:0px;
+	border-top:0px;
+	margin-bottom:0px;
+}
+.sub_page_wrapper #wrapperliUl li:last-child{
+	border-bottom:0px;
+}
+.sub_page_wrapper #wrapperliUl li:first-child{
+	border-top:0px;
+}
+.sub_page_wrapper .addSubPageForm .single_page{
+	padding:0px;
+	padding-top:10px;
+}
+.sub_page_wrapper .addSubPageForm #formId{
+	border:0px;
+	margin-left:11px;
+	width: 720px;
+}
+.sub_page_wrapper .addSubPageForm{
+	margin-top:0px;
+}
+/* Multiple settings ends here */

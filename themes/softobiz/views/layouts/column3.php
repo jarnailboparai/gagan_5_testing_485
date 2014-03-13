@@ -80,7 +80,7 @@
       <footer>
         <div class="container">
   
-        <p>&copy; Copyright 2013 - App Gozilla - All rights reserved.
+        <p>&copy; Copyright 2013 - App Gorilla - All rights reserved.
 </p>
         
         

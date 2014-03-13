@@ -6,7 +6,6 @@
 
 <script>
 	function selectedVideo(liArg){
-
 		if($(liArg).hasClass('enabled')){
 			$(liArg).removeClass('enabled');
 			$(liArg).find('input.fieldsetValue').attr('name','fieldset[]');
@@ -14,8 +13,17 @@
 			$(liArg).addClass('enabled');
 			$(liArg).find('input.fieldsetValue').attr('name','selectedlisted[]');
 		}
+		select_btn_disable();
 	}
-
+	// function to select btn add class disable and remove class disable 
+	// code by sob_k
+	// issue : Video gallery add more videos in youtube select box come in video panel
+	function select_btn_disable()
+	{
+		var total=$(document).find('input[name="selectedlisted[]"]').length;
+		(total>0)?$('#select_btn').removeClass('disabled'):$('#select_btn').addClass('disabled');
+	}
+	
 	function submitFormMain(arg)
 	{
 		var form = document.forms[arg];
@@ -25,7 +33,7 @@
 
 	
 jQuery(document).ready(function(){
-	
+	select_btn_disable();
 	jQuery('#video-files-form').on('submit',function(e){
 		e.preventDefault();
 	    var postData = $(this).serialize();
@@ -372,7 +380,7 @@ function openCloseYoutubeOpenVideo()
     height: 30px;" onclick="search()" >Go!</button>
             </div>
             <div class="select_video">
-			<input type="button" class="btn btn-success" value="Select" onclick="submitFormMain('youtube-list')" style="margin-right:10px;">
+			<input id="select_btn" type="button" class="btn btn-success" value="Select" onclick="submitFormMain('youtube-list')" style="margin-right:10px;">
 			<input type="button" class="btn" onclick="openCloseYoutubeOpenVideo()" value="Cancel">
 			<input style="display:none;"  id="playlistYoutube" type="button" class="btn btn-info" value="Back" onclick="search()" style="margin-right:10px;">
 </div>

@@ -11,17 +11,22 @@
 
 <?php }elseif ($model->page_type == 2) { ?>
 	
-	<?php echo $this->renderPartial("_modulepage", array("model"=>$model)); ?>
+	<?php echo $this->renderPartial("_modulemultipage", array("model"=>$model)); ?>
 	
 	<?php //echo $this->renderPartial("_submodulepage", array("model"=>$submodel,'data'=>$model)); ?>
 	
 	<?php //echo count($model->subModules);  ?>
+	<div class="sub_page_wrapper">
 	<div class="inner_accordin">
-	
-	<span id="addSubPage" class="btn pull-right add_page_btn" onclick="addSubPage('<?php echo $model->id;?>');">Add Subpage</span>
+	<div class="subpage_title">
+	<span class="pull-left">Subpages</span><span id="addSubPage" class="btn pull-left add_page_btn" onclick="addSubPage('<?php echo $model->id;?>');">Add Subpage</span>
+	<div class="clearfix"></div>
+	</div>
 	
 	<div class="clearfix"></div>
 	<div class="addSubPageForm" id="addSubPageForm"></div>
+	<div class="clearfix"></div>
+	</div>
 	
 	<?php foreach($model->subModules as $sub){
 		
@@ -155,6 +160,7 @@
 			<?php }  ?>
 		
 	</ul>	
+	</div>
 <script>
 function popupdetialSub(arg,flag)
 {
