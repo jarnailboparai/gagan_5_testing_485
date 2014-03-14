@@ -576,5 +576,44 @@ class MediafilesController extends Controller
 		$this->render('uploadfile');
 	}
 	
+	public function actionImagelistthumbsubpage($layout=null,$thumb=null,$select=null)
+	{
+	
+		if(isset($layout)){
+			$this->layout = true;
+		}
+	
+	
+		$selected = array();
+	
+		array_push($selected, $select);
+	
+		if(isset($thumb)) {
+			$dataSelectedImages  = VideoFiles::model()->findAllByAttributes(array('id'=>$id));
+	
+			foreach ($dataSelectedImages as $image){
+	
+				$selected[$image->attributes['id']] =  $image->attributes['media_files_id'];
+	
+				//print_r($image->filemedia->attributes['id']);
+			}
+	
+		}
+	
+		//die;
+		$dataProvider = MediaFiles::model()->findAllByAttributes(array('user_id'=>Yii::app()->user->id));
+	
+	
+	
+		$fileUrl = Yii::app()->baseUrl.'/mediafiles/'.Yii::app()->user->getState('username').'_'.Yii::app()->user->id.'/thumb/';
+	
+		$this->render('imagelistthumbsubpage',array(
+				'dataProvider'=>$dataProvider,
+				'fileUrl'=>$fileUrl,
+				'selected'=>$selected,
+	
+		));
+	
+	}
 	
 }

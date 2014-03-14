@@ -27,7 +27,7 @@ $pathurl = Yii::app()->theme->baseUrl;
     </h4>
         <fieldset>
             <div class="control-group">
-                <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Title</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="This will the title of application.Tooltip example of App Title space and special characters not allowed."><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
+                <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Title</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="This will the title of application.Note: App Title space and special characters(@#$%^) not allowed."><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
                 <div class="controls">
                     <?php echo $form->textField($model, 'title', array('placeholder' => 'Enter Your App name', 'id' => 'appTitle', 'class' => 'span5')); ?>
                     <?php echo $form->error($model, 'title',array('class'=>'alert alert-error')); ?>
@@ -49,7 +49,7 @@ $pathurl = Yii::app()->theme->baseUrl;
                 </div>
             </div>
             <div class="control-group">
-                 <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Description</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="This will description of your application"><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
+                 <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Description</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="This will be description of your application"><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
                 <div class="controls">
                     <?php echo $form->textArea($model, 'description', array('class' => 'span5', 'rows' => 5, 'placeholder' => 'Enter a Description of Your App', 'id' => 'appDescription')); ?>
                     <?php echo $form->error($model, 'description',array('class'=>'alert alert-error')); ?>
@@ -58,8 +58,8 @@ $pathurl = Yii::app()->theme->baseUrl;
 
             <div class="control-group">
 <!--                 <label class="control-label ctrl_style">App Icon</label> -->
-                <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Icon</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="Please upload a 114x114 PNG image to avoid distortion
-                        Please note that Apple  does not allow transparency in iPhone app icons" ><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
+                <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Icon</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="Please upload a 114x114 PNG image to avoid distortion.
+                        Note: Apple does not allow transparency in iPhone app icons" ><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
                 <div class="controls">
                     <?php echo $form->fileField($model, 'icon', array('class' => 'input-file', 'id' => 'uploadedFile')); ?>
                     <br/><br/>

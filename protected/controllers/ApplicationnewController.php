@@ -1450,8 +1450,8 @@ class ApplicationnewController extends Controller
 			$this->recurFolder($sourcefileCommon, $dest_path);
 			
 			
-			if(!file_exists(Yii::app()->basePath.'/app_images/'.$app_model->icon)){
-				copy(Yii::app()->basePath.'/../app_images/'.$app_model->icon, $dest_path.'/'.$app_model->icon);
+			if(file_exists(Yii::app()->basePath.'/../app_images/'.$app_model->icon)){
+				copy(Yii::app()->basePath.'/../app_images/'.$app_model->icon, $dest_path . '/icon.png');
 				//die("app icon image");
 			}
 			//print_r($sub->videomedia->filemediaImage->attributes);
@@ -1491,8 +1491,9 @@ class ApplicationnewController extends Controller
 				//copy(Yii::getPathOfAlias('webroot') . '/app_images/' . $app_model->launch_image, $dest_path . '/icon.png' );
 
 
-			if ($app_model->icon)
-				copy(Yii::getPathOfAlias('webroot') . '/app_images/' . $app_model->icon, $dest_path . '/icon.png');
+			//if ($app_model->icon)
+			//if(file_exists(Yii::getPathOfAlias('webroot') . '/app_images/' . $app_model->icon))
+			//	copy(Yii::getPathOfAlias('webroot') . '/app_images/' . $app_model->icon, $dest_path . '/icon.png');
 
 			//Change Config.xml
 
@@ -1782,7 +1783,8 @@ class ApplicationnewController extends Controller
 					$subMenus =  $this->renderPartial("//menus/wooden/common/video",
 															array('obj'=>$obj,
 																  'app_model'=> $app_model,
-																   'dest_path' => $dest_path),true);
+																   'dest_path' => $dest_path,
+																	'sourcefile'=>$sourcefile),true);
 					
 				}
 					

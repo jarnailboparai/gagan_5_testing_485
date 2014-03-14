@@ -133,7 +133,7 @@ jQuery(document).ready(function(){
         $optin_form = array('optin_form');
         $location = array('location');
         ?>
-	<table class="title_table">
+	<table class="title_table subpagethumb_wrap">
 		<tr>
 			<td>
 <!-- 			<input type="text" placeholder="Title"> -->
@@ -141,6 +141,27 @@ jQuery(document).ready(function(){
 			</td>
 			<td>
 			 <?php echo $form->hiddenField($model, 'tab_icon'); ?>
+			<div class="subpagethumb">
+				<div class="thumb_panel">
+					<div class="thumb" id="thumbImage">
+						<?php if(!isset($model->tab_icon)){ ?>
+						<?php echo CHtml::image('images/no_thumb.jpg','',array())?>
+						<?php }else{
+							//print_r($model->filemediaImage);
+							//echo CHtml::image('images/thumb.jpg','no thumb',array());
+							 //$r = pathinfo($model->tab_icon);   
+							 echo CHtml::image($model->tab_icon); 
+						}?>
+					</div>
+					<div class="thumb_btn">
+					 		<a href="javascript:void(0);" link="<?php echo CHtml::normalizeUrl(array('mediafiles/imagelistthumbsubpage','layout'=>1,'select'=>$model->tab_title))?>"  class="btn btn-info thumbalink" onclick="thumbModalNew(this)" >Change or Choose </a>
+
+						<?php //echo $form->hiddenField($model,'tab_title'); ?>
+
+					</div>
+				</div>
+			</div>			 
+			 <?php /* ?>
 			<span class="icon_wrapper">
 <!--                   <div title="Select Icon" class="select_icon"></div> -->
                   
@@ -196,6 +217,8 @@ jQuery(document).ready(function(){
                   
                   
              </span>
+             
+             <?php */ ?>
 			</td>
 		</tr>
 	</table>
@@ -288,6 +311,18 @@ else
 
     });
 
+    function thumbModalNew(arg){
+		//jQuery('#file_upload').uploadifive('destroy');
+		console.log('thumbalink',jQuery(arg).attr('link'));
+		//jQuery('#myModalThumb').removeData("modal");
+   	 	jQuery('#myModalThumb').modal({remote: jQuery(arg).attr('link')});
+   	 	jQuery('#myModalThumb').modal('show');
+   	 	return false;
+		
+	}
+
 </script>
+
+<?php echo $this->renderPartial('//videofiles/_modalupload' ,array("data"=>$model)); ?>
 
 

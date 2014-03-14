@@ -1188,4 +1188,26 @@ h4.view_app_title{
 .sub_page_wrapper .addSubPageForm{
 	margin-top:0px;
 }
+
+/* subpage Thumb setting starts here */
+.subpagethumb .thumb{
+	float:left;
+	width:56px;
+	height:46px;
+	margin:0 11px 0 18px;
+}
+.subpagethumb .thumb_panel .thumb_btn .thumbalink {
+    color: #FFFFFF;
+    padding: 11px 10px;
+    width: 134px;
+}
+
+.subpagethumb .thumb img{
+	height:46px;
+	width:56px;
+}
+.subpagethumb_wrap tr td{
+	vertical-align:top;
+}
+/* subpage thumb settings ends here */
 /* Multiple settings ends here */

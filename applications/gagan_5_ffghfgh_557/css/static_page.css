@@ -57,3 +57,9 @@
 a.item{
 	width:auto !important;
 }
+.staticPageList .ui-listview .ui-li-has-thumb > img:first-child,.staticPageList .ui-listview .ui-li-has-thumb > .ui-btn > img:first-child, .staticPageList .ui-listview .ui-li-has-thumb .ui-li-thumb
+{
+	height:92px;
+	max-width: 5.5em;
+	max-height:none;
+}

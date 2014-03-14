@@ -2,7 +2,10 @@
 <html lang="en">
         <head>
         <meta charset="utf-8">
-        <title>App Gorilla</title>
+        <title>App Gozilla</title>
+        <meta http-Equiv="Cache-Control" Content="no-cache">
+		<meta http-Equiv="Pragma" Content="no-cache">
+		<meta http-Equiv="Expires" Content="0">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">

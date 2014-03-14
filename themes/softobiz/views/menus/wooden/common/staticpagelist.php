@@ -1,6 +1,12 @@
 <div class="staticPageList">
 <ul data-role="listview" >
 <?php 
+
+$serverUrlPath = Yii::app()->getHomeUrl(); //Yii::app()->baseUrl . '/';
+	
+//$serverUrlPath .= '/mediafiles/' . Yii::app()->user->getState('username').'_'.Yii::app()->user->id.'/';
+
+
 foreach($obj->subModules as $sub){
 
 	$keyword = $app_model->master_keyword;
@@ -26,7 +32,11 @@ foreach($obj->subModules as $sub){
 
 	?>
 	 <li><a rel="external" data-ajax="flase"  class="item link" href="<?php echo $urlName; ?>">
-                
+                <?php if($sub->attributes['tab_icon'] != NULL){?>
+                	<img src="<?php echo $serverUrlPath.$sub->attributes['tab_icon']; ?>" class="ui-li-thumb">
+                <?php }else{?>
+                	<img src="<?php echo Yii::app()->getHomeUrl(). Yii::app()->baseUrl."/images/no_thumb.jpg"; ?>" class="ui-li-thumb">
+                <?php }?>
                 <h2>
                 <?php 
                 	if ($sub->attributes['tab_title'] != NULL)

@@ -28,7 +28,7 @@ body {
 	</form>
 
 	<script>
-	var liTemplate = '<li class="span2 ">';
+	var liTemplate = '<li class="span3 ">';
 	liTemplate += '<div class="app_box">';
 	liTemplate += '<div class="app_thumb">';
 	//liTemplate += '<img alt="ss" src="ssd">';

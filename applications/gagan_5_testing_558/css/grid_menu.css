@@ -49,3 +49,9 @@
 	margin-bottom:0px;
 	height:auto;
 }
+.app_feature_list label {
+    font-size: 18px;
+    font-weight: 600;
+    height: 36px;
+    overflow: hidden;
+}
