@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wooden Theme</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
+
+<link rel="stylesheet" href="css/wooden_theme.css" />
+
+<link rel="stylesheet" href="css/common_layout.css" />
+
+<script src="js/jquery-1.6.1.min.js"></script>
+
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script type="text/javascript">
+
+   $(document).ready(function() {
+
+      $('#back-link').click(function() {
+
+         history.go(-1) 
+
+       });
+
+   });
+
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  $(".ui-header h1").addClass("ui-title");
+
+});
+
+</script>
+
+<!-- Photo Gallery settings starts here -->
+
+<link rel="stylesheet" href="css/photoswipe.css" />
+
+<link rel="stylesheet" href="css/styles.css" />
+
+<script type="text/javascript" src="js/simple-inheritance.min.js"></script>
+
+<script type="text/javascript" src="js/code-photoswipe-1.0.11.js"></script>
+
+<script type="text/javascript">
+
+		
+
+		/*
+
+		 This example shows how to set up the gallery without
+
+		 using the Code.photoSwipe() helper or the $.photoSwipe() jQuery plugin.
+
+		 
+
+		 The example finds the Gallery container, then finds all anchor tags in 
+
+		 the container (thumbnails).
+
+		 
+
+		 It then sets a click event listener on the container.
+
+		 
+
+		 When the user clicks the container, it checks to see if an image has been
+
+		 clicked (i.e. a thumbnail).
+
+		 
+
+		 It then attempts to find the index number of the thumbnail clicked 
+
+		 (from our list of thumbnails) and starts PhotoSwipe at that index.
+
+		 */
+
+		 
+
+		if(typeof document.querySelectorAll === 'function') {
+
+			
+
+			document.addEventListener('DOMContentLoaded', function(){
+
+				
+
+				// Find the element holding our photos
+
+				var galleryEl = document.getElementById('Gallery');
+
+				
+
+				
+
+				// Find all the photos in our gallery
+
+				var thumbEls = galleryEl.querySelectorAll('a');
+
+				
+
+				if (thumbEls.length < 1) {
+
+					return;
+
+				}
+
+				
+
+				// Set options (optional)
+
+				Code.PhotoSwipe.Current.setOptions({
+
+					loop: false
+
+				});
+
+				
+
+				
+
+				// Tell PhotoSwipe about the photos
+
+				Code.PhotoSwipe.Current.setImages(thumbEls);
+
+				
+
+				
+
+				// Listen out for when the user clicks the gallery
+
+				galleryEl.addEventListener('click', function(e){
+
+					
+
+					// If we clicked an image, start the gallery at that image
+
+					if (e.target.nodeName !== 'IMG'){
+
+						return;
+
+					}
+
+					
+
+					e.preventDefault();
+
+					
+
+					var linkEl = e.target.parentNode;
+
+					
+
+					var startingIndex = 0;
+
+					for (startingIndex; startingIndex<thumbEls.length; startingIndex++){
+
+						if (thumbEls[startingIndex] === linkEl){
+
+							break;
+
+						}
+
+					}
+
+					
+
+					// Start PhotoSwipe
+
+					Code.PhotoSwipe.Current.show(startingIndex);
+
+				
+
+				}, false);
+
+			
+
+			
+
+			}, false); 
+
+			
+
+		}
+
+		
+
+	</script>
+
+<!-- Photo Gallery Settings Ends Here -->
+
+
+
+<style type="text/css">
+
+img {
+
+	max-width:100%;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<!-- Start of first page -->
+
+<div data-role="page" id="theme_layout" class="theme_bg"> 
+
+  
+
+  <!-- Header Starts Here 
+
+  <div data-role="header"> <a class="refresh_link" id="back-link" href="#"><img src="images/home_icon.png" alt="refresh icon" /></a>
+
+    <h1>DLR 2013 Wave B Hidden Mickey Pins</h1>
+
+    <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>-->
+
+	
+
+    <!-- Header Starts Here -->
+
+  <div data-role="header" role="banner" class="ui-header ui-bar-inherit"> 
+
+  <a href="index.html" class="refresh_link ui-link ui-btn-left ui-btn ui-shadow ui-corner-all" data-role="button" rel="external" data-ajax="false" role="button"><img alt="home icon" src="images/home_icon.png"></a>
+
+    <h1>DLR 2013 Wave B Hidden Mickey Pins</h1>
+
+    <a class="help_link ui-link ui-btn-right ui-btn ui-shadow ui-corner-all" data-role="button" role="button"><img alt="help icon" src="images/help_icon.png"></a> </div>
+
+  <!-- /header ends here --> 
+
+  <!-- Photo Gallery Starts Here -->
+
+  <div id="Gallery">
+
+	<!-- Gallery Code Starts Here -->
+
+		<div class="gallery-row">
+
+	
+
+			<div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818524968768.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818524968768_256x256.jpg"></a><div class="img_title">01-01.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818568588739.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818568588739_256x256.jpg"></a><div class="img_title">01-02.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818520049539.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818520049539_256x256.jpg"></a><div class="img_title">01-03.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818663445933.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818663445933_256x256.jpg"></a><div class="img_title">01-04.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818651300203.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818651300203_256x256.jpg"></a><div class="img_title">01-05.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818648473220.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818648473220_256x256.jpg"></a><div class="img_title">01-06.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818768773542.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818768773542_256x256.jpg"></a><div class="img_title">02-01.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818764313451.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818764313451_256x256.jpg"></a><div class="img_title">02-02.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818830073231.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818830073231_256x256.jpg"></a><div class="img_title">01-07.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818845779864.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818845779864_256x256.jpg"></a><div class="img_title">02-03.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818921865193.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818921865193_256x256.jpg"></a><div class="img_title">02-04.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490818982583970.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490818982583970_256x256.jpg"></a><div class="img_title">02-05.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819088027723.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819088027723_256x256.jpg"></a><div class="img_title">02-06.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819044215382.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819044215382_256x256.jpg"></a><div class="img_title">02-07.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819060261078.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819060261078_256x256.jpg"></a><div class="img_title">03-01.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819176443382.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819176443382_256x256.jpg"></a><div class="img_title">03-02.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819141870116.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819141870116_256x256.jpg"></a><div class="img_title">03-03.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819179708801.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819179708801_256x256.jpg"></a><div class="img_title">03-04.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819277320420.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819277320420_256x256.jpg"></a><div class="img_title">03-05.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819216014799.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819216014799_256x256.jpg"></a><div class="img_title">03-06.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819230123636.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819230123636_256x256.jpg"></a><div class="img_title">03-07.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819344825950.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819344825950_256x256.jpg"></a><div class="img_title">04-01.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819369381169.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819369381169_256x256.jpg"></a><div class="img_title">04-02.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819381677126.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819381677126_256x256.jpg"></a><div class="img_title">04-03.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819439178992.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819439178992_256x256.jpg"></a><div class="img_title">04-04.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819513988074.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819513988074_256x256.jpg"></a><div class="img_title">04-06.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819567579886.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819567579886_256x256.jpg"></a><div class="img_title">04-08.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819547946683.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819547946683_256x256.jpg"></a><div class="img_title">04-05.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819674304685.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819674304685_256x256.jpg"></a><div class="img_title">04-09.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819676848466.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819676848466_256x256.jpg"></a><div class="img_title">04-10.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819669078169.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819669078169_256x256.jpg"></a><div class="img_title">05-01.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819868223051.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819868223051_256x256.jpg"></a><div class="img_title">05-03.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819883342671.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819883342671_256x256.jpg"></a><div class="img_title">05-04.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819874284790.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819874284790_256x256.jpg"></a><div class="img_title">05-02.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819864977341.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819864977341_256x256.jpg"></a><div class="img_title">05-05.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819930002859.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819930002859_256x256.jpg"></a><div class="img_title">05-06.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139490819981688576.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139490819981688576_256x256.jpg"></a><div class="img_title">05-07.jpg</div></div> 
+
+            
+
+		</div>
+
+        
+
+        </div>
+
+  <!-- Gallery Code Ends Here -->
+
+  
+
+  
+
+  
+
+  <!-- Photo Gallery Ends Here --> 
+
+  
+
+</div>
+
+<!-- /page --> 
+
+
+
+</body>
+
+</html>
+
+
