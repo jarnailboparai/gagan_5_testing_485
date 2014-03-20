@@ -1,0 +1,21 @@
+.app_entries{
+	margin-top:20px;
+	border:1px solid #ddd;
+}
+.app_entries tr th{
+	background:#3598DB !important;
+	color:#fff;
+}
+.app_entries tr td.sno {
+    text-align: center !important;
+    width: 32px;
+}
+.app_entries tr td.details {
+    width: 72px;
+}
+.app_entries tr td.entry_actions{
+	width:80px;
+}
+.app_entries tr td{
+	vertical-align:middle;
+}

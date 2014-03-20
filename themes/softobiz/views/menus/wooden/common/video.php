@@ -45,7 +45,7 @@
 							//print_r($sub->videomedia->attributes->id); die;
 								
 							$str = str_replace("video description", $sub->videomedia->description , $str);
-							$str = str_replace("http://www.youtube.com/embed/KlSn8Isv-3M?rel=0",$sub->videomedia->actual_url, $str);
+							$str = str_replace("http://www.youtube.com/embed/KlSn8Isv-3M?wmode=transparent&amp;rel=0",$sub->videomedia->actual_url, $str);
 							$str = str_replace("index.html","video_$obj->id.html" , $str);
 							
 							fwrite($fp, $str, strlen($str));

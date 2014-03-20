@@ -1,6 +1,6 @@
 <?php $url =  Yii::app()->getBaseUrl(true); $pathurl = Yii::app()->theme->baseUrl; ?>
 <link href="<?php echo $pathurl; ?>/css/media_gallery.css" rel="stylesheet" type="text/css"></link>
-<div class="row-fluid manage_apps media_gallery tab_gallery video_gallery" >
+<div class="row-fluid manage_apps media_gallery tab_gallery video_gallery edit_outer_title" >
 <ul id="medialist">
 <?php if(count($dataProvider) > 0 ){?>
 <?php foreach($dataProvider as $data){?>
@@ -20,8 +20,9 @@
             <?php }?>
             
             <div class="video_wrap"><img src="<?php echo $pathurl?>/img/play_icon.png" alt="Play Icon" /></div> </div>
-              
-            <div class="video_title"><?php echo $data->videomedia->title ?></div>
+             <?php //print_r($data->attributes);die; ?>
+             <?php // add id by sob_k?>
+            <div id="mediafileeditable_<?php echo $data->videomedia->id ?>" class="video_title"><?php echo $data->videomedia->title ?></div>
           </div>
  	</li>
 <?php } ?>

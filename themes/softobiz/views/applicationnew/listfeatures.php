@@ -3,7 +3,9 @@ $pathurl = Yii::app()->theme->baseUrl;
 ?>
 <script type="text/javascript"  src="<?= $url ?>/js/nicEdit-latest.js"></script>
 <script>
+	window.TabFlagOpen = 0;
 	window.staticFlag = 0;
+	window.IframeUrlSrc = "<?php echo $url.'/applications/'.Yii::app()->user->getState('username') . "_" . $application_model->title . "_" . $application_model->id.'/index.html' ?>";
 </script>
 <?php
 //$this->renderPartial("app_menu", array('style' => $style));
@@ -32,15 +34,14 @@ $pathurl = Yii::app()->theme->baseUrl;
 	display:none;
 }
 </style>
-<script type="text/javascript">
-    var flagloader = false;
- </script>
+<?php $this->renderPartial('_orderlist');?>
+
 <!-- Container -->
 
 <div class="container selectfeatures">
           <div class="row-fluid select_content">
           <div class="span8">
-          <div class="app_number">Add Features into <span class="number">Your App</span></div>
+          <div class="app_number">Add Features into <span class="number">Your App</span> - <span class="number"><?php echo $application_model->title; ?></span>   </div>
          	<!--  Crousel Starts Here -->
          	
          	 
@@ -49,7 +50,7 @@ $pathurl = Yii::app()->theme->baseUrl;
           
          	<!--  Crousel ends here -->
             <div class="featurelist">
-	<ul>
+	<ul id="sortable">
 		<?php 
 		$li = "<li  id='module_%s' ><div class='wrapperli'><a href='%s' id='%s' ><span class='content_list_icon'><img src='%s/img/%s.png'></span>%s</a><div class='pull-right edit_icon'><span onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='popdetialHide(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div></li>"; 
 		$liid = "<li  id='module_%s' ><div class='wrapperli'><a href='%s' id='%s' ><span class='content_list_icon' ><img src='%s/img/%s.png'></span>%s</a><div class='pull-right edit_icon'><span id='staticPageFormButton_%s'   onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='javascript:popupdetial(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div> </li>";
@@ -93,14 +94,16 @@ $pathurl = Yii::app()->theme->baseUrl;
   		 		<?php //echo CHtml::link("<img src='$pathurl/img/download_app2.png' height='64px' />", array('applicationnew/finalpreview'),array('class'=>'dd','height'=>'64px')); ?>
   		 		<a class='generateappnew' href='<?php echo CHtml::normalizeUrl(array('applicationnew/buildPhoneGapAppMy',"id"=>Yii::app()->user->getState('app_id')))?>' ><img src='<?= $pathurl ?>/img/download_app2.png' height='64px' /></a>
   		 		<?php $apk = "javascript:buildAppApk('".Yii::app()->user->getState('app_id')."');return false;";  //echo CHtml::link("Apk request", CHtml::normalizeUrl(array('applicationnew/buildPhoneGapAppMy',"id"=>Yii::app()->user->getState('app_id'))),array('class'=>'dd'/*,'onclick'=>$apk*/)); ?>
+     <!--   <p><a href="<?php echo $url ?>/applications/<?php echo Yii::app()->user->getState('username') . "_" . $application_model->title . "_" . $application_model->id; ?>/index.html?asd=sdasd" style="height:486px;width:320px;" target="iframe_a">Refresh</a></p>  -->
      </div>
 </div>
            </div> 
             
             <div class="span4">
             <div class="app_preview">
+          
             <div class="theme_preview">
-           <iframe src="<?php echo $url ?>/applications/<?php echo Yii::app()->user->getState('username') . "_" . $application_model->title . "_" . $application_model->id; ?>/index.html" style="height:486px;width:100%;" class="iframe2" id="myframe"></iframe>
+           <iframe  src="<?php echo $url ?>/applications/<?php echo Yii::app()->user->getState('username') . "_" . $application_model->title . "_" . $application_model->id; ?>/index.html" style="height:486px;width:320px;" class="iframe2" id="myframe" name="iframe_a" ></iframe>
             
             </div>
             
@@ -183,8 +186,9 @@ function popupdetial(arg,flag){
 			//$(arg).parent().parent().find('div#formId').css('position','none');
 			//$('.loading_content2').hide();
 			flagloader = false;
-
+			window.TabFlagOpen = window.TabFlagOpen + 1;
 			
+			ulData(window.TabFlagOpen);
 		});
 
 	
@@ -196,6 +200,10 @@ function popupdetial(arg,flag){
 function popdetialHide(arg)
 {
 
+	window.TabFlagOpen = window.TabFlagOpen - 1;
+
+	ulData(window.TabFlagOpen);
+	
 	if($(arg).parent().parent().find('a').attr('id') ==  'staticpage'){
 
 		if( window.staticFlag == 1 )
@@ -341,7 +349,13 @@ $(document).ready(function() {
 
 function refresh_iframe()
 {
-    $('#myframe').attr('src', $('#myframe').attr('src'));
+    //$('#myframe').attr('src', $('#myframe').attr('src'));
+    var d = new Date;
+    srcIframe =  IframeUrlSrc + '?time'+d.getMilliseconds()+'=' + d.getMilliseconds();
+    
+	console.log(srcIframe,IframeUrlSrc);
+	
+	$('#myframe').attr('src', srcIframe);
 
 }
 
@@ -349,11 +363,11 @@ function buildApp()
 {
 	var dataPost = { 'ajax': 'finalpreview'};
 
-	console.log(dataPost); 
+	//console.log(dataPost); 
 	$.post(baseurl+'/index.php?r=applicationnew/finalpreview',dataPost,function(reponse){
 
 			//console.log(reponse);
-			refresh_iframe()
+			refresh_iframe();
 			//$(arg).parent().parent().parent().remove();
 		});
 
@@ -362,19 +376,6 @@ function buildApp()
 
 var amlicurl;
 
-function buildAppApk(arg)
-{
-	var dataPost = { 'id': arg};
-
-	console.log(dataPost); 
-	amlicurl = $.post('http://112.196.20.243:8021/members/wizard/shell/test.php?id='+arg,dataPost,function(reponse){
-
-			console.log(reponse);
-		});
-	
-
-	setTimeout('amlicurl.abort(); alert("Your request under process, we will let you when it is done ");',5000);
-}
 
 function createAppApi(url)
 {
@@ -398,6 +399,16 @@ jQuery(document).ready(function(){
 
 			});
 	});
+
+function ulData(arg)
+{
+	if(arg > 0 )
+	{
+		$( "#sortable" ).sortable( "option", "disabled", true );
+	}else{
+		$( "#sortable" ).sortable( "option", "disabled", false );
+	}
+}
 
 
 </script>

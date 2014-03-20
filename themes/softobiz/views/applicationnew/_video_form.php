@@ -7,7 +7,11 @@
 <link
 	href="<?php echo $pathurl; ?>/css/media_gallery.css" rel="stylesheet"
 	type="text/css"></link>
-
+	<?php // code by sob_k?>
+	<link rel="stylesheet" type="text/css" href="<?php echo $pathurl; ?>/js/jqueryeditable/jquery-editable/css/jquery-editable.css" />
+	<script type="text/javascript" src="<?php echo $pathurl; ?>/js/jqueryeditable/jquery-editable/js/jquery.poshytip.js"></script>
+	<script type="text/javascript" src="<?php echo $pathurl; ?>/js/jqueryeditable/jquery-editable/js/jquery-editable-poshytip.js"></script>	
+	<?php // code by sob_k end?>
 <script>
 
 jQuery(document).ready(function(){
@@ -52,6 +56,7 @@ function openListModalVideo(arg)
 
 
 </script>
+
 <!--  Html content for image gallery starts here -->
 <div class="row-fluid manage_apps media_gallery tab_gallery">
 	<?php
@@ -259,6 +264,26 @@ else
 
     });
 
+
+    jQuery('.video_title').editable({
+		mode:'inline',
+		/*validate: function(value) {
+			var num_reg = /^\d{1,5}(\.\d{1,2})?$/;
+			if(!num_reg.test(value)) {
+			return 'Please Enter valid amount';
+			}
+		},*/
+		url:function(value){
+			var id=$(this).attr('id').split('_');
+			var data = {};
+			console.log($(this));
+			data["VideoFiles[id]"] = id[1];
+			data["VideoFiles[name]"] = value.value;
+			jQuery.post(baseurl+'/index.php?r=videofiles/nameedit',data,function(response){
+				//return response.Number.forward_number;
+			});
+		},
+	});
 
 </script>
 

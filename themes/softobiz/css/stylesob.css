@@ -165,7 +165,8 @@ box-shadow: 0 0 4px #bebebe;}
 .dropdown-menu > li > a i{ padding-left:8px;}
 
 .navbar .nav > li{ margin:6px;}
-.navbar .nav > li span{background: url("../img/create-icn.png") no-repeat left !important; padding-left:22px;}
+.navbar .nav > li span.create_app_icon{background: url("../img/create-icn.png") no-repeat left !important; padding-left:22px;}
+.navbar .nav > li span.menu_fb{margin:-2px 5px 0 0;float:left;}
 .navbar-inverse .nav > li > a.dropdown-toggle.signup :focus, .navbar-inverse .nav > li > a.dropdown-toggle.signup:hover { background:none;}
 .navbar-inverse .nav > li > a.dropdown-toggle.login :focus, .navbar-inverse .nav > li > a.dropdown-toggle.login:hover { background:#F78E15;}
 .navbar-inverse .nav li.dropdown.open > .dropdown-toggle, .navbar-inverse .nav li.dropdown.active > .dropdown-toggle, .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle{background-color: #ea5052;color: #fff;}
@@ -632,7 +633,10 @@ footer{ padding:13px;}
 }
 
 .app_preview{
-	background: url("../img/phone_bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background-image: url("../img/phone_bg.png");
+	background-repeat:no-repeat;
+	background-position:0 0;
+	background-size:498px 778px;
     display: -moz-grid;
     height: 640px;
  /*   margin:-56px 0 0 -48px;
@@ -896,7 +900,7 @@ footer{ padding:13px;}
 
 /* staticpage text-editor setting ends here */
 /* edit buttons settings */
-.edit_title .image_title .editable-buttons button,.edit_video_title .video_title .editable-buttons button{
+.edit_title .image_title .editable-buttons button,.edit_video_title .video_title .editable-buttons button,.edit_outer_title .editable-buttons button{
    border:none;
    width:16px;
    height:16px;
@@ -904,47 +908,62 @@ footer{ padding:13px;}
    text-indent:-9999px;	
    float:left;
 }
-.edit_title .image_title .editable-buttons button.editable-submit,.edit_video_title .video_title .editable-buttons button.editable-submit{
+.edit_title .image_title .editable-buttons button.editable-submit,.edit_video_title .video_title .editable-buttons button.editable-submit,.edit_outer_title .editable-buttons button.editable-submit{
 	background:url(../images/ok.png) no-repeat;
 }
-.edit_title .image_title .editable-buttons button.editable-cancel,.edit_video_title .video_title .editable-buttons button.editable-cancel{
+.edit_title .image_title .editable-buttons button.editable-cancel,.edit_video_title .video_title .editable-buttons button.editable-cancel,.edit_outer_title .editable-buttons button.editable-cancel{
 	background:url(../images/cancel_icon.png) no-repeat;
 }
-.edit_title .editable-container.editable-inline,.edit_video_title .editable-container.editable-inline{
+.edit_title .editable-container.editable-inline,.edit_video_title .editable-container.editable-inline,.edit_outer_title .editable-container.editable-inline{
 	width:100%;
 }
-.edit_title .form-inline.editableform .editable-input,.edit_video_title .form-inline.editableform .editable-input{
+.edit_title .form-inline.editableform .editable-input,.edit_video_title .form-inline.editableform .editable-input,.edit_outer_title  .form-inline.editableform .editable-input{
 	width:67%;
 	border-radius:0px;
 }
-.edit_title .form-inline.editableform .editable-input input[type="text"],.edit_video_title .form-inline.editableform .editable-input input[type="text"]{
+.edit_title .form-inline.editableform .editable-input input[type="text"],.edit_video_title .form-inline.editableform .editable-input input[type="text"],.edit_outer_title .form-inline.editableform .editable-input input[type="text"]{
 	border-radius:0px;
 	box-shadow:none;
 	padding-right:50px !important
 }
-.edit_video_title .form-inline.editableform .editable-input input[type="text"]{
+.edit_video_title .form-inline.editableform .editable-input input[type="text"],.edit_outer_title .form-inline.editableform .editable-input input[type="text"]{
 	margin-left:-5px;
 }
-.edit_title .form-inline.editableform .editable-input input[type="text"]:focus,.edit_video_title .form-inline.editableform .editable-input input[type="text"]:focus{
+.edit_title .form-inline.editableform .editable-input input[type="text"]:focus,.edit_video_title .form-inline.editableform .editable-input input[type="text"]:focus,.edit_outer_title .form-inline.editableform .editable-input input[type="text"]:focus{
 	border:1px solid #ddd;
 }
-.edit_title .image_title .editable-buttons,.edit_video_title .editable-buttons{
+.edit_title .image_title .editable-buttons,.edit_video_title .editable-buttons,.edit_outer_title .editable-buttons,.edit_video_title .editable-buttons{
    margin-left: 7px;
     position: relative;
     right: -2px;
     top: 7px;
 }
-.edit_title .image_title a,.edit_video_title ..video_title a{
+.edit_title .image_title a,.edit_video_title .video_title a{
 	line-height:normal;
 }
 .edit_title .image_title,.edit_video_title .video_title{
 	line-height:10px;
 }
-.edit_title .image_title .editable-clear-x,.edit_video_title .video_title .editable-clear-x{
+.edit_title .image_title .editable-clear-x,.edit_video_title .video_title .editable-clear-x,.edit_outer_title .editable-clear-x{
 	display:none !important;
 }
-.edit_title.media_gallery .app_box,.edit_video_title.media_gallery .app_box{
+.edit_title.media_gallery .app_box,.edit_video_title.media_gallery .app_box,.edit_outer_title.tab_gallery .app_box{
 	padding-bottom:0px;
+}
+.edit_outer_title .editable-click{
+	border-bottom:none;
+}
+.edit_outer_title .app_box:hover .video_title,.edit_video_title .app_box:hover .video_title,.edit_title .app_box:hover .video_title{
+	background:url(../images/edit_title.jpg) 104% 12px no-repeat;
+}
+.edit_outer_title .app_box .video_title:hover,.edit_video_title .app_box .video_title:hover,.edit_title .app_box .video_title:hover{
+	background:url(../images/edit_title_hover.jpg) 104% 12px no-repeat
+}
+.edit_video_title .app_box  .video_title{
+	background-position:102% 6px !important;
+}
+.edit_outer_title .editable{
+	padding-bottom:3px;
 }
 /* edit buttons setting ends here */
 /* crousel tooltip edit */
@@ -1033,6 +1052,11 @@ footer{ padding:13px;}
 .form_top_margin input{
 	border-radius:0px;
 	box-shadow:none;
+}
+.form_top_margin select{
+	border:1px solid #ccc;
+	border-radius:0px;
+	width:99.9%;
 }
 .form_top_margin .btn
 {
@@ -1204,10 +1228,45 @@ h4.view_app_title{
 
 .subpagethumb .thumb img{
 	height:46px;
-	width:56px;
 }
 .subpagethumb_wrap tr td{
 	vertical-align:top;
 }
 /* subpage thumb settings ends here */
 /* Multiple settings ends here */
+
+/* Tutorial Page Setting Starts here */
+.tutorial_video{
+	background:#f7f7f7;
+	padding:10px;
+	border:1px solid #ccc;
+}
+.tutorial_video iframe{
+	border:1px solid #ddd;
+}
+.tutorial_desc h3{
+	font-weight:normal;
+	margin-top:0px;
+	color:#2e2f2f;
+}
+.tutorials .row-fluid{
+	margin-bottom:40px;
+}
+.tutorial_text{
+	color:#444;
+	line-height:22px;
+	font-size:13px;
+	text-align:justify;
+}
+.tutorial_title {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 0;
+}
+
+/* Tutorial Page Settings Ends Here */
+.address_map textarea#article{
+	width:98.1%;
+	box-shadow:none;
+	border-color:#ddd;
+}

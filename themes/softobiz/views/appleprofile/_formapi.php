@@ -14,8 +14,10 @@
 		<?php echo $form->hiddenField($model,'user_id',array('value'=>Yii::app()->user->id)); ?>
 		<?php //echo $form->error($model,'user_id'); ?>
 	
-
-	
+<label for="">Title</label>
+<input type="text" name="" maxlength="100" size="60">
+	<label for="">Select App</label>
+<select><option>MicroSoft</option><option>Apple</option></select>
 		<?php echo $form->labelEx($model,'apple_email'); ?>
 		<?php echo $form->textField($model,'apple_email',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'apple_email'); ?>

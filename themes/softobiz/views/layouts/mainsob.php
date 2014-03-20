@@ -2,7 +2,7 @@
 <html lang="en">
         <head>
         <meta charset="utf-8">
-        <title>App Gozilla</title>
+        <title>App Gorilla</title>
         <meta http-Equiv="Cache-Control" Content="no-cache">
 		<meta http-Equiv="Pragma" Content="no-cache">
 		<meta http-Equiv="Expires" Content="0">
@@ -43,6 +43,7 @@
         <body>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.js"></script> 
 <?php /*<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap.js"></script> */ ?>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-ui.js"></script> 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-dropdown.js"></script> 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-tooltip.js"></script> 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-modal.js"></script> 
@@ -51,6 +52,8 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-scrollspy.js"></script> 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/accordin.js" type="text/javascript"></script> 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/scroller/perfect-scrollbar.js"></script> 
+
+
 <script>
       jQuery(document).ready(function ($) {
         "use strict";

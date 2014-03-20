@@ -21,10 +21,11 @@
             <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
             <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-            <li><a href="https://www.facebook.com/groups/appgorilla" target="_blank">App Gorilla FB Group</a></li>
-            <li><a href="<?php echo CHtml::normalizeUrl(array('applicationnew/home'))?>">Members Home</a></li>
+            <li><a href="https://www.facebook.com/groups/appgorilla" target="_blank"><span class="menu_fb"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/fb_icon.png" /></span>App Gorilla FB Group</a></li>
             <li><a href="<?php echo CHtml::normalizeUrl(array('applicationnew/dashboard'))?>">Manage Apps</a></li>
-            <li class="active_menu"><a href="<?php echo CHtml::normalizeUrl(array('applicationnew/details','type' => 'new','app' => 'localBusiness')) ?>"><span>Create App</span></a></li>
+            <li class="active_menu"><a href="<?php echo CHtml::normalizeUrl(array('applicationnew/details','type' => 'new','app' => 'localBusiness')) ?>"><span class="create_app_icon">Create App</span></a></li>
+            <li><a href="<?php echo CHtml::normalizeUrl(array('tutorial/index'))?>">Tutorials</a></li>
+           	<li><a href="http://support.gorillaenterprise.com/hc/en-us/categories/200035822-App-Gorilla" target="_blank">Support</a></li>
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
             <ul class="dropdown-menu">

@@ -19,6 +19,7 @@
             <div class="select_feature"><?php echo CHtml::image('images/select_feature.png')?></div>
             <div class="video_title">
             	<?php //echo $data->title ?>
+            	<?php //print_r($data->attributes);die; ?>
             	<a id="mediafileeditable_<?php echo $data->id ?>" class="videofile_name editable editable-click"><?php echo $data->title ?></a>
             </div>
           </div>

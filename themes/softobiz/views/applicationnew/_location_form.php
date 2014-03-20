@@ -322,12 +322,11 @@ jQuery(document).ready(function(){
               </div>
               <div class="address_map">
 <!--              		<textarea name="" cols="" rows="" placeholder="Enter Address"></textarea> -->
-             		 <input id="address" type="textbox"  name="Module[description]"  value="<?= $description; ?>" > 
+             		 <input placeholder="Address" id="address" type="textbox"  name="Module[description]"  value="<?= $description; ?>" > 
              		 <br>
              		 <input type="button" class="btn btn-danger" value="Geocode" onclick="codeAddress()">
              		 <br>
-             		<input id="article" type="text"  name="Module[articles]"  value="<?= $article; ?>" >
-             		 <br>
+             		
 				<div style="display: none">
              		Lat: <input type="text" id="lat"><br>
 					Lng: <input type="text" id="lng"><br>
@@ -335,6 +334,7 @@ jQuery(document).ready(function(){
 <!--    		    <div id="panel"></div> -->
              		
 <div id="map-canvas" style="float:left; height:400px;width: 99.4%;margin: 14px 2px;border:1px solid #ddd;"></div>
+<textarea placeholder="Description" id="article" type="text"  name="Module[articles]"  value="<?= $article; ?>" ></textarea>
               </div>
               
                   <div class="button_panel">

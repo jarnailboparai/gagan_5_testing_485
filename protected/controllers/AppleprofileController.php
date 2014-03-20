@@ -34,7 +34,7 @@ class AppleprofileController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','appkeycreate'),
+				'actions'=>array('create','update','appkeycreate','certlist','certcreate','certview','certupdate'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -244,4 +244,148 @@ class AppleprofileController extends Controller
 		$this->redirect(array("applicationnew/dashboard"));
 		die("asdf");
 	}
+	
+	public function actionCertlist()
+	{
+		$dataProvider=
+		
+		/* new CActiveDataProvider('Post', array(
+				'criteria'=>array(
+						'condition'=>'status=1',
+						'order'=>'create_time DESC',
+						'with'=>array('author'),
+				),
+				'countCriteria'=>array(
+						'condition'=>'status=1',
+						// 'order' and 'with' clauses have no meaning for the count query
+				),
+				'pagination'=>array(
+						'pageSize'=>20,
+				),
+		));
+ */		
+		$us = "t.user_id=".Yii::app()->user->id;
+		
+		$dataProvider=new CActiveDataProvider('AppleProfile', array(
+				'criteria'=>array(
+						'condition'=>$us,
+						//'order'=>'create_time DESC',
+						'with'=>array('applicationprofile'),
+				),
+
+				'pagination'=>array(
+						'pageSize'=>20,
+				),
+		));
+		$this->render('certindex',array(
+				'dataProvider'=>$dataProvider,
+		));
+	
+		//$this->redirect(array("applicationnew/dashboard"));
+		
+	}
+	
+	public function actionCertcreate()
+	{
+		$model=new AppleProfile;
+		
+		$dropdown = Application::model()->findAllByAttributes(array('user_id'=>Yii::app()->user->id));
+	
+		
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+	
+		if(isset($_POST['AppleProfile']))
+		{
+	
+			$model->attributes=$_POST['AppleProfile'];
+			$model->p12_file = CUploadedFile::getInstance($model,'p12_file');
+			$model->store_provisioning_profile = CUploadedFile::getInstance($model,'store_provisioning_profile');
+			if($model->save())
+			{
+				$model->p12_file->saveAs(Yii::getPathOfAlias('webroot') . "/apple/p12/" . $model->user_id.'_'.$model->application_id.'_'.$model->p12_file);
+				$model->store_provisioning_profile->saveAs(Yii::getPathOfAlias('webroot') . "/apple/provision/" .  $model->user_id.'_'.$model->application_id.'_'.$model->store_provisioning_profile);
+				// redirect to success page
+				$this->redirect(array("certlist"));
+				//$this->redirect(array('view','id'=>$model->id));
+			}else{
+				
+			}
+				
+	
+		}
+		
+		$this->render('certcreate',array(
+				'model'=>$model,
+				'dropdown'=>$dropdown,
+		));
+	}
+	
+	public function actionCertview($id)
+	{
+		$this->render('certview',array(
+				'model'=>$this->loadModel($id),
+		));
+	}
+	
+	public function actionCertupdate($id)
+	{
+		$model=$this->loadModel($id);
+	
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+	
+		//echo "<pre>"; print_r($model->attributes); die;
+	
+		$ss = $model ;
+	
+		if(isset($_POST['AppleProfile']))
+		{
+			//$model->attributes=$_POST['AppleProfile'];
+				
+			$model->apple_email 		= $_POST['AppleProfile']['apple_email'];
+			$model->phone_gap_key_title = $_POST['AppleProfile']['phone_gap_key_title'];
+			$model->apple_p12_password 	= $_POST['AppleProfile']['apple_p12_password'];
+			$model->application_id 		= $_POST['AppleProfile']['application_id'];
+				
+			//$model->apple_email = $_POST['AppleProfile']['apple_email'];
+				
+				
+			//if()
+			$p12_file = CUploadedFile::getInstance($model,'p12_file');
+			$store_provisioning_profile = CUploadedFile::getInstance($model,'store_provisioning_profile');
+				
+			//	echo "<pre>";
+			//	print_r($p12_file);
+			//	print_r($store_provisioning_profile);
+				
+			if(!empty($p12_file))
+				$model->p12_file = $p12_file  ;
+				
+				
+			if(!empty($store_provisioning_profile))
+				$model->store_provisioning_profile = $store_provisioning_profile;
+				
+				
+			if($model->save())
+			{
+				if(!empty($p12_file))
+					$model->p12_file->saveAs(Yii::getPathOfAlias('webroot') . "/apple/p12/" . $model->user_id.'_'.$model->application_id.'_'.$model->p12_file);
+	
+				if(!empty($store_provisioning_profile))
+					$model->store_provisioning_profile->saveAs(Yii::getPathOfAlias('webroot') . "/apple/provision/" .  $model->user_id.'_'.$model->application_id.'_'.$model->store_provisioning_profile);
+				// redirect to success page
+	
+				$this->redirect(array("certlist"));
+			}
+		}
+		
+		$dropdown = Application::model()->findAllByAttributes(array('user_id'=>Yii::app()->user->id));
+	
+		$this->render('certupdate',array(
+				'model'=>$model,
+				'dropdown'=>$dropdown,
+		));
+	}
+	
 }

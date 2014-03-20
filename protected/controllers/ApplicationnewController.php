@@ -1801,6 +1801,8 @@ class ApplicationnewController extends Controller
 
 					if(count($obj->subModules) > 0) {
 						$str = str_replace("<p>No video upload</p>", $subMenus , $str);
+					}else{
+						$str = str_replace("<p>No video upload</p>", '<p class="no_data">No video upload</p>' , $str);
 					}
 					if ($obj->attributes['tab_title'] != NULL)
 						$str = str_replace("<h1>About Us</h1>", "<h1>" . ucfirst( $obj->attributes['tab_title'] ). "</h1>", $str);
@@ -3206,7 +3208,7 @@ class ApplicationnewController extends Controller
 	
 		if ($app_id) {
 	
-			$model = Module::model()->findAllByAttributes(array('application_id' => $app_id),$params=array ( 'order' => 'id ASC'));
+			$model = Module::model()->findAllByAttributes(array('application_id' => $app_id),$params=array ( 'order' => 'module_order ASC'));
 	
 			$application_model = Application::model()->findByPk($app_id);
 			
@@ -4603,7 +4605,7 @@ class ApplicationnewController extends Controller
 			
 			$fp = fopen($dest_path .$nameFile, 'w');
 			
-			$str = str_replace('<div class="staticpage_content"></div>', '<p>No Static page content </p>', $str);
+			$str = str_replace('<div class="staticpage_content"></div>', '<p class="no_data">No Static page content </p>', $str);
 			
 			if ($obj->attributes['tab_title'] != NULL)
 				$str = str_replace("<h1>Static Page</h1>", "<h1>" . $obj->attributes['tab_title'] . "</h1>", $str);
