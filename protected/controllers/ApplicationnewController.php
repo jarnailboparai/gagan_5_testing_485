@@ -4759,12 +4759,27 @@ class ApplicationnewController extends Controller
 		//        $app_id = Yii::app()->user->getState('app_id');
 		//        $app_model = Application::model()->findByPk($app_id);
 
-		$a_profile_model = AndroidProfile::model()->findByAttributes(array('user_id' => Yii::app()->user->id));
+		$a_profile_model = AndroidProfile::model()->findByAttributes(array('user_id' => Yii::app()->user->id,'application_id'=>$param->id));
+		
+		if(count($a_profile_model) && $a_profile_model->phonegap_id == 0)
+		{
+			$recon = $this->createkeyphonegap($a_profile_model);
+			
+			if($recon)
+				$a_profile_model = AndroidProfile::model()->findByAttributes(array('user_id' => Yii::app()->user->id,'application_id'=>$param->id));
+		}else{
+			
+			$recon = $this->newdataandroid($param->id);
+			
+			if($recon)
+				$a_profile_model = AndroidProfile::model()->findByAttributes(array('user_id' => Yii::app()->user->id,'application_id'=>$param->id));
+				
+		}		
 
 		$ios_profile_model = AppleProfile::model()->findByAttributes(array('user_id' => Yii::app()->user->id));
 		
-		//CVarDumper::dump($a_profile_model->attributes, 10,true);
-		//CVarDumper::dump($ios_profile_model->attributes, 10,true); 
+		CVarDumper::dump($a_profile_model->attributes, 10,true);
+		CVarDumper::dump($ios_profile_model->attributes, 10,true); 
 		
 		$key = array();
 		if ($param->notifications == 1) {
@@ -4788,13 +4803,23 @@ class ApplicationnewController extends Controller
 		}
 // 		        $key = array("android" => array('id' => (int) $a_profile_model->phonegap_id, 'key_pw' => $a_profile_model->android_keystore_password,'keystore_pw' => $a_profile_model->android_keystore_password)
 // 		                     ,"ios" => array('id' => (int) $ios_profile_model->phonegap_id, 'password' => $ios_profile_model->apple_p12_password));
-		       
-		if(count($ios_profile_model))
+
+		if ((isset($ios_profile_model) && $ios_profile_model->phonegap_id != 0) && (isset($a_profile_model) && $a_profile_model->phonegap_id != 0)) {
+			$key = array(
+					"android" => array('id' => (int) $a_profile_model->phonegap_id, 'key_pw' => $a_profile_model->android_keystore_password, 'keystore_pw' => $a_profile_model->android_keystore_password),
+					"ios" => array('id' => (int) $ios_profile_model->phonegap_id, 'password' => $ios_profile_model->apple_p12_password)
+			);
+			
+		}elseif(count($ios_profile_model)){
+			
 			$key = array("ios" => array('id' => (int) $ios_profile_model->phonegap_id, 'password' => $ios_profile_model->apple_p12_password));
-		else
+			
+		}else{
 			$key = null;
-		       
-		       //$key =  json_encode($key);
+		} 
+
+		//echo "<pre>"; print_r($key); die;
+		//$key =  json_encode($key);
 		       
 		//$key = '"keys":{"ios":{"id":123,"password":"password1"}' ;
 		
@@ -4966,5 +4991,71 @@ class ApplicationnewController extends Controller
 	
 			$out = shell_exec($cmd);
 		}
+	}
+	
+	private function newdataandroid($application_id)
+	{
+		//return $keystore_file;
+		$temp =  false;
+		$model = AndroidProfile::model()->with('application')->findByAttributes(array('user_id' => Yii::app()->user->id,'application_id'=>$application_id));
+		 
+		if(count($model)){
+			 
+			//die("asdf");
+			$this->createkeyphonegap($model);
+			$temp =  true;
+	
+		}else{
+	
+			$model = new AndroidProfile;
+	
+			$length = 10;
+			$chars = array_merge(range(0,9), range('a','z'), range('A','Z'));
+			shuffle($chars);
+			$key_password = implode(array_slice($chars, 0, $length));
+	
+			$user_id = Yii::app()->user->id;
+			$keystore_file = "ks_" . $user_id .'_'. $application_id .".keystore";
+			$base = Yii::getPathOfAlias("webroot") . "/android_keys";
+			shell_exec("keytool -genkey -v -keystore $base/$keystore_file -alias $keystore_file -keyalg RSA -validity 10000 -keypass $key_password -storepass $key_password -dname \"cn=Noman iqbal\"");
+	
+			$model->user_id = $user_id;
+			$model->application_id = $application_id;
+			$model->android_keystore_password = $key_password;
+			$model->android_file_keystore = $keystore_file;
+	
+			$model->android_keystore_name = 'appgorilla_'. $user_id .'_'. $application_id ;
+	
+	
+			if($model->save()){
+				 
+				$this->createkeyphonegap($model);
+				$temp =  true;
+			}
+	
+		}
+		 
+		return $temp;
+		 
+		//$this->redirect(array('applicationnew/dashboard'));
+		//echo "done"; die;
+	}
+	
+	private function createkeyphonegap($model)
+	{
+		$phone = new PhoneagpApi(Yii::app()->params->phonegapUsername, Yii::app()->params->phonegapPassword);
+		//print_r($phone);
+		$res = $phone->setKeysAndroid($model->android_file_keystore, $model->android_keystore_password, $model->android_file_keystore, $model->android_keystore_password, Yii::getPathOfAlias("webroot") . '/android_keys/' . $model->android_file_keystore);
+		//print_r($res);
+		if($res)
+		{
+			$model->phonegap_id = $res->id;
+			$model->update();
+			return true;
+		}else{
+			return false;
+		}
+		 
+	
 	}
 }

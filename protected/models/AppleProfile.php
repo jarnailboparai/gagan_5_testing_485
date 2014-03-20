@@ -38,7 +38,7 @@ class AppleProfile extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('user_id', 'required'),
-            array('user_id, phonegap_id', 'numerical', 'integerOnly' => true),
+            array('user_id, phonegap_id,application_id', 'numerical', 'integerOnly' => true),
             array('apple_email, phone_gap_key_title, p12_file, store_provisioning_profile', 'length', 'max' => 100),
             array('apple_p12_password', 'length', 'max' => 255),
             array('p12_file', 'type' ,'type' => 'p12'),
@@ -56,6 +56,8 @@ class AppleProfile extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
+        		//'applicationprofile'=>''
+        		'applicationprofile' => array(self::BELONGS_TO, 'Application', 'application_id'),
         );
     }
 
@@ -93,6 +95,7 @@ class AppleProfile extends CActiveRecord {
         $criteria->compare('p12_file', $this->p12_file, true);
         $criteria->compare('store_provisioning_profile', $this->store_provisioning_profile, true);
         $criteria->compare('phonegap_id', $this->phonegap_id);
+        $criteria->compare('application_id', $this->application_id);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

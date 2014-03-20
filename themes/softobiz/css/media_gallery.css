@@ -159,6 +159,7 @@
 }
 .tab_gallery.location_form .button_panel{
 	padding-left:17px;
+	padding-top:0px;
 }
 .custom_modal .modal-footer{
 	text-align:left;
@@ -442,7 +443,7 @@
 
 /* Address Tab Setting */
 .address_map {
-    padding: 15px;
+    padding: 15px 15px 0px;
 }
 .address_map textarea{
 	width:303px;

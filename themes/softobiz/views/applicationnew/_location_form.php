@@ -334,7 +334,7 @@ jQuery(document).ready(function(){
 <!--    		    <div id="panel"></div> -->
              		
 <div id="map-canvas" style="float:left; height:400px;width: 99.4%;margin: 14px 2px;border:1px solid #ddd;"></div>
-<textarea placeholder="Description" id="article" type="text"  name="Module[articles]"  value="<?= $article; ?>" ></textarea>
+<textarea placeholder="Description" id="article" type="text"  name="Module[articles]"><?= $article; ?></textarea>
               </div>
               
                   <div class="button_panel">

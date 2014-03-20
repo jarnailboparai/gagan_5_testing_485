@@ -36,7 +36,7 @@ class AndroidProfile extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('user_id, android_keystore_name, android_keystore_password', 'required'),
-            array('user_id, phonegap_id', 'numerical', 'integerOnly' => true),
+            array('user_id, phonegap_id,application_id', 'numerical', 'integerOnly' => true),
             array('android_keystore_password', 'length', "min" => 6),
             array('android_keystore_name, android_keystore_password, android_file_keystore', 'length', 'max' => 100),
             // The following rule is used by search().
@@ -52,6 +52,7 @@ class AndroidProfile extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
+        		'application' => array(self::BELONGS_TO, 'Application', 'application_id'),
         );
     }
 
@@ -66,6 +67,7 @@ class AndroidProfile extends CActiveRecord {
             'android_keystore_password' => 'Android Keystore Password',
             'android_file_keystore' => 'Android File Keystore',
             'phonegap_id' => 'Phonegap',
+        	'application_id' => 'Application',
         );
     }
 
@@ -85,6 +87,7 @@ class AndroidProfile extends CActiveRecord {
         $criteria->compare('android_keystore_password', $this->android_keystore_password, true);
         $criteria->compare('android_file_keystore', $this->android_file_keystore, true);
         $criteria->compare('phonegap_id', $this->phonegap_id);
+        $criteria->compare('application_id', $this->application_id);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

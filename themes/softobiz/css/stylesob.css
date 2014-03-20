@@ -601,6 +601,18 @@ footer{ padding:13px;}
     margin-bottom:10px;
     text-transform:capitalize;
 }
+.featurelist ul li .wrapperli{
+	cursor:move;
+}
+.featurelist ul li .wrapperli *{
+	cursor:default;
+}
+.featurelist ul li .wrapperli .btn{
+	cursor:pointer;
+}
+.featurelist ul li .wrapperli input[type="text"],.featurelist ul li .wrapperli textarea{
+	cursor:text;
+}
 .featurelist ul li a{
 	color:#333;
 	
@@ -651,7 +663,7 @@ footer{ padding:13px;}
 }
 .edit_icon span img{
 	opacity:0.5;
-	cursor:pointer;
+	cursor:pointer !important;
 }
 .edit_icon span img:hover{
 	opacity:1;
@@ -736,9 +748,9 @@ footer{ padding:13px;}
 	text-transform: none !important;
 	padding:0px 10px;
 	min-height:291px !important;
-	cursor: text;
+	cursor: text !important;
 	word-wrap: break-word;
-	line-height:normaxl;
+	line-height:normal;
 	width:auto !important;
 	line-height:normal;
 }
@@ -961,6 +973,7 @@ footer{ padding:13px;}
 }
 .edit_video_title .app_box  .video_title{
 	background-position:102% 6px !important;
+	cursor:text;
 }
 .edit_outer_title .editable{
 	padding-bottom:3px;
