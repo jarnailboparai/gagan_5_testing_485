@@ -22,8 +22,18 @@
             <div class="video_wrap"><img src="<?php echo $pathurl?>/img/play_icon.png" alt="Play Icon" /></div> </div>
              <?php //print_r($data->attributes);die; ?>
              <?php // add id by sob_k?>
-            <div id="mediafileeditable_<?php echo $data->videomedia->id ?>" class="video_title"><?php echo $data->videomedia->title ?></div>
+            <!-- <div id="mediafileeditable_<?php echo $data->videomedia->id ?>" class="video_title"><?php echo $data->videomedia->title ?></div> -->
+           
+            <div id="videodetail"><a id="videodetailtitle_<?php echo $data->videomedia->id ?>" data-target="#myModalVideodetail"
+			href="<?php echo CHtml::normalizeUrl(array('tutorial/videodetail','module_id'=>$data->videomedia->id,'layout'=>1))?>"
+			 data-toggle="modal"><?php echo $data->videomedia->title; ?></a> </div>
           </div>
+         <?php /* code by sob_k ?>
+          <a data-target="#myModalVideodetail"
+			href="<?php echo CHtml::normalizeUrl(array('tutorial/videodetail','module_id'=>$data->videomedia->id,'layout'=>1))?>"
+			role="button" class="btn" data-toggle="modal"><?php echo $data->videomedia->title; ?></a> 
+			 
+		<?php // code end */?>	
  	</li>
 <?php } ?>
 <?php }else{?>

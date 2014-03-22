@@ -198,6 +198,8 @@ function openListModalVideo(arg)
 	<?php echo $this->renderPartial("//videofiles/_youtubelistmodal" ,array("data"=>$model)); ?>
 	<?php echo $this->renderPartial("//videofiles/_videocreatecustom" ,array("data"=>$model)); ?>
 	<?php echo $this->renderPartial('//videofiles/_selectvideotype' ,array("data"=>$model)); ?>
+	<?php echo $this->renderPartial('//videofiles/_selectvideodetail' ,array("data"=>$model)); ?>
+	<?php echo $this->renderPartial('//videofiles/_selectvideodetailgallery' ,array("data"=>$model)); ?>
 </div>
 
 <!--  HTML content for image gallery ends here -->
@@ -285,5 +287,16 @@ else
 		},
 	});
 
+</script>
+<script>
+	function editdetail(arg)
+	{	
+		var link = jQuery(arg).attr('link');
+		
+		var nameModal = jQuery(arg).attr('id');
+		jQuery('#myModalVideo').modal('hide');
+		//jQuery('#myModalvideogallerydetail').modal({remote: 'http://localhost:9003/members/wizard/index.php?r=tutorial/videodetailgallery&module_id=139',show:true});
+		jQuery('#myModalvideogallerydetail').modal({remote: link,show:true});
+	}
 </script>
 

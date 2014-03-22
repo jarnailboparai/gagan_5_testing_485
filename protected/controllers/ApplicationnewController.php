@@ -4778,8 +4778,8 @@ class ApplicationnewController extends Controller
 
 		$ios_profile_model = AppleProfile::model()->findByAttributes(array('user_id' => Yii::app()->user->id));
 		
-		CVarDumper::dump($a_profile_model->attributes, 10,true);
-		CVarDumper::dump($ios_profile_model->attributes, 10,true); 
+		//CVarDumper::dump($a_profile_model->attributes, 10,true);
+		//CVarDumper::dump($ios_profile_model->attributes, 10,true); 
 		
 		$key = array();
 		if ($param->notifications == 1) {
@@ -4813,6 +4813,10 @@ class ApplicationnewController extends Controller
 		}elseif(count($ios_profile_model)){
 			
 			$key = array("ios" => array('id' => (int) $ios_profile_model->phonegap_id, 'password' => $ios_profile_model->apple_p12_password));
+			
+		}elseif(count($a_profile_model)){
+			
+			$key = array("android" => array('id' => (int) $a_profile_model->phonegap_id, 'key_pw' => $a_profile_model->android_keystore_password, 'keystore_pw' => $a_profile_model->android_keystore_password));
 			
 		}else{
 			$key = null;
@@ -5002,6 +5006,7 @@ class ApplicationnewController extends Controller
 		if(count($model)){
 			 
 			//die("asdf");
+			
 			$this->createkeyphonegap($model);
 			$temp =  true;
 	

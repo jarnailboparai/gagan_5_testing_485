@@ -965,7 +965,12 @@ footer{ padding:13px;}
 .edit_outer_title .editable-click{
 	border-bottom:none;
 }
+/*
 .edit_outer_title .app_box:hover .video_title,.edit_video_title .app_box:hover .video_title,.edit_title .app_box:hover .video_title{
+	background:url(../images/edit_title.jpg) 104% 12px no-repeat;
+}
+*/
+.edit_outer_title .app_box .video_title,.edit_video_title .app_box .video_title,.edit_title .app_box .video_title,#videodetail{
 	background:url(../images/edit_title.jpg) 104% 12px no-repeat;
 }
 .edit_outer_title .app_box .video_title:hover,.edit_video_title .app_box .video_title:hover,.edit_title .app_box .video_title:hover{
@@ -1282,4 +1287,9 @@ h4.view_app_title{
 	width:98.1%;
 	box-shadow:none;
 	border-color:#ddd;
+}
+
+#videodetail{
+	height:25px;
+	background-position:104% 3px;
 }

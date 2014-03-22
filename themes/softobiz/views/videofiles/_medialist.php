@@ -20,8 +20,21 @@
             <div class="video_title">
             	<?php //echo $data->title ?>
             	<?php //print_r($data->attributes);die; ?>
-            	<a id="mediafileeditable_<?php echo $data->id ?>" class="videofile_name editable editable-click"><?php echo $data->title ?></a>
+            <?php /* ?>	<a id="mediafileeditable_<?php echo $data->id ?>" class="videofile_name editable editable-click"><?php echo $data->title ?></a> <?php */ ?>
+           <div id="videogallerydetail">
+           
+            <a id="videogallerydetailtitle_<?php echo $data->id ?>" data-target="#myModalvideogallerydetail"
+			href="<?php echo CHtml::normalizeUrl(array('tutorial/videodetailgallery','video_id'=>$data->id,'module_id'=>$module_id,'layout'=>1))?>"
+			 data-toggle="modal"><?php echo $data->title ?></a> 
+           
+           </div>
             </div>
+           
+         
+    <!--      <a class="custom_icon"	id="myModalvideogallerydetail" href="javascript:editdetail('a#myModalvideogallerydetail')" link="<?php echo CHtml::normalizeUrl(array('tutorial/videodetailgallery','module_id'=>$data->id,'layout'=>1))?>" >
+		Edit Description
+	</a> -->
+         
           </div>
           <input <?php if(in_array($data->id,$selected)){ ?>
 		checked="checked" <?php }  ?> type="checkbox"  value="<?php echo $data->id ?>"  name="selected[]" style="display:none"  id="checkmedia" />

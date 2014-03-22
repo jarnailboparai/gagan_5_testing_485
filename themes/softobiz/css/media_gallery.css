@@ -25,6 +25,7 @@
 	margin-bottom:24px;
 	position:relative;
 	padding: 0;
+	background:#fff;
 }
 .enabled .select_feature{
 	display:block;
@@ -555,7 +556,7 @@
 
 /* video list setting */
 
-.image_title a, .video_title a {
+.image_title a, .video_title a,#videodetail a,#videogallerydetail a {
     color: #333333;
     font-size: 14px;
     height: 25px;
@@ -566,4 +567,11 @@
     white-space: nowrap;
     width: 100%;
     border:none !important;
+}
+#videodetail a,#videogallerydetail a{
+	float:left;
+	line-height: 25px;
+	width:89%;
+	padding-right:15px;
+	cursor:pointer !important;
 }

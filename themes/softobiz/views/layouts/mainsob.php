@@ -77,6 +77,6 @@
 <!-- Placed at the end of the document so the pages load faster --> 
 <script src="https://apis.google.com/js/client.js"></script>
 <div class="loading_content"> <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/loading_page.gif"> </div>
-
+<link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/configure_theme.css" rel="stylesheet">
 </body>
 </html>

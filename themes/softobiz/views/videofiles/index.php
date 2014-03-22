@@ -170,4 +170,7 @@ function openAddMore(arg)
 	jQuery('#myModalSelectVideo').modal({remote: link});
 	
 }
+
+
 </script>
+

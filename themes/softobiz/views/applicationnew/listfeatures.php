@@ -41,10 +41,21 @@ $pathurl = Yii::app()->theme->baseUrl;
 <div class="container selectfeatures">
           <div class="row-fluid select_content">
           <div class="span8">
+          
           <div class="app_number">Add Features into <span class="number">Your App</span> - <span class="number"><?php echo $application_model->title; ?></span>   </div>
+          <!-- Tabs -->
+          <div class="btn-group pull-left navbottom" style="float:none;margin-bottom:10px;display:none;">
+          <button class="btn app_info"><span>Add Features</span></button>
+          <button class="btn selected"><span>Theme Settings</span></button>
+          <!--<button class="btn content"><span>Select Content</span></button>-->
+        </div>
+          
+          <!-- Tabs ends here -->
          	<!--  Crousel Starts Here -->
          	
-         	 
+         	<!-- Add feature wrapper starts here -->
+            
+        <!--  <div class="add_feature_wrapper">  -->
           <a href="#" class="add_features">Add Features</a>
           <?php echo $this->renderPartial('_carsoulwrap',array('pathurl'=>$pathurl ,'model'=>$modelSelectAA,'data'=>$dataSelectAA,'url'=>$url));?>
           
@@ -97,6 +108,18 @@ $pathurl = Yii::app()->theme->baseUrl;
      <!--   <p><a href="<?php echo $url ?>/applications/<?php echo Yii::app()->user->getState('username') . "_" . $application_model->title . "_" . $application_model->id; ?>/index.html?asd=sdasd" style="height:486px;width:320px;" target="iframe_a">Refresh</a></p>  -->
      </div>
 </div>
+<!--</div> -->
+
+<!-- Add Feature wrapper ends here -->
+
+<!-- Theme Setting wrapper starts here -->
+<div class="theme_setting" style="display:none;">
+<?php echo $this->renderPartial('_theme_settings',array('pathurl'=>$pathurl ,'model'=>$modelSelectAA,'data'=>$dataSelectAA,'url'=>$url));?>
+</div>
+
+
+<!-- Theme Setting ends here -->
+
            </div> 
             
             <div class="span4">
