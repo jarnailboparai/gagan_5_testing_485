@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wooden Theme</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="../../assets/css/fonts.css" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
+
+<link rel="stylesheet" href="css/wooden_theme.css" />
+
+<link rel="stylesheet" href="css/common_layout.css" />
+
+<link rel="stylesheet" href="css/static_page.css" />
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script type="text/javascript">
+
+   $(document).ready(function() {
+
+      $('#back-link').click(function() {
+
+         history.go(-1) 
+
+       });
+
+   });
+
+</script>
+
+
+
+
+
+<style type="text/css">
+
+img {
+
+	max-width:100%;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<!-- Start of first page -->
+
+<div data-role="page" id="theme_layout" class="theme_bg"> 
+
+  
+
+  <!-- Header Starts Here -->
+
+  <div data-role="header"> <a class="refresh_link" id="back-link" href="#"><img src="images/back_btn.png" alt="home icon" /></a>
+
+    <h1>Static Page</h1>
+
+    <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>
+
+  <!-- /header ends here --> 
+
+  <!-- Static Page starts here -->
+
+  
+
+  <div class="staticPage">
+
+  
+
+  <b>Keystroke logging</b>, often referred to as <b>keylogging</b> or <b>Keyboard Capturing</b>, is the action of recording (or logging) the keys struck on a <a href="http://en.wikipedia.org/wiki/Keyboard_%28computing%29" title="Keyboard (computing)" class="mw-redirect">keyboard</a>, typically in a covert manner so that the person using the keyboard is unaware that their actions are being monitored.<sup id="cite_ref-1" class="reference"><a href="http://en.wikipedia.org/wiki/Keystroke_logging#cite_note-1"><span>[</span>1<span>]</span></a></sup>
+ It also has very legitimate uses in studies of human-computer 
+interaction. There are numerous keylogging methods, ranging from 
+hardware and software-based approaches to <a href="http://en.wikipedia.org/wiki/Acoustics" title="Acoustics">acoustic</a> analysis.<br><ul><li><b>Hypervisor-based</b>: The keylogger can theoretically reside in a <a href="http://en.wikipedia.org/wiki/Malware" title="Malware">malware</a> <a href="http://en.wikipedia.org/wiki/Hypervisor" title="Hypervisor">hypervisor</a> running underneath the operating system, which remains untouched. It effectively becomes a <a href="http://en.wikipedia.org/wiki/Virtual_machine" title="Virtual machine">virtual machine</a>. <a href="http://en.wikipedia.org/wiki/Blue_Pill_%28software%29" title="Blue Pill (software)">Blue Pill</a> is a conceptual example.</li><li><b><a href="http://en.wikipedia.org/wiki/Kernel_%28computing%29" title="Kernel (computing)">Kernel</a>-based</b>: A program on the machine '<a href="http://en.wikipedia.org/wiki/Superuser" title="Superuser">gets root</a>'
+ and hides itself in the OS, and starts intercepting keystrokes (because
+ they always go through the kernel). This method is difficult both to 
+write and to combat. Such keyloggers reside at the <a href="http://en.wikipedia.org/wiki/Ring_%28computer_security%29" title="Ring (computer security)">kernel level</a>
+ and are thus difficult to detect, especially for user-mode applications
+ who don't have root access. They are frequently implemented as <a href="http://en.wikipedia.org/wiki/Rootkit" title="Rootkit">rootkits</a>
+ that subvert the operating system kernel and gain unauthorized access 
+to the hardware, making them very powerful. A keylogger using this 
+method can act as a keyboard <a href="http://en.wikipedia.org/wiki/Device_driver" title="Device driver">device driver</a> for example, and thus gain access to any information typed on the keyboard as it goes to the operating system.</li><li><b>API-based</b>: These keyloggers <a href="http://en.wikipedia.org/wiki/Hooking" title="Hooking">hook</a> keyboard <a href="http://en.wikipedia.org/wiki/Application_programming_interface" title="Application programming interface">APIs</a>
+ inside a running application. The keylogger registers for keystroke 
+events, as if it was a normal piece of the application instead of 
+malware. The keylogger receives an event each time the user presses or 
+releases a key. The keylogger simply records it.
+<ul><li>Windows APIs such as <code>GetAsyncKeyState()</code>, <code>GetForegroundWindow()</code>, etc. are used to poll the state of the keyboard or to subscribe to keyboard events.<sup id="cite_ref-3" class="reference"><a href="http://en.wikipedia.org/wiki/Keystroke_logging#cite_note-3"><span>[</span>3<span>]</span></a></sup> A more recent example simply polls the <a href="http://en.wikipedia.org/wiki/BIOS" title="BIOS">BIOS</a> for pre-boot authentication <a href="http://en.wikipedia.org/wiki/Personal_identification_number" title="Personal identification number">PINs</a> that have not been cleared from memory.<sup id="cite_ref-4" class="reference"><a href="http://en.wikipedia.org/wiki/Keystroke_logging#cite_note-4"><span>[</span>4<span>]</span></a></sup></li></ul>
+</li><li><b>Form grabbing based</b>: <a href="http://en.wikipedia.org/wiki/Form_grabbing" title="Form grabbing">Form grabbing</a>-based keyloggers log <a href="http://en.wikipedia.org/wiki/Form_%28web%29" title="Form (web)" class="mw-redirect">web form</a>
+ submissions by recording the web browsing on submit events. These 
+happen when the user finishes filling in the form and clicks on the "OK"
+ or "Submit" or "Go" or anything that indicates that you're finished. 
+This records form data before it is passed over the Internet. .</li><li><b>Memory injection based</b>: Memory Injection (<a href="http://en.wikipedia.org/wiki/Man-in-the-browser" title="Man-in-the-browser">MitB</a>)-based
+ keyloggers alter memory tables associated with the browser and other 
+system functions to perform their logging functions. By patching the 
+memory tables or injecting directly into memory, this technique can be 
+used by malware authors who are looking to bypass Windows UAC (User 
+Account Control). The Zeus and Spyeye Trojans use this method 
+exclusively.<sup id="cite_ref-5" class="reference"><a href="http://en.wikipedia.org/wiki/Keystroke_logging#cite_note-5"><span>[</span>5<span>]</span></a></sup> Non-Windows systems have analogous protection mechanisms that need to be thwarted somehow by the keylogger.</li><li><b><a href="http://en.wikipedia.org/wiki/Packet_sniffing" title="Packet sniffing" class="mw-redirect">Packet analyzers</a></b>: This involves capturing network traffic associated with <a href="http://en.wikipedia.org/wiki/POST_%28HTTP%29" title="POST (HTTP)">HTTP POST</a>
+ events to retrieve unencrypted passwords. This doesn't work if you're 
+connected with HTTPS - in fact it was this kind of attack they were 
+fighting when they invented HTTPS. Visit:http://bit.ly/1lguI4p to get protected today.</li><li><b>Remote access software keyloggers</b></li></ul>
+<dl><dd>These are local software keyloggers with an added feature that 
+allows access to the locally recorded data from a remote location. 
+Remote communication may be achieved using one of these methods:
+<ul><li>Data is uploaded to a website, database or an <a href="http://en.wikipedia.org/wiki/File_Transfer_Protocol" title="File Transfer Protocol">FTP</a> server.</li><li>Data is periodically emailed to a pre-defined <a href="http://en.wikipedia.org/wiki/Email_address" title="Email address">email address</a>.</li><li>Data is <a href="http://en.wikipedia.org/wiki/Wireless" title="Wireless">wirelessly</a> transmitted by means of an attached hardware system.</li><li>The software enables a remote login to the local machine from the 
+Internet or the local network, for data logs stored on the target 
+machine to be accessed.</li></ul>
+</dd></dl>
+<p>Most of these aren't stopped by <a href="http://en.wikipedia.org/wiki/HTTP_Secure" title="HTTP Secure">HTTPS</a>
+ encryption because that only protects data in transit between 
+computers; this is a threat in your own computer - the one connected to 
+the keyboard.</p><p>The only software of its kind...http://bit.ly/1lguI4p<br></p><br>
+
+  </div>
+
+  
+
+  <!-- Static Page Ends here -->
+
+  
+
+</div>
+
+<!-- /page --> 
+
+
+
+</body>
+
+</html>
