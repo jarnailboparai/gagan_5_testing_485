@@ -123,7 +123,7 @@ $pathurl = Yii::app()->theme->baseUrl;
            </div> 
             
             <div class="span4">
-            <div class="app_preview">
+            <div class="app_preview" id="app_preview">
           
             <div class="theme_preview">
            <iframe  src="<?php echo $url ?>/applications/<?php echo Yii::app()->user->getState('username') . "_" . $application_model->title . "_" . $application_model->id; ?>/index.html" style="height:486px;width:320px;" class="iframe2" id="myframe" name="iframe_a" ></iframe>
@@ -317,10 +317,23 @@ function removeModule(arg){
 <script type="text/javascript">
    // var flagloader = false;
 $(document).ready(function() {
-	var s = $(".app_preview");
+	/*
+	var s = $("#app_preview");
 	var pos = s.position();					   
 	$(window).scroll(function() {
 		var windowpos = $(window).scrollTop();
+		if (windowpos >= pos.top) {
+			s.addClass("stick");
+		} else {
+			s.removeClass("stick");	
+		}
+	});
+	*/
+	var s = $("#app_preview");
+	var pos = s.position();					   
+	$(window).scroll(function() {
+		var windowpos = $(window).scrollTop();
+		//console.log("Distance from top:" + pos.top + "<br />Scroll position: " + windowpos);
 		if (windowpos >= pos.top) {
 			s.addClass("stick");
 		} else {

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+
+        id        = "com.honeymooncruises.vacations"
+
+        version   = "3.1.0">
+
+    <name>honeymooncruises</name>
+
+
+
+    <description>Make your first plans as a married couple something fun and memorable…Cruising is an excellent way to spend your honeymoon. After the whirlwind craziness most couples experience while planning a wedding, a cruise ship lets you simply relax and be pampered while seeing new places. From spacious staterooms to fine dining — plus stops at exotic locations — almost everything is included in your fare, so you can make your top priority having a great time. 
+
+No doubt this will be your most memorable cruise. You will always reflect on it during future cruises.
+We have your personal wedding cruise consultant waiting to help you plan your Honeymoon Vacation.</description>
+
+    <access origin="*" />
+
+    <author href="http://phonegap.com" email="support@phonegap.com">
+
+        PhoneGap Team
+
+    </author>
+
+
+
+    <feature name="http://api.phonegap.com/1.0/device" />
+
+
+
+    <!-- 
+
+    <preference name="phonegap-version" value="2.1.0" />
+
+    -->
+
+    <preference name="orientation"      value="default" />
+
+    <preference name="target-device"    value="universal" />
+
+    <preference name="fullscreen"       value="true" />
+
+
+
+    <icon src="icon.png" />
+
+    <gap:splash src="splash.png" />
+
+    
+
+    <gap:platform name="ios" />
+
+    <gap:platform name="android" />
+
+    <gap:plugin name="com.phonegap.plugins.pushplugin" />
+
+
+
+	
+
+</widget>
+
+
