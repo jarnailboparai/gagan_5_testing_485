@@ -43,7 +43,10 @@ foreach($obj->subModules as $sub){
                 		echo $sub->attributes['tab_title'] ;
                 ?>
                 </h2>
-                <p><?php echo substr($sub->attributes['description'], 0,75)?></p>
+                <p><?php //echo substr($sub->attributes['description'], 0,75);
+                		//echo $sub->attributes['description'];
+                		echo $sub->attributes['articles'];
+                ?></p>
                 
             </a></li>
 	

@@ -14,17 +14,17 @@
 	width: 735px !important;
 }
 */
-.slider #ulilili li:nth-child(5) .coming_soon{
+.slider #ulilili li:nth-child(5) .coming_soon,.slider #ulilili li:nth-child(6) .coming_soon{
 	display:none;
 }
 
 .date,.rebuild{
 	display: none;
 }
-.slider #prev,.slider #next{
+/*.slider #prev,.slider #next{
 	pointer-events:none;
 }
-
+*/
 .slider #jCarouselLiteDemo .carousel ul{
 	margin-left: 0px !important;
 }

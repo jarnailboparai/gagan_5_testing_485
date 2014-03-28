@@ -39,7 +39,7 @@
     
     <script type="text/javascript">
 
-    window.listFeaturesLi = '<li id="#"><div class="wrapperli"><a id="#" href="#"></a><div class="pull-right edit_icon"><span onclick="javascript:popupdetial(this)"><img alt="edit" src="/members/wizard/themes/softobiz/img/edit_content.png"></span>  <span onclick="popdetialHide(this)"><img alt="refresh" src="/members/wizard/themes/softobiz/img/refresh.png"></span> <span onclick="removeModule(this)"><img alt="remove" src="/members/wizard/themes/softobiz/img/trash_icon.png"></span></div></div></li>'
+    window.listFeaturesLi = '<li id="#"><div class="wrapperli"><a id="#" href="#"></a><div class="pull-right edit_icon"><span class="drag"><img alt="edit" src="/members/wizard/themes/softobiz/img/drag.png"></span><span onclick="javascript:popupdetial(this)"><img alt="edit" src="/members/wizard/themes/softobiz/img/edit_content.png"></span>  <span onclick="popdetialHide(this)"><img alt="refresh" src="/members/wizard/themes/softobiz/img/refresh.png"></span> <span onclick="removeModule(this)"><img alt="remove" src="/members/wizard/themes/softobiz/img/trash_icon.png"></span></div></div></li>'
          	jQuery(document).ready(function(){
 				jQuery(".manual_crousel").jCarouselLite({
  						auto: false, speed: 500,circular: false, visible: 5,btnNext: ".next",btnPrev: ".prev", mouseWheel: true  

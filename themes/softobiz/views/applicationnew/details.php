@@ -1,3 +1,4 @@
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/validate_detail.js"></script>
 <?php
 $pathurl = Yii::app()->theme->baseUrl;
 // if (isset($disabled))
@@ -19,7 +20,7 @@ $pathurl = Yii::app()->theme->baseUrl;
             'id' => 'user-form',
             'enableAjaxValidation' => false,
 			//'action' => '?r=applicationnew/details',
-            'htmlOptions' => array('enctype' => 'multipart/form-data','name'=>'user-form','class'=>'form-signin'),
+            'htmlOptions' => array('enctype' => 'multipart/form-data','name'=>'user-form','class'=>'form-signin',"onsubmit"=>"user_valid()"),
                 ));
         ?>
          <h4 class="form-signin-heading">

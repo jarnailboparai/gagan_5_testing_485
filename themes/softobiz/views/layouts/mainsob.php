@@ -19,7 +19,7 @@
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/accrodin.css" rel="stylesheet" type="text/css">
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/fonts.css" rel="stylesheet">
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/select_content.css" rel="stylesheet">
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/tempory.css" rel="stylesheet">
+        <link href="<?php  echo Yii::app()->theme->baseUrl; ?>/css/tempory.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->getBaseUrl(true); ?>/js/uploadifive/uploadifive.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -52,8 +52,8 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-scrollspy.js"></script> 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/accordin.js" type="text/javascript"></script> 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/scroller/perfect-scrollbar.js"></script> 
-
-
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/validate.js"></script> 
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/additional_validate.js"></script> 
 <script>
       jQuery(document).ready(function ($) {
         "use strict";

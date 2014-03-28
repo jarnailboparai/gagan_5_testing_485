@@ -222,6 +222,13 @@ jQuery(document).ready(function(){
 			</td>
 		</tr>
 	</table>
+	                    <?php
+                    if ($model->articles != NULL)
+                        $article = $model->articles;
+                    else
+                        $article = '';
+                    ?>
+<textarea placeholder="Short Description" maxlength="150" id="short_description" class= "short_description" type="text"  name="SubModules[articles]"><?= $article; ?></textarea>
 
 	<div class="content_editor">
 	<textarea id="editorsub<?php echo $model->id ?>" name="SubModules[description]" style="width: 100%;height: 300px" cols="100"><?= $model->description ?></textarea>

@@ -60,7 +60,8 @@ $url =  Yii::app()->getBaseUrl(true);
             <div class="carousel main"> <span id="prev"></span>
               <div class="jCarouselLite">
                 <ul>
-                  <?php $w = "<li><div class='coming_soon'><img src='".Yii::app()->theme->baseUrl.'/img/coming_soon.png'."' /><div class='faded_bg'></div></div><img alt='' src='images/%s' id='%s' class='liImage_%s'></li>";  
+                  <?php //$w = "<li><div class='coming_soon'><img src='".Yii::app()->theme->baseUrl.'/img/coming_soon.png'."' /><div class='faded_bg'></div></div><img alt='' src='images/%s' id='%s' class='liImage_%s'></li>";
+$w = "<li><img alt='' src='images/%s' id='%s' class='liImage_%s'></li>";
                     foreach($slider as $s)
                     {
                     	printf($w,$s['image'],$s['themeid'],$s['themeid']);		

@@ -26,8 +26,11 @@ $pathurl = Yii::app()->theme->baseUrl;
 .body_rightModal #showMobile {
 	/*display:none;*/
 }
-.pull-right.edit_icon span:nth-child(2){
+.pull-right.edit_icon span:nth-child(3),.sub_page_wrapper .pull-right.edit_icon span:nth-child(2){
 	display: none;
+}
+.sub_page_wrapper .pull-right.edit_icon span:nth-child(3){
+	display: inline-block;
 }
 .row-fluid.manage_apps.media_gallery.tab_gallery
 {
@@ -63,8 +66,8 @@ $pathurl = Yii::app()->theme->baseUrl;
             <div class="featurelist">
 	<ul id="sortable">
 		<?php 
-		$li = "<li  id='module_%s' ><div class='wrapperli'><a href='%s' id='%s' ><span class='content_list_icon'><img src='%s/img/%s.png'></span>%s</a><div class='pull-right edit_icon'><span onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='popdetialHide(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div></li>"; 
-		$liid = "<li  id='module_%s' ><div class='wrapperli'><a href='%s' id='%s' ><span class='content_list_icon' ><img src='%s/img/%s.png'></span>%s</a><div class='pull-right edit_icon'><span id='staticPageFormButton_%s'   onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='javascript:popupdetial(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div> </li>";
+		$li = "<li  id='module_%s' ><div class='wrapperli'><a class='tab_title' href='%s' id='%s' ><span class='content_list_icon'><img src='%s/img/%s.png'></span>%s</a><div class='pull-right edit_icon'><span class='drag'><img src='%s/img/drag.png' alt='drag'></span><span onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='popdetialHide(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div></li>"; 
+		$liid = "<li  id='module_%s' ><div class='wrapperli'><a href='%s' id='%s' ><span class='content_list_icon' ><img src='%s/img/%s.png'></span>%s</a><div class='pull-right edit_icon'><span class='drag'><img src='%s/img/drag.png' alt='drag'></span><span id='staticPageFormButton_%s'   onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='javascript:popupdetial(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div> </li>";
 		foreach($model as $fea)
 		{
 			if ($fea->tab_title == NULL)
@@ -85,13 +88,13 @@ $pathurl = Yii::app()->theme->baseUrl;
 			}
 			
 			if(strpos($fea->name, 'staticpage') !== false){
-				printf($liid,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizeModuleContent","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$fea->id,$pathurl,$pathurl,$pathurl);
+				printf($liid,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizeModuleContent","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$fea->id,$pathurl,$pathurl,$pathurl);
 			}else if(strpos($fea->name, 'photo') !== false){
-				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$pathurl,$pathurl);
+				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$pathurl,$pathurl,$pathurl);
 			}else if(strpos($fea->name, 'video') !== false){
-				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$pathurl,$pathurl);
+				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$pathurl,$pathurl,$pathurl);
 			}else{
-				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnew","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$pathurl,$pathurl);
+				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnew","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$pathurl,$pathurl,$pathurl);
 			}
 			
 //echo CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnew","module_id"=>$fea->id))	;		 
@@ -123,7 +126,7 @@ $pathurl = Yii::app()->theme->baseUrl;
            </div> 
             
             <div class="span4">
-            <div class="app_preview" id="app_preview">
+            <div class="app_preview" id="app_preview"> 
           
             <div class="theme_preview">
            <iframe  src="<?php echo $url ?>/applications/<?php echo Yii::app()->user->getState('username') . "_" . $application_model->title . "_" . $application_model->id; ?>/index.html" style="height:486px;width:320px;" class="iframe2" id="myframe" name="iframe_a" ></iframe>
@@ -317,18 +320,29 @@ function removeModule(arg){
 <script type="text/javascript">
    // var flagloader = false;
 $(document).ready(function() {
-	/*
-	var s = $("#app_preview");
-	var pos = s.position();					   
+
+	/*  
 	$(window).scroll(function() {
+		
+		var s = $(".app_preview");
+
+		var pos = s.position();	
+		
 		var windowpos = $(window).scrollTop();
+		
+		console.log('POS',pos,'windowpos',windowpos);
+
 		if (windowpos >= pos.top) {
 			s.addClass("stick");
+			console.log('working');
 		} else {
 			s.removeClass("stick");	
+			console.log('ongint');
 		}
 	});
+
 	*/
+
 	var s = $("#app_preview");
 	var pos = s.position();					   
 	$(window).scroll(function() {

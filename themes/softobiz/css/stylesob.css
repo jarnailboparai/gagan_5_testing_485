@@ -607,6 +607,13 @@ footer{ padding:13px;}
 .featurelist ul li .wrapperli *{
 	cursor:default;
 }
+
+.featurelist ul li .wrapperli a.tab_title {
+    cursor: move;
+}
+.featurelist ul li .wrapperli a{
+	
+}
 .featurelist ul li .wrapperli .btn{
 	cursor:pointer;
 }
@@ -1100,7 +1107,7 @@ h4.view_app_title{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 100px;
+    width: 179px;
     font-weight: normal;
 }
 .links_prog{
@@ -1141,7 +1148,6 @@ h4.view_app_title{
 }
 .manage_app_icon .app_box .app_thumb .edit_panel{
 	width:247px;
-	left:12px;
 	top:117px;
 }
 .thumb_panel .thumb_btn .thumbalink{
@@ -1292,4 +1298,18 @@ h4.view_app_title{
 #videodetail{
 	height:25px;
 	background-position:104% 3px;
+}
+span.drag{
+	visibility:hidden;
+	margin-right:6px;
+}
+.wrapperli:hover  span.drag{
+	visibility:visible;
+}
+.short_description{
+	border: 1px solid #CCCCCC;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 10px !important;
+    width: 98.4%;
 }
