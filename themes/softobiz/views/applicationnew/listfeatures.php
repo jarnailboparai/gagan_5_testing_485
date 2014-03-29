@@ -258,6 +258,10 @@ function popdetialHideOther(arg)
 
 	//console.log(arg);
 	$('#module_'+arg[2]).find('a').html($s);
+
+	window.TabFlagOpen = window.TabFlagOpen - 1;
+
+	ulData(window.TabFlagOpen);
 }
 
 /*
@@ -375,6 +379,19 @@ $(document).ready(function() {
 			console.log(settings.url);
 			
 		}
+
+/*		if(window.TabFlagOpen < 0 )
+			window.TabFlagOpen = 0 ;
+		else
+			window.TabFlagOpen = window.TabFlagOpen - 1 ;
+
+		if(window.TabFlagOpen < 0 )
+			window.TabFlagOpen = 0 ;
+*/		
+		ulData(window.TabFlagOpen);
+
+		console.log('suvcces',window.TabFlagOpen);
+
 		});
 	
 	$( document ).ajaxComplete(function( event,request, settings ) {
@@ -383,6 +400,8 @@ $(document).ready(function() {
 		}else{
 			$('.loading_content2').hide();
 		}
+
+		console.log('comllepl',window.TabFlagOpen);
 		
 		});
 

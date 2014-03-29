@@ -17,7 +17,8 @@ font-weight:normal;
 font-style:normal;
 }
 body {
-	font-family:Open Sans,sans-serif;
+	/*font-family:Open Sans,sans-serif;*/
+	font-family:Arial, Helvetica, sans-serif !important;
 	min-width:313px;
 }
 .clr{
@@ -30,12 +31,14 @@ body {
 	font-weight:normal;
 	color:#fff;
 	width:70px;
-	font-family:Open Sans Semibold,sans-serif;
+	/*font-family:Open Sans Semibold,sans-serif;*/
+	font-family:Arial, Helvetica, sans-serif !important;
 }
 .app_feature_list label{
-	height:42px;
+	height:36px;
 	overflow:hidden;
 	font-size:13px;
+	word-wrap: break-word;
 }
 
 .no_data{
@@ -60,6 +63,12 @@ a.item{
     vertical-align: middle;
     width: 70px;
 
+}
+.logo{
+	padding:0px !important;
+}
+.logo img{
+	display:none;
 }
 @media (max-width: 330px){
 	.ui-header .ui-title, .ui-footer .ui-title{

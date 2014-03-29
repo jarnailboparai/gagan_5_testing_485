@@ -1,7 +1,8 @@
 
 .white_wrap{
-	margin:0 5% 11px;
-	padding:7px 0px;
+	margin:5px 5px 10px;
+	padding:7px 5px;
+	background:url(../images/title_bg.png);
 }
 .white_wrap table tr td:first-child{
 	padding-right:8px;

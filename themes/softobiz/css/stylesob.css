@@ -1313,3 +1313,6 @@ span.drag{
     margin-bottom: 10px !important;
     width: 98.4%;
 }
+#prev, #next {
+	cursor:pointer;
+}

@@ -1,3 +1,4 @@
+
 <div class="form">
 
 <?php //$form=$this->beginWidget('CActiveForm');  //$form->s ?>
@@ -12,14 +13,13 @@
 		<?php echo $form->checkBoxList($model,'name',$data); ?>
 		<?php //echo $form->error($model,'feature'); ?>
 	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
 <script>
+/*
 function submitForm()
 {
 	var form = document.forms.themeForm;
@@ -27,7 +27,25 @@ function submitForm()
 	$(form).submit();
 	//console.log("asd");
 }
+*/
+function submitForm()
+{
+   var form = document.forms.themeForm;
+   var count_features = $( "input:checked" ).length;
+	if(count_features>0)
+	{
+		$(form).submit();
+	}
+   else
+	{
+		$('.select_feature_error').html("<div class='alert alert-danger'><strong>Select Atleast One Feature</strong></div>");
+	}
+}
+
 </script>
+
+
+
 
 
 </div><!-- form -->

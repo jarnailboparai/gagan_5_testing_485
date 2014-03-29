@@ -1,0 +1,40 @@
+@media (max-width: 1024px){
+	.logo{
+	padding-top:0%;
+	}	
+	
+}
+@media (max-width: 1024px) and (min-width:950px){
+	.theme_bg{background:url("../images/theme_background.jpg") repeat scroll center bottom / 57% auto rgba(0, 0, 0, 0)}
+}
+@media (max-width: 768px){
+	.logo{
+	padding-top:9%;
+		}	
+	
+}
+@media (max-width: 650px){
+	.logo {
+    padding-top: 0%;
+    width: 410px;
+	}
+}
+@media (max-width: 650px) and (min-width:550px){
+	.theme_bg{background:url("../images/theme_background.jpg") no-repeat scroll center bottom / 54% auto rgba(0, 0, 0, 0);}
+}
+@media (max-width: 480px){
+	.logo{
+	
+	width:370px;
+	}	
+}
+
+@media (max-width: 320px){
+	.logo {
+    
+    width: 262px;
+	}
+	.theme_bg{
+		background-size:auto 105%;
+	}
+}

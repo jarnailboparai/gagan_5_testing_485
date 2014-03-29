@@ -73,3 +73,4 @@ $('document').ready(function(){
  <div style="display:none" >
 <?php echo $this->renderPartial('_formfeature', array('model'=>$model,'data'=>$data)); ?>
 </div>
+<div class="select_feature_error"></div>
