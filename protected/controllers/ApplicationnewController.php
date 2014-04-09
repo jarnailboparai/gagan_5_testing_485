@@ -1416,6 +1416,8 @@ class ApplicationnewController extends Controller
 		$module_model = Module::model()->findAllByAttributes(array('application_id' => $app_id), array('order' => 'module_order'));
 
 		$app_model = Application::model()->findByPk($app_id);
+		
+		//echo "<pre>"; print_r($app_model->themesetting->filemediaImageland->attributes); die;
 
 		$build_model = Build::model()->findByAttributes(array('application_id' => $app_id));
 
@@ -1564,8 +1566,10 @@ class ApplicationnewController extends Controller
 			fwrite($fp, $str, strlen($str));
 			$notValue = false;
 			
-			//die;
-
+			$ffdf = $this->change_modulebgapp($sourcefile, $dest_path, $app_model, $app_model);
+			
+// 			echo '<br />'; $ffdf; 
+// 			die;
 			$count = 0;
 			$more_menu = '<ul data-role="listview" data-inset="true" data-theme="a" id="mainUl">';
 
@@ -1732,7 +1736,7 @@ class ApplicationnewController extends Controller
 				}				
 				else if ($module == 'video') {
 
-					
+
 					//$subMenus = "<ul style='list-style:none;'>";
 					$subMenus = '';
 					
@@ -1789,7 +1793,11 @@ class ApplicationnewController extends Controller
 				}
 					
 					//$subMenus .= "</ul>";
-					
+				$nameFileCss = null;
+				if(count($obj->themesetting)){
+					$nameFileCss = $this->change_modulebg($sourcefile,$dest_path,$obj,$app_model);
+				}
+				
 					$keyword = $app_model->master_keyword;
 
 					//$str = implode("\n", file($src_path . '/video.html'));
@@ -1808,94 +1816,24 @@ class ApplicationnewController extends Controller
 						$str = str_replace("<h1>About Us</h1>", "<h1>" . ucfirst( $obj->attributes['tab_title'] ). "</h1>", $str);
 					else
 						$str = str_replace("<h1>About Us</h1>", "<h1>" . ucfirst( $obj->attributes['name'] ) . "</h1>", $str);
-						
+					$str = $this->addbg_applink($str,$nameFileCss);
 					$str = $this->generateMenu($str, $app_model);
-
+					
 					fwrite($fp, $str, strlen($str));
 				}
 				else if ($module == 'staticpage') {
 				
-				//<div class="staticPageList"></div> list
-				//<h1>Static Page</h1>
-				//$$sourcefile
-				
 				$this->createStaticPageApp($sourcefile, $dest_path, $obj,$app_model);
 					
-				/*	if($obj->page_type == 1){  
-						
-						
-						$keyword = $app_model->master_keyword;
-						
-						$str = implode("\n", file($src_path . '/staticpage.html'));
-						
-						$nameFile = '/staticpage_'.$obj->id.'.html';
-							
-						$fp = fopen($dest_path .$nameFile, 'w');
-						
-						$str = str_replace("<p>This is all about us.</p>", $obj->attributes['description'], $str);
-						
-						if ($obj->attributes['tab_title'] != NULL)
-							$str = str_replace("<h1>About Us</h1>", "<h1>" . $obj->attributes['tab_title'] . "</h1>", $str);
-						
-						$str = $this->generateMenu($str, $app_model);
-						
-						fwrite($fp, $str, strlen($str));
-					}
-					
-					if($obj->page_type == 2){
-						
-						$subMenus = "<ul>";
-						
-						foreach($obj->subModules as $sub){
-							
-							$keyword = $app_model->master_keyword;
-							
-							$str = implode("\n", file($src_path . '/staticpage.html'));
-							
-							$nameFile = '/staticpage_'.$obj->id.'_'.$sub->id.'.html';
-							
-							$urlName = 'staticpage_'.$obj->id.'_'.$sub->id.'.html';
 								
-							$fp = fopen($dest_path .$nameFile, 'w');
-							
-							$str = str_replace("<p>This is all about us.</p>", $sub->attributes['description'], $str);
-							
-							if ($sub->attributes['tab_title'] != NULL)
-								$str = str_replace("<h1>About Us</h1>", "<h1>" . $sub->attributes['tab_title'] . "</h1>", $str);
-							
-							$str = $this->generateMenu($str, $app_model);
-							
-							fwrite($fp, $str, strlen($str));
-							
-							$subMenus .= "<li><a href='{$urlName}'>{$sub->attributes['tab_title']}</a></li>";
-						
-						}
-						
-						$subMenus .= "</ul>";
-						
-						$keyword = $app_model->master_keyword;
-							
-						$strOU = implode("\n", file($src_path . '/staticpage.html'));
-							
-						$nameFile = '/staticpage_'.$obj->id.'.html';
-						
-						$fp = fopen($dest_path .$nameFile, 'w');
-							
-						$strOU = str_replace("<p>This is all about us.</p>", $subMenus, $strOU);
-							
-						if ($obj->attributes['tab_title'] != NULL)
-							$strOU = str_replace("<h1>About Us</h1>", "<h1>" . $obj->attributes['tab_title'] . "</h1>", $strOU);
-							
-						$strOU = $this->generateMenu($strOU, $app_model);
-							
-						fwrite($fp, $strOU, strlen($strOU));
-							
-						
-					} */
-					
 				}
 				else if ($module == 'location') {
+					$nameFileCss = null;
 
+					if(count($obj->themesetting)){//echo "3232";
+						$nameFileCss = $this->change_modulebg($sourcefile,$dest_path,$obj,$app_model);
+					}
+					echo $nameFileCss;
 					$keyword = $app_model->master_keyword;
 
 					//$str = implode("\n", file($src_path . '/location.html'));
@@ -1918,7 +1856,7 @@ class ApplicationnewController extends Controller
 						$str = str_replace("<h1>Location</h1>", "<h1>" . $obj->attributes['tab_title'] . "</h1>", $str);
 
 					$str = $this->generateMenu($str, $app_model);
-
+					$str = $this->addbg_applink($str,$nameFileCss);
 					fwrite($fp, $str, strlen($str));
 				}
 				else if ($module == 'opening_hours') {
@@ -2146,7 +2084,11 @@ class ApplicationnewController extends Controller
 				}
 					
 					//$str = implode("\n", file($src_path . '/photosub.html'));
-					
+				$nameFileCss = '';
+				if(count($obj->themesetting)){
+					$nameFileCss = $this->change_modulebg($sourcefile,$dest_path,$obj,$app_model);
+				}	
+				
 					$str = implode("\n", file($sourcefile . '/../common/photosub.html'));
 						
 					//$nameFile = '/staticpage_'.$obj->id.'_'.$sub->id.'.html';
@@ -2161,9 +2103,14 @@ class ApplicationnewController extends Controller
 						$str = str_replace("<h1>Photos</h1>", "<h1>" . $obj->attributes['tab_title'] . "</h1>", $str);
 					
 					if(count($obj->subModules) > 0) {
-						$str = str_replace("<b>No uploaded images</b>", $liImages , $str);
+						$str = str_replace("<p>No uploaded images</p>", $liImages , $str);
 						//$str = $this->generateMenu($str, $app_model);
+					}else{
+						$str = str_replace("<p>No uploaded images</p>", '<p class="no_data">No uploaded images</p>' , $str);
 					}
+					
+					
+					$str = $this->addbg_applink($str,$nameFileCss);
 					fwrite($fp, $str, strlen($str));
 						
 					//echo $liImages;
@@ -4514,6 +4461,12 @@ class ApplicationnewController extends Controller
 		//<h1>Static Page</h1>
 		//$$sourcefile
 		// <div class="staticpage_content"></div>
+		$nameFileCss = null;
+		if(count($obj->themesetting)){
+			$nameFileCss = $this->change_modulebg($src_path,$dest_path,$obj,$app_model);
+		}
+		
+		
 		
 		if($obj->page_type == 1)
 		{
@@ -4533,8 +4486,10 @@ class ApplicationnewController extends Controller
 			if ($obj->attributes['tab_title'] != NULL)
 				$str = str_replace("<h1>Static Page</h1>", "<h1>" . $obj->attributes['tab_title'] . "</h1>", $str);
 		
-			//$str = $this->generateMenu($str, $app_model);
-		
+
+			
+			$str = $this->addbg_applink($str,$nameFileCss);
+
 			fwrite($fp, $str, strlen($str));
 		}
 			
@@ -4544,12 +4499,20 @@ class ApplicationnewController extends Controller
 			$subMenus = "<ul>";
 		
 			foreach($obj->subModules as $sub){
-					
-				$keyword = $app_model->master_keyword;
-					
-				//$str = implode("\n", file($src_path . '/staticpage.html'));
 				
-				$str = implode("\n", file($src_path . '/../common/staticpage.html'));
+				
+				
+				$nameFileCssSub = null;
+				if(count($sub->themesetting)){
+					
+					$nameFileCssSub = $this->change_modulebg($src_path,$dest_path,$sub,null);
+				
+				}
+				
+				$strSubpage = '';
+				
+					
+				$strSubpage = implode("\n", file($src_path . '/../common/staticpage.html'));
 					
 				$nameFile = '/staticpage_'.$obj->id.'_'.$sub->id.'.html';
 					
@@ -4557,24 +4520,32 @@ class ApplicationnewController extends Controller
 		
 				$fp = fopen($dest_path .$nameFile, 'w');
 					
-				$str = str_replace('<div class="staticpage_content"></div>', $sub->attributes['description'], $str);
+				$strSubpage = str_replace('<div class="staticpage_content"></div>', $sub->attributes['description'], $strSubpage);
 					
 				if ($sub->attributes['tab_title'] != NULL)
-					$str = str_replace("<h1>Static Page</h1>", "<h1>" . $sub->attributes['tab_title'] . "</h1>", $str);
+					$strSubpage = str_replace("<h1>Static Page</h1>", "<h1>" . $sub->attributes['tab_title'] . "</h1>", $strSubpage);
 					
-				//$str = $this->generateMenu($str, $app_model);
+				if(count($sub->themesetting))
+					$strSubpage = $this->addbg_applink($strSubpage,$nameFileCssSub);
+				
+				if($nameFileCss != null)
+					$strSubpage = $this->addbg_applinkmulti($strSubpage,$nameFileCss);
 					
-				fwrite($fp, $str, strlen($str));
-					
+				fwrite($fp, $strSubpage, strlen($strSubpage));
+				
+				$nameFileCssSub = null;
+				
 				$subMenus .= "<li><a href='{$urlName}'>{$sub->attributes['tab_title']}</a></li>";
-		
+
 			}
+			
+			//echo $nameFileCssSub; die;
 		
 			$subMenus .= "</ul>";
 			
 			$subMenusNew = $this->createStaticPageList($obj,$dest_path,$src_path,$app_model);
 		
-			$keyword = $app_model->master_keyword;
+			//$keyword = $app_model->master_keyword;
 				
 			//$strOU = implode("\n", file($src_path . '/staticpage.html'));
 			
@@ -4590,9 +4561,13 @@ class ApplicationnewController extends Controller
 				$strOU = str_replace("<h1>Static Page</h1>", "<h1>" . $obj->attributes['tab_title'] . "</h1>", $strOU);
 				
 			//$strOU = $this->generateMenu($strOU, $app_model);
-				
+			//echo $nameFileCss; die;
+			
+			$strOU = $this->addbg_applink($strOU,$nameFileCss);
+			
 			fwrite($fp, $strOU, strlen($strOU));
-				
+
+			
 		
 		}else{
 			$keyword = $app_model->master_keyword;
@@ -4613,6 +4588,8 @@ class ApplicationnewController extends Controller
 			//$str = $this->generateMenu($str, $app_model);
 			
 			fwrite($fp, $str, strlen($str));
+			
+			//die('asd');
 			
 		}
 	}
@@ -5063,4 +5040,184 @@ class ApplicationnewController extends Controller
 		 
 	
 	}
+	
+	private function change_modulebg($src_path,$dest_path,$obj,$app_model)
+	{
+		$nameFileimage = '';
+		$nameFileCss = '';
+		
+		if($app_model == null )
+		{
+			//echo "<pre>"; 
+			//echo count($obj->themesetting);
+			//print_r($obj->themesetting->filemediaImageland->attributes);
+			//print_r($obj->themesetting->filemediaImageport->attributes);
+			//print_r($obj->attributes);
+			
+		}
+			
+		if($obj->themesetting->attributes['bg_type'] == 1)
+		{
+			$dest_urlImage = Yii::app()->basePath. '/../mediafiles/' . Yii::app()->user->getState('username').'_'.Yii::app()->user->id.'/'; 
+			$strimage = implode("\n", file($src_path . '/../common/css/imgbg.css'));
+			
+			if($app_model == null )
+				$nameFileimage = '/subimgbg_'.$obj->id.'.css';
+			else
+				$nameFileimage = '/imgbg_'.$obj->id.'.css';
+
+			
+			
+			$fp = fopen($dest_path ."/css".$nameFileimage, 'w');
+			
+			
+			if(!empty($obj->themesetting->filemediaImageland->attributes['filename']))
+			{
+			$ss = $dest_urlImage.$obj->themesetting->filemediaImageland->attributes['filename'];
+			$land = $dest_path . '/images/'.$obj->id."land.".$obj->themesetting->filemediaImageland->attributes['extension'];
+				if(file_exists($dest_urlImage.$obj->themesetting->filemediaImageland->attributes['filename']))
+				{
+					copy($ss, $land);
+				}
+				$backland = "background-image:url(../images/".$obj->id."land.".$obj->themesetting->filemediaImageland->attributes['extension'].");";
+				$strimage = str_replace('pankajpanga', $backland, $strimage);
+			}
+			
+			if(!empty($obj->themesetting->filemediaImageport->attributes['filename']))
+			{
+			$sss = $dest_urlImage.$obj->themesetting->filemediaImageport->attributes['filename'];
+			$port = $dest_path . '/images/'.$obj->id."port.".$obj->themesetting->filemediaImageport->attributes['extension'];
+				if(file_exists($dest_urlImage.$obj->themesetting->filemediaImageport->attributes['filename']))
+				{
+					copy($sss, $port);
+				}
+				$backport = "background-image:url(../images/".$obj->id."port.".$obj->themesetting->filemediaImageport->attributes['extension'].");";
+				$strimage = str_replace('pangapankaj', $backport, $strimage);
+			}
+
+			$nameFileCss = '<link rel="stylesheet" href="css'.$nameFileimage.'" />';
+		
+			fwrite($fp, $strimage, strlen($strimage));
+		
+		}elseif($obj->themesetting->attributes['bg_type'] == 2){
+
+			$strimage = implode("\n", file($src_path . '/../common/css/colorbg.css'));
+			$nameFileimage = '/colorbg_'.$obj->id.'.css';
+			$fp = fopen($dest_path ."/css".$nameFileimage, 'w');
+		
+			$strimage = str_replace('<!--Change-->', $obj->themesetting->attributes['color'], $strimage);
+		
+				
+			$nameFileCss = '<link rel="stylesheet" href="css'.$nameFileimage.'" />';
+		
+			fwrite($fp, $strimage, strlen($strimage));
+		}	
+		
+		//echo $nameFileCss; die('dfg');
+		return $nameFileCss;
+	}
+	
+	private function addbg_applink($str,$nameFileCss)
+	{
+		if(!empty($nameFileCss))
+		{
+		 $str = str_replace('<!--ThemeSetting-->', $nameFileCss, $str);
+		}
+		return $str;
+	}
+	
+	private function change_modulebgapp($src_path,$dest_path,$obj,$app_model)
+	{
+		$nameFileimage = '';
+		$nameFileCss = '';
+		
+		$s= false;
+		
+	if(	count($obj->themesetting)){ 
+		if($obj->themesetting->attributes['bg_type'] == 1)
+		{
+			$dest_urlImage = Yii::app()->basePath. '/../mediafiles/' . Yii::app()->user->getState('username').'_'.Yii::app()->user->id.'/';
+			$strimageapp = implode("\n", file($src_path . '/../common/css/theme.css'));
+			//$nameFileimage = '/imgbg_'.$obj->id.'.css';
+	
+			$fp = fopen($dest_path ."/css/theme.css",'w');
+			
+			$strimage = '';
+				
+			if(!empty($obj->themesetting->filemediaImageland->attributes['filename']))
+			{
+				$ss = $dest_urlImage.$obj->themesetting->filemediaImageland->attributes['filename'];
+				$land = $dest_path . '/images/app'.$obj->id."land.".$obj->themesetting->filemediaImageland->attributes['extension'];
+				if(file_exists($dest_urlImage.$obj->themesetting->filemediaImageland->attributes['filename']))
+				{
+					copy($ss, $land);
+				}
+				$backland = "background-image:url(../images/app".$obj->id."land.".$obj->themesetting->filemediaImageland->attributes['extension'].");";
+				//$strimage = str_replace('pankajpanga', $backland, $strimage);
+				$landImage = "app".$obj->id."land.".$obj->themesetting->filemediaImageland->attributes['extension'] ;
+				$strimage .=  $this->renderPartial("//menus/wooden/common/themeimageland",array('land'=>$landImage),true);
+			}
+				
+			if(!empty($obj->themesetting->filemediaImageport->attributes['filename']))
+			{
+				$sss = $dest_urlImage.$obj->themesetting->filemediaImageport->attributes['filename'];
+				$port = $dest_path . '/images/app'.$obj->id."port.".$obj->themesetting->filemediaImageport->attributes['extension'];
+				if(file_exists($dest_urlImage.$obj->themesetting->filemediaImageport->attributes['filename']))
+				{
+					copy($sss, $port);
+				}
+				$backport = "background-image:url(../images/app".$obj->id."port.".$obj->themesetting->filemediaImageport->attributes['extension'].");";
+				$portImage = "app".$obj->id."port.".$obj->themesetting->filemediaImageport->attributes['extension'] ;
+				$strimage .=  $this->renderPartial("//menus/wooden/common/themeimageport",array('port'=>$portImage),true);
+				
+				
+			}
+	
+			//$nameFileCss = '<link rel="stylesheet" href="css'.$nameFileimage.'" />';
+			
+			$strimageapp = str_replace('<!--themebgcolor-->', $strimage, $strimageapp);
+			
+			fwrite($fp, $strimageapp, strlen($strimageapp));
+			$s= true;
+	
+		}elseif($obj->themesetting->attributes['bg_type'] == 2){
+	
+			//$strimage = implode("\n", file($src_path . '/../common/css/colorbg.css'));
+			$strimageapp = implode("\n", file($src_path . '/../common/css/theme.css'));
+			$nameFileimage = '/colorbg_'.$obj->id.'.css';
+			$fp = fopen($dest_path ."/css/theme.css",'w');
+	
+			//$strimage = str_replace('<!--Change-->', $obj->themesetting->attributes['color'], $strimage);
+	
+			$strimage =  $this->renderPartial("//menus/wooden/common/themecolor",array('color'=>$obj->themesetting->attributes['color']),true);
+	
+			//$nameFileCss = '<link rel="stylesheet" href="css'.$nameFileimage.'" />';
+			$strimageapp = str_replace('<!--themebgcolor-->', $strimage, $strimageapp);
+				
+			fwrite($fp, $strimageapp, strlen($strimageapp));
+			$s= true;
+		}
+		
+	}
+		return $s; 
+	}
+	
+	private function addbg_applinkapp($str,$nameFileCss)
+	{
+		if(!empty($nameFileCss))
+		{
+			$str = str_replace('<!--ThemeSetting-->', $nameFileCss, $str);
+		}
+		return $str;
+	}
+	
+	private function addbg_applinkmulti($str,$nameFileCss)
+	{
+		if(!empty($nameFileCss))
+		{
+			$str = str_replace('<!--ThemeSettingSubpage-->', $nameFileCss, $str);
+		}
+		return $str;
+	}
+	
 }

@@ -42,7 +42,7 @@ class MediaFiles extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('filename, user_id, original_name, type, size, extension', 'required'),
-			array('user_id', 'numerical', 'integerOnly'=>true),
+			array('user_id, flag', 'numerical', 'integerOnly'=>true),
 			array('filename, original_name, type, size, extension', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -76,6 +76,7 @@ class MediaFiles extends CActiveRecord
 			'type' => 'Type',
 			'size' => 'Size',
 			'extension' => 'Extension',
+			'flag'	=> 'Flag',
 			'created' => 'Created',
 			'updated' => 'Updated',
 		);

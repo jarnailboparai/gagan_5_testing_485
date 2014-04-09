@@ -1,8 +1,8 @@
 
 .theme_bg{
-	background-image:url(../images/main_bg.jpg) !important;
-	background-position:center bottom !important;
-	background-repeat:no-repeat !important;
+	background-image:url(../images/main_bg.jpg);
+	background-position:center bottom;
+	background-repeat:no-repeat;
 	min-width:320px;
 	background-color:#fff;
 	background-size: auto 100%;
@@ -72,5 +72,7 @@
 	max-height:32px;
 	max-width:32px;
 }
+
+<!--themebgcolor-->
 
 

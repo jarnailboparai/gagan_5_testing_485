@@ -22,12 +22,27 @@
 	<ul id="medialistImageUpload">
 		<?php echo $this->renderPartial('/mediafiles/_medialist',array('dataProvider'=>$dataProvider,'selected'=>$selected));?>
 	</ul>
-	<div><?php $app_id=2;?>
-		<?php  echo CHtml::hiddenField('app_id',$app_id); ?>
+	<div>
+		<?php  echo CHtml::hiddenField('type',$type); ?>
+		
+		<?php 
+			if($app_id!=null || $app_id!=0){
+				  echo CHtml::hiddenField('app_id',$app_id); 
+			}
+			
+			if($module_id!=null || $module_id!=0){
+				echo CHtml::hiddenField('module_id',$module_id);
+			}
+			
+			if($sub_module_id!=null || $sub_module_id!=0){
+				echo CHtml::hiddenField('sub_module_id',$sub_module_id);
+			}
+		?>
 	</div>
 <div id="done" style="width:100%;float:left; display:none; ">
-	<input class="done" id="donephotoindex" style="width:100px;float:left; padding:5px; margin:5px;"  type="submit" name="done" value="Done" >
+	<input class="done" id="donephotoindexBg" style="width:100px;float:left; padding:5px; margin:5px;"  type="submit" name="done" value="Done" >
 </div>
+
         <?php $this->endWidget(); ?>
 <!-- </form> -->
 	
@@ -41,7 +56,8 @@
 
 
 <script>
-
+    setappvalue(<?php echo $type;?>,<?php echo ($app_id)? $app_id: 0?>,<?php echo ($module_id)?$module_id:0;?>,<?php echo ($sub_module_id)?$sub_module_id:0;?>);
+    
 	function liUpdateSelectImageMedia(arg)
 	{
 
@@ -75,30 +91,40 @@ jQuery(document).ready(function(){
 	        success: function(response){
 				//alert('eee');
 				var arg = response.trim();
-				jQuery('.modal-backdrop').remove();
+				//jQuery('.modal-backdrop').remove();
 				
 				if(arg == 'stop'){
+					jQuery('.modal-backdrop').remove();
 					jQuery('.photowrapper').removeClass('show');
-					jQuery("#myModalMediaImage").modal('hide');
-					jQuery('#myModalMediaImage').removeData("modal");
+					jQuery("#myModalMediaImageBg").modal('hide');
+					jQuery('#myModalMediaImageBg').removeData("modal");
 					//jQuery('.modal-backdrop').remove();
-				}else{
-					//jQuery('#myModalMediaImage').modal('hide');
-					
-					
-					jQuery('#myModalMediaImageName').removeData("modal");
+				}
+				else if(arg == 'error'){
+					//jQuery('.modal-backdrop').remove();
+					$('.model_error').html("<div class='alert alert-danger'>Image Size should be greater than 640x960</div>");
+					//jQuery('.photowrapper').removeClass('show');
+					//jQuery("#myModalMediaImage").modal('hide');
+					//jQuery('#myModalMediaImage').removeData("modal");
+					}
+				else{
+					var data =  JSON.parse(response);
+					if(data.type==1)
+					{
+						$('.background_thumb_port img').attr("src", data.image);
+					}
+					if(data.type==2)
+					{
+						$('.background_thumb_land img').attr("src", data.image);
+					}
+					jQuery('.modal-backdrop').remove();
+					jQuery('#myModalMediaImageNameBg').removeData("modal");
 					
 					jQuery( "#imageListUpdatePhoto").html(response);
-					jQuery("#myModalMediaImage").modal('hide');
+					jQuery("#myModalMediaImageBg").modal('hide');
 
 					jQuery('.photowrapper').addClass('show');
 				}
-
-
-				//jQuery( ".close" ).trigger( "click" );
-				//myUpdate();
-				// $('#Demo').perfectScrollbar('update');
-	        	//popdetialHideOther(arg);
 	        },
 	        error: function(){
 	            alert('error');
@@ -107,9 +133,9 @@ jQuery(document).ready(function(){
 	   
 	});
 
-	jQuery('#formIdSubmitPhoto').click(function(){
+	jQuery('#formIdSubmitPhotoBg').click(function(){
 		
-		jQuery( "#donephotoindex" ).trigger( "click" );
+		jQuery( "#donephotoindexBg" ).trigger( "click" );
 
 		//jQuery('#selected-images').submit();
 		

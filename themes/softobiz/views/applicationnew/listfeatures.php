@@ -7,6 +7,12 @@ $pathurl = Yii::app()->theme->baseUrl;
 	window.staticFlag = 0;
 	window.IframeUrlSrc = "<?php echo $url.'/applications/'.Yii::app()->user->getState('username') . "_" . $application_model->title . "_" . $application_model->id.'/index.html' ?>";
 </script>
+<script>
+	bgapp_type = "";
+	bgapp_appid = ""
+	bgapp_moduleid ="";
+	bgapp_submoduleid="";
+</script>
 <?php
 //$this->renderPartial("app_menu", array('style' => $style));
 ?>
@@ -36,6 +42,7 @@ $pathurl = Yii::app()->theme->baseUrl;
 {
 	display:none;
 }
+
 </style>
 <?php $this->renderPartial('_orderlist');?>
 
@@ -44,22 +51,31 @@ $pathurl = Yii::app()->theme->baseUrl;
 <div class="container selectfeatures">
           <div class="row-fluid select_content">
           <div class="span8">
+         
+          <!-- Content Listing starts here -->
           
           <div class="app_number">Add Features into <span class="number">Your App</span> - <span class="number"><?php echo $application_model->title; ?></span>   </div>
-          <!-- Tabs -->
-          <div class="btn-group pull-left navbottom" style="float:none;margin-bottom:10px;display:none;">
-          <button class="btn app_info"><span>Add Features</span></button>
-          <button class="btn selected"><span>Theme Settings</span></button>
-          <!--<button class="btn content"><span>Select Content</span></button>-->
-        </div>
+           
+          <div class="content_listing" id="content_listing">
           
-          <!-- Tabs ends here -->
+          <!-- Main Theme Setting Starts here -->
+<div class="main_page_theme_setting">
+<?php $this->renderPartial('app_bg',array('model'=>$application_model,'flag'=>1));
+
+?>
+</div>
+<!-- Main theme setting ends here -->
+          
+          <!--  listing wrapper starts here -->
+          
+          
          	<!--  Crousel Starts Here -->
          	
          	<!-- Add feature wrapper starts here -->
             
         <!--  <div class="add_feature_wrapper">  -->
-          <a href="#" class="add_features">Add Features</a>
+        <div class="sub_list_wrapper">
+          <a href="#" class="add_features main_listing selected_tab">Add Features</a>
           <?php echo $this->renderPartial('_carsoulwrap',array('pathurl'=>$pathurl ,'model'=>$modelSelectAA,'data'=>$dataSelectAA,'url'=>$url));?>
           
          	<!--  Crousel ends here -->
@@ -102,7 +118,21 @@ $pathurl = Yii::app()->theme->baseUrl;
 		} ?>
 		
 	</ul>
-	<div class="row">
+	
+</div>
+</div>
+<!--  sub list wrapper ends here -->
+			</div>
+            <!-- Content listing ends here -->
+             <!-- Edit of Content container starts here -->
+            <div class="edit_content_container" id="edit_content_container"  style="display:none;">
+            
+            <!-- Partial Content render here ;) -->
+            </div>
+            
+            <!-- Editing of conrent container ends here -->
+
+<div class="row">
   		 		
   		 		<?php echo CHtml::link("<img src='$pathurl/img/preview_button.png' />", array('applicationnew/finalpreview'),array('class'=>'dd','onclick'=>'javascript:buildApp();return false;')); ?>
   		 		<?php //echo CHtml::link("<img src='$pathurl/img/download_app2.png' height='64px' />", array('applicationnew/finalpreview'),array('class'=>'dd','height'=>'64px')); ?>
@@ -110,7 +140,6 @@ $pathurl = Yii::app()->theme->baseUrl;
   		 		<?php $apk = "javascript:buildAppApk('".Yii::app()->user->getState('app_id')."');return false;";  //echo CHtml::link("Apk request", CHtml::normalizeUrl(array('applicationnew/buildPhoneGapAppMy',"id"=>Yii::app()->user->getState('app_id'))),array('class'=>'dd'/*,'onclick'=>$apk*/)); ?>
      <!--   <p><a href="<?php echo $url ?>/applications/<?php echo Yii::app()->user->getState('username') . "_" . $application_model->title . "_" . $application_model->id; ?>/index.html?asd=sdasd" style="height:486px;width:320px;" target="iframe_a">Refresh</a></p>  -->
      </div>
-</div>
 <!--</div> -->
 
 <!-- Add Feature wrapper ends here -->
@@ -122,7 +151,8 @@ $pathurl = Yii::app()->theme->baseUrl;
 
 
 <!-- Theme Setting ends here -->
-
+   <?php echo $this->renderPartial('/applicationnew/_modaluploadBg'); ?>
+   <?php  echo $this->renderPartial('/applicationnew/_modalimagenameuploadBg');?>
            </div> 
             
             <div class="span4">
@@ -168,6 +198,7 @@ function popupdetial(arg,flag){
 			return false;
 
 		}
+
 		
 		
 	}
@@ -179,8 +210,17 @@ function popupdetial(arg,flag){
  	//console.log(aaLoader.append($(loaderDivji).show()));
  	
  	// $(arg).parent().parent().find('a').attr('id') ;
-	$(arg).parent().parent().find('div#formId').remove();
- 	$(arg).parent().parent().append("<div id='formId' style='display:block; height:200px; position:relative;'>"+loaderDivji+"</div>");
+	//$(arg).parent().parent().find('div#formId').remove();
+	
+	
+	
+ 	//$(arg).parent().parent().append("<div id='formId' style='display:block; height:200px; position:relative;'>"+loaderDivji+"</div>");
+
+
+ 	//$(arg).parent().parent().find('div#edit_content_container').html('');
+ 	//$(arg).parent().parent().append("<div id='edit_content_container' style='display:block; height:200px; position:relative;'>"+loaderDivji+"</div>");
+ 	
+ 	$('div#edit_content_container').html('');
  	
 	if(flag)
 	{
@@ -193,20 +233,31 @@ function popupdetial(arg,flag){
 		type : "POST",
 		url: $(arg).parent().parent().find('a').attr('href'),
 		beforeSend : (function(){
-			
+			jQuery('.loading_content').show();	
 			//$(arg).parent().parent().find('div#formId').html(loaderDivji);
 			//console.log("amrit",'sdf');
 			
 		}),
 		}).done(function(response) {
 
+
+			$('#content_listing').hide();
+			
 			//$(arg).parent().parent().find('div#formId').remove();
 
 			//$(arg).parent().parent().append(loaderDivji);
 			//$(arg).parent().parent().append("<div id='formId'>"+loaderDivji+response+"</div>");
 			$('.loading_content2').hide();
+
 			
-			$(arg).parent().parent().find('div#formId').append(response);
+			//$(arg).parent().parent().find('div#formId').append(response);
+			
+			//$(arg).parent().parent().find('div#edit_content_container').append(response);
+			
+			$('div#edit_content_container').append(response);
+
+			$('#edit_content_container').show();
+			
 			$(".row-fluid.manage_apps.media_gallery.tab_gallery").fadeIn();
 			$(arg).parent().parent().find('div#formId').removeAttr('style');
 			//$(arg).parent().parent().find('div#formId').css('position','none');
@@ -250,6 +301,13 @@ function popdetialHide(arg)
 
 function popdetialHideOther(arg)
 {
+
+	$('div#edit_content_container').hide();
+
+	$('div#edit_content_container').html('');
+
+	$('#content_listing').show();
+
 	$('div#formId').remove();
 	
 	//$('#module_'+arg[2]).find('a').html(arg[0]);
@@ -479,8 +537,233 @@ function ulData(arg)
 	}
 }
 
+// code by sob_k
+
+function feature_listing()
+{
+	$('.edit_content_container').empty();
+	$('.edit_content_container').hide();
+	$('.content_listing').show();
+	$( "#sortable" ).sortable( "option", "disabled", false );
+}
+//
 
 </script>
+<script>
+$('#myModalMediaImageBg').on('hide.bs.modal', function (e) {
+	jQuery('#myModalMediaImageBg').removeData("modal");
+	})
+
+
+function bg_color_cancel(flag,id)
+{	
+	if(flag==1)
+	{
+		setting_hide_app()
+	}
+	else if(flag==2)
+	{
+		setting_hide();
+	}
+	else if(flag==3)
+	{
+		setting_hide_sub(id);
+		$(".Bg_display_sub_"+id).html('');
+	}
+		
+}
+
+
+function setting_show_sub(model_id)
+{	
+	$(".theme_content_"+model_id).hide();
+	$("#submodule_"+model_id+" .single_page").show();
+	$(".Bg_display_sub_"+model_id).html('');
+
+	$('.app_info_sub').addClass('selected');
+	$('.app_setting_sub').removeClass('selected');
+	
+}
+
+function setting_hide_sub(model_id)
+{
+	
+	$(".theme_content_"+model_id).show();
+	$("#submodule_"+model_id+" .single_page").hide();
+	$(".theme_content_"+model_id).show();
+	$(".theme_setting_thumb_sub_"+model_id).show();
+	
+	$('.app_info_sub').removeClass('selected');
+	$('.app_setting_sub').addClass('selected');
+}
+
+
+function setting_hide_sub_bg(model_id)
+{
+	var flag=3;
+	default_setting_sub(model_id,flag)
+
+}
+
+function default_setting_sub(model_id,flag)
+{
+	  $.ajax({
+	        type: 'POST',
+	        url: baseurl+'/index.php?r=tutorial/check_appbg',
+	        data: {sub_module_id:model_id,flag:flag},
+	        success: function(response){
+	        	//$(".theme_content_"+model_id).show();
+	        	$("#submodule_"+model_id+" .single_page").hide();
+	        	//$(".theme_content_"+model_id).show();
+	        	$(".theme_setting_thumb_sub_"+model_id).show();
+	        	
+	        	$('.app_info_sub').removeClass('selected');
+	        	$('.app_setting_sub').addClass('selected');
+	        	if(response==1)
+	        	{
+	        		set_image_sub(model_id,flag);
+	        	}
+	        	else if (response==2)
+	        	{
+	        		set_color_sub(model_id,flag);
+	        	}
+	        	else
+	        	{
+	        		$(".theme_content_"+model_id).show();
+	        		$("#submodule_"+model_id+" .single_page").hide();
+	        		$(".theme_content_"+model_id).show();
+	        		$(".theme_setting_thumb_sub_"+model_id).show();
+	        		
+	        		$('.app_info_sub').removeClass('selected');
+	        		$('.app_setting_sub').addClass('selected');
+	        	}
+	        },
+	        error: function(){
+	            alert('error');
+	        }
+	    });
+
+}
+
+function set_color_sub(id,flag)
+{
+      
+	  $.ajax({
+	        type: 'POST',
+	        url: baseurl+'/index.php?r=tutorial/image_backgroundcolor',
+	        data: {id:id,flag:flag},
+	        success: function(response){
+	        	$(".theme_setting_thumb_sub_"+id).hide();
+	        	$('.Bg_display_sub_'+id).html(response);
+	        },
+	        error: function(){
+	            alert('error');
+	        }
+	    });
+}
+
+
+function set_image_sub(id,flag)
+{	
+		var obj = {};
+		   if(flag==1)
+	       { 
+			   obj.app_id = id;
+	       }
+	       else if(flag==2)
+	       {
+	    	   obj.id = id;
+	       }
+	       else if(flag==3)
+	       {
+	    	   obj.sub_module_id = id;
+	       }  
+		   obj.flag=flag;
+	    $.ajax({
+	        type: 'POST',
+	        url: baseurl+'/index.php?r=tutorial/image_background',
+		    data: obj,
+	        success: function(response){
+	        	$(".theme_setting_thumb_sub_"+id).hide();
+	        	$('.Bg_display_sub_'+id).html(response);
+	        },
+	        error: function(){
+	            alert('error');
+	        }
+	    });
+}
+
+function remove_app_bg(id,status)
+{
+	if(id!==0)
+	{
+		  $.ajax({
+		        type: 'POST',
+		        url: baseurl+'/index.php?r=tutorial/remove_appbg',
+			    data: {id:id,status:status},
+		        success: function(response){
+		        	var data =  JSON.parse(response);
+			        
+		        	if(data.status==1)
+		        	{
+		        		$('.background_thumb_port img').attr('src', data.image);
+		        	}
+		        	else if(data.status==2)
+		        	{
+		        		$('.background_thumb_land img').attr('src', data.image);
+		        	}
+		        },
+		        error: function(){
+		            alert('error');
+		        }
+		    });
+	}
+	else
+	{
+		alert('No image for remove');
+	}
+}
+
+function openCloseMediaImageBg()
+{	
+	jQuery('#myModalMediaImageBg').modal('hide');
+	jQuery('.modal-backdrop').remove();
+	jQuery('#myModalMediaImageNameBg').removeData("modal");
+	jQuery('#myModalMediaImageNameBg').modal({remote: "<?php echo CHtml::normalizeUrl(array('tutorial/uploadimage_background','layout'=>1))?>"});
+		
+}
+</script>	
+
+<script>
+	function setappvalue(type=0,appid=0,moduleid=0,submoduleid=0)
+	{	
+		bgapp_type = type;
+		bgapp_appid = appid;
+		bgapp_moduleid = moduleid;
+		bgapp_submoduleid= submoduleid;
+	}
+
+	function get_apptype()
+	{
+		return bgapp_type;
+	}
+
+	function get_bgapp_appid()
+	{
+		return bgapp_appid;
+	}
+
+	function get_bgapp_moduleid()
+	{
+		return bgapp_moduleid;
+	}
+
+	function get_bgapp_submoduleid()
+	{
+		return bgapp_submoduleid;
+	}
+</script>
+
 <style type="text/css">
 .stick {
 	position:fixed;

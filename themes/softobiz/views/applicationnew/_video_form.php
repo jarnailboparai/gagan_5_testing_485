@@ -56,7 +56,7 @@ function openListModalVideo(arg)
 
 
 </script>
-
+<?php echo $this->renderPartial('_feature_title',array('model'=>$model));?>
 <!--  Html content for image gallery starts here -->
 <div class="row-fluid manage_apps media_gallery tab_gallery">
 	<?php
@@ -187,7 +187,7 @@ function openListModalVideo(arg)
 
 		<?php echo CHtml::submitButton('Save', array('class' => 'btn btn-success')); ?>
 
-		<?php echo CHtml::button('Cancel', array('class' => 'btn cancel_singlepage')); ?>
+		 <?php echo CHtml::button('Cancel', array('class' => 'btn cancel_singlepage','onclick'=>"feature_listing()")); ?>
 
 		<!--                 <input type="button" value="Save" class="btn btn-success" name=""> -->
 		<!--                 <input type="button" value="Cancel" class="btn cancel_singlepage" name=""> -->

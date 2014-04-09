@@ -39,6 +39,7 @@ body {
 	overflow:hidden;
 	font-size:13px;
 	word-wrap: break-word;
+	cursor:pointer;
 }
 
 .no_data{
@@ -51,6 +52,7 @@ body {
     width: 80%;
     text-shadow:none !important;
     text-transform: capitalize;
+	color:#fff;
 }
 a.item{
 

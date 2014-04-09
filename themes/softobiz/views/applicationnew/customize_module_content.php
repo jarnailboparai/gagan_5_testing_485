@@ -4,7 +4,7 @@
 <script type="text/javascript"  src="<?= $url ?>/js/nicEdit-latest.js"></script>
 
 <?php //$this->renderPartial("app_menu", array('style' => $style)); ?>
-
+ <?php echo $this->renderPartial('_feature_title',array('model'=>$model));?>
 <?php if($model->page_type == 1){ ?>
 
 	<?php echo $this->renderPartial("_modulepage", array("model"=>$model)); ?>
@@ -163,7 +163,12 @@
 	</div>
 <script>
 function popupdetialSub(arg,flag)
-{
+{	
+	// code by sob_k
+	// only one tab open in one time
+	setting_show();
+	$('#wrapperliUl li #formId').remove();
+	// code end by sob_k
 	//console.log(jQuery(arg).find('a').attr('href') );
 	//console.log(jQuery(arg).attr('href') );
 	//console.log($(arg).parent().find('a').attr('href') );

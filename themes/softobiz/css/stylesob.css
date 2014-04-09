@@ -473,7 +473,7 @@ footer{ padding:13px;}
 .app_number{
 	font-size:24px;
 	color:#333333;
-	padding:36px 0;
+	padding:27px 0 20px;
 	font-family:"Open Sans Light";
 }
 .app_number .number{
@@ -1149,6 +1149,7 @@ h4.view_app_title{
 .manage_app_icon .app_box .app_thumb .edit_panel{
 	width:247px;
 	top:117px;
+	left:12px;
 }
 .thumb_panel .thumb_btn .thumbalink{
 	width:134px;
@@ -1316,3 +1317,82 @@ span.drag{
 #prev, #next {
 	cursor:pointer;
 }
+
+
+/* edit content of individual */
+.edit_content_container {
+    border: 1px solid #ddd;
+    margin-bottom: 11px;
+}
+.edit_content_container form{
+	margin-bottom:0px;
+}
+.edit_content_container .sub_page_wrapper ul{
+	list-style:none;
+}
+.edit_content_container .sub_page_wrapper ul li{
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.tab_inner_title {
+	padding:14px 16px !important;
+}
+.sub_page_wrapper #wrapperliUl li{
+	border-bottom:1px solid #E0E0E0;
+}
+.sub_page_wrapper #wrapperliUl li:last-child{
+	border-bottom:none;
+}
+.subpage_title span.pull-left:first-child{
+	line-height:37px;
+}
+.sub_page_wrapper .single_page{
+	border-top:1px solid #E0E0E0;
+	margin-top:10px;
+}
+.individual_title.theme_title{
+	margin-bottom:0px;
+}
+.edit_content_container .single_page .content_editor > div{
+	width:740px !important;
+}
+.edit_content_container .sub_page_wrapper .single_page .content_editor > div{
+	width:716px !important;
+}
+.edit_content_container .addSubPageForm .single_page .content_editor > div{
+	width:720px !important;
+}
+.btn.cancel_singlepage{
+	margin:5px 7px 0px 0px;
+}
+/* edit content of individual ends here */
+/* for chrome and safari */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+ .manage_app_icon .app_box .app_thumb .edit_panel{
+		left:0px;
+	}
+}
+ 
+
+
+/* for chrome and safari ends here */
+
+/* 7 april */
+.subpage_title {
+	margin:0px -10px;
+	border-top:1px solid #ddd;
+}
+
+.sub_page_wrapper {
+	border:none;
+}
+
+.sub_page_wrapper #wrapperliUl {
+    margin: 0 3px;
+}
+.sub_page_wrapper .single_page{
+	border-top:none;
+	margin-top:4px;
+}
+/* 7 april ends here */

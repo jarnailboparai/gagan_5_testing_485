@@ -494,7 +494,8 @@
 	width: auto;
 }
 .search_videos_wrapper .select_video{
-	margin:-7px 0 0 10px;
+	/*margin:-7px 0 0 10px;*/
+	margin:0px 0 0 10px;
 }
 .youtube_panel{
 	padding: 0 0 10px;
@@ -511,8 +512,12 @@
 }
 .change_icon_block_popup .change_icon_block_tabs
 {
-	padding:0px 0px 11px 0px;
+	/*padding:0px 0px 11px 0px;*/
+	padding:0px 0px 0px 0px;
 	margin-bottom: -1px;
+}
+.change_icon_block_tabs_content li span{
+	line-height:43px;
 }
 .change_icon_block_popup .change_icon_block_tabs li{
 	margin-right: 4px;
@@ -532,7 +537,7 @@
 }
 .change_icon_block_popup em{
 	font-size: 13px;
-	margin-top: 6px;
+	margin-top: 1px;
 }
 .change_icon_block_tabs_content
 {
@@ -574,4 +579,25 @@
 	width:89%;
 	padding-right:15px;
 	cursor:pointer !important;
+}
+
+/* setting of custom footer */
+
+.media_gallery_footer.custom_video_footer{
+	background-color: #F5F5F5;
+    border-radius: 0 0 6px 6px !important;
+    border-top: 1px solid #DDDDDD;
+    box-shadow: 0 1px 0 #FFFFFF inset;
+    margin: 0 -14px;
+    padding: 12px 15px 11px;
+}
+.custom_video_footer.media_gallery_footer .btn-large.done_btn{
+	margin-top:0px;
+}
+#myModalVideoCustom .limited_modal input[type="text"],#myModalVideoCustom .limited_modal textarea{
+	margin-bottom:8px;
+	box-shadow:none;
+}
+#myModalVideoCustom .limited_modal .input-prepend #prependedInput.span10{
+	margin-top:5px;
 }

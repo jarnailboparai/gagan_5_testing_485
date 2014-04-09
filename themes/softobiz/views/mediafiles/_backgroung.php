@@ -16,14 +16,15 @@
               <div class="span7" style="padding-top:34px;">
              <div class="data_at_bottom">
               <div class="landscape_preview">
-        <div class="landscape_preview_img"> <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/land_scape.jpg" alt="splash Image" /> </div>
+        <div class="landscape_preview_img"> <img id="landscape_bg" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/land_scape.jpg" alt="splash Image" /> </div>
       </div>
+      		
               <a class="btn btn-success" role="button" href="#">Save Background</a>
               </div>
               </div>
               <div class="span5">
           <div class="app_preview custom_preview" style="position:static;margin-top:0px !important;">
-        <div class="theme_preview"> <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/theme_bg.jpg" alt="splash Image" /> </div>
+        <div class="theme_preview"> <img id="horizontal_bg" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/theme_bg.jpg" alt="splash Image" /> </div>
       </div>
         </div>
         </div>
@@ -43,7 +44,6 @@
   <script>
 function openCloseMediaImage()
 {
-	
 	jQuery('#myModalMediaImage').modal('hide');
 	jQuery('.modal-backdrop').remove();
 	jQuery('#myModalMediaImageName').removeData("modal");
@@ -52,6 +52,11 @@ function openCloseMediaImage()
 	jQuery('#myModalMediaImageName').modal({remote: "<?php echo CHtml::normalizeUrl(array('tutorial/uploadimage_background','layout'=>1))?>"});
 		
 }
+
+$('#myModalMediaImage').on('show.bs.modal', function (e) {
+	$('.model_error').html("");
+	})
+
 
 /*
 function thumbModalNew(arg){

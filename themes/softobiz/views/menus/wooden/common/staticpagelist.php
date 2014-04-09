@@ -19,7 +19,8 @@ foreach($obj->subModules as $sub){
 
 	$urlName = 'staticpage_'.$obj->id.'_'.$sub->id.'.html';
 
-	$fp = fopen($dest_path .$nameFile, 'w');
+	/*
+	 * $fp = fopen($dest_path .$nameFile, 'w');
 
 	$str = str_replace('<div class="staticpage_content"></div>', $sub->attributes['description'], $str);
 
@@ -28,7 +29,7 @@ foreach($obj->subModules as $sub){
 
 	//$str = $this->generateMenu($str, $app_model);
 
-	fwrite($fp, $str, strlen($str));
+	fwrite($fp, $str, strlen($str)); */
 
 	?>
 	 <li><a rel="external" data-ajax="flase"  class="item link" href="<?php echo $urlName; ?>">

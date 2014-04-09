@@ -84,6 +84,7 @@ class SubModules extends CActiveRecord
 				//'filemedia' => array(self::HAS_ONE, 'MediaFiles', 'media_files_id'),
 				'filemedia' => array(self::BELONGS_TO, 'MediaFiles', 'media_files_id'),
 				'videomedia' => array(self::BELONGS_TO, 'VideoFiles', 'video_files_id'),
+				'themesetting' => array(self::HAS_ONE, 'ThemeSettingBackground', 'sub_module_id'),
 		);
 	}
 

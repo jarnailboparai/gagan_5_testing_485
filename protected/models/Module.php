@@ -84,6 +84,7 @@ class Module extends CActiveRecord
 			'formFields' => array(self::HAS_MANY, 'FormFields', 'module_id'),
 			'subModules' => array(self::HAS_MANY, 'SubModules', 'module_id'),
 			'application' => array(self::BELONGS_TO, 'Applications', 'application_id'),
+			'themesetting' => array(self::HAS_ONE, 'ThemeSettingBackground', 'module_id'),
 		);
 	}
 

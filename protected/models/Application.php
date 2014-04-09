@@ -91,6 +91,7 @@ class Application extends CActiveRecord {
             'modules' => array(self::HAS_MANY, 'Modules', 'application_id'),
         	'thememenu' => array(self::BELONGS_TO, 'ThemeMenu', 'theme_menu_id'),
         	'applinkdata' => array(self::HAS_ONE, 'Applink', 'application_id'),
+        	'themesetting' => array(self::HAS_ONE, 'ThemeSettingBackground', 'app_id'),
         	
         );
     }

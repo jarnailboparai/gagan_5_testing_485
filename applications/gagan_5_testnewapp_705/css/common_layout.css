@@ -38,6 +38,7 @@ body {
 	height:36px;
 	overflow:hidden;
 	font-size:13px;
+	word-wrap: break-word;
 }
 
 .no_data{

@@ -21,8 +21,8 @@
 <div class="modal-footer">
 <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button> -->
 <!-- <button class="btn btn-success">Upload Media</button> -->
-
 <?php $this->renderPartial('//mediafiles/_uploadfilenew');?>
+<?php //$this->renderPartial('//mediafiles/_uploadfilenew_background');?>
 </div> 
 </div>
 

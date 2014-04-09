@@ -108,6 +108,7 @@
 			<td>
 				<div class="button_panel">
 				<?php echo CHtml::submitButton('Save', array('onclick'=>"nicEditors.findEditor('editor1').saveContent();",'class' => 'btn btn-success')); ?>
+				 <?php echo CHtml::button('Cancel', array('class' => 'btn cancel_singlepage','onclick'=>"feature_listing()")); ?>
 				<?php //echo CHtml::link('Return to Tab List', array('/application/customizemodules'), array('class' => 'btn btn-large btn_radius btn-primary4')); ?>
 			   </div>
 			</td>

@@ -1,0 +1,118 @@
+.theme_setting{
+	border: 1px solid #E0E0E0;
+}
+.theme_title
+{
+	background-color: #EEEEEE;
+    border-bottom: 1px solid #E0E0E0;
+    font-size: 17px;
+    line-height: 39px;
+    margin: 0 0 10px;
+    padding: 5px 2px 5px 10px;
+    text-transform: capitalize;
+}
+.theme_title .pull-right{
+	padding-right:7px;
+}
+.theme_image_background{
+	background:#fff;
+}
+.theme_image_background{
+	padding:0 1px 1px;
+}
+.bg_notification {
+    padding: 0 0 10px;
+}
+.bg_control .btn{
+	margin-right:8px;
+	border-radius:0px;
+}
+.theme_image_background .row-fluid{
+	margin-bottom:50px;
+}
+.theme_image_background .row-fluid:last-child{
+	margin-bottom:0px;
+}
+.background_thumb_port,.background_thumb_land
+{
+	background: none repeat scroll 0 0 #F5F5F5;
+    border: 1px solid #DDDDDD;
+    padding: 10px;
+}
+.theme_title.theme_setting_title{
+	margin-bottom:3px;
+	background:#fff;
+}
+.theme_setting_title .btn{
+	outline:none;
+}
+.theme_image_background{
+	padding: 18px;
+}
+.colorpicker_table *{
+	border-radius:0px !important;
+}
+.colorpicker_table td{
+	vertical-align:top;
+}
+.main_page_theme_setting .theme_title{
+	padding:0px;
+	border-bottom:none;
+	margin-bottom:0px;
+}
+.main_page_theme_setting{
+	
+    margin-bottom: 14px;
+    padding: 5px 5px 5px 0;
+}
+.main_page_theme_setting .theme_title.theme_setting_title{
+	border-bottom: 2px solid #DDDDDD;
+}
+.main_page_theme_setting .btn-group.pull-left.navbottom .btn{
+	background:none !important;
+	border:none !important;
+	cursor:pointer;
+}
+.main_page_theme_setting  .btn-group.pull-left.navbottom .btn.selected,.main_page_theme_setting  .pull-left.navbottom .btn.selected,.main_page_theme_setting  .pull-left.navbottom .btn:hover{
+	border-bottom:2px solid #EA5052 !important;
+	background-color:#fff !important;
+	
+}
+.main_page_theme_setting  .btn-group.pull-left.navbottom .btn{
+	padding: 5px 10px;
+}
+.main_page_theme_setting  .pull-left.navbottom .btn:active{
+	box-shadow:none;
+}
+.main_page_theme_setting .btn-group.pull-left.navbottom{
+	margin-bottom:-5px;
+}
+.main_page_theme_setting .single_multi_icons.theme_setting_thumb_app,.main_page_theme_setting .Bg_display_app .colorpicker_table,.main_page_theme_setting .theme_image_background{
+	border:2px solid #ddd;
+	margin-top:10px;
+}
+
+/* subpages background settings */
+.sub_page_wrapper .theme_title.theme_setting_title{
+	border-top: 1px solid #E0E0E0;
+	margin-top:6px;
+}
+.edit_content_container .sub_page_wrapper ul li{
+	margin:12px 0px !important;
+	border:1px solid #DDDDDD !important;
+	background:url(../images/sub_title.jpg) repeat-x !important;
+}
+
+
+/* Subpages background tabs settings ends here */
+
+
+/* for chrome and safari starts here */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+ .main_page_theme_setting .btn-group.pull-left.navbottom {
+	margin-bottom: -6px;
+	}
+}
+
+
+/* for chrome and safari ends here */

@@ -47,6 +47,8 @@ body {
 			$('#file_upload').uploadifive({
 				 'auto'            : false,
 				 'removeCompleted' : false,
+				 'multi'    : false,
+				 
 				//'successTimeout' 	: 5,
 				//'checkScript'      : window.themeurl+'/checkexists',
 				'checkScript'		: '<?php echo CHtml::normalizeUrl(array('mediafiles/checkexists'))?>',
@@ -71,7 +73,7 @@ body {
 				                     *
 				                     */?>
 				'queueID'          : 'queueOpen',
-				'uploadScript'     : '<?php echo CHtml::normalizeUrl(array('mediafiles/uploadfilenew'))?>',
+				'uploadScript'     : '<?php echo CHtml::normalizeUrl(array('tutorial/uploadfilenew'))?>',
 				'onUploadComplete' : function(file, data) { 
 
 					openCloseCustomImageName();
@@ -146,11 +148,29 @@ body {
 
 		function openCloseCustomImageName()
 		{
-			
-			jQuery('#myModalMediaImageName').modal('hide');
-			jQuery('.modal-backdrop').remove();
-			jQuery('#myModalMediaImage').removeData("modal");
-			jQuery('#myModalMediaImage').modal({remote: "<?php echo CHtml::normalizeUrl(array('tutorial/imagebackground','layout'=>1))?>"});
+			type = get_apptype();
+			app_id = get_bgapp_appid();
+			module_id = get_bgapp_moduleid();
+			sub_module_id =  get_bgapp_submoduleid();
 
-		}
+			remoteurl = "<?php echo CHtml::normalizeUrl(array('tutorial/imagebackground','layout'=>1))?>";
+			remoteurl += "&app_id=";
+			remoteurl +=  app_id;
+			remoteurl += "&module_id=";
+			remoteurl +=  module_id;
+			remoteurl += "&sub_module_id=";
+			remoteurl +=  sub_module_id;
+			remoteurl += "&type=";
+			remoteurl +=  type;
+
+
+			//console.log(remoteurl); 
+			
+			jQuery('#myModalMediaImageNameBg').modal('hide');
+			jQuery('.modal-backdrop').remove();
+			jQuery('#myModalMediaImageBg').removeData("modal");
+			
+			/* jQuery('#myModalMediaImageBg').modal({remote: "<?php echo CHtml::normalizeUrl(array('tutorial/imagebackground','layout'=>1))?>"}); */
+			jQuery('#myModalMediaImageBg').modal({remote: remoteurl});
+			}
 	</script>
