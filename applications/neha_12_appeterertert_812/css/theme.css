@@ -148,6 +148,17 @@
 
 
 
+.theme_bg
+{
+	background-image:none;
+	background-repeat:no-repeat;
+	background-size:cover;	
+	background: radial-gradient(right top , ellipse cover , rgb(86, 2, 113) 2% , rgb(189, 164, 34) 56%);
+background: -o-radial-gradient(right top , ellipse cover , rgb(86, 2, 113) 2% , rgb(189, 164, 34) 56%);
+background: -ms-radial-gradient(right top , ellipse cover , rgb(86, 2, 113) 2% , rgb(189, 164, 34) 56%);
+background: -moz-radial-gradient(right top , ellipse cover , rgb(86, 2, 113) 2% , rgb(189, 164, 34) 56%);
+background: -webkit-radial-gradient(right top , ellipse cover , rgb(86, 2, 113) 2% , rgb(189, 164, 34) 56%);
+}
 
 
 
