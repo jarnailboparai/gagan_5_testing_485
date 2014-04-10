@@ -19,7 +19,7 @@ class TutorialController extends Controller
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
 						'actions'=>array('create','update','appkeycreate','applelist','certificatecreate','orderlist','changeappbg','videodetail','Editvideodetail','videodetailgallery','image','imagebackground','uploadbackground','image_resize','uploadimage_background','BuildApp','appbg','uploadfilenew','image_resize_bg'
-								,'Image_background','Image_backgroundcolor','app_bgcolor','remove_appbg','check_appbg'),
+								,'Image_background','Image_backgroundcolor','app_bgcolor','remove_appbg','check_appbg','rss'),
 						'users'=>array('@'),
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -965,6 +965,49 @@ class TutorialController extends Controller
 				}
 				echo error;
 				die;
+			}
+			
+			public function actionRss($module_id,$layout=null)
+			{
+				
+				
+				$app_id = Yii::app()->user->getState('app_id');
+				if ($app_id) {
+					$model = Module::model()->findByPk($module_id);
+				} else {
+					Yii::app()->user->setFlash('create_app_error', 'Please Create Application by Filling these Details');
+					$this->redirect(array('details'));
+				}
+				
+				//
+				
+				if (isset($_POST['Module'])) {
+				
+					//$this->pr($_POST); //die;
+				
+					if ($model->name != "rss_feeds") {
+						if ($_POST['Module']['tab_icon'] == '')
+							unset($_POST['Module']['tab_icon']);
+					}
+				
+					$model->attributes = $_POST['Module'];
+					
+					if($model->update())
+					{
+						echo json_encode(array($model->tab_title,$model->name,$model->id)); die;
+					}
+				}
+				//
+				if($model->name == 'rss_feeds'){
+				
+					$this->render('/applicationnew/_rss_form', array(
+							'model' => $model,
+							//'style' => $style,
+							//'uploadedImages' => $uploadedImages,
+							//'notificationModel' => $notificationModel
+					));
+				
+			}
 			}
 
 }

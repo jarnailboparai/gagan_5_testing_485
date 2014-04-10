@@ -19,7 +19,7 @@
 </tr>
 <tr>
 <td colspan="2">
-<div class="color_save"><a href="#" class="btn btn-success" onclick="save_bgcolor()">Save Backcolor</a>
+<div class="color_save"><a href="#" class="btn btn-success" onclick="save_bgcolor(<?php echo $flag;?>,<?php echo $module_id;?>)">Save Backcolor</a>
 <a href="#" class="btn" onclick="bg_color_cancel(<?php echo $flag;?>,<?php echo $module_id;?>)">Back to Theme Settings</a>
 
 

@@ -1,5 +1,5 @@
 <!--  Single page tab design starts here -->
-
+<link href="/members/wizard/themes/softobiz/css/media_gallery.css" rel="stylesheet" type="text/css"></link>
 
 <div class="single_page">
 	<?php

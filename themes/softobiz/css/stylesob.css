@@ -859,9 +859,12 @@ footer{ padding:13px;}
     z-index: 1000;
 	margin:-1px 7px 0 0;
 }
-.address_map input#address {
+.address_map input#address,.address_map input#rss_feed_url {
 	border:1px solid #ddd;
 	padding: 1% 0.9%;
+}
+.address_map input#rss_feed_url {
+	margin-bottom:10px;
 }
 .address_map input[type="button"]{
 	margin-top:9px;
@@ -1290,12 +1293,14 @@ h4.view_app_title{
 }
 
 /* Tutorial Page Settings Ends Here */
-.address_map textarea#article{
+.address_map textarea#article,.address_map textarea#description{
 	width:98.1%;
 	box-shadow:none;
 	border-color:#ddd;
 }
-
+.address_map textarea#rss_feed_url{
+	margin-bottom:10px;
+}
 #videodetail{
 	height:25px;
 	background-position:104% 3px;
@@ -1396,3 +1401,6 @@ span.drag{
 	margin-top:4px;
 }
 /* 7 april ends here */
+.rss_form .button_panel .btn.cancel_singlepage{
+	margin-top:1px;
+}

@@ -142,15 +142,20 @@ body,body.ui-overlay-a{
 
 
 
+@media (min-width: 400px) {
 .theme_bg
 {
-	background-image:none;
+	background-image:url(../images/app799land.jpg) ;
 	background-repeat:no-repeat;
 	background-size:cover;	
-	background: linear-gradient(bottom , rgb(165, 0, 0) 1% , rgb(48, 12, 12) 80%);
-background: -o-linear-gradient(bottom , rgb(165, 0, 0) 1% , rgb(48, 12, 12) 80%);
-background: -ms-linear-gradient(bottom , rgb(165, 0, 0) 1% , rgb(48, 12, 12) 80%);
-background: -moz-linear-gradient(bottom , rgb(165, 0, 0) 1% , rgb(48, 12, 12) 80%);
-background: -webkit-linear-gradient(bottom , rgb(165, 0, 0) 1% , rgb(48, 12, 12) 80%);
+}
+}
+@media (min-width: 100px) and (max-width: 399px) {
+.theme_bg
+{
+	background-image:url(../images/app799port.jpg) ;
+	background-repeat:no-repeat;
+	background-size:cover;	
+}
 }
 

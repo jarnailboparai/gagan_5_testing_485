@@ -4,13 +4,13 @@
 <script type="text/javascript"  src="<?= $url ?>/js/nicEdit-latest.js"></script>
 
 <?php //$this->renderPartial("app_menu", array('style' => $style)); ?>
- <?php echo $this->renderPartial('_feature_title',array('model'=>$model));?>
-<?php if($model->page_type == 1){ ?>
 
+<?php if($model->page_type == 1){ ?>
+ <?php echo $this->renderPartial('_feature_title',array('model'=>$model));?>
 	<?php echo $this->renderPartial("_modulepage", array("model"=>$model)); ?>
 
 <?php }elseif ($model->page_type == 2) { ?>
-	
+	 <?php echo $this->renderPartial('_feature_title',array('model'=>$model));?>
 	<?php echo $this->renderPartial("_modulemultipage", array("model"=>$model)); ?>
 	
 	<?php //echo $this->renderPartial("_submodulepage", array("model"=>$submodel,'data'=>$model)); ?>

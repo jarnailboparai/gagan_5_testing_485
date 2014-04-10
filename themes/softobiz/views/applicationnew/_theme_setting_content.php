@@ -108,7 +108,9 @@ $('#myModalMediaImageBg').on('hide.bs.modal', function (e) {
 		
 	}
 
-	  function save_bgcolor()
+	/* 
+	
+	 function save_bgcolor()
       {
          var color = $('.gradx_code').html();
          var id = <?php echo $model->id;?>;
@@ -144,6 +146,6 @@ $('#myModalMediaImageBg').on('hide.bs.modal', function (e) {
 		    });
 
        	
-      }
+      } */
 
 </script>

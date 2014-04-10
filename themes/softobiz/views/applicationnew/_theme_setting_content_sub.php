@@ -92,7 +92,7 @@ $('#myModalMediaImageBg').on('hide.bs.modal', function (e) {
 		$('.color_picker_wrapper').hide();
 		
 	}
-
+/*
 	  function save_bgcolor()
       {
          var color = $('.gradx_code').html();
@@ -130,5 +130,6 @@ $('#myModalMediaImageBg').on('hide.bs.modal', function (e) {
 
        	
       }
+      */
 
 </script>

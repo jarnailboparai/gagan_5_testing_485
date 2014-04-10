@@ -1633,6 +1633,8 @@ class ApplicationnewController extends Controller
 					$str = $this->generateMenu($str, $app_model);
 
 					fwrite($fp, $str, strlen($str));
+					
+					
 				}
 				else if ($module == 'youtube(keyword)') {
 
@@ -3238,12 +3240,15 @@ class ApplicationnewController extends Controller
 				'video'=>'Video Gallary',
 				'photosub'=>'Image Gallery',
 				'location'=>'Location',
+				'rss_feeds'=>'Rss',
+				'aweber'=>'AWeber',
 				'optin_forms'=>'Optin Forms',
 				//'contact_us_page'=>'Contact us page',
 				'social_sharing_features'=>'Social Sharing features',
 				'in_app_rating_feature'=>'In-app rating feature',
 				'admob'=>'Admob or tapgage',
-				'notification'=>'Push Notification'
+				'notification'=>'Push Notification',
+				
 				);
 	
 		$this->render('listfeatures', array(
@@ -3480,6 +3485,15 @@ class ApplicationnewController extends Controller
 		}elseif($model->name == 'notification'){
 			
 			$this->render('_notification_form', array(
+					'model' => $model,
+					'style' => $style,
+					'uploadedImages' => $uploadedImages,
+					'notificationModel' => $notificationModel
+			));
+			
+		}elseif($model->name == 'rss_feeds'){
+			
+			$this->render('_rss_form', array(
 					'model' => $model,
 					'style' => $style,
 					'uploadedImages' => $uploadedImages,
