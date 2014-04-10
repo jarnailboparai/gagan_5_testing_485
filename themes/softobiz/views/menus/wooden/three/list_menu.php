@@ -27,6 +27,10 @@
 				$link = 'video_'.$obj->attributes['id'].'.html';
 			}else if ($m['name'] == 'location') {
 				$link = 'location_'.$obj->attributes['id'].'.html';
+			}else if ($m['name'] == 'rss_feeds') {
+				$link = 'rss_'.$obj->attributes['id'].'.html';
+			}else if ($m['name'] == 'aweber') {
+				$link = 'aweber_'.$obj->attributes['id'].'.html';
 			}
 			else {
 				$link = $file->file;

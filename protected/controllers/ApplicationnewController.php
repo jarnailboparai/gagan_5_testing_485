@@ -1229,7 +1229,8 @@ class ApplicationnewController extends Controller
 					}
 					break;
 					case 'rss_feeds': {
-						$html = 'rss.html';
+						//$html = 'rss.html';
+						$html = 'rss_'.$obj->attributes['id'].'.html';
 					}
 					break;
 					case 'web_page': {
@@ -1279,6 +1280,11 @@ class ApplicationnewController extends Controller
 						$html = $obj->attributes['name'] . '.html';
 					}
 				}
+				
+				
+				//Coometed my amripal no use of this code 
+				/*
+				//echo  $obj->attributes['tab_icon'];
 				$tab_img = explode('/', $obj->attributes['tab_icon']);
 				$index = count($tab_img) - 1;
 	
@@ -1288,7 +1294,14 @@ class ApplicationnewController extends Controller
 	
 				$dest_path = Yii::app()->basePath . "/../applications/" . Yii::app()->user->getState('username') . "_" . $app_model->title . "_" . $app_model->id;
 	
+				if(count($tab_img))
+				{
+					//print_r($tab_img); die;
+				}
+				
 				copy($obj->attributes['tab_icon'], $dest_path . '/' . $tab_img[$index]);
+				
+				*/
 			}
 	
 	
@@ -1322,6 +1335,8 @@ class ApplicationnewController extends Controller
 				$link = 'video_'.$obj->attributes['id'].'.html';
 			}else if ($m['name'] == 'location') {
 				$link = 'location_'.$obj->attributes['id'].'.html';
+			}else if ($m['name'] == 'rss_feeds') {
+				$link = 'rss_'.$obj->attributes['id'].'.html';
 			}
 			 else {
 // 				if(!isset($file->file)){
@@ -1619,6 +1634,8 @@ class ApplicationnewController extends Controller
 				}
 				else if ($module == 'rss_feeds') {
 
+					
+					/*				
 					$url = $obj->attributes['rss_feed_url'];
 
 					$str = implode("\n", file($src_path . '/rss.html'));
@@ -1633,7 +1650,44 @@ class ApplicationnewController extends Controller
 					$str = $this->generateMenu($str, $app_model);
 
 					fwrite($fp, $str, strlen($str));
+					*/
 					
+					$nameFileCss = null;
+					if(count($obj->themesetting)){
+						$nameFileCss = $this->change_modulebg($sourcefile,$dest_path,$obj,$app_model);
+					}
+					
+					$url = $obj->attributes['rss_feed_url'];
+					
+					//$str = implode("\n", file($src_path . '/video.html'));
+					
+					$str = implode("\n", file($sourcefile . '/../common/rss.html'));
+						
+					$rssfile = '/rss_'.$obj->id.'.html';
+					$fp = fopen($dest_path . $rssfile, 'w');
+					
+					if(count($obj->subModules) > 0) {
+						$str = str_replace("<p>No video upload</p>", $subMenus , $str);
+					}else{
+						$str = str_replace("<p>No video upload</p>", '<p class="no_data">No video upload</p>' , $str);
+					}
+					
+					if ($obj->attributes['tab_title'] != NULL)
+						$str = str_replace("<h1>RSS Page</h1>", "<h1>" . ucfirst( $obj->attributes['tab_title'] ). "</h1>", $str);
+					else
+						$str = str_replace("<h1>RSS Page</h1>", "<h1>" . ucfirst( $obj->attributes['name'] ) . "</h1>", $str);
+					
+					if ($obj->attributes['rss_feed_url'] != NULL)
+						$str = str_replace("<!--RssFeedsLink-->", $obj->attributes['rss_feed_url'], $str);
+					else
+						$str = str_replace("<!--RssFeedsLink-->", "http://news.google.com/output=rss", $str);
+					
+					$str = $this->addbg_applink($str,$nameFileCss);
+					$str = $this->generateMenu($str, $app_model);
+						
+					fwrite($fp, $str, strlen($str));
+					
+					$nameFileCss = null;
 					
 				}
 				else if ($module == 'youtube(keyword)') {
@@ -3473,6 +3527,20 @@ class ApplicationnewController extends Controller
 	
 		$style['customize_modules'] = 'class="current"';
 		
+		if($model->name == 'aweber'){
+				
+			$user_id =  Yii::app()->user->id;
+				
+			$model_weber = Aweberusers::model()->findByAttributes(array('user_id'=>$user_id));
+			$aweberapplication_id = $model_weber->awerberapplication;
+				
+			$data = CHtml::listData(Aweberlisting::model()->findAll(array('condition'=>"aweberapplication_id=$aweberapplication_id")), 'list_id', 'name');
+			$htmlOptions =     array('size' => '1', 'prompt'=>'-- select list --', );
+
+				
+		}
+		
+		
 		if($model->name == 'location'){
 			
 			$this->render('_location_form', array(
@@ -3498,6 +3566,16 @@ class ApplicationnewController extends Controller
 					'style' => $style,
 					'uploadedImages' => $uploadedImages,
 					'notificationModel' => $notificationModel
+			));
+			
+		}elseif($model->name == 'aweber'){
+			
+			$this->render('_aweber_form', array(
+					'model' => $model,
+					'data' => $data,
+					'htmlOptions' => $htmlOptions,
+					'aweberapplication_id' => $aweberapplication_id,
+					//'notificationModel' => $notificationModel
 			));
 			
 		}else{

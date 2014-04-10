@@ -19,7 +19,7 @@ class TutorialController extends Controller
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
 						'actions'=>array('create','update','appkeycreate','applelist','certificatecreate','orderlist','changeappbg','videodetail','Editvideodetail','videodetailgallery','image','imagebackground','uploadbackground','image_resize','uploadimage_background','BuildApp','appbg','uploadfilenew','image_resize_bg'
-								,'Image_background','Image_backgroundcolor','app_bgcolor','remove_appbg','check_appbg','rss'),
+								,'Image_background','Image_backgroundcolor','app_bgcolor','remove_appbg','check_appbg','rss','aweber'),
 						'users'=>array('@'),
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -987,7 +987,9 @@ class TutorialController extends Controller
 				
 					if ($model->name != "rss_feeds") {
 						if ($_POST['Module']['tab_icon'] == '')
-							unset($_POST['Module']['tab_icon']);
+							$_POST['Module']['tab_icon'] == null;
+						
+						
 					}
 				
 					$model->attributes = $_POST['Module'];
@@ -1010,4 +1012,55 @@ class TutorialController extends Controller
 			}
 			}
 
+			
+			public function actionAweber($module_id,$layout=null)
+			{
+		
+				$app_id = Yii::app()->user->getState('app_id');
+				if ($app_id) {
+					$model = Module::model()->findByPk($module_id);
+				} else {
+					Yii::app()->user->setFlash('create_app_error', 'Please Create Application by Filling these Details');
+					$this->redirect(array('details'));
+				}
+			
+				//
+			
+				if (isset($_POST['Module'])) {
+			
+					//$this->pr($_POST); //die;
+			
+					if ($model->name != "aweber") {
+						if ($_POST['Module']['tab_icon'] == '')
+							$_POST['Module']['tab_icon'] == null;
+					}
+			
+					$model->attributes = $_POST['Module'];
+						
+					if($model->update())
+					{
+						echo json_encode(array($model->tab_title,$model->name,$model->id)); die;
+					}
+				}
+				//
+				if($model->name == 'aweber'){
+			
+					$user_id =  Yii::app()->user->id;
+					
+					$model_weber = Aweberusers::model()->findByAttributes(array('user_id'=>$user_id));
+					$aweberapplication_id = $model_weber->awerberapplication;			
+					
+					$data = CHtml::listData(Aweberlisting::model()->findAll(array('condition'=>"aweberapplication_id=$aweberapplication_id")), 'list_id', 'name');
+					$htmlOptions =     array('size' => '1', 'prompt'=>'-- select list --','class'=>'aweber_list');
+					
+					$this->render('/applicationnew/_aweber_form', array(
+							'model' => $model,
+							'data' => $data,
+							'htmlOptions' => $htmlOptions,
+							//'notificationModel' => $notificationModel
+					));
+			
+				}
+			}
+			
 }

@@ -12,6 +12,43 @@ $pathurl = Yii::app()->theme->baseUrl;
 	bgapp_appid = ""
 	bgapp_moduleid ="";
 	bgapp_submoduleid="";
+
+
+	function save_bgcolor(flag,id)
+    {
+       var color = $('.gradx_code').html();
+       var id = id;
+
+       var flag = flag;
+			var obj = {};
+			   if(flag==1)
+		       { 
+				   obj.app_id = id;
+		       }
+		       else if(flag==2)
+		       {
+		    	   obj.id = id;
+		       }
+		       else if(flag==3)
+		       {
+		    	   obj.sub_module_id = id;
+		       }  
+			   obj.color = color;
+
+  		
+       $.ajax({
+		        type: 'POST',
+		        url: baseurl+'/index.php?r=tutorial/app_bgcolor',
+		        data: obj,
+		        success: function(response){
+		        	//$('.theme_setting_thumb').hide();
+		        	//$('.Bg_display').html(response);
+		        },
+		        error: function(){
+		            alert('error');
+		        }
+		    });
+    }
 </script>
 <?php
 //$this->renderPartial("app_menu", array('style' => $style));
@@ -764,7 +801,7 @@ function openCloseMediaImageBg()
 	}
 
 
-
+/*
 	function save_bgcolor(flag,id)
     {
        var color = $('.gradx_code').html();
@@ -800,7 +837,7 @@ function openCloseMediaImageBg()
 		        }
 		    });
     }
-	
+*/	
 </script>
 
 <style type="text/css">

@@ -1,0 +1,22 @@
+.theme_bg
+
+{
+
+	background-image:none;
+
+	background-repeat:no-repeat;
+
+	background-size:cover;	
+
+	background: linear-gradient(left , rgb(0, 0, 0) 1% , rgb(215, 180, 7) 3% , rgb(86, 235, 152) 9% , rgb(81, 116, 56) 14% , rgb(123, 120, 101) 24% , rgb(18, 188, 35) 28% , rgb(82, 229, 50) 72% , rgb(0, 0, 0) 80%);
+background: -o-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(215, 180, 7) 3% , rgb(86, 235, 152) 9% , rgb(81, 116, 56) 14% , rgb(123, 120, 101) 24% , rgb(18, 188, 35) 28% , rgb(82, 229, 50) 72% , rgb(0, 0, 0) 80%);
+background: -ms-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(215, 180, 7) 3% , rgb(86, 235, 152) 9% , rgb(81, 116, 56) 14% , rgb(123, 120, 101) 24% , rgb(18, 188, 35) 28% , rgb(82, 229, 50) 72% , rgb(0, 0, 0) 80%);
+background: -moz-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(215, 180, 7) 3% , rgb(86, 235, 152) 9% , rgb(81, 116, 56) 14% , rgb(123, 120, 101) 24% , rgb(18, 188, 35) 28% , rgb(82, 229, 50) 72% , rgb(0, 0, 0) 80%);
+background: -webkit-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(215, 180, 7) 3% , rgb(86, 235, 152) 9% , rgb(81, 116, 56) 14% , rgb(123, 120, 101) 24% , rgb(18, 188, 35) 28% , rgb(82, 229, 50) 72% , rgb(0, 0, 0) 80%);
+
+
+
+
+
+
+}

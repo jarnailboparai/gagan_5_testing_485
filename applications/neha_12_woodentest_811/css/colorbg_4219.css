@@ -1,0 +1,22 @@
+.theme_bg
+
+{
+
+	background-image:none;
+
+	background-repeat:no-repeat;
+
+	background-size:cover;	
+
+	background: radial-gradient(left center , ellipse cover , rgb(0, 0, 0) 1% , rgb(197, 71, 184) 36% , rgb(0, 0, 0) 80% , rgb(103, 13, 166) 85% , rgb(126, 186, 112) 93%);
+background: -o-radial-gradient(left center , ellipse cover , rgb(0, 0, 0) 1% , rgb(197, 71, 184) 36% , rgb(0, 0, 0) 80% , rgb(103, 13, 166) 85% , rgb(126, 186, 112) 93%);
+background: -ms-radial-gradient(left center , ellipse cover , rgb(0, 0, 0) 1% , rgb(197, 71, 184) 36% , rgb(0, 0, 0) 80% , rgb(103, 13, 166) 85% , rgb(126, 186, 112) 93%);
+background: -moz-radial-gradient(left center , ellipse cover , rgb(0, 0, 0) 1% , rgb(197, 71, 184) 36% , rgb(0, 0, 0) 80% , rgb(103, 13, 166) 85% , rgb(126, 186, 112) 93%);
+background: -webkit-radial-gradient(left center , ellipse cover , rgb(0, 0, 0) 1% , rgb(197, 71, 184) 36% , rgb(0, 0, 0) 80% , rgb(103, 13, 166) 85% , rgb(126, 186, 112) 93%);
+
+
+
+
+
+
+}

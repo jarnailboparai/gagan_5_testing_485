@@ -1,0 +1,22 @@
+.theme_bg
+
+{
+
+	background-image:none;
+
+	background-repeat:no-repeat;
+
+	background-size:cover;	
+
+	background: linear-gradient(left , rgb(0, 0, 0) 1% , rgb(151, 108, 221) 25% , rgb(0, 0, 0) 80% , rgb(92, 62, 251) 92% , rgb(37, 44, 160) 97%);
+background: -o-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(151, 108, 221) 25% , rgb(0, 0, 0) 80% , rgb(92, 62, 251) 92% , rgb(37, 44, 160) 97%);
+background: -ms-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(151, 108, 221) 25% , rgb(0, 0, 0) 80% , rgb(92, 62, 251) 92% , rgb(37, 44, 160) 97%);
+background: -moz-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(151, 108, 221) 25% , rgb(0, 0, 0) 80% , rgb(92, 62, 251) 92% , rgb(37, 44, 160) 97%);
+background: -webkit-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(151, 108, 221) 25% , rgb(0, 0, 0) 80% , rgb(92, 62, 251) 92% , rgb(37, 44, 160) 97%);
+
+
+
+
+
+
+}

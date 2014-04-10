@@ -121,6 +121,10 @@ div.gallery-item .play_video_icon:hover,div.gallery-item .play_video_icon:active
 }
 .video_description_wrapper .video_wrap{
 	background:#000;
+	z-index:100;
+}
+.video_description_wrapper .video_wrap iframe{
+	z-index:100 !important;
 }
 @media (max-width: 330px){
 	div.gallery-item {
@@ -132,6 +136,9 @@ div.gallery-item .play_video_icon:hover,div.gallery-item .play_video_icon:active
     	width: 93%;
 		margin-bottom:10px;
 	}
+}
+.theme_bg{
+	min-height:486px;
 }
 
 
