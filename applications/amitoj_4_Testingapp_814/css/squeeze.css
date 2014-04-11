@@ -1,0 +1,17 @@
+.squeeze_wrapper{
+	background:url(../images/header_bg.png);
+	width:85%;
+	margin:0 auto;
+	min-height:400px;
+	margin-top:10px;
+	padding:5%;
+}
+.squeeze_wrapper input[type="text"]{
+	box-shadow:none;
+	background:#fff;
+	border-radius:0px;
+}
+.squeeze_desc {
+    background: url("../images/header_bg.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding: 3%;
+}

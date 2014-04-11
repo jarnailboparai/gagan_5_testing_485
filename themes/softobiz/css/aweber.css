@@ -1,0 +1,87 @@
+.form-signin.aweber_form{
+	max-width:1170px;
+	padding:0px;
+	margin-top:15px;
+	border:none;
+	box-shadow:none;
+}
+.aweber_form .nav.nav-tabs li.active a{
+	background:#fff;
+	color:#333;
+	outline:none;
+	border-radius:0px;
+}
+.aweber_form .nav.nav-tabs li a{
+	margin-right:0px;
+	width:auto;
+	padding:10px 12px;
+	line-height:20px;
+}
+.aweber_form .nav.nav-tabs li{
+	border-bottom:1px solid #ccc;
+	margin-bottom:0px;
+}
+.aweber_form .nav-tabs > li > a:hover,.aweber_form .nav-tabs > li.active > a{
+	background:#EA5052 !important;
+	color:#fff !important;
+}
+.aweber_form .nav.nav-tabs {
+	padding:5px;
+}
+.aweber_form .tab-pane{
+	padding:0px 20px;
+}
+.aweber_form .tab-pane input,.aweber_form .tab-pane textarea,.aweber_form .tab-pane .btn{
+	box-shadow:none;
+	border-radius:0px;
+}
+.aweber_form .tab-pane .btn{
+	margin-right:7px;
+}
+.aweber_form .response input[type="text"]{
+	height:40px;
+}
+.aweber_form form{
+	margin-bottom:0px;
+}
+.aweber_form .form-signin-heading{
+	background:#f5f5f5;
+	padding:11px;
+	font-weight:normal;
+	margin-top:0px;
+	border:1px solid #ddd;
+}
+.tab_list{
+	border:1px solid #ccc;
+	width:300px;
+	background:#f9f9f9;
+}
+.aweber_form table tr td{
+	vertical-align:top;
+}
+.aweber_form *{
+	border-radius:0px;
+}
+.activation{
+	border:1px solid #ddd;
+	padding:30px;
+	text-align:center;
+}
+.activation .btn-large {
+    font-weight: 600;
+    padding: 18px 26px;
+	margin-right:0px !important;
+	border-radius:4px !important;
+}
+.jordan_wrap{
+	border:1px solid #ddd;
+	padding:10px 10px 0;
+	
+}
+.jordan_wrap select{
+	margin-right:8px;
+	height:34px;
+}
+.aweber_form .tab-content{
+	min-height:500px;
+}

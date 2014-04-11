@@ -578,10 +578,19 @@ function ulData(arg)
 
 function feature_listing()
 {
+
+	if( window.staticFlag == 1 )
+	{
+		window.staticFlag = 0
+		
+	}
+
 	$('.edit_content_container').empty();
 	$('.edit_content_container').hide();
 	$('.content_listing').show();
 	$( "#sortable" ).sortable( "option", "disabled", false );
+
+
 }
 //
 
@@ -772,7 +781,7 @@ function openCloseMediaImageBg()
 </script>	
 
 <script>
-	function setappvalue(type=0,appid=0,moduleid=0,submoduleid=0)
+	function setappvalue(type,appid,moduleid,submoduleid)
 	{	
 		bgapp_type = type;
 		bgapp_appid = appid;

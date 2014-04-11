@@ -1282,15 +1282,22 @@ class ApplicationnewController extends Controller
 				}
 				
 				
-				//Coometed my amripal no use of this code 
-				/*
+				//Commented my amripal no use of this code 
+				
 				//echo  $obj->attributes['tab_icon'];
 				$tab_img = explode('/', $obj->attributes['tab_icon']);
-				$index = count($tab_img) - 1;
+				if(count($tab_img) == 1 )
+				{
+				
+					$index = 0;
+	
+				}else{
+				
+					$index = count($tab_img) - 1;
+				}
 	
 	
-	
-				$str = str_replace('#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }', '#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="' . $html . '"] .ui-icon { background:  url("' . $tab_img[$index] . '") 50% 50% no-repeat !important;background-size: 30px 30px !important; } ', $str);
+//				$str = str_replace('#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }', '#tab2 .ui-icon { background:  url("icons_communication_1092.png") 50% 50% no-repeat; background-size: 50px 50px; }  a[href="' . $html . '"] .ui-icon { background:  url("' . $tab_img[$index] . '") 50% 50% no-repeat !important;background-size: 30px 30px !important; } ', $str);
 	
 				$dest_path = Yii::app()->basePath . "/../applications/" . Yii::app()->user->getState('username') . "_" . $app_model->title . "_" . $app_model->id;
 	
@@ -1299,9 +1306,11 @@ class ApplicationnewController extends Controller
 					//print_r($tab_img); die;
 				}
 				
-				copy($obj->attributes['tab_icon'], $dest_path . '/' . $tab_img[$index]);
+				if($index)
+				{
+					copy($obj->attributes['tab_icon'], $dest_path . '/' . $tab_img[$index]);
+				}
 				
-				*/
 			}
 	
 	
@@ -1635,23 +1644,6 @@ class ApplicationnewController extends Controller
 				else if ($module == 'rss_feeds') {
 
 					
-					/*				
-					$url = $obj->attributes['rss_feed_url'];
-
-					$str = implode("\n", file($src_path . '/rss.html'));
-
-					$fp = fopen($dest_path . '/rss.html', 'w');
-
-					$str = str_replace('http://news.google.com/news?q=keyword&output=rss&num=100', $url, $str);
-
-					if ($obj->attributes['tab_title'] != NULL)
-						$str = str_replace("<h1>Rss feed</h1>", "<h1>" . $obj->attributes['tab_title'] . "</h1>", $str);
-
-					$str = $this->generateMenu($str, $app_model);
-
-					fwrite($fp, $str, strlen($str));
-					*/
-					
 					$nameFileCss = null;
 					if(count($obj->themesetting)){
 						$nameFileCss = $this->change_modulebg($sourcefile,$dest_path,$obj,$app_model);
@@ -1679,11 +1671,70 @@ class ApplicationnewController extends Controller
 					
 					if ($obj->attributes['rss_feed_url'] != NULL)
 						$str = str_replace("<!--RssFeedsLink-->", $obj->attributes['rss_feed_url'], $str);
+					elseif ($obj->attributes['rss_feed_url'] == '')
+						$str = str_replace("<!--RssFeedsLink-->", "http://news.google.com/output=rss", $str);
 					else
 						$str = str_replace("<!--RssFeedsLink-->", "http://news.google.com/output=rss", $str);
 					
 					$str = $this->addbg_applink($str,$nameFileCss);
 					$str = $this->generateMenu($str, $app_model);
+						
+					fwrite($fp, $str, strlen($str));
+					
+					$nameFileCss = null;
+					
+				}else if ($module == 'aweber') {
+
+					
+					$nameFileCss = null;
+					if(count($obj->themesetting)){
+						$nameFileCss = $this->change_modulebg($sourcefile,$dest_path,$obj,$app_model);
+					}
+					
+					$url = $obj->attributes['rss_feed_url'];
+					
+					//$str = implode("\n", file($src_path . '/video.html'));
+					
+					$str = implode("\n", file($sourcefile . '/../common/aweber.html'));
+						
+					$aweberfile = '/aweber_'.$obj->id.'.html';
+					$fp = fopen($dest_path . $aweberfile, 'w');
+					
+					if(count($obj->subModules) > 0) {
+						$str = str_replace("<p>No video upload</p>", $subMenus , $str);
+					}else{
+						$str = str_replace("<p>No video upload</p>", '<p class="no_data">No video upload</p>' , $str);
+					}
+					
+					if ($obj->attributes['tab_title'] != NULL)
+						$str = str_replace("<h1>AWeber Page</h1>", "<h1>" . ucfirst( $obj->attributes['tab_title'] ). "</h1>", $str);
+					else
+						$str = str_replace("<h1>AWeber Page</h1>", "<h1>" . ucfirst( $obj->attributes['name'] ) . "</h1>", $str);
+					
+					if ($obj->attributes['description'] != NULL)
+						$str = str_replace("<!--DescriptionEnter-->", $obj->attributes['description'], $str);
+					else
+						$str = str_replace("<!--DescriptionEnter-->", "No description found", $str);
+					
+					if ($obj->attributes['flickr_id'] != NULL)
+						$str = str_replace("<!--list_id-->", $obj->attributes['flickr_id'], $str);
+											
+					if ($obj->attributes['flickr_keyword'] != NULL)
+						$str = str_replace("<!--aweberapp_id-->", $obj->attributes['flickr_keyword'], $str);
+
+					//Yii::app()->baseUrl
+					
+				//	echo $serverUrlPath = Yii::app()->getHomeUrl(). Yii::app()->baseUrl;
+					
+				//	echo "<br>"; echo CHtml::normalizeUrl(array("aweber/addusertolist"));
+					
+					$str = str_replace("<!--url-->", Yii::app()->getHomeUrl() . CHtml::normalizeUrl(array("aweber/addusertolist")) , $str);
+					
+				//		die("sdf");
+					
+					$str = $this->addbg_applink($str,$nameFileCss);
+					
+					//$str = $this->generateMenu($str, $app_model);
 						
 					fwrite($fp, $str, strlen($str));
 					
@@ -1800,44 +1851,8 @@ class ApplicationnewController extends Controller
 						
 
 					foreach($obj->subModules as $sub){
-							
+					
 
-/* 						if($sub->videomedia->type == 1)
-						{
-							$keyword = $app_model->master_keyword;
-								
-							//$subMenus .= "<li style='width:100%; border:1px solid; margin:10px 0px;'><a href='http://www.youtube.com/watch?v={$sub->videomedia->actual_url}'><img src='{$sub->videomedia->thumbnail_url}' width='200px' /></a></li>";
-							$subMenus .= "<div class='gallery-item'><a href='http://www.youtube.com/watch?v={$sub->videomedia->actual_url}'><img src='{$sub->videomedia->thumbnail_url}'  /></a>";
-							//$subMenus .= '<div class="img_title">Paris City</div>';
-							$subMenus .= '<div class="img_title">'.$sub->videomedia->title.'</div>';
-							$subMenus .= "</div>";
-						}elseif ($sub->videomedia->type == 2)
-						{
-							$sour_pathImage = Yii::app()->basePath. '/../mediafiles/' . Yii::app()->user->getState('username').'_'.Yii::app()->user->id.'/';
-							
-							//echo $dest_path.'/photo_sub/images/full';
-							//echo $dest_path.'/photo_sub/images/thumb';
-							
-							if(!file_exists($dest_path.'/video'))
-								mkdir($dest_path.'/video',0777,true);
-							
-// 							if(!file_exists($dest_path.'/photo_sub/images/thumb'))
-// 								mkdir($dest_path.'/photo_sub/images/thumb',0777,true);
-							
-							print_r($sub->videomedia->filemediaImage->attributes);
-							copy($sour_pathImage.$sub->videomedia->filemediaImage->attributes['filename'], $dest_path.'/video/'.$sub->videomedia->filemediaImage->attributes['filename']);
-							
-							
-							//$fil = pathinfo($sub->videomedia->filemedia->attributes['filename']);
-							
-							//copy($sour_pathImage.'/thumb/'.$fil['filename'].'_128x128.jpg', $dest_path.'/video/'.$sub->filemedia->attributes['filename']);
-							//$subMenus .= "<li style='width:100%; border:1px solid; margin:10px 0px;'><a href='{$sub->videomedia->actual_url}'><img src='video/{$sub->videomedia->filemediaImage->attributes['filename']}' width='200px' /></a></li>";
-							$subMenus .= "<div class='gallery-item'><a href='{$sub->videomedia->actual_url}'><img src='video/{$sub->videomedia->filemediaImage->attributes['filename']}' /></a>";
-							$subMenus .= '<div class="img_title">'.$sub->videomedia->title.'</div>';
-							$subMenus .= "</div>";
-						} */
-						
-						//$subMenus =  $this->renderPartial("//menus/wooden/common/video",array('module'=>$module),true);
 					}
 					
 					$subMenus =  $this->renderPartial("//menus/wooden/common/video",
@@ -3530,11 +3545,15 @@ class ApplicationnewController extends Controller
 		if($model->name == 'aweber'){
 				
 			$user_id =  Yii::app()->user->id;
-				
+			
 			$model_weber = Aweberusers::model()->findByAttributes(array('user_id'=>$user_id));
-			$aweberapplication_id = $model_weber->awerberapplication;
-				
-			$data = CHtml::listData(Aweberlisting::model()->findAll(array('condition'=>"aweberapplication_id=$aweberapplication_id")), 'list_id', 'name');
+			$aweberapplication_id="";
+			$data=array();
+			if($model_weber!=null)
+			{
+				$aweberapplication_id = $model_weber->awerberapplication;
+				$data = CHtml::listData(Aweberlisting::model()->findAll(array('condition'=>"aweberapplication_id=$aweberapplication_id")), 'list_id', 'name');
+			}
 			$htmlOptions =     array('size' => '1', 'prompt'=>'-- select list --', );
 
 				

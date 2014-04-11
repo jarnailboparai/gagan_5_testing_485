@@ -2,13 +2,13 @@
 
 .theme_bg{
 
-	background:#a6250f;
+	background:#22a201;
 
 	min-width:320px;
 
-	background-size:100%;
+	background-size:100% ;
 
-	background-position:center center;
+	background-position: top center;
 
 }
 
@@ -56,9 +56,11 @@
 
 .ui-header{
 
-	background:url(../images/header_bg.png)  !important;
+	background:url("../images/header_bg.png") repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
 
 	border:none !important;
+
+	border-bottom:none !important;
 
 	
 
@@ -140,17 +142,6 @@
 
 }
 
-.theme_bg
-{
-	background-image:none;
-	background-repeat:no-repeat;
-	background-size:cover;	
-	background: radial-gradient(right bottom , ellipse cover , rgb(255, 91, 91) 14% , rgb(251, 31, 31) 56% , rgb(124, 53, 47) 71% , rgb(60, 3, 3) 80%);
-background: -o-radial-gradient(right bottom , ellipse cover , rgb(255, 91, 91) 14% , rgb(251, 31, 31) 56% , rgb(124, 53, 47) 71% , rgb(60, 3, 3) 80%);
-background: -ms-radial-gradient(right bottom , ellipse cover , rgb(255, 91, 91) 14% , rgb(251, 31, 31) 56% , rgb(124, 53, 47) 71% , rgb(60, 3, 3) 80%);
-background: -moz-radial-gradient(right bottom , ellipse cover , rgb(255, 91, 91) 14% , rgb(251, 31, 31) 56% , rgb(124, 53, 47) 71% , rgb(60, 3, 3) 80%);
-background: -webkit-radial-gradient(right bottom , ellipse cover , rgb(255, 91, 91) 14% , rgb(251, 31, 31) 56% , rgb(124, 53, 47) 71% , rgb(60, 3, 3) 80%);
-}
 
 
 

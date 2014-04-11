@@ -1,74 +1,158 @@
 
+
 .theme_bg{
+
 	background:#a6250f;
+
 	min-width:320px;
+
 	background-size:100%;
+
 	background-position:center center;
-}
-.logo{
-	padding-top:28%;
-	transition:all ease .3s;
-	margin: 0 auto;
+
 }
 
+.logo{
+
+	padding-top:28%;
+
+	transition:all ease .3s;
+
+	margin: 0 auto;
+
+}
+
+
+
 .ui-footer {
+
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+
     border-bottom-width: 0;
+
     border-left-width: 0;
+
     border-right-width: 0;
+
     border-top: medium none !important;
+
 }
+
 .owl-demo .item{
+
 	width:70px;
+
 	height:70px;
+
 	display:table-cell;
+
 	/*background:url(../images/icon_bg.png) no-repeat;*/
+
 	vertical-align:middle;
+
 	text-align:center;
+
 }
+
 .ui-header{
+
 	background:url(../images/header_bg.png)  !important;
+
 	border:none !important;
+
 	
+
 }
+
 .ui-header a{
+
 	box-shadow:none;
+
 }
+
 .ui-header .ui-title, .ui-footer .ui-title{
+
 	text-shadow:none !important;
+
 	color:#fff !important;
+
 	font-size:24px;
+
 	font-weight:normal;
+
 	margin:0 23%;
+
 }
+
 .ui-icon-customrefresh:after {
+
 	background-image: url("../images/refresh_icon.png");
+
 	
+
 }
+
 .ui-icon-customrefresh:after{
+
 	background-color:none;
+
 	border:none;
+
 	border-radius:none;
+
 	height:42px;
+
 	width:42px;
+
 }
+
 .ui-header .ui-btn-icon-notext{
+
 	margin-top:11px;
+
 }
+
 .refresh_link,.help_link{
+
 	border:none !important;
+
 	background:none !important;
+
 }
+
 .refresh_link:hover,.refresh_link:active,.refresh_link:focus,.help_link:focus,.help_link:hover,.help_link:active{
+
 	box-shadow:none !important;
+
 }
+
+
+
 
 
 /* custom setting of icons */
+
 .app_feature_list a img{
+
 	max-height:32px;
+
 	max-width:32px;
+
 }
-<!--themebgcolor-->
+
+.theme_bg
+{
+	background-image:none;
+	background-repeat:no-repeat;
+	background-size:cover;	
+	background: linear-gradient(left , rgb(4, 152, 96) 7% , rgb(44, 189, 203) 18% , rgb(234, 53, 224) 24% , rgb(107, 43, 71) 26% , rgb(207, 191, 202) 36% , rgb(56, 3, 199) 60% , rgb(103, 132, 242) 61% , rgb(217, 201, 166) 64% , rgb(47, 217, 70) 72% , rgb(236, 226, 53) 74% , rgb(139, 183, 92) 88% , rgb(64, 206, 7) 93%);
+background: -o-linear-gradient(left , rgb(4, 152, 96) 7% , rgb(44, 189, 203) 18% , rgb(234, 53, 224) 24% , rgb(107, 43, 71) 26% , rgb(207, 191, 202) 36% , rgb(56, 3, 199) 60% , rgb(103, 132, 242) 61% , rgb(217, 201, 166) 64% , rgb(47, 217, 70) 72% , rgb(236, 226, 53) 74% , rgb(139, 183, 92) 88% , rgb(64, 206, 7) 93%);
+background: -ms-linear-gradient(left , rgb(4, 152, 96) 7% , rgb(44, 189, 203) 18% , rgb(234, 53, 224) 24% , rgb(107, 43, 71) 26% , rgb(207, 191, 202) 36% , rgb(56, 3, 199) 60% , rgb(103, 132, 242) 61% , rgb(217, 201, 166) 64% , rgb(47, 217, 70) 72% , rgb(236, 226, 53) 74% , rgb(139, 183, 92) 88% , rgb(64, 206, 7) 93%);
+background: -moz-linear-gradient(left , rgb(4, 152, 96) 7% , rgb(44, 189, 203) 18% , rgb(234, 53, 224) 24% , rgb(107, 43, 71) 26% , rgb(207, 191, 202) 36% , rgb(56, 3, 199) 60% , rgb(103, 132, 242) 61% , rgb(217, 201, 166) 64% , rgb(47, 217, 70) 72% , rgb(236, 226, 53) 74% , rgb(139, 183, 92) 88% , rgb(64, 206, 7) 93%);
+background: -webkit-linear-gradient(left , rgb(4, 152, 96) 7% , rgb(44, 189, 203) 18% , rgb(234, 53, 224) 24% , rgb(107, 43, 71) 26% , rgb(207, 191, 202) 36% , rgb(56, 3, 199) 60% , rgb(103, 132, 242) 61% , rgb(217, 201, 166) 64% , rgb(47, 217, 70) 72% , rgb(236, 226, 53) 74% , rgb(139, 183, 92) 88% , rgb(64, 206, 7) 93%);
+}
+
+
+
 
 

@@ -1071,7 +1071,7 @@ footer{ padding:13px;}
 }
 .clearance_div .alert{
 	margin-bottom:0px;
-	margin-top:27px;
+	margin-top:12px;
 }
 .form_top_margin{
 	margin-top:40px;
@@ -1329,7 +1329,7 @@ span.drag{
     border: 1px solid #ddd;
     margin-bottom: 11px;
 }
-.edit_content_container form{
+.edit_content_container form,.custom_modal .modal-footer form{
 	margin-bottom:0px;
 }
 .edit_content_container .sub_page_wrapper ul{
@@ -1404,3 +1404,31 @@ span.drag{
 .rss_form .button_panel .btn.cancel_singlepage{
 	margin-top:1px;
 }
+
+
+/* aweber form setting */
+.aweber_form *{
+	border-radius:0px;
+}
+.aweber_label {
+    float: left;
+    line-height: 26px;
+    margin-right: 15px;
+}
+.aweber_form select{
+min-width: 261px;
+}
+.aweber_form textarea{
+	margin-top:10px;
+}
+
+
+/* aweber form setting ends here */
+
+
+/* disable theme setting button when selected*/
+.theme_setting_title .btn.app_setting_module.selected, .theme_setting_title .btn.app_setting_sub.selected{
+    pointer-events: none;
+}
+
+/* disable theme setting button when seleced ends here */

@@ -284,7 +284,12 @@ class OAuthApplication implements AWeberOAuthAdapter {
      * @return int Timestamp, in epoch seconds
      */
     public function generateTimestamp() {
-        return time();
+    	if($_SERVER['HTTP_HOST'] == "112.196.20.243:8021")
+    	{
+        	return time()+300;
+    	}else{
+    		return time();
+    	}
     }
 
     /**

@@ -15,10 +15,10 @@
 
 jQuery(document).ready(function(){
 	
-	jQuery('#module-form-rss').on('submit',function(e){
+	jQuery('#module-form-aweber').on('submit',function(e){
 		e.preventDefault();
 	    var postData = $(this).serialize();
-	    var actionUrl = document.getElementById('module-form-rss');
+	    var actionUrl = document.getElementById('module-form-aweber');
 	 	console.log(actionUrl.action);
 			
 	    $.ajax({
@@ -46,10 +46,11 @@ jQuery(document).ready(function(){
 <?php //echo $this->renderPartial('_feature_title',array('model'=>$model));?>
 
 <!--  Html content for image gallery starts here -->
-<div class="row-fluid manage_apps media_gallery tab_gallery location_form rss_form">
+
+<div class="row-fluid manage_apps media_gallery tab_gallery location_form aweber_form">
      <?php
         $form = $this->beginWidget('CActiveForm', array(
-            'id' => 'module-form-rss',
+            'id' => 'module-form-aweber',
         	'action'=> CHtml::normalizeUrl(array("tutorial/aweber","module_id"=>$model->id)),
             'enableAjaxValidation' => false,
             'htmlOptions' => array(
@@ -79,7 +80,7 @@ jQuery(document).ready(function(){
          <div class="control-group" >
 
 
-                    <?php
+                    <?php 
                     if ($model->description != NULL)
                         $description = $model->description;
                     else
@@ -173,17 +174,13 @@ jQuery(document).ready(function(){
               <div class="address_map">
 <!--              		<textarea name="" cols="" rows="" placeholder="Enter Address"></textarea> -->
              		
-             		 <br>
 
-             <br>
              <?php
 		        echo $form->labelEx($model,'Listing',array('class'=>'aweber_label'));
 		        echo $form->listBox($model,'flickr_id', $data, $htmlOptions);
 		      
   			  ?>
-             </br>	 </br>	 
-             		 
-             		 
+   		 
 <textarea placeholder="Description" id="description" type="text"  name="Module[description]"><?= $description; ?></textarea>
               </div>
               
@@ -198,7 +195,18 @@ jQuery(document).ready(function(){
                  <?php $this->endWidget(); ?>
                 
                 </div>
-
+         
+	<div class="aweber_btn">
+		<?php /* if($aweberapplication_id=="")
+		{ ?>	
+		<a class='btn' href='<?php echo CHtml::normalizeUrl(array('aweber/'))?>' >Create Aweber</a>
+		<?php }
+		if(empty($data) && $aweberapplication_id!="")
+		{ ?>
+			<a class='btn' href='<?php echo CHtml::normalizeUrl(array('aweber/addusertolist'))?>' >Add User to list</a>
+	<?php }  */ ?>
+	</div>
+	
 <?php
 if (substr($model->name, 0, 7) == 'content')
     $model_name = 'content';
