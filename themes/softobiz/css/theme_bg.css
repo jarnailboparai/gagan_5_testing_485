@@ -97,7 +97,7 @@
 	border-top: 1px solid #E0E0E0;
 	margin-top:6px;
 }
-.edit_content_container .sub_page_wrapper ul li{
+.edit_content_container .sub_page_wrapper ul#wrapperliUl li{
 	margin:12px 0px !important;
 	border:1px solid #DDDDDD !important;
 	background:url(../images/sub_title.jpg) repeat-x !important;

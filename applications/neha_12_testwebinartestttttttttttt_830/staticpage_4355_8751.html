@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wooden Theme</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="../../assets/css/fonts.css" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
+
+<link rel="stylesheet" href="css/theme.css" />
+
+<link rel="stylesheet" href="css/common_layout.css" />
+
+<link rel="stylesheet" href="css/static_page.css" />
+
+<link rel="stylesheet" href="css/imgbg_4355.css" />
+
+<!--ThemeSetting-->
+
+<script src="js/jquery_1.9.1.js"></script>
+
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script type="text/javascript">
+
+   $(document).ready(function() {
+
+      $('#back-link').click(function() {
+
+         history.go(-1) 
+
+       });
+
+   });
+
+</script>
+
+
+
+
+
+<style type="text/css">
+
+img {
+
+	max-width:100%;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<!-- Start of first page -->
+
+<div data-role="page" id="theme_layout" class="theme_bg"> 
+
+  
+
+  <!-- Header Starts Here -->
+
+  <div data-role="header"> <a class="refresh_link" id="back-link" href="#"><img src="images/back_btn.png" alt="home icon" /></a>
+
+    <h1>page two test </h1>
+
+    <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>
+
+  <!-- /header ends here --> 
+
+  <!-- Static Page starts here -->
+
+  
+
+  <div class="staticPage">
+
+  
+
+  <p>f you're using Maven, you will find all Selenium Maven
+  artifacts directly in the central Maven repository here:
+  <a href="http://repo1.maven.org/maven2/org/seleniumhq/selenium/">http://repo1.maven.org/maven2/org/seleniumhq/selenium/</a></p>
+
+  <p>In order to start using <tt>DefaultSelenium</tt> or one of
+  the new <tt>WebDriver</tt> implementations in your Maven project,
+  just add the following dependency to your <tt>pom.xml</tt>:</p><pre>    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre><p></p>
+  
+  <p><i>Note:</i> Before version 2.0rc3 the artifact was named
+  <tt>selenium-remote-control</tt>.</p>
+  
+  <p>To get an overview of the different Selenium Maven artifacts,
+  click on the thumbnail below to open a diagram, which shows
+  the dependencies between the Selenium Maven artifacts as well as
+  the most important classes/interfaces in those artifacts:
+  </p>
+
+  <p style="text-align:center">
+      <a id="maven" href="http://docs.seleniumhq.org/images/maven.png">
+          <img src="http://docs.seleniumhq.org/images/maven.png" alt="Selenium Maven artifacts" height="150" width="200">
+      </a>
+  </p>
+  
+  
+  
+  
+  
+  <p>If you know that you will only use a certain <tt>WebDriver</tt>
+  implementation, e.g. the <tt>FirefoxDriver</tt>, you don't need to
+  depend on the <tt>selenium-java</tt> artifact (which has
+  a lot of transitive dependencies). Instead you can just add the
+  dependency on the artifact you need, e.g.</p><pre>    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-firefox-driver&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre><p></p>
+
+  <p>If you are using <tt>DefaultSelenium</tt> (or the <tt>RemoteWebDriver</tt>
+  implementation), you still need to start a Selenium server. The best way is
+  to download the <tt>selenium-server-standalone.jar</tt> from the
+  <a href="http://code.google.com/p/selenium/downloads/list">Selenium Downloads
+  page</a> and just use it. Furthermore you can also embed the Selenium server
+  into your own project, if you add the following dependency to your <tt>pom.xml</tt>:</p><pre>  
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-server&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre> Now you can create a <tt>SeleniumServer</tt> instance yourself and start it.<p></p>
+
+   <p><i>Note:</i> Be aware, that the <tt>selenium-server</tt> artifact has
+   a dependency to the <tt>servlet-api-2.5</tt> artifact, which you should
+   exclude, if your project will be run inside a web application container.</p>
+
+
+  <h3>Third Party Browser Drivers NOT SUPPORTED/DEVELOPED by seleniumhq<span style="font-size: 13px; line-height: normal; font-weight: normal;">f you're using Maven, you will find all Selenium Maven
+  artifacts directly in the central Maven repository here:
+  </span><a href="http://repo1.maven.org/maven2/org/seleniumhq/selenium/" style="font-size: 13px; line-height: normal; font-weight: normal;">http://repo1.maven.org/maven2/org/seleniumhq/selenium/</a></h3>
+
+  <p>In order to start using <tt>DefaultSelenium</tt> or one of
+  the new <tt>WebDriver</tt> implementations in your Maven project,
+  just add the following dependency to your <tt>pom.xml</tt>:</p><pre>    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre><p></p>
+  
+  <p><i>Note:</i> Before version 2.0rc3 the artifact was named
+  <tt>selenium-remote-control</tt>.</p>
+  
+  <p>To get an overview of the different Selenium Maven artifacts,
+  click on the thumbnail below to open a diagram, which shows
+  the dependencies between the Selenium Maven artifacts as well as
+  the most important classes/interfaces in those artifacts:
+  </p>
+
+  <p style="text-align:center">
+      <a id="maven" href="http://docs.seleniumhq.org/images/maven.png">
+          <img src="http://docs.seleniumhq.org/images/maven.png" alt="Selenium Maven artifacts" height="150" width="200">
+      </a>
+  </p>
+  
+  
+  
+  
+  
+  <p>If you know that you will only use a certain <tt>WebDriver</tt>
+  implementation, e.g. the <tt>FirefoxDriver</tt>, you don't need to
+  depend on the <tt>selenium-java</tt> artifact (which has
+  a lot of transitive dependencies). Instead you can just add the
+  dependency on the artifact you need, e.g.</p><pre>    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-firefox-driver&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre><p></p>
+
+  <p>If you are using <tt>DefaultSelenium</tt> (or the <tt>RemoteWebDriver</tt>
+  implementation), you still need to start a Selenium server. The best way is
+  to download the <tt>selenium-server-standalone.jar</tt> from the
+  <a href="http://code.google.com/p/selenium/downloads/list">Selenium Downloads
+  page</a> and just use it. Furthermore you can also embed the Selenium server
+  into your own project, if you add the following dependency to your <tt>pom.xml</tt>:</p><pre>  
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-server&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre> Now you can create a <tt>SeleniumServer</tt> instance yourself and start it.<p></p>
+
+   <p><i>Note:</i> Be aware, that the <tt>selenium-server</tt> artifact has
+   a dependency to the <tt>servlet-api-2.5</tt> artifact, which you should
+   exclude, if your project will be run inside a web application container.</p>
+
+
+  <h3>Third Party Browser Drivers NOT SUPPORTED/DEVELOPED by seleniumhq<span style="font-size: 13px; line-height: normal; font-weight: normal;">f you're using Maven, you will find all Selenium Maven
+  artifacts directly in the central Maven repository here:
+  </span><a href="http://repo1.maven.org/maven2/org/seleniumhq/selenium/" style="font-size: 13px; line-height: normal; font-weight: normal;">http://repo1.maven.org/maven2/org/seleniumhq/selenium/</a></h3>
+
+  <p>In order to start using <tt>DefaultSelenium</tt> or one of
+  the new <tt>WebDriver</tt> implementations in your Maven project,
+  just add the following dependency to your <tt>pom.xml</tt>:</p><pre>    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre><p></p>
+  
+  <p><i>Note:</i> Before version 2.0rc3 the artifact was named
+  <tt>selenium-remote-control</tt>.</p>
+  
+  <p>To get an overview of the different Selenium Maven artifacts,
+  click on the thumbnail below to open a diagram, which shows
+  the dependencies between the Selenium Maven artifacts as well as
+  the most important classes/interfaces in those artifacts:
+  </p>
+
+  <p style="text-align:center">
+      <a id="maven" href="http://docs.seleniumhq.org/images/maven.png">
+          <img src="http://docs.seleniumhq.org/images/maven.png" alt="Selenium Maven artifacts" height="150" width="200">
+      </a>
+  </p>
+  
+  
+  
+  
+  
+  <p>If you know that you will only use a certain <tt>WebDriver</tt>
+  implementation, e.g. the <tt>FirefoxDriver</tt>, you don't need to
+  depend on the <tt>selenium-java</tt> artifact (which has
+  a lot of transitive dependencies). Instead you can just add the
+  dependency on the artifact you need, e.g.</p><pre>    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-firefox-driver&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre><p></p>
+
+  <p>If you are using <tt>DefaultSelenium</tt> (or the <tt>RemoteWebDriver</tt>
+  implementation), you still need to start a Selenium server. The best way is
+  to download the <tt>selenium-server-standalone.jar</tt> from the
+  <a href="http://code.google.com/p/selenium/downloads/list">Selenium Downloads
+  page</a> and just use it. Furthermore you can also embed the Selenium server
+  into your own project, if you add the following dependency to your <tt>pom.xml</tt>:</p><pre>  
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-server&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre> Now you can create a <tt>SeleniumServer</tt> instance yourself and start it.<p></p>
+
+   <p><i>Note:</i> Be aware, that the <tt>selenium-server</tt> artifact has
+   a dependency to the <tt>servlet-api-2.5</tt> artifact, which you should
+   exclude, if your project will be run inside a web application container.</p>
+
+
+  <h3>Third Party Browser Drivers NOT SUPPORTED/DEVELOPED by seleniumhq<span style="font-size: 13px; line-height: normal; font-weight: normal;">f you're using Maven, you will find all Selenium Maven
+  artifacts directly in the central Maven repository here:
+  </span><a href="http://repo1.maven.org/maven2/org/seleniumhq/selenium/" style="font-size: 13px; line-height: normal; font-weight: normal;">http://repo1.maven.org/maven2/org/seleniumhq/selenium/</a></h3>
+
+  <p>In order to start using <tt>DefaultSelenium</tt> or one of
+  the new <tt>WebDriver</tt> implementations in your Maven project,
+  just add the following dependency to your <tt>pom.xml</tt>:</p><pre>    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre><p></p>
+  
+  <p><i>Note:</i> Before version 2.0rc3 the artifact was named
+  <tt>selenium-remote-control</tt>.</p>
+  
+  <p>To get an overview of the different Selenium Maven artifacts,
+  click on the thumbnail below to open a diagram, which shows
+  the dependencies between the Selenium Maven artifacts as well as
+  the most important classes/interfaces in those artifacts:
+  </p>
+
+  <p style="text-align:center">
+      <a id="maven" href="http://docs.seleniumhq.org/images/maven.png">
+          <img src="http://docs.seleniumhq.org/images/maven.png" alt="Selenium Maven artifacts" height="150" width="200">
+      </a>
+  </p>
+  
+  
+  
+  
+  
+  <p>If you know that you will only use a certain <tt>WebDriver</tt>
+  implementation, e.g. the <tt>FirefoxDriver</tt>, you don't need to
+  depend on the <tt>selenium-java</tt> artifact (which has
+  a lot of transitive dependencies). Instead you can just add the
+  dependency on the artifact you need, e.g.</p><pre>    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-firefox-driver&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre><p></p>
+
+  <p>If you are using <tt>DefaultSelenium</tt> (or the <tt>RemoteWebDriver</tt>
+  implementation), you still need to start a Selenium server. The best way is
+  to download the <tt>selenium-server-standalone.jar</tt> from the
+  <a href="http://code.google.com/p/selenium/downloads/list">Selenium Downloads
+  page</a> and just use it. Furthermore you can also embed the Selenium server
+  into your own project, if you add the following dependency to your <tt>pom.xml</tt>:</p><pre>  
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-server&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre> Now you can create a <tt>SeleniumServer</tt> instance yourself and start it.<p></p>
+
+   <p><i>Note:</i> Be aware, that the <tt>selenium-server</tt> artifact has
+   a dependency to the <tt>servlet-api-2.5</tt> artifact, which you should
+   exclude, if your project will be run inside a web application container.</p>
+
+
+  <h3>Third Party Browser Drivers NOT SUPPORTED/DEVELOPED by seleniumhq<span style="font-size: 13px; line-height: normal; font-weight: normal;">f you're using Maven, you will find all Selenium Maven
+  artifacts directly in the central Maven repository here:
+  </span><a href="http://repo1.maven.org/maven2/org/seleniumhq/selenium/" style="font-size: 13px; line-height: normal; font-weight: normal;">http://repo1.maven.org/maven2/org/seleniumhq/selenium/</a></h3>
+
+  <p>In order to start using <tt>DefaultSelenium</tt> or one of
+  the new <tt>WebDriver</tt> implementations in your Maven project,
+  just add the following dependency to your <tt>pom.xml</tt>:</p><pre>    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre><p></p>
+  
+  <p><i>Note:</i> Before version 2.0rc3 the artifact was named
+  <tt>selenium-remote-control</tt>.</p>
+  
+  <p>To get an overview of the different Selenium Maven artifacts,
+  click on the thumbnail below to open a diagram, which shows
+  the dependencies between the Selenium Maven artifacts as well as
+  the most important classes/interfaces in those artifacts:
+  </p>
+
+  <p style="text-align:center">
+      <a id="maven" href="http://docs.seleniumhq.org/images/maven.png">
+          <img src="http://docs.seleniumhq.org/images/maven.png" alt="Selenium Maven artifacts" height="150" width="200">
+      </a>
+  </p>
+  
+  
+  
+  
+  
+  <p>If you know that you will only use a certain <tt>WebDriver</tt>
+  implementation, e.g. the <tt>FirefoxDriver</tt>, you don't need to
+  depend on the <tt>selenium-java</tt> artifact (which has
+  a lot of transitive dependencies). Instead you can just add the
+  dependency on the artifact you need, e.g.</p><pre>    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-firefox-driver&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre><p></p>
+
+  <p>If you are using <tt>DefaultSelenium</tt> (or the <tt>RemoteWebDriver</tt>
+  implementation), you still need to start a Selenium server. The best way is
+  to download the <tt>selenium-server-standalone.jar</tt> from the
+  <a href="http://code.google.com/p/selenium/downloads/list">Selenium Downloads
+  page</a> and just use it. Furthermore you can also embed the Selenium server
+  into your own project, if you add the following dependency to your <tt>pom.xml</tt>:</p><pre>  
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+        &lt;artifactId&gt;selenium-server&lt;/artifactId&gt;
+        &lt;version&gt;2.41.0&lt;/version&gt;
+    &lt;/dependency&gt;  
+</pre> Now you can create a <tt>SeleniumServer</tt> instance yourself and start it.<p></p>
+
+   <p><i>Note:</i> Be aware, that the <tt>selenium-server</tt> artifact has
+   a dependency to the <tt>servlet-api-2.5</tt> artifact, which you should
+   exclude, if your project will be run inside a web application container.</p>
+
+
+  <h3>Third Party Browser Drivers NOT SUPPORTED/DEVELOPED by seleniumhq</h3><div><p>pera Driver</p>
+  <pre>    &lt;dependency&gt;
+        &lt;groupId&gt;com.opera&lt;/groupId&gt;
+        &lt;artifactId&gt;operadriver&lt;/artifactId&gt;
+        &lt;version&gt;1.5&lt;/version&gt;
+    &lt;/dependency&gt;  
+  </pre>
+  
+  <p>PhantomJSDriver (GhostDriver)</p>
+  <pre>    &lt;dependency&gt;
+        &lt;groupId&gt;com.github.detro.ghostdriver&lt;/groupId&gt;
+        &lt;artifactId&gt;phantomjsdriver&lt;/artifactId&gt;
+        &lt;version&gt;1.0.4&lt;/version&gt;
+    &lt;/dependency&gt;  
+  </pre></div>
+
+  </div>
+
+  
+
+  <!-- Static Page Ends here -->
+
+  
+
+</div>
+
+<!-- /page --> 
+
+
+
+</body>
+
+</html>

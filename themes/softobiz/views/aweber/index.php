@@ -8,9 +8,8 @@
     <table width="100%" cellspacing="0" cellpadding="0">
     <tbody><tr><td class="tab_list">
               <ul class="nav nav-tabs">
-                <li class="active"><a href="#lA" data-toggle="tab">API Integration</a></li>
-               <li><a href="#lB" data-toggle="tab"> <!--Get Response-->Tab2</a></li>
-                <!-- <li><a data-toggle="tab" href="#lC">Section 3</a></li>-->
+                <li class="active"><a href="javascript:void(0)" data-toggle="tab">API Integration</a></li>
+                 <!-- <li><a data-toggle="tab" href="#lC">Section 3</a></li>-->
               </ul>
               </td>
               <td>
@@ -19,20 +18,30 @@
                 <!-- form starts here -->
                 <form class=" webform">
   <h4 class="form-signin-heading">AWeber</h4>
+    <?php if(!count($model)){ ?>
     <div class="activation">
-    <a class="btn btn-success btn-large" href="#">ACTIVATION</a>
+<!--     <a class="btn btn-success btn-large" href="#">ACTIVATION</a> -->
+    <?php echo CHtml::link('ACTIVATION', CHtml::normalizeUrl(array('aweber/appverify')),array('class'=>'btn btn-success btn-large')); ?>
     
     </div>
+    <?php }else{?>
   <div class="jordan_wrap">
-  <select class="pull-left" name="">
-  <option>-Select One -</option>
-  <option>one</option>
-  <option>Two</option>
-  <option>Three</option>
-  </select>
-  <a class="btn btn-primary" href="#">Refresh</a>
+  	<?php if($modelList) {?>
+  	<?php 
+  		//$htmlOptions =     array('size' => '1', 'prompt'=>'-- select list --','class'=>'pull-left' );
+  		$htmlOptions = array('size'=>1,'class'=>'pull-left');
+  		echo CHtml::listBox('slect',$model, $data, $htmlOptions); 
+  	?>
+
+  <?php echo CHtml::link('Refresh', CHtml::normalizeUrl(array('aweber/appverify')),array('class'=>'btn btn-primary pull-left')); ?>
+  <div class="notification pull-left">Refresh to get updated list from AWeber</div>
+  	<?php } else {?>
+  	 Not any list form Aweber account find <br>
+  	 Please Add List to your Aweber account Then click  <?php echo CHtml::link('Refresh', CHtml::normalizeUrl(array('aweber/appverify')),array('class'=>'btn btn-primary')); ?> here to get updated list  
+  	<?php } ?>
   <div class="clearfix"></div>
   </div>
+  <?php } ?>
 </form>
                 
                 <!-- form ends here -->

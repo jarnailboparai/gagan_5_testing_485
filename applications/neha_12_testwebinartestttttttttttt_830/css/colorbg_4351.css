@@ -1,0 +1,22 @@
+.theme_bg
+
+{
+
+	background-image:none;
+
+	background-repeat:no-repeat;
+
+	background-size:cover;	
+
+	background: radial-gradient(center , circle cover , rgb(0, 0, 0) 1% , rgb(90, 155, 84) 5% , rgb(58, 194, 146) 7% , rgb(217, 74, 192) 19% , rgb(2, 1, 40) 27% , rgb(36, 77, 134) 39% , rgb(169, 28, 5) 41% , rgb(85, 127, 238) 54% , rgb(110, 213, 187) 70% , rgb(138, 116, 23) 71% , rgb(212, 240, 89) 81%);
+background: -o-radial-gradient(center , circle cover , rgb(0, 0, 0) 1% , rgb(90, 155, 84) 5% , rgb(58, 194, 146) 7% , rgb(217, 74, 192) 19% , rgb(2, 1, 40) 27% , rgb(36, 77, 134) 39% , rgb(169, 28, 5) 41% , rgb(85, 127, 238) 54% , rgb(110, 213, 187) 70% , rgb(138, 116, 23) 71% , rgb(212, 240, 89) 81%);
+background: -ms-radial-gradient(center , circle cover , rgb(0, 0, 0) 1% , rgb(90, 155, 84) 5% , rgb(58, 194, 146) 7% , rgb(217, 74, 192) 19% , rgb(2, 1, 40) 27% , rgb(36, 77, 134) 39% , rgb(169, 28, 5) 41% , rgb(85, 127, 238) 54% , rgb(110, 213, 187) 70% , rgb(138, 116, 23) 71% , rgb(212, 240, 89) 81%);
+background: -moz-radial-gradient(center , circle cover , rgb(0, 0, 0) 1% , rgb(90, 155, 84) 5% , rgb(58, 194, 146) 7% , rgb(217, 74, 192) 19% , rgb(2, 1, 40) 27% , rgb(36, 77, 134) 39% , rgb(169, 28, 5) 41% , rgb(85, 127, 238) 54% , rgb(110, 213, 187) 70% , rgb(138, 116, 23) 71% , rgb(212, 240, 89) 81%);
+background: -webkit-radial-gradient(center , circle cover , rgb(0, 0, 0) 1% , rgb(90, 155, 84) 5% , rgb(58, 194, 146) 7% , rgb(217, 74, 192) 19% , rgb(2, 1, 40) 27% , rgb(36, 77, 134) 39% , rgb(169, 28, 5) 41% , rgb(85, 127, 238) 54% , rgb(110, 213, 187) 70% , rgb(138, 116, 23) 71% , rgb(212, 240, 89) 81%);
+
+
+
+
+
+
+}

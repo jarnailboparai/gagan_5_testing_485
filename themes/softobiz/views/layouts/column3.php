@@ -31,7 +31,7 @@
             <ul class="dropdown-menu">
             <li><a href="#"><i class="icon-large icon-lock"></i>Change Password</a></li>
             <li><a href="#"><i class="icon-large icon-edit"></i>Edit account</a></li>
-             <li><a href="<?php echo CHtml::normalizeUrl(array('aweber/apiintegration'))?>"><i class="icon-large icon-lock"></i>Add api</a></li>
+             <li><a href="<?php echo CHtml::normalizeUrl(array('aweber/index'))?>"><i class="icon-large  icon-plus"></i>Add API</a></li>
             <li class="divider"></li>
             
             <li><a href="<?php echo CHtml::normalizeUrl(array('/site/logout'))?>"><i class="icon-large icon-off"></i>Logout</a></li>

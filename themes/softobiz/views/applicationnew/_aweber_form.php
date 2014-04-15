@@ -43,12 +43,12 @@ jQuery(document).ready(function(){
 
 </script>
 
-<?php //echo $this->renderPartial('_feature_title',array('model'=>$model));?>
+<?php echo $this->renderPartial('_feature_title',array('model'=>$model));?>
 
 <!--  Html content for image gallery starts here -->
 
 <div class="row-fluid manage_apps media_gallery tab_gallery location_form aweber_form">
-     <?php
+     <?php if(count($model_weber) && !empty($data) && $aweberapplication_id!=""){
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'module-form-aweber',
         	'action'=> CHtml::normalizeUrl(array("tutorial/aweber","module_id"=>$model->id)),
@@ -195,18 +195,22 @@ jQuery(document).ready(function(){
                  <?php $this->endWidget(); ?>
                 
                 </div>
-         
-	<div class="aweber_btn">
-		<?php /* if($aweberapplication_id=="")
+    
+    <?php }else{ ?>     
+	<div class="aweber_btn sub_page_wrapper">
+		<?php if($aweberapplication_id=="")
 		{ ?>	
-		<a class='btn' href='<?php echo CHtml::normalizeUrl(array('aweber/'))?>' >Create Aweber</a>
+		<a class='btn btn-info large-btn' onclick="feature_listing();" target="_blank" href='<?php echo CHtml::normalizeUrl(array('aweber/index'))?>' >Create Your Aweber Account</a>
 		<?php }
 		if(empty($data) && $aweberapplication_id!="")
 		{ ?>
-			<a class='btn' href='<?php echo CHtml::normalizeUrl(array('aweber/addusertolist'))?>' >Add User to list</a>
-	<?php }  */ ?>
+			<a class='btn btn-info large-btn' target="_blank" onclick="feature_listing();" href='<?php echo CHtml::normalizeUrl(array('aweber/index'))?>' >Please Get Aweber List or Add it</a>
+			
+	
+	<?php }   ?>
 	</div>
 	
+	<?php } ?>
 <?php
 if (substr($model->name, 0, 7) == 'content')
     $model_name = 'content';
@@ -255,10 +259,12 @@ else
             $('.change_icon_block_popup').fadeOut();
             $('input[name="Module[tab_icon]"]').val($(this).attr('src'));
                   });
-       
+
+        
 
     });
 
+    
   
 
 </script>

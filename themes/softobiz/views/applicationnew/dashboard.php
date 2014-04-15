@@ -66,9 +66,9 @@ if(count($model) > 0  ){
             <div class="app_title">
           <div class="pull-left limited_title"> <?php echo $m['title']; ?></div>
           <?php if(count($obj->applinkdata) > 0 && $obj->applinkdata->attributes['android'] == null  && $obj->applinkdata->attributes['ios'] == null ){ ?>
-          <div class="links_prog pull-right">Inprogress<br/><a href="<?php echo CHtml::normalizeUrl(array('applicationnew/buildPhoneGapAppMy','id'=>$m['id']));?>">Refresh</a></div>
+          <div class="links_prog pull-right">Inprogress<br/><a href="<?php echo CHtml::normalizeUrl(array('tutorial/buildapp','id'=>$m['id']));?>">Refresh</a></div>
            <?php }elseif(count($obj->applinkdata) == 0){?>
-           	<div class="links_prog pull-right">Inprogress<br/><a class='generateappnew' href="<?php echo CHtml::normalizeUrl(array('applicationnew/buildPhoneGapAppMy','id'=>$m['id']));?>">Refresh</a></div>
+           	<div class="links_prog pull-right">Inprogress<br/><a class='generateappnew' href="<?php echo CHtml::normalizeUrl(array('tutorial/buildapp','id'=>$m['id']));?>">Refresh</a></div>
            <?php } ?>
             <div class="clearfix"></div>
             </div>
@@ -128,16 +128,16 @@ if(count($model) > 0  ){
            
             </div>
             <?php  if(count($obj->applinkdata) > 0 && $obj->applinkdata->attributes['ios'] == null  ){  ?>
-            	<a href="<?php echo CHtml::normalizeUrl(array('applicationnew/buildPhoneGapAppMy','id'=>$m['id'])); ?>" class="pull-right build_ios btn btn-primary generateappnew">Build IOS APP</a>
+            	<a href="<?php echo CHtml::normalizeUrl(array('tutorial/buildapp','id'=>$m['id'])); ?>" class="pull-right build_ios btn btn-primary generateappnew">Build IOS APP</a>
             <?php }elseif(count($obj->applinkdata) > 0 && $obj->applinkdata->attributes['android'] == null){ ?>
-            	<a href="<?php echo CHtml::normalizeUrl(array('applicationnew/buildPhoneGapAppMy','id'=>$m['id'])); ?>" class="pull-right build_ios btn btn-primary generateappnew">Build APK APP</a>
+            	<a href="<?php echo CHtml::normalizeUrl(array('tutorial/buildapp','id'=>$m['id'])); ?>" class="pull-right build_ios btn btn-primary generateappnew">Build APK APP</a>
             <?php }?>
             <div class="app_icon pull-right rebuild" >
            
             <?php
-				//http://localhost:8010/members/wizard/index.php?r=applicationnew/buildPhoneGapAppMy&id=401
+				//http://localhost:8010/members/wizard/index.php?r=tutorial/buildapp&id=401
              echo CHtml::link('<img class="active_app" src="'.Yii::app()->theme->baseUrl.'/img/rebuilt.png" alt="rebuilt app" style="margin-top:10px;">',
-            							array('applicationnew/buildPhoneGapAppMy','id'=>$m['id']),
+            							array('tutorial/buildapp','id'=>$m['id']),
 										array('class'=>'generateappnew'));
             		 		
             //echo CHtml::link('Refresh App',array('applicationnew/buildPhoneGapAppMy','id'=>$m['id'])); ?>

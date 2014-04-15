@@ -5,8 +5,13 @@ require_once(__DIR__.'/../extensions/AWeber/aweber_api/aweber.php');
 
 class AweberController extends Controller
 {
-	public  $consumerKey    = "Akjoa6ncuk55rXLlof4PWCIc";
-	public 	$consumerSecret = "PWZyuAiR1KsUtFgh4MO48RphSaaglImljJ56rGu5";
+	//Test key
+// 	public  $consumerKey    = "Akjoa6ncuk55rXLlof4PWCIc";
+// 	public 	$consumerSecret = "PWZyuAiR1KsUtFgh4MO48RphSaaglImljJ56rGu5";
+	
+	
+	public  $consumerKey    = "Ak3AIoZZWeabgC23Sl158dpU";
+	public 	$consumerSecret = "ZL6edaKekQSv3FyVRFDWjFJgaMo0wH0VsNvh3tnc";
 	
 	public $layout='//layouts/column3';
 	public function filters()
@@ -41,6 +46,7 @@ class AweberController extends Controller
 	{
 		//print_r($_SERVER);
 		$modelList = array();
+		$data = array();
 		$model = Aweberusers::model()->findByAttributes(array('user_id' => Yii::app()->user->id));
 		
 		if(count($model))
@@ -120,20 +126,11 @@ class AweberController extends Controller
 			}
 		}
 			
-			
-		//echo "<pre>"; print_r($_COOKIE); die;
-
 		$aweber->adapter->debug = false; 
 
-		//$account = $aweber->getAccount($_COOKIE['accessToken'], $_COOKIE['accessTokenSecret']);
-		//echo "<pre>"; print_r($account);
-		//die;
-		
-// 		$this->getlist($account);
 
-		$this->redirect('index');
+		$this->redirect(array('index'));
 		
-		//$this->render('appverify',array('account'=>$account));
 	}
 	
 	public function actionGetlist()
@@ -146,12 +143,10 @@ class AweberController extends Controller
 		
 		if(count($account->lists))
 		{
-			
+			Aweberlisting::model()->deleteAllByAttributes(array('aweberapplication_id'=>$account->data['id']));
 			foreach($account->lists as $offset => $list) 
 			{
-				//echo $list->name;
-				//echo  $list->id; 
-				
+
 				$model = new Aweberlisting;
 				
 				$model->aweberapplication_id = $account->data['id'];
@@ -192,30 +187,15 @@ class AweberController extends Controller
 	
 	public function actionAddusertolist()
 	{
+
 		//echo "<pre>"; print_r($_POST); die;
-		/*
-		[aweberapp_id] => 846164
-		[list_id] => 3316206
-		[name] =>
-		[email] =>
-		
-		*/
 		if(isset($_POST['aweberapp_id']))
 		{
 			
 			Yii::import('ext.AWeber.*');
 				
-/* 			$consumerKey    = "Akjoa6ncuk55rXLlof4PWCIc";
-			$consumerSecret = "PWZyuAiR1KsUtFgh4MO48RphSaaglImljJ56rGu5";
-			
-			$aweber = new AWeberAPI($consumerKey, $consumerSecret); */
 			$aweber = new AWeberAPI($this->consumerKey, $this->consumerSecret);
 			
-// 			$aweberid = 846164;
-// 			$listid	  = 3316206;
-// 			$email	  = "amritpal.singh@softobiz.com";
-// 			$name	  = "Amritpal Sinagh";
-
 			$aweberid = $_POST['aweberapp_id'];
 			$listid	  = $_POST['list_id'];
 			$email	  = $_POST['email'];
@@ -229,6 +209,8 @@ class AweberController extends Controller
 			
 			if(count($model))
 			{
+				$lead_model = new Lead();
+				$lead_model->lead_data($_POST);
 				$account = $aweber->getAccount($model->token, $model->tokensecret);
 				$dd = $this->addAttendeeToRegList($account,$attendee_info,$listid, $model);
 				if($dd)

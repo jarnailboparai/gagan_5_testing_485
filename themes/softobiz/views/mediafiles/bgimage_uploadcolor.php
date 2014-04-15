@@ -1,4 +1,4 @@
- <?php $pathurl = Yii::app()->theme->baseUrl;  ?>
+<?php $pathurl = Yii::app()->theme->baseUrl;  ?>
  <link href="<?php echo $pathurl; ?>/css/colorpicker/gradX.css" rel="stylesheet" type="text/css" /> 
  <link href="<?php echo $pathurl; ?>/css/colorpicker/colorpicker.css" rel="stylesheet" type="text/css" />
  <script src="<?php echo $pathurl; ?>/js/colorpicker/colorpicker.js" type="text/javascript"></script>
@@ -19,7 +19,7 @@
 </tr>
 <tr>
 <td colspan="2">
-<div class="color_save"><a href="#" class="btn btn-success" onclick="save_bgcolor(<?php echo $flag;?>,<?php echo $module_id;?>)">Save Backcolor</a>
+<div class="color_save"><a href="javascript:void(0)" class="btn btn-success" onclick="save_bgcolor(<?php echo $flag;?>,<?php echo $module_id;?>)">Save Backcolor</a>
 <a href="#" class="btn" onclick="bg_color_cancel(<?php echo $flag;?>,<?php echo $module_id;?>)">Back to Theme Settings</a>
 
 
@@ -28,7 +28,19 @@
 </tr>
 </table>
         <script>
-
+        <?php if(!empty($color))
+        { ?>
+            gradX("#gradX", {
+                targets: [".target"],
+				<?php if(!empty($color_type))
+				{ ?>
+                type: "<?php echo $color_type?>",
+				<?php } ?>
+                direction: "<?php echo $color_direction;?>",
+				sliders: <?php echo $layer;?>
+          		  });
+			
+<?php } else {?>
             gradX("#gradX", {
                 targets: [".target"],
 				sliders: [
@@ -42,8 +54,8 @@
 						   }
  						 ]
           		  });
-			
 
+      <?php } ?>     
         </script>
 
  

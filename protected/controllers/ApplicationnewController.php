@@ -1315,9 +1315,11 @@ class ApplicationnewController extends Controller
 	
 	
 			$count++;
+			
+			//Comment by amrit on server
 	
-			if ($count == 5)
-				break;
+			//if ($count == 5 || 1)
+			//	break;
 	
 	
 			$m = $obj->attributes;
@@ -1695,48 +1697,75 @@ class ApplicationnewController extends Controller
 					
 					//$str = implode("\n", file($src_path . '/video.html'));
 					
-					$str = implode("\n", file($sourcefile . '/../common/aweber.html'));
+					if ($obj->attributes['flickr_id'] == NULL || empty($obj->attributes['flickr_id'])  )
+					{
+						$str = implode("\n", file($sourcefile . '/../common/aweber_error.html'));
+							
+						$aweberfile = '/aweber_'.$obj->id.'.html';
+						$fp = fopen($dest_path . $aweberfile, 'w');
 						
-					$aweberfile = '/aweber_'.$obj->id.'.html';
-					$fp = fopen($dest_path . $aweberfile, 'w');
-					
-					if(count($obj->subModules) > 0) {
-						$str = str_replace("<p>No video upload</p>", $subMenus , $str);
+						$str = str_replace("<!--url-->", Yii::app()->getHomeUrl() . CHtml::normalizeUrl(array("aweber/addusertolist")) , $str);
+						
+						$str = $this->addbg_applink($str,$nameFileCss);
+						
+						fwrite($fp, $str, strlen($str));
+						
 					}else{
-						$str = str_replace("<p>No video upload</p>", '<p class="no_data">No video upload</p>' , $str);
-					}
 					
-					if ($obj->attributes['tab_title'] != NULL)
-						$str = str_replace("<h1>AWeber Page</h1>", "<h1>" . ucfirst( $obj->attributes['tab_title'] ). "</h1>", $str);
-					else
-						$str = str_replace("<h1>AWeber Page</h1>", "<h1>" . ucfirst( $obj->attributes['name'] ) . "</h1>", $str);
-					
-					if ($obj->attributes['description'] != NULL)
-						$str = str_replace("<!--DescriptionEnter-->", $obj->attributes['description'], $str);
-					else
-						$str = str_replace("<!--DescriptionEnter-->", "No description found", $str);
-					
-					if ($obj->attributes['flickr_id'] != NULL)
-						$str = str_replace("<!--list_id-->", $obj->attributes['flickr_id'], $str);
-											
-					if ($obj->attributes['flickr_keyword'] != NULL)
-						$str = str_replace("<!--aweberapp_id-->", $obj->attributes['flickr_keyword'], $str);
-
-					//Yii::app()->baseUrl
-					
-				//	echo $serverUrlPath = Yii::app()->getHomeUrl(). Yii::app()->baseUrl;
-					
-				//	echo "<br>"; echo CHtml::normalizeUrl(array("aweber/addusertolist"));
-					
-					$str = str_replace("<!--url-->", Yii::app()->getHomeUrl() . CHtml::normalizeUrl(array("aweber/addusertolist")) , $str);
-					
-				//		die("sdf");
-					
-					$str = $this->addbg_applink($str,$nameFileCss);
-					
-					//$str = $this->generateMenu($str, $app_model);
+						$str = implode("\n", file($sourcefile . '/../common/aweber.html'));
+							
+						$aweberfile = '/aweber_'.$obj->id.'.html';
+						$fp = fopen($dest_path . $aweberfile, 'w');
 						
-					fwrite($fp, $str, strlen($str));
+						if(count($obj->subModules) > 0) {
+							$str = str_replace("<p>No video upload</p>", $subMenus , $str);
+						}else{
+							$str = str_replace("<p>No video upload</p>", '<p class="no_data">No video upload</p>' , $str);
+						}
+						
+						if ($obj->attributes['tab_title'] != NULL)
+							$str = str_replace("<h1>AWeber Page</h1>", "<h1>" . ucfirst( $obj->attributes['tab_title'] ). "</h1>", $str);
+						else
+							$str = str_replace("<h1>AWeber Page</h1>", "<h1>" . ucfirst( $obj->attributes['name'] ) . "</h1>", $str);
+						
+						if ($obj->attributes['description'] != NULL)
+							$str = str_replace("<!--DescriptionEnter-->", $obj->attributes['description'], $str);
+						else
+							$str = str_replace("<!--DescriptionEnter-->", "No description found", $str);
+						
+						if ($obj->attributes['flickr_id'] != NULL)
+							$str = str_replace("<!--list_id-->", $obj->attributes['flickr_id'], $str);
+												
+						if ($obj->attributes['flickr_keyword'] != NULL)
+							$str = str_replace("<!--aweberapp_id-->", $obj->attributes['flickr_keyword'], $str);
+	
+						$str = str_replace("<!--app_id-->", $app_id, $str);
+						
+						$str = str_replace("<!--module_id-->", $obj->attributes['id'], $str);
+						
+						if ($obj->attributes['tab_title'] != NULL)
+							$str = str_replace("<!--module_name-->",$obj->attributes['tab_title'] , $str);
+						else
+							$str = str_replace("<!--module_name-->", $obj->attributes['name'] , $str);
+						
+						$str = str_replace("<!--user_id-->", Yii::app()->user->id, $str);
+						
+						//Yii::app()->baseUrl
+						
+						//	echo $serverUrlPath = Yii::app()->getHomeUrl(). Yii::app()->baseUrl;
+						
+						//	echo "<br>"; echo CHtml::normalizeUrl(array("aweber/addusertolist"));
+						
+						$str = str_replace("<!--url-->", Yii::app()->getHomeUrl() . CHtml::normalizeUrl(array("aweber/addusertolist")) , $str);
+						
+					//		die("sdf");
+						
+						$str = $this->addbg_applink($str,$nameFileCss);
+						
+						//$str = $this->generateMenu($str, $app_model);
+							
+						fwrite($fp, $str, strlen($str));
+					}
 					
 					$nameFileCss = null;
 					
@@ -3082,6 +3111,8 @@ class ApplicationnewController extends Controller
 						'video'=>'Video Gallary',
 						'photosub'=>'Image Gallery',
 						'location'=>'Location',
+						'rss_feeds'=>'RSS',
+						'aweber'=>'Squeeze',
 						'optin_forms'=>'Optin Forms',
 						'contact_us_page'=>'Contact us page',
 						'social_sharing_features'=>'Social Sharing features',
@@ -3306,11 +3337,11 @@ class ApplicationnewController extends Controller
 		$modelSelectAA = new Module;
 		
 		$dataSelectAA = array('staticpage'=>'Static Page',
-				'video'=>'Video Gallary',
+				'video'=>'Video Gallery',
 				'photosub'=>'Image Gallery',
 				'location'=>'Location',
 				'rss_feeds'=>'Rss',
-				'aweber'=>'AWeber',
+				'aweber'=>'Squeeze Page',
 				'optin_forms'=>'Optin Forms',
 				//'contact_us_page'=>'Contact us page',
 				'social_sharing_features'=>'Social Sharing features',
@@ -3594,6 +3625,7 @@ class ApplicationnewController extends Controller
 					'data' => $data,
 					'htmlOptions' => $htmlOptions,
 					'aweberapplication_id' => $aweberapplication_id,
+					'model_weber'=>$model_weber,
 					//'notificationModel' => $notificationModel
 			));
 			
@@ -4948,6 +4980,7 @@ class ApplicationnewController extends Controller
 			
 		}
 		
+		die();
 	}
 	
 	private function git_upmy($file_name,$id)

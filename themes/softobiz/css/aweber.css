@@ -85,3 +85,14 @@
 .aweber_form .tab-content{
 	min-height:500px;
 }
+.aweber_btn{
+	padding:9px 10px 0 0;
+}
+.aweber_btn .btn-info.large-btn{
+	font-size: 17px;
+    padding: 14px 20px;
+}
+.notification{
+	line-height:32px;
+	padding-left:10px;
+}
