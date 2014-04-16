@@ -19,7 +19,7 @@ class TutorialController extends Controller
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
 						'actions'=>array('create','update','appkeycreate','applelist','certificatecreate','orderlist','changeappbg','videodetail','Editvideodetail','videodetailgallery','image','imagebackground','uploadbackground','image_resize','uploadimage_background','buildapp','appbg','uploadfilenew','image_resize_bg'
-								,'Image_background','Image_backgroundcolor','app_bgcolor','remove_appbg','check_appbg','rss','aweber'),
+								,'Image_background','Image_backgroundcolor','app_bgcolor','remove_appbg','check_appbg','rss','aweber','export'),
 						'users'=>array('@'),
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -1173,6 +1173,80 @@ class TutorialController extends Controller
 		return $color_detail;
 
 	}
+	
+	public function actionExport($app_id){
+
+		$model = Lead::model()->with('listdata')->findAllByAttributes(array('app_id'=>$app_id));
+		$appname = Application::model()->findByAttributes(array('id'=>$app_id));
+		$name =  $appname->title;
+		$this->csvexport($model,$name);
+
+	}
+	
+	private function csvexport($model,$name)
+	{
+		$file = $name."_".date('Y-m-d')."_".date('H:i:s').".xls";
+		require_once(__DIR__.'/../extensions/csv/PHPExcel.php');
+		
+		$objPHPExcel = new PHPExcel();
+		
+		if(count($model))
+			{
+		$objPHPExcel->setActiveSheetIndex(0)
+		->setCellValue('A1', 'NAME')
+		->setCellValue('B1', 'EMAIL')
+		->setCellValue('C1', 'MODULE NAME')
+		->setCellValue('D1', 'LIST NAME');
+		
+		$a=2;
+		
+		foreach ($model as $m)
+		{
+			$list_name = "";
+			if(count($m->listdata))
+			{
+				$list_name = $m->listdata->name;
+			}
+			else 
+			{
+				$list_name = " ";
+			}
+			$objPHPExcel->setActiveSheetIndex(0)
+			->setCellValue("A$a", "$m->name")
+			->setCellValue("B$a", "$m->email")
+			->setCellValue("C$a", "$m->module_name")
+			->setCellValue("D$a", "$list_name");
+			$a++;
+		}
+		
+		}
+		else
+		{
+			$objPHPExcel->setActiveSheetIndex(0)
+			->setCellValue('A1', 'No Record found');
+		}
+		
+		
+		$objPHPExcel->getActiveSheet()->setTitle('leads');
+		
+		
+		header('Content-Type: application/vnd.ms-excel');
+		header("Content-Disposition: attachment;filename=$file");
+		header('Cache-Control: max-age=0');
+		
+		header('Cache-Control: max-age=1');
+		
+		
+		header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+		header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
+		header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+		header ('Pragma: public'); // HTTP/1.0
+		
+		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+		$objWriter->save('php://output');
+		exit;
+	}
+	
 		
 		
 }

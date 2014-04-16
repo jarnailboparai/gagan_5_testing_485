@@ -4849,6 +4849,7 @@ class ApplicationnewController extends Controller
 				$modelApp->save();
 				$this->redirect(array('dashboard'));
 			}else{
+				$modelApp->flag = 1;
 				$modelApp->update();
 				$this->redirect(array('dashboard'));
 			}

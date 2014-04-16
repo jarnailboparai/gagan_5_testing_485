@@ -42,6 +42,8 @@ class Lead extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			//	'listdata'    => array(self::BELONGS_TO, 'Aweberlisting', 'list_id'),
+				'listdata' => array(self::BELONGS_TO, 'Aweberlisting', '', 'on'=>'listdata.list_id = t.list_id'),
 		);
 	}
 
@@ -58,6 +60,7 @@ class Lead extends CActiveRecord
 			'email' => 'Email',
 			'module_id' => 'Module',
 			'module_name' => 'Module Name',
+			'list_id'=>'List ID',
 		);
 	}
 
@@ -79,7 +82,7 @@ class Lead extends CActiveRecord
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('module_id',$this->module_id,true);
 		$criteria->compare('module_name',$this->module_name,true);
-		
+		$criteria->compare('list_id',$this->list_id,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -95,7 +98,17 @@ class Lead extends CActiveRecord
 		$this->email = $data['email'];
 		$this->module_id = $data['module_id'];
 		$this->module_name = $data['module_name'];
+		$this->list_id = $data['list_id'];
 		$this->created = date('Y-m-d H:i:s');
 		$this->save();
+	}
+	
+	
+	public function lead_count($app_id)
+	{
+		return 	$count = Lead::model()->countByAttributes(array(
+	            'app_id'=> $app_id
+	        ));
+		
 	}
 }

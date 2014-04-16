@@ -38,6 +38,36 @@
 
 <script>
 
+jQuery( document ).bind( "mobileinit", function() {
+
+    // Make your jQuery Mobile framework configuration changes here!
+
+
+
+    jQuery.mobile.allowCrossDomainPages = true;
+
+
+
+});
+
+
+
+$(document).ajaxStart(function() {
+
+    $.mobile.loading('show');
+
+});
+
+
+
+$(document).ajaxStop(function() {
+
+    $.mobile.loading('hide');
+
+});
+
+
+
 jQuery(document).ready(function(){
 
 	
@@ -60,17 +90,21 @@ jQuery(document).ready(function(){
 
 	       	url: actionUrl.action,
 
-	       	crossDomain:true,
+	       	//crossDomain:true,
 
-	       	dataType:'application/json; charset=utf-8',
+	      	dataType:'application/json; charset=utf-8',
 
 	        data: postData,
 
 	        success: function(response){
 
-				//alert('eee');
+					
 
-				var arg = JSON.parse(response);
+	        	var argtt = response.responseText;
+
+				var arg = JSON.parse(response.responseText);
+
+
 
 				if(arg.success==1)
 
@@ -96,13 +130,39 @@ jQuery(document).ready(function(){
 
 	        },
 
-	        error: function(){
+	        error: function(response){
 
-	        	$('.squeeze_wrapper').html("");
+				
 
-				$('.squeeze_wrapper').html("<div class='no_data'>Error ! Please try after sometime</div>");
+	        	var argtt = response.responseText;
 
-	        }
+				var arg = JSON.parse(response.responseText);
+
+
+
+				if(arg.success==1)
+
+				{
+
+					$('.squeeze_wrapper').html("");
+
+					$('.squeeze_wrapper').html("<div class='no_data'>Submit Successfully</div>");
+
+				}
+
+				else
+
+				{
+
+					$('.squeeze_wrapper').html("");
+
+					$('.squeeze_wrapper').html("<div class='no_data'>Error ! Please try after sometime</div>");
+
+				}
+
+	        	//popdetialHideOther(arg);
+
+	        },
 
 	    }); 
 
@@ -172,6 +232,14 @@ Add first data form lead
 
 	    <input name="list_id" type="hidden"  value="3316206" />
 
+	    <input name="app_id" type="hidden" value="823" />
+
+	    <input name="user_id" type="hidden"  value="37" />
+
+	    <input name="module_id" type="hidden" value="4287" />
+
+	    <input name="module_name" type="hidden"  value="Squeeze Test " />
+
 	    <input name="name" type="text" placeholder="Name" />
 
 	    <input name="email" type="text" placeholder="Email" />
@@ -182,7 +250,7 @@ Add first data form lead
 
     </div>
 
- 
+ <div id="testing" class="testing" ></div>
 
   <!-- Squeeze Page Ends here -->
 

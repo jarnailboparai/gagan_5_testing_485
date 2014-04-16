@@ -29,22 +29,22 @@ $().ready(function() {
 		messages: {
 			"Application[title]": {
 				required: "<div class='alert alert-danger'>Please enter App Title</div>",
-				regx: "<div class='alert alert-danger'>Please enter valid App Title(No special character allowed,No space allowed)</div>"
+				regx: "<div class='alert alert-danger'>Please enter valid App Title (No special character allowed, No space allowed)</div>"
 			},
 			"Application[id_app]": {
 				required: "<div class='alert alert-danger'>Please enter App ID</div>",
-				regx: "<div class='alert alert-danger'>Please enter valid App Title(No special character allowed,ex-com.example.type,No space allowed)</div>"
+				regx: "<div class='alert alert-danger'>Please enter valid App Title (No special character allowed, ex-com.example.type, No space allowed)</div>"
 			},
 			
 			
 			"Application[description]": {
 				required: "<div class='alert alert-danger'>Please enter App Description</div>",
-				regx: "<div class='alert alert-danger'>Please enter valid App Description(No special character allowed,No space allowed in first place)</div>"
+				regx: "<div class='alert alert-danger'>Please enter valid App Description (No special character allowed, No space allowed in first place)</div>"
 			},
 			
 			"Application[icon]": {
 				required: "<div class='alert alert-danger'>Please select App Icon</div>",
-				extension: "<div class='alert alert-danger'>Please select valid App Icon(PNG only)</div>"
+				extension: "<div class='alert alert-danger'>Please select valid App Icon (PNG only)</div>"
 			},
 		}
 	});

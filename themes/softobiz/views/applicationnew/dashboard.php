@@ -127,6 +127,23 @@ if(count($model) > 0  ){
             		<?php } ?>
            
             </div>
+            
+            <!-- No of leads -->
+            <div class="app_icon leads_no">
+            	<?php  $count = Lead::model()->lead_count($m['id']); ?>            		 		
+           		<?php if($count)
+           		{ ?>
+           		<a href="<?php echo Yii::app()->createUrl('/tutorial/export', array('app_id' => $m['id'])); ?>" title="Leads">
+            	<?php echo $count; ?>
+            	</a><i>Leads</i>
+            	<?php } else {?>
+            	<span title="Leads"><?php echo $count; ?></span>
+            	<i>Leads</i>
+				<?php  } ?>	
+                          
+            </div>
+            
+            <!-- No of Leads ends -->
             <?php  if(count($obj->applinkdata) > 0 && $obj->applinkdata->attributes['ios'] == null  ){  ?>
             	<a href="<?php echo CHtml::normalizeUrl(array('tutorial/buildapp','id'=>$m['id'])); ?>" class="pull-right build_ios btn btn-primary generateappnew">Build IOS APP</a>
             <?php }elseif(count($obj->applinkdata) > 0 && $obj->applinkdata->attributes['android'] == null){ ?>

@@ -2,27 +2,23 @@
 
 .theme_bg{
 
-	background-image:url(../images/main_bg.jpg);
-
-	background-position:center bottom;
-
-	background-repeat:no-repeat;
+	background:#a6250f;
 
 	min-width:320px;
 
-	background-color:#fff;
+	background-size:100%;
 
-	background-size: auto 100%;
+	background-position:center center;
 
 }
 
 .logo{
 
+	padding-top:28%;
+
 	transition:all ease .3s;
 
 	margin: 0 auto;
-
-	padding-top: 28%;
 
 }
 
@@ -60,11 +56,11 @@
 
 .ui-header{
 
-	background:#dce1e5 !important;
+	background:url(../images/header_bg.png)  !important;
 
 	border:none !important;
 
-	background-size:auto 100% !important;
+	
 
 }
 
@@ -78,13 +74,11 @@
 
 	text-shadow:none !important;
 
-	color:#0A2654 !important;
+	color:#fff !important;
 
-	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
 
-	font-weight:bold;
-
-	font-size:26px;
+	font-weight:normal;
 
 	margin:0 23%;
 
@@ -145,8 +139,6 @@
 	max-width:32px;
 
 }
-
-
 
 .theme_bg
 {

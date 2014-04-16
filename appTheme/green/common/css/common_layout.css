@@ -86,3 +86,23 @@ a.item{
 	outline:none;
 	cursor:pointer;
 }
+
+/* loader setting */
+.ui-loader-default{
+	background: none repeat scroll 0 0 #000000;
+    height: 100%;
+    left: 0;
+    opacity: 0.4;
+    position: fixed;
+    top: 0 !important;
+    width: 100%;
+	margin:0px !important;
+}
+
+
+.ui-loader .ui-icon-loading {
+    position:absolute;
+	top:50%;
+	left:50%;
+	margin:-23px 0 0 -23px;
+}
