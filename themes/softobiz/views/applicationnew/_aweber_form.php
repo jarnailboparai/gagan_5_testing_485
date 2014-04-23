@@ -10,12 +10,14 @@
  </style>
 
 
-      
+
 <script>
 
 jQuery(document).ready(function(){
 	
 	jQuery('#module-form-aweber').on('submit',function(e){
+		nicEditors.findEditor('description').saveContent();
+		nicEditors.findEditor('images').saveContent();
 		e.preventDefault();
 	    var postData = $(this).serialize();
 	    var actionUrl = document.getElementById('module-form-aweber');
@@ -48,7 +50,7 @@ jQuery(document).ready(function(){
 <!--  Html content for image gallery starts here -->
 
 <div class="row-fluid manage_apps media_gallery tab_gallery location_form aweber_form">
-     <?php if(count($model_weber) && !empty($data) && $aweberapplication_id!=""){
+     <?php 
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'module-form-aweber',
         	'action'=> CHtml::normalizeUrl(array("tutorial/aweber","module_id"=>$model->id)),
@@ -96,8 +98,15 @@ jQuery(document).ready(function(){
                     if ($model->images != NULL)
                         $images = $model->images;
                     else
-                        $images = '';
+                        $images = "Thanks. Check your inbox for our email. We will be sending you the information now. If you don't see it then be sure to check your spam folder.";
                     ?>
+                     <?php
+                    if ($model->web_page_url != NULL)
+                        $web_page_url = $model->web_page_url;
+                    else
+                        $web_page_url = "We respect your privacy. Your email will never be sold. We hate spam as much as you. From time to time we will also email you with more tips and information.";
+                    ?>
+                    
                      <?php
                     if ($aweberapplication_id != NULL)
                         $model->flickr_keyword = $aweberapplication_id;
@@ -106,7 +115,7 @@ jQuery(document).ready(function(){
                     ?>
 
 
-                    <textarea style="display: none" name="upload_url" ><?= $images; ?></textarea>
+                    
                 </div>
  
 		    <?php echo $form->textField($model, 'tab_title', array('placeholder' => 'Title', 'value' => $title)); ?>
@@ -175,14 +184,117 @@ jQuery(document).ready(function(){
 <!--              		<textarea name="" cols="" rows="" placeholder="Enter Address"></textarea> -->
              		
 
-             <?php
+           
+   		 <!-- 
+				<textarea placeholder="Description" id="description" type="text"  name="Module[description]"><?= $description; ?></textarea>
+		-->
+		
+		<!-- Editor Starts here -->
+        <div class="row-fluid">
+				<div class="span12">
+				<div class="msg_wrapper">
+				<div class="msg_title">Description</div>
+		<div class="custom_editor">
+		<div class="content_editor">
+	<textarea id="description" name="Module[description]" style="width: 100%;height: 300px" cols="100"><?= $model->description ?></textarea>
+				<script>
+                    var nicedt;
+                    //<![CDATA[
+                  /*  bkLib.onDomLoaded(function() {
+                        nicedt = new nicEditor({maxHeight: 300, fullPanel: true}).panelInstance('editor1');
+                        nicedt.instanceById('editor1').setContent($('textarea[name="Module[description]"]').val());
+                    }); */
+                    //]]>
+                    function myBk(){
+                    	nicedt = new nicEditor({maxHeight: 300, fullPanel: true}).panelInstance('description');
+                       // nicedt.instanceById('editor1').setContent($('textarea[name="Module[description]"]').val());
+                    
+               		}
+                		myBk();
+					
+              </script>
+	
+	</div>
+	</div>
+    </div>
+    </div>
+    </div>
+				<!-- Editor Ends here -->
+				
+				
+				
+				
+				
+				
+				
+				<div class="row-fluid">
+				<div class="span12">
+				<div class="msg_wrapper">
+				<div class="msg_title">Thank you Page Text</div>
+				<!--  <textarea placeholder="Thank you Message" id="images" type="text"  name="Module[images]"><?= $images; ?></textarea>-->             
+                <!-- Editor Starts here -->
+				<div class="custom_editor">
+				<div class="content_editor">
+					<textarea id="images" name="Module[images]" style="width: 100%;height: 300px" cols="100"><?= $images ?></textarea>
+				<script>
+                    var nicedt;
+                    //<![CDATA[
+                  /*  bkLib.onDomLoaded(function() {
+                        nicedt = new nicEditor({maxHeight: 300, fullPanel: true}).panelInstance('editor1');
+                        nicedt.instanceById('editor1').setContent($('textarea[name="Module[description]"]').val());
+                    }); */
+                    //]]>
+                    function myBk_text(){
+                    	nicedt = new nicEditor({maxHeight: 300, fullPanel: true}).panelInstance('images');
+                       // nicedt.instanceById('editor1').setContent($('textarea[name="Module[description]"]').val());
+                    
+               		}
+                    myBk_text();
+					
+              </script>
+	
+	</div>
+	</div>
+				<!-- Editor Ends here -->
+                
+                </div>
+                </div>
+                </div>
+                <div class="row-fluid">
+				<div class="span12">
+                <div class="msg_wrapper">
+                <div class="msg_title">Legal Text</div>
+                <textarea placeholder="Legal Text" id="web_page_url" type="text"  name="Module[web_page_url]"><?=  $web_page_url; ?></textarea>
+                </div>
+                </div> 
+                </div>
+                <div class="aweber_activate">
+                <div class="aweber_title">API Intergration</div>
+                <div class="list_wrap">
+                  <?php
+             if(count($model_weber) && !empty($data) && $aweberapplication_id!=""){
 		        echo $form->labelEx($model,'Listing',array('class'=>'aweber_label'));
 		        echo $form->listBox($model,'flickr_id', $data, $htmlOptions);
-		      
-  			  ?>
-   		 
-<textarea placeholder="Description" id="description" type="text"  name="Module[description]"><?= $description; ?></textarea>
+		      }
+  			  ?>  
+  			   <!-- activation button starts here -->
+  			  
+		
+		<?php if($aweberapplication_id=="" || empty($data))
+		{ ?>	
+		
+		<a class='btn btn-info large-btn' onclick="feature_listing();" target="_blank" href='<?php echo CHtml::normalizeUrl(array('aweber/index'))?>' >Activate Aweber Account</a>
+		<?php } ?>
+	
+			
+  			  
+  	<!-- activation button ends here -->
+  			 </div>  
+  			
+  			 
+  		      
               </div>
+             </div>
               
                   <div class="button_panel">
                   
@@ -196,21 +308,10 @@ jQuery(document).ready(function(){
                 
                 </div>
     
-    <?php }else{ ?>     
-	<div class="aweber_btn sub_page_wrapper">
-		<?php if($aweberapplication_id=="")
-		{ ?>	
-		<a class='btn btn-info large-btn' onclick="feature_listing();" target="_blank" href='<?php echo CHtml::normalizeUrl(array('aweber/index'))?>' >Create Your Aweber Account</a>
-		<?php }
-		if(empty($data) && $aweberapplication_id!="")
-		{ ?>
-			<a class='btn btn-info large-btn' target="_blank" onclick="feature_listing();" href='<?php echo CHtml::normalizeUrl(array('aweber/index'))?>' >Please Get Aweber List or Add it</a>
-			
+   
 	
-	<?php }   ?>
-	</div>
 	
-	<?php } ?>
+	
 <?php
 if (substr($model->name, 0, 7) == 'content')
     $model_name = 'content';
@@ -259,6 +360,12 @@ else
             $('.change_icon_block_popup').fadeOut();
             $('input[name="Module[tab_icon]"]').val($(this).attr('src'));
                   });
+
+
+        $('.aweber_title').click(function() {
+            $('.list_wrap').slideToggle();
+            
+		  });
 
         
 

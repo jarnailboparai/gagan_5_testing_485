@@ -55,7 +55,7 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/scroller/perfect-scrollbar.js"></script> 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/validate.js"></script> 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/additional_validate.js"></script>
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-tab.js"></script> 
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-alert.js"></script>
 <script>
       jQuery(document).ready(function ($) {
         "use strict";
@@ -78,6 +78,7 @@
     ================================================== --> 
 <!-- Placed at the end of the document so the pages load faster --> 
 <script src="https://apis.google.com/js/client.js"></script>
+
 <div class="loading_content"> <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/loading_page.gif"> </div>
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme_bg.css" rel="stylesheet">
 </body>

@@ -144,9 +144,9 @@ jQuery(document).ready(function(){
 
 				{
 
-					$('.squeeze_wrapper').html("");
+					$('.squeeze_wrapper').hide();
 
-					$('.squeeze_wrapper').html("<div class='no_data'>Submit Successfully</div>");
+					$('.thankyou_msg').show();
 
 				}
 
@@ -160,7 +160,7 @@ jQuery(document).ready(function(){
 
 				}
 
-	        	//popdetialHideOther(arg);
+	        	
 
 	        },
 
@@ -222,9 +222,11 @@ img {
 
 <div class="squeeze_desc">
 
-test
+	test
 
 </div>
+
+<div class="squeeze_desc aweber_note">
 
     <form action="http://app-gorilla.com/members/wizard/index.php?r=aweber/addusertolist" method="POST" id='module-form-aweber'>
 
@@ -244,9 +246,15 @@ test
 
 	    <input name="email" type="text" placeholder="Email" />
 
+		
+
     	<input type="submit" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini" value="Submit" />
 
+    	We respect your privacy. Your email will never be sold. We hate spam as much as you. From time to time we will also email you with more tips and information.
+
     </form>
+
+    </div>
 
     </div>
 
@@ -255,6 +263,16 @@ test
   <!-- Squeeze Page Ends here -->
 
   
+
+  
+
+  <!-- thank you message -->
+
+  <div class="thankyou_msg">Thanks. Check your inbox for our email. We will be sending you the information now. If you don't see it then be sure to check your spam folder.</div>
+
+  
+
+  <!-- Thankyou message ends here -->
 
 </div>
 

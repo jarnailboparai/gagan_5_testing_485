@@ -73,7 +73,6 @@ div.gallery-item .play_video_icon:hover,div.gallery-item .play_video_icon:active
     white-space: nowrap;
 }
 */
-
 .video_wrap{
 	padding:8px;
 }
@@ -137,8 +136,10 @@ div.gallery-item .play_video_icon:hover,div.gallery-item .play_video_icon:active
 		margin-bottom:10px;
 	}
 }
+
 .theme_bg{
 	min-height:486px;
 }
+
 
 

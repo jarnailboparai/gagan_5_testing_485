@@ -6,22 +6,25 @@
 	background:url(../images/header_bg.png);
 }
 .staticPage{
-	background:#fff url(../images/header_bg.png);
-	margin:1% 0% 1%;
+	background:url(../images/title_bg.png);
+	margin:4% auto 2%;
 	padding:3%;
 	/*width: 91%;*/
 	word-wrap: break-word;
+	color:#fff;
+	text-shadow:none;
 }
 .staticpage_content p{
-	color:#333;
+	color:#fff;
 	font-size:14px;
 	line-height:20px;
 	text-align:justify;
 	text-shadow:none;
 }
 .staticPageList .ui-btn{
-	background:#fff url(../images/list_bg.png) !important;
-	border-color:#6D3619;
+	background:none !important;
+	border-color:#fff;
+	border-bottom:1px solid #fff !important;
 }
 .staticPageList{
 	/*margin:4% 2% 2%;*/
@@ -37,6 +40,11 @@
 	background:none;
 	border-color:#ddd;
 }
+.staticPageList .ui-btn:hover,.staticPageList .ui-btn:focus,.staticPageList .ui-btn:active{
+	background:url(../images/title_bg.png) !important;
+	box-shadow:none;
+}
+
 /* Social Media Page Setting Starts Here */
 .social_media ul li{
 	margin-bottom:5px;
@@ -44,9 +52,9 @@
 .social_media .ui-listview > li.ui-first-child, .social_media .ui-listview > li.ui-first-child > a.ui-btn,.social_media .ui-listview > li.ui-last-child, .social_media .ui-listview > li.ui-last-child > a.ui-btn {
 	border-radius:0px;
 }
-
-.staticPageList .ui-listview > li p br{
-	display: none;
+.staticPageList .ui-btn{
+	color:#fff !important;
+	text-shadow:none !important;
 }
 /* Social Media Page Setting Ends Here */
 
@@ -63,3 +71,5 @@ a.item{
 	max-width: 5.5em;
 	max-height:none;
 }
+
+/* Social Media Page Setting Ends Here */

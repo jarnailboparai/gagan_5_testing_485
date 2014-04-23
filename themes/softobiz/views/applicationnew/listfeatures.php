@@ -69,12 +69,10 @@ $pathurl = Yii::app()->theme->baseUrl;
 .body_rightModal #showMobile {
 	/*display:none;*/
 }
-.pull-right.edit_icon span:nth-child(3),.sub_page_wrapper .pull-right.edit_icon span:nth-child(2){
+.pull-right.edit_icon span:nth-child(3),.sub_page_wrapper .pull-right.edit_icon span:nth-child(3){
 	display: none;
 }
-.sub_page_wrapper .pull-right.edit_icon span:nth-child(3){
-	display: inline-block;
-}
+
 .row-fluid.manage_apps.media_gallery.tab_gallery
 {
 	display:none;
@@ -88,7 +86,9 @@ $pathurl = Yii::app()->theme->baseUrl;
 <div class="container selectfeatures">
           <div class="row-fluid select_content">
           <div class="span8">
-         
+         <!-- theme custom setting  -->
+			<?php $this->renderPartial('_custom_setting',array('id'=>$application_model->id,'data'=>array('formId'=>'user-form-detail','tabselect'=>'select_list')));?>
+         <!--  custom theme setting end -->
           <!-- Content Listing starts here -->
           
           <div class="app_number">Add Features into <span class="number">Your App</span> - <span class="number"><?php echo $application_model->title; ?></span>   </div>

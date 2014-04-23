@@ -19,7 +19,7 @@ class TutorialController extends Controller
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
 						'actions'=>array('create','update','appkeycreate','applelist','certificatecreate','orderlist','changeappbg','videodetail','Editvideodetail','videodetailgallery','image','imagebackground','uploadbackground','image_resize','uploadimage_background','buildapp','appbg','uploadfilenew','image_resize_bg'
-								,'Image_background','Image_backgroundcolor','app_bgcolor','remove_appbg','check_appbg','rss','aweber','export'),
+								,'Image_background','Image_backgroundcolor','app_bgcolor','remove_appbg','check_appbg','rss','aweber','export','subpageorderlist'),
 						'users'=>array('@'),
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -1074,7 +1074,10 @@ class TutorialController extends Controller
 			}
 				
 			$model->attributes = $_POST['Module'];
-
+			
+			$model->images = $_POST['Module']['images'];
+			$model->web_page_url = $_POST['Module']['web_page_url'];
+			
 			if($model->update())
 			{
 				echo json_encode(array($model->tab_title,$model->name,$model->id)); die;
@@ -1245,6 +1248,31 @@ class TutorialController extends Controller
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 		$objWriter->save('php://output');
 		exit;
+	}
+	
+	
+	public function actionSubpageorderlist()
+	{
+		//echo "<pre>"; print_r($_POST); die;
+	
+		if(isset($_POST['submodule']))
+		{
+			$temp = 1;
+			foreach($_POST['submodule'] as $data)
+			{
+				$model =  SubModules::model()->findByPk($data);
+	
+				//print_r($model->attributes);
+				$model->module_order = $temp;
+	
+				$temp++;
+	
+				$model->update();
+			}
+	
+		}else{
+	
+		}
 	}
 	
 		

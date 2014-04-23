@@ -2,7 +2,7 @@
 	text-align:center;
 }
 .location{
-	background:url(../images/header_bg.png);
+	background:url(../images/title_bg.png);
 	margin:4% auto 2%;
 	padding:3%;
 	width:89%;
@@ -17,28 +17,28 @@
 	position:absolute;
 	height:100% !important;
 	max-height:400px;
-	background:url(../images/header_bg.png);
+	background:url(../images/title_bg.png);
 	padding:1%;
 	width:98% !important;
 }
 .location_address{
-	color:#070301;
+	color:#fff;
 	font-size:14px;
 	line-height:20px;
 	text-align:justify;
-	text-shadow:1px 0px 0px #333;
+	text-shadow:none;
 	padding:0% 0 2% 2%;
 	width:30%;
 	float:left;
+	word-wrap:break-word;
 }
 .location_address p{
 	margin:5px;
 }
 .contact_details{
 	color:#fff;
-	text-shadow:1px 0px 0px #fff;
+	text-shadow:none;
 }
-
 
 @media ( max-width: 480px ) {
 	.iframewrapper{

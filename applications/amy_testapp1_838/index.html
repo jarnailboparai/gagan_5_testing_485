@@ -6,9 +6,11 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title>Coffe Shop</title>
+<title>Wooden Grid Menu Two List Items</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 
 <link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
 
@@ -16,25 +18,15 @@
 
 <link rel="stylesheet" href="css/common_layout.css" />
 
-<link rel="stylesheet" href="css/fonts.css" />
-
-<link rel="stylesheet" href="css/custom_responsive.css" />
+<link rel="stylesheet" href="css/grid_menu.css" />
 
 <link rel="stylesheet" href="css/custom-responsive.css" />
+
+<link rel="stylesheet" href="css/temporary.css" />
 
 <script src="js/jquery_1.9.1.js"></script>
 
 <script src="js/jquery.mobile-1.4.0.js"></script>
-
-<!-- Mobile Crousel Setting -->
-
-<link rel="stylesheet" href="css/mobile_crousel/mobile_crousel.css" />
-
-<link rel="stylesheet" href="css/custom_responsive.css" />
-
-<!-- Mobile Crousel  Settings ends Here -->
-
-<link rel="stylesheet" href="css/temporary.css" />
 
 <style type="text/css">
 
@@ -54,87 +46,92 @@ img {
 
 <!-- Start of first page -->
 
-<div data-role="page" id="theme_layout" class="theme_bg"> 
+<div data-role="page" id="theme_layout" class="theme_bg">
 
-  
+<!-- Right Menu -->
 
-  <!-- Header Starts Here -->
 
-  <div data-role="header"> 
 
-    <h1>Testapp1</h1>
 
-     </div>
 
-  <!-- /header ends here --> 
+<!-- Right Menu Ends Here -->
 
-  <!-- Main Content Starts  Here -->
+  <div data-role="header">
 
-  <div role="main" class="ui-content"> 
-
-    <!-- Logo of app -->
-
-    <div class="logo" align="center"><img src="images/Wooden.png" alt="logo" /></div>
+  <h1>Testapp1</h1>
 
   </div>
 
-  <!-- /content ends here --> 
+  <!-- /header -->
 
   
 
-  <!-- Footer Starts Here -->
+  <div role="main" class="ui-content">
 
-  <div data-role="footer" data-position="fixed" > 
+  <!-- Logo of app -->
 
-    <!-- Menu Starts Here -->
+    <div class="logo" align="center"><img src="images/logo.png" alt="logo" /></div>
 
-    <div class="owl-carousel owl-demo">
+  
+
+  
+
+  </div>
+
+  <!-- /content -->
+
+  
+
+  <div data-role="footer">
+
+		<div class="grid_menu">
 
 			<div class="app_feature_list">
-			<a class="item link" href="rss_4403.html" rel="external" data-ajax="flase"  >
-																	<img src="images/rss_feeds.png " />
-										</a>
-		<a href="rss_4403.html" rel="external" data-ajax="flase"  >
-				<label>RSS</label>
-		</a>
-	</div>
-
-			<div class="app_feature_list">
-			<a class="item link" href="staticpage_4397.html" rel="external" data-ajax="flase"  >
+			<a  rel="external" data-ajax="flase"  class="item link" href="staticpage_4397.html">
 																	<img src="icon(242).png" />
 										</a>
-		<a href="staticpage_4397.html" rel="external" data-ajax="flase"  >
+		<a  rel="external" data-ajax="flase"  href="staticpage_4397.html">
 				<label>Machines</label>
 		</a>
 	</div>
 
 			<div class="app_feature_list">
-			<a class="item link" href="video_4399.html" rel="external" data-ajax="flase"  >
+			<a  rel="external" data-ajax="flase"  class="item link" href="video_4399.html">
 																	<img src="icon(54).png" />
 										</a>
-		<a href="video_4399.html" rel="external" data-ajax="flase"  >
+		<a  rel="external" data-ajax="flase"  href="video_4399.html">
 				<label>Videos</label>
 		</a>
 	</div>
 
 			<div class="app_feature_list">
-			<a class="item link" href="aweber_4402.html" rel="external" data-ajax="flase"  >
+			<a  rel="external" data-ajax="flase"  class="item link" href="rss_4403.html">
+																	<img src="images/rss_feeds.png " />
+										</a>
+		<a  rel="external" data-ajax="flase"  href="rss_4403.html">
+				<label>RSS</label>
+		</a>
+	</div>
+
+			<div class="app_feature_list">
+			<a  rel="external" data-ajax="flase"  class="item link" href="aweber_4402.html">
 																	<img src="icon(203).png" />
 										</a>
-		<a href="aweber_4402.html" rel="external" data-ajax="flase"  >
+		<a  rel="external" data-ajax="flase"  href="aweber_4402.html">
 				<label>Subscribe</label>
 		</a>
 	</div>
 
 	
+     
 </div>
 
+<!-- <a onclick="window.open('video_1895.html','_self', 'location=yes')" class="ui-link ui-btn ui-icon-custom ui-btn-icon-top ui-btn-active" data-gourl="video_1895.html" rel="external" data-icon="custom" id="tab2" href="video_1895.html">Videos</a> -->
 
-    <!-- Menu ends Here --> 
 
   </div>
 
-  <!-- footer ends here --> 
+  <!-- /footer --> 
 
 </div>
 
@@ -144,53 +141,7 @@ img {
 
 
 
-<script src="js/mobile_crousel_js/mobile_crousel.js"></script> 
 
-<script>
-
-    $(document).ready(function() {
-
-     
-
-    var owl = $(".owl-demo");
-
-     
-
-    owl.owlCarousel({
-
-    itemsCustom : [
-
-    [0, 4],
-
-    [450, 5],
-
-    [600, 6],
-
-    [700, 7],
-
-    [1000, 8],
-
-    [1200, 10],
-
-    [1400, 13],
-
-    [1600, 15]
-
-    ],
-
-    navigation : false
-
-     
-
-    });
-
-     
-
-    });
-
-
-
-</script>
 
 </body>
 

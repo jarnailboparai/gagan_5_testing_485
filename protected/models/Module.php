@@ -82,7 +82,7 @@ class Module extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'formFields' => array(self::HAS_MANY, 'FormFields', 'module_id'),
-			'subModules' => array(self::HAS_MANY, 'SubModules', 'module_id'),
+			'subModules' => array(self::HAS_MANY, 'SubModules', 'module_id','order'=>'module_order ASC'),
 			'application' => array(self::BELONGS_TO, 'Applications', 'application_id'),
 			'themesetting' => array(self::HAS_ONE, 'ThemeSettingBackground', 'module_id'),
 		);

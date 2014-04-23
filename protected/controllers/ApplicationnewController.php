@@ -1696,7 +1696,7 @@ class ApplicationnewController extends Controller
 					$url = $obj->attributes['rss_feed_url'];
 					
 					//$str = implode("\n", file($src_path . '/video.html'));
-					
+				/*   code commentby sob_k	
 					if ($obj->attributes['flickr_id'] == NULL || empty($obj->attributes['flickr_id'])  )
 					{
 						$str = implode("\n", file($sourcefile . '/../common/aweber_error.html'));
@@ -1710,7 +1710,7 @@ class ApplicationnewController extends Controller
 						
 						fwrite($fp, $str, strlen($str));
 						
-					}else{
+					}else{ */
 					
 						$str = implode("\n", file($sourcefile . '/../common/aweber.html'));
 							
@@ -1735,10 +1735,27 @@ class ApplicationnewController extends Controller
 						
 						if ($obj->attributes['flickr_id'] != NULL)
 							$str = str_replace("<!--list_id-->", $obj->attributes['flickr_id'], $str);
+						else
+							$str = str_replace("<!--list_id-->", '0', $str);
 												
 						if ($obj->attributes['flickr_keyword'] != NULL)
 							$str = str_replace("<!--aweberapp_id-->", $obj->attributes['flickr_keyword'], $str);
-	
+						else
+							$str = str_replace("<!--aweberapp_id-->", '0', $str);
+						// code by sob_k
+						if ($obj->attributes['web_page_url'] != NULL)
+							$str = str_replace("<!--Legaltext-->", $obj->attributes['web_page_url'], $str);
+						else
+							$str = str_replace("<!--Legaltext-->", "We respect your privacy. Your email will never be sold. We hate spam as much as you. From time to time we will also email you with more tips and information.", $str);
+						
+						
+						if ($obj->attributes['images'] != NULL)
+							$str = str_replace("<!--Thankyou-->", $obj->attributes['images'], $str);
+						else
+							$str = str_replace("<!--Thankyou-->", "Thanks. Check your inbox for our email. We will be sending you the information now. If you don't see it then be sure to check your spam folder.", $str);
+						
+						
+						// code end by sob_k   
 						$str = str_replace("<!--app_id-->", $app_id, $str);
 						
 						$str = str_replace("<!--module_id-->", $obj->attributes['id'], $str);
@@ -1765,7 +1782,7 @@ class ApplicationnewController extends Controller
 						//$str = $this->generateMenu($str, $app_model);
 							
 						fwrite($fp, $str, strlen($str));
-					}
+			//		}   code comment by sob_k
 					
 					$nameFileCss = null;
 					
@@ -3112,7 +3129,8 @@ class ApplicationnewController extends Controller
 						'photosub'=>'Image Gallery',
 						'location'=>'Location',
 						'rss_feeds'=>'RSS',
-						'aweber'=>'Squeeze',
+						//'aweber'=>'Squeeze Page',
+						'aweber'=>'Optin Forms',
 						'optin_forms'=>'Optin Forms',
 						'contact_us_page'=>'Contact us page',
 						'social_sharing_features'=>'Social Sharing features',
@@ -3341,7 +3359,8 @@ class ApplicationnewController extends Controller
 				'photosub'=>'Image Gallery',
 				'location'=>'Location',
 				'rss_feeds'=>'Rss',
-				'aweber'=>'Squeeze Page',
+			//	'aweber'=>'Squeeze Page',
+				'aweber'=>'Optin Forms',
 				'optin_forms'=>'Optin Forms',
 				//'contact_us_page'=>'Contact us page',
 				'social_sharing_features'=>'Social Sharing features',

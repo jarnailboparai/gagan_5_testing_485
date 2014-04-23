@@ -64,6 +64,7 @@ class AweberController extends Controller
 	
 	public function actionAppverify()
 	{
+	//	try{
 		Yii::import('ext.AWeber.*');
 			
 //  	$consumerKey    = "Akjoa6ncuk55rXLlof4PWCIc";
@@ -92,7 +93,12 @@ class AweberController extends Controller
 			
 			if (empty($_GET['oauth_token'])) {
 				$callbackUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+				//$data = $aweber->getRequestToken($callbackUrl); 
+				
+				//echo "<pre>"; print_r($data); die;
 				list($requestToken, $requestTokenSecret) = $aweber->getRequestToken($callbackUrl);
+			
+				//echo $requestToken; die;
 				setcookie('requestTokenSecret', $requestTokenSecret);
 				setcookie('callbackUrl', $callbackUrl);
 				header("Location: {$aweber->getAuthorizeUrl()}");
@@ -128,7 +134,10 @@ class AweberController extends Controller
 			
 		$aweber->adapter->debug = false; 
 
-
+	//	}catch(Exception $e)
+	//	{
+	//		Yii::app()->user->setFlash('success', "Error Please Try After Sometime!");
+	//	}
 		$this->redirect(array('index'));
 		
 	}
@@ -217,6 +226,12 @@ class AweberController extends Controller
 					echo json_encode(array('success'=>1,'message'=>'Successfully done'));
 				else
 					echo json_encode(array('success'=>0,'error'=>'Some issues at AWeber end please try later'));
+			}
+			else
+			{
+				$lead_model = new Lead();
+				$lead_model->lead_data($_POST);
+				echo json_encode(array('success'=>1,'message'=>'Successfully done'));
 			}
 		}else{
 			

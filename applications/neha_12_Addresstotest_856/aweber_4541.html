@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wooden Theme</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="../../assets/css/fonts.css" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
+
+<link rel="stylesheet" href="css/theme.css" />
+
+<link rel="stylesheet" href="css/common_layout.css" />
+
+<link rel="stylesheet" href="css/squeeze.css" />
+
+<!--ThemeSettingSubpage-->
+
+<!--ThemeSetting-->
+
+<script src="cordova.js"></script>
+
+<script src="js/jquery_1.9.1.js"></script>
+
+<script src="js/validate.js"></script>
+
+<script src="js/validate_aweber.js"></script>
+
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script>
+
+jQuery( document ).bind( "mobileinit", function() {
+
+    // Make your jQuery Mobile framework configuration changes here!
+
+
+
+    jQuery.mobile.allowCrossDomainPages = true;
+
+
+
+});
+
+
+
+$(document).ajaxStart(function() {
+
+    $.mobile.loading('show');
+
+});
+
+
+
+$(document).ajaxStop(function() {
+
+    $.mobile.loading('hide');
+
+});
+
+
+
+jQuery(document).ready(function(){
+
+	
+
+	jQuery('#module-form-aweber').on('submit',function(e){
+
+		e.preventDefault();
+
+	    var postData = $(this).serialize();
+
+	    var actionUrl = document.getElementById('module-form-aweber');
+
+	 	console.log(actionUrl.action);
+
+		if($("#module-form-aweber").valid())	{
+
+	    $.ajax({
+
+	        type: 'POST',
+
+	       	url: actionUrl.action,
+
+	       	//crossDomain:true,
+
+	      	dataType:'application/json; charset=utf-8',
+
+	        data: postData,
+
+	        success: function(response){
+
+					
+
+	        	var argtt = response.responseText;
+
+				var arg = JSON.parse(response.responseText);
+
+
+
+				if(arg.success==1)
+
+				{
+
+					$('.squeeze_wrapper').html("");
+
+					$('.squeeze_wrapper').html("<div class='no_data'>Submit Successfully</div>");
+
+				}
+
+				else
+
+				{
+
+					$('.squeeze_wrapper').html("");
+
+					$('.squeeze_wrapper').html("<div class='no_data'>Error ! Please try after sometime</div>");
+
+				}
+
+	        	//popdetialHideOther(arg);
+
+	        },
+
+	        error: function(response){
+
+				
+
+	        	var argtt = response.responseText;
+
+				var arg = JSON.parse(response.responseText);
+
+
+
+				if(arg.success==1)
+
+				{
+
+					$('.squeeze_wrapper').hide();
+
+					$('.thankyou_msg').show();
+
+				}
+
+				else
+
+				{
+
+					$('.squeeze_wrapper').html("");
+
+					$('.squeeze_wrapper').html("<div class='no_data'>Error ! Please try after sometime</div>");
+
+				}
+
+	        	
+
+	        },
+
+	    }); 
+
+	}
+
+	});
+
+
+
+	
+
+	
+
+});
+
+
+
+</script>
+
+<style type="text/css">
+
+img {
+
+	max-width:100%;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<!-- Start of first page -->
+
+<div data-role="page" id="theme_layout" class="theme_bg"> 
+
+  
+
+  <!-- Header Starts Here -->
+
+  <div data-role="header"> <a href="index.html" class="refresh_link" data-role="button" rel="external" data-ajax="false" role="button"><img src="images/home_icon.png" alt="home icon" /></a>
+
+    <h1>Optin form</h1>
+
+    <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>
+
+  <!-- /header ends here --> 
+
+  <!-- Squeeze Page starts here -->
+
+ 	<div class="squeeze_wrapper">
+
+   
+
+<div class="squeeze_desc">
+
+	<div class="lc"><p>ί<b>ναι απλά ένα κείμενο χωρίς νόημα για τους 
+επαγγελματίες της τυπογραφίας και στοιχειοθεσίας. Το Lorem Ipsum είναι 
+το επαγγελματικό πρότυπο όσον αφορά το κείμενο χωρίς νόημα, από τον 15ο 
+αιώνα, όταν ένας ανώνυμος τυπογράφος πήρε ένα δοκίμιο και ανακάτεψε τις 
+λέξεις για να δημιουργήσει ένα δείγμα βιβλίου. Όχι μόνο επιβίωσε πέντε 
+αιώνες, αλλά κυριάρχησε στην ηλεκτρονική στοιχειοθεσία, παραμένοντας με 
+κάθε τρόπο αναλλοίωτο. Έγινε δημοφιλές τη δεκαετία του '60 με την έκδοση
+ των δειγμάτων της Letraset όπου περιελάμβαναν αποσπάσματα του Lorem 
+Ipsum, και πιο πρόσφατα με το λογισμικό ηλεκτρονικής σελιδοποίησης όπως 
+το Aldus PageMaker  που περιείχαν εκδοχές του Lorem Ipsum.</b></p></div><div class="rc"><h2 class="why"></h2><p><b>Είναι
+ πλέον κοινά παραδεκ</b>τό ότι ένας αναγνώστης αποσπάται από το περιεχόμενο 
+που διαβάζει, όταν εξετάζει τη διαμόρφωση μίας σ<u><i>ελίδας. Η ουσία της 
+χρήσης του Lorem Ipsum είναι ότι έχει λίγο-πολύ μία ομαλή κα</i></u>τανομή 
+γραμμάτων, αντίθετα με το να βάλει κανείς κείμενο όπως 'Εδώ θα μπει 
+κείμενο, εδώ θα μπει κείμενο', κάνοντάς το να φαίνεται σαν κανονικό 
+κείμενο. Πολλά λογισμικά πακέτα ηλεκτρονικής σελιδοποίησης και 
+επεξεργαστές ιστότοπων πλέον χρησιμοποιούν το Lorem Ipsum σαν 
+προκαθορισμένο δείγμα κειμένου, και η αναζήτησ για τις λέξεις 'lorem 
+ipsum' στο διαδίκτυο θα αποκαλύψει πολλά web site που βρίσκονται στο 
+στάδιο της δημιουργίας. Διάφορες εκδοχές έχουν προκύψει με το πέρασμα 
+των χρόνων, άλλες φορές κατά λάθος, άλλες φορές σκόπιμα (με σκοπό το 
+χιούμορ και άλλα συναφή).</p></div>
+
+</div>
+
+<div class="squeeze_desc aweber_note">
+
+    <form action="http://app-gorilla.com/members/wizard/index.php?r=aweber/addusertolist" method="POST" id='module-form-aweber'>
+
+	    <input name="aweberapp_id" type="hidden" value="846164" />
+
+	    <input name="list_id" type="hidden"  value="3316206" />
+
+	    <input name="app_id" type="hidden" value="856" />
+
+	    <input name="user_id" type="hidden"  value="38" />
+
+	    <input name="module_id" type="hidden" value="4541" />
+
+	    <input name="module_name" type="hidden"  value="Optin form" />
+
+	    <input name="name" type="text" placeholder="Name" />
+
+	    <input name="email" type="text" placeholder="Email" />
+
+		
+
+    	<input type="submit" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini" value="Submit" />
+
+    	ίναι απλά ένα κείμενο χωρίς νόημα για τους επαγγελματίες της τυπογραφίας και στοιχειοθεσίας. Το Lorem Ipsum είναι το επαγγελματικό πρότυπο όσον αφορά το κείμενο χωρίς νόημα, από τον 15ο αιώνα, όταν ένας ανώνυμος τυπογράφος πήρε ένα δοκίμιο και ανακάτεψε τις λέξεις για να δημιουργήσει ένα δείγμα βιβλίου. Όχι μόνο επιβίωσε πέντε αιώνες, αλλά κυριάρχησε στην ηλεκτρονική στοιχειοθεσία, παραμένοντας με κάθε τρόπο αναλλοίωτο. Έγινε δημοφιλές τη δεκαετία του '60 με την έκδοση των δειγμάτων της Letraset όπου περιελάμβαναν αποσπάσματα του Lorem Ipsum, και πιο πρόσφατα με το λογισμικό ηλεκτρονικής σελιδοποίησης όπως το Aldus PageMaker που περιείχαν εκδοχές του Lorem Ipsum.
+
+Είναι πλέον κοινά παραδεκτό ότι ένας αναγνώστης αποσπάται από το περιεχόμενο που διαβάζει, όταν εξετάζει τη διαμόρφωση μίας σελίδας. Η ουσία της χρήσης του Lorem Ipsum είναι ότι έχει λίγο-πολύ μία ομαλή κατανομή γραμμάτων, αντίθετα με το να βάλει κανείς κείμενο όπως 'Εδώ θα μπει κείμενο, εδώ θα μπει κείμενο', κάνοντάς το να φαίνεται σαν κανονικό κείμενο. Πολλά λογισμικά πακέτα ηλεκτρονικής σελιδοποίησης και επεξεργαστές ιστότοπων πλέον χρησιμοποιούν το Lorem Ipsum σαν προκαθορισμένο δείγμα κειμένου, και η αναζήτησ για τις λέξεις 'lorem ipsum' στο διαδίκτυο θα αποκαλύψει πολλά web site που βρίσκονται στο στάδιο της δημιουργίας. Διάφορες εκδοχές έχουν προκύψει με το πέρασμα των χρόνων, άλλες φορές κατά λάθος, άλλες φορές σκόπιμα (με σκοπό το χιούμορ και άλλα συναφή).
+
+    </form>
+
+    </div>
+
+    </div>
+
+ <div id="testing" class="testing" ></div>
+
+  <!-- Squeeze Page Ends here -->
+
+  
+
+  
+
+  <!-- thank you message -->
+
+  <div class="thankyou_msg">Thanks. Check your inbox for our email. We will be sending you the information now. If you don't see it then be sure to check your spam folder.<div>address to test &nbsp;~!@#$%^&amp;*()_|}{":?&gt;&lt;,./;'\][=-` u ds</div></div>
+
+  
+
+  <!-- Thankyou message ends here -->
+
+</div>
+
+<!-- /page --> 
+
+
+
+</body>
+
+</html>

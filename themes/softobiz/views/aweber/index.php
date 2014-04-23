@@ -6,23 +6,23 @@
 <!-- Testing area starts here -->
     <div class="tabbable tabs-left">
     <table width="100%" cellspacing="0" cellpadding="0">
-    <tbody><tr><td class="tab_list">
-              <ul class="nav nav-tabs">
-                <li class="active"><a href="javascript:void(0)" data-toggle="tab">API Integration</a></li>
-                 <!-- <li><a data-toggle="tab" href="#lC">Section 3</a></li>-->
-              </ul>
-              </td>
+    <tbody><tr>
+    <td class="tab_list"><?php $this->renderPartial('_list');?></td>
+   
+              
+              <!-- Right Section starts here -->
               <td>
               <div class="tab-content">
                 <div class="tab-pane active" id="lA">
                 <!-- form starts here -->
                 <form class=" webform">
-  <h4 class="form-signin-heading">AWeber</h4>
+  <h4 class="form-signin-heading">AWeber<img class="pull-right" style="margin-top:-15px;display:none;" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/aweber_logo.jpg" alt="Aweber Communication" /></h4>
     <?php if(!count($model)){ ?>
     <div class="activation">
+    
 <!--     <a class="btn btn-success btn-large" href="#">ACTIVATION</a> -->
     <?php echo CHtml::link('ACTIVATION', CHtml::normalizeUrl(array('aweber/appverify')),array('class'=>'btn btn-success btn-large')); ?>
-    
+    <div class="clearfix"></div>
     </div>
     <?php }else{?>
   <div class="jordan_wrap">
@@ -33,8 +33,7 @@
   		echo CHtml::listBox('slect',$model, $data, $htmlOptions); 
   	?>
 
-  <?php echo CHtml::link('Refresh', CHtml::normalizeUrl(array('aweber/appverify')),array('class'=>'btn btn-primary pull-left')); ?>
-  <div class="notification pull-left">Refresh to get updated list from AWeber</div>
+  <?php echo CHtml::link('Refresh Link', CHtml::normalizeUrl(array('aweber/appverify')),array('class'=>'btn btn-primary pull-left')); ?>
   	<?php } else {?>
   	 Not any list form Aweber account find <br>
   	 Please Add List to your Aweber account Then click  <?php echo CHtml::link('Refresh', CHtml::normalizeUrl(array('aweber/appverify')),array('class'=>'btn btn-primary')); ?> here to get updated list  
@@ -89,6 +88,7 @@
 <div class="clearfix"></div>
 </div>
 </td>
+			  <!-- Right Section ends here -->
 </tr>
 </tbody></table>
 </div>

@@ -158,7 +158,7 @@ box-shadow: 0 0 4px #bebebe;}
 .nav_bottom{ padding-top:7px;background: url("../img/examples/navbottom_bg.jpg") repeat-x bottom; padding-bottom:15px;}
 /*.pull-left.navbottom{ padding-top:5px;}*/
 .pull-left.navbottom button{ background:#fff; border:1px solid #cbcbcb; border-radius:0 !important; padding: 5px 20px;font-family: 'Open Sans', sans-serif; color:#000;}
-.pull-left.navbottom .btn:hover,.pull-left.navbottom .btn.selected,.select_info .app_info,.select_look .look,.selected_feature123 .select_features,.selected_content .content{ background-color:#eeeef0 !important;cursor:default;}
+.pull-left.navbottom .btn:hover,.pull-left.navbottom .btn.selected,.select_info .app_info,.select_look .look,.selected_feature123 .select_features,.selected_content .content,.pull-left.navbottom .btn.selected_tab,.select_list .list{ background-color:#eeeef0 !important;cursor:default;}
 .pull-left.navbottom .btn.active{ background-color:#eeeef0;}
 .btn-large.save{ background:#00c0ff; border-radius:0 !important; color:#fff; text-shadow:none; border:0;font-family: 'Open Sans', sans-serif;}
 .btn-large.save:hover{background:#11a4f7;}
@@ -814,7 +814,7 @@ footer{ padding:13px;}
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1000067;
     display:none;
 }
 .loading_content img,.loading_content2 img
@@ -856,7 +856,7 @@ footer{ padding:13px;}
 
 .pull-right.edit_icon {
     position: relative;
-    z-index: 1000;
+    z-index: 1001;
 	margin:-1px 7px 0 0;
 }
 .address_map input#address,.address_map input#rss_feed_url {
@@ -1213,7 +1213,7 @@ h4.view_app_title{
 .sub_page_wrapper #wrapperliUl {
 	margin:0px 12px;
 }
-.sub_page_wrapper #wrapperliUl li{
+.sub_page_wrapper #wrapperliUl > li{
 	background:none;
 	border-left:0px;
 	border-right:0px;
@@ -1346,6 +1346,12 @@ span.drag{
 .sub_page_wrapper #wrapperliUl li{
 	border-bottom:1px solid #E0E0E0;
 }
+.sub_page_wrapper #wrapperliUl.ui-sortable > li{
+	cursor:move;
+}
+.sub_page_wrapper #wrapperliUl.ui-sortable.ui-sortable.ui-sortable-disabled > li{
+	cursor:default;
+}
 .sub_page_wrapper #wrapperliUl li:last-child{
 	border-bottom:none;
 }
@@ -1368,7 +1374,7 @@ span.drag{
 .edit_content_container .addSubPageForm .single_page .content_editor > div{
 	width:720px !important;
 }
-.btn.cancel_singlepage{
+.individual_title.theme_title .btn.cancel_singlepage{
 	margin:5px 7px 0px 0px;
 }
 /* edit content of individual ends here */
@@ -1376,6 +1382,9 @@ span.drag{
 @media screen and (-webkit-min-device-pixel-ratio:0) {
  .manage_app_icon .app_box .app_thumb .edit_panel{
 		left:0px;
+	}
+	.individual_title.theme_title .btn.cancel_singlepage{
+	margin:3px 7px 0px 0px;
 	}
 }
  
@@ -1467,4 +1476,65 @@ min-width: 261px;
     left: 12px;
     position: absolute;
 	pointer-events:none;
+}
+
+/* edit app details starts here */
+.edit_appdetail.form-signin {
+   
+    border-radius: 3px;
+    float: left;
+    margin: 17px auto 0;
+    width: 100%;
+	box-shadow:none;
+	max-width: 1110px;
+}
+.edit_appdetail.form-signin .form-actions {
+    background-color: #fff;
+    border-top:none;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 0;
+}
+.edit_appdetail.form-signin .form-actions .btn{
+	font-size: 17px;
+    padding: 10px 30px;
+}
+/* edit app details ends here */
+
+/* 17 Apr edits */
+
+.btn.save.update_theme {
+    padding: 8px 14px 8px 19px;
+}
+.btn.list i.icon-th-list{
+	margin-top:2px;
+}
+.msg .alert{
+	font-size:14px;
+}
+.fixed_top{
+	width: 1162px;
+}
+.fixed_top .app_number{
+	padding: 13px 0 0;
+}
+.fixed_top.stick{
+	background:#fff;
+}
+
+/* editor setting starts here */
+.custom_editor .content_editor > div{
+	width:99.8% !important;
+}
+.custom_editor .content_editor .nicEdit-main {
+	min-height:100px !important;
+	background:#fff;
+	padding: 5px 5px;
+}
+.msg_wrapper .custom_editor .content_editor{
+	margin-top:10px;
+}
+/* custom editor ends here */
+.select_list .btn.app_info.selected{
+	background:#fff !important;
 }

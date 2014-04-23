@@ -1,12 +1,18 @@
-body{
+body,body.ui-overlay-a{
 
-	overflow-x:hidden;
+	background:url("../images/repeat_bg.jpg") repeat-y scroll 0 0 rgba(0, 0, 0, 0) !important;
+
+	background-size:100% 100% !important;
 
 }
 
 .theme_bg{
 
-	background:url(../images/theme_background.jpg) center top;
+	background:url(../images/theme_background.jpg) center bottom no-repeat;
+
+	min-width:320px;
+
+	background-size:100% ;
 
 }
 
@@ -44,15 +50,13 @@ body{
 
 	display:table-cell;
 
-	background-image:url('../images/icon_bg.png');
-
-	background-repeat:no-repeat;
-
-	background-size:100% 100%;
+	background:url(../images/icon_bg.png) no-repeat;
 
 	vertical-align:middle;
 
 	text-align:center;
+
+	background-size:100% 100%;
 
 }
 
@@ -76,7 +80,7 @@ body{
 
 	font-weight:normal;
 
-	margin:0 2%;
+	margin:0 25%;
 
 }
 
@@ -126,31 +130,15 @@ body{
 
 
 
-.app_feature_list a{
+/* custom setting of icons */
 
-	color:#fff !important;
-
-	text-decoration:none;
-
-	cursor:pointer !important;
-
-}
-
-.app_feature_list a label{
-
-	cursor:pointer !important;
-
-}
-
-.app_feature_list a.item  img{
+.app_feature_list a img{
 
 	max-height:32px;
 
 	max-width:32px;
 
 }
-
-/* EDIT BY AMITOJ 18-Feb */
 
 
 
@@ -159,16 +147,6 @@ body{
 	background-image:none;
 	background-repeat:no-repeat;
 	background-size:cover;	
-	background: radial-gradient(center , circle cover , rgb(92, 98, 241) 34% , rgb(0, 0, 0) 84%);
-background: -o-radial-gradient(center , circle cover , rgb(92, 98, 241) 34% , rgb(0, 0, 0) 84%);
-background: -ms-radial-gradient(center , circle cover , rgb(92, 98, 241) 34% , rgb(0, 0, 0) 84%);
-background: -moz-radial-gradient(center , circle cover , rgb(92, 98, 241) 34% , rgb(0, 0, 0) 84%);
-background: -webkit-radial-gradient(center , circle cover , rgb(92, 98, 241) 34% , rgb(0, 0, 0) 84%);
+	background: rgb(9, 220, 192);
 }
-
-
-
-
-
-
 

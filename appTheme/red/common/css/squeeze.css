@@ -55,3 +55,12 @@ label.error  {
 	color:#fff;
 	margin-top:7px;
 }
+.thankyou_msg{
+	display:none;
+}
+.aweber_note {
+    font-size: 12px;
+    text-shadow: none;
+	font-style:italic;
+	margin-top:10px;
+}

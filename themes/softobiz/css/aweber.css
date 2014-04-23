@@ -5,6 +5,7 @@
 	border:none;
 	box-shadow:none;
 }
+
 .aweber_form .nav.nav-tabs li.active a{
 	background:#fff;
 	color:#333;
@@ -16,18 +17,18 @@
 	width:auto;
 	padding:10px 12px;
 	line-height:20px;
+	font-size:21px;
+	color:#0088cc;
+	cursor:pointer;
 }
 .aweber_form .nav.nav-tabs li{
-	border-bottom:1px solid #ccc;
 	margin-bottom:0px;
 }
 .aweber_form .nav-tabs > li > a:hover,.aweber_form .nav-tabs > li.active > a{
-	background:#EA5052 !important;
+	background:#0088cc !important;
 	color:#fff !important;
 }
-.aweber_form .nav.nav-tabs {
-	padding:5px;
-}
+
 .aweber_form .tab-pane{
 	padding:0px 20px;
 }
@@ -45,37 +46,43 @@
 	margin-bottom:0px;
 }
 .aweber_form .form-signin-heading{
-	background:#f5f5f5;
-	padding:11px;
-	font-weight:normal;
-	margin-top:0px;
-	border:1px solid #ddd;
+	font-size: 28px;
+    font-weight: bold;
+    margin-top: 0;
+    padding: 11px 0px 20px;
+	border-color:#eee;
 }
 .tab_list{
-	border:1px solid #ccc;
+	/*border:1px solid #ccc;
+	background:#f9f9f9;*/
 	width:300px;
-	background:#f9f9f9;
 }
-.aweber_form table tr td{
-	vertical-align:top;
+.left_api_list {
+	background:#f5f5f5;
+	border-radius:6px !important;
+	min-height:500px;
+	border:1px solid #ddd;
+	box-shadow:0px 0px 4px #ddd inset;
+	padding:10px 0px;
 }
+
 .aweber_form *{
 	border-radius:0px;
 }
 .activation{
-	border:1px solid #ddd;
-	padding:30px;
-	text-align:center;
+	border-bottom:1px solid #eee;
+	padding:6px 0 20px;
+	
 }
 .activation .btn-large {
     font-weight: 600;
-    padding: 18px 26px;
+    padding: 10px 16px;
 	margin-right:0px !important;
 	border-radius:4px !important;
 }
 .jordan_wrap{
-	border:1px solid #ddd;
-	padding:10px 10px 0;
+	border-bottom:1px solid #eee;
+	padding:15px 10px 12px;
 	
 }
 .jordan_wrap select{
@@ -95,4 +102,103 @@
 .notification{
 	line-height:32px;
 	padding-left:10px;
+}
+
+/* API Integration page setting starts here */
+.api_listing .api_list,.api_side_list{
+	font-size:16px;
+	font-weight:600;
+}
+.api_listing .api_list{
+	padding-top:17px;
+}
+.api_listing .api_list li,.api_side_list li{
+	line-height:33px;
+}
+.api_listing .api_list li.activated a{
+	padding-right:25px;
+	background:url(../images/activated.png) right 1px no-repeat;
+}
+.api_side_list{
+	list-style:none;
+	margin:0px;
+}
+.api_side_list li a{
+	display:block;
+	padding:0px 12px;
+}
+.api_side_list li a:hover{
+	text-decoration:none;
+}
+.api_side_list li.activated a{
+	background:url(../images/activated2.png) 96% 8px no-repeat;
+	
+}
+.api_side_list li.activated:hover a{
+	background:url(../images/activated2_hover.png) 95% 8px no-repeat;
+}
+.api_side_list li a:hover,.api_side_list li.activated:hover a{
+	background-color:#0088CC;
+	color:#fff;
+}
+
+.list_title {
+    color: #999999;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 0 0 12px 11px;
+}
+/* API Integration page setting ends here */
+
+/* 17 updates */
+.msg_wrapper{
+	background:#F4F4F4;
+	padding:10px;
+	border:1px solid #ddd;
+	margin-bottom:10px;
+}
+.msg_wrapper textarea{
+	border:1px solid #ddd;
+	box-shadow:none;
+	width:98%!important;
+	margin-bottom:0px !important;
+}
+
+.msg_title {
+    background: none repeat scroll 0 0 #f0f0f0;
+    margin: -10px -10px 0;
+    padding: 10px 10px 10px 14px;
+	border-bottom:1px solid #ddd;
+}
+.aweber_form textarea#description{
+	margin-top:0px !important;
+}
+.aweber_title {
+    border: 1px solid #DDDDDD;
+    padding: 10px 10px 10px 36px;
+	background:#F0F0F0;
+	background:url(../images/plus.png) 10px center no-repeat;
+	font-size15px;
+	font-weight:600;
+	cursor:pointer;
+}
+.aweber_activate {
+    background: none repeat scroll 0 0 #F5F5F5;
+	margin-bottom:10px;
+}
+.list_wrap,.activation_button{
+	border:1px solid #ddd;
+	border-top:0px;
+	padding:10px;
+	background:#F4F4F4;
+	display:none;
+}
+.list_wrap h3{
+	font-weight:normal;
+	font-size:15px;
+	margin: -4px 13px 0 0;
+	float:left;
+}
+.aweber_form .msg_wrapper textarea{
+	height:46px;
 }

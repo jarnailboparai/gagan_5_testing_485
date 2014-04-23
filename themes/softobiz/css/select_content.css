@@ -41,7 +41,7 @@
 	background:#109347;
 }
 /* single page setting */
-.single_page {
+.single_page .form-horizontal {
     padding: 10px;
 }
 .title_table{

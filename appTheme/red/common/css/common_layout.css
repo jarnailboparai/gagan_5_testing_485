@@ -41,7 +41,7 @@ body {
 	word-wrap: break-word;
 }
 
-.no_data{
+.no_data,.thankyou_msg{
 	background: url(../images/header_bg.png);
     border-radius: 6px;
     display: block;

@@ -73,7 +73,7 @@
                 </div> -->
             
             <!-- Multiple pages ends here -->
-	
+	<?php $this->renderPartial('_orderlist');?>
 	<ul id="wrapperliUl">
 		<?php //$li = "<li  id='submodule_%s' ><div class='wrapperli'><a href='%s' id='%s' >%s</a><div class='pull-right edit_icon'><span onclick='popupdetialSub(this)' >Edit</span>  <span onclick='popdetialHideSub(this)' >Hide</span> </div></li>"; 
 		//$liid = "<li  id='submodule_%s' ><div class='wrapperli'><a href='%s' id='%s' >%s</a><span onclick='popupdetialSub(this)' >Edit</span>  <span onclick='popdetialHideSub(this)' >Hide</span> <span onclick='removeSubMenu(this)' >Remove</span></div> </div></li>";
@@ -146,6 +146,7 @@
 							</span><?php echo $title; ?>
 						</a>
 						<div class="pull-right edit_icon">
+							<span class="drag"><?php echo CHtml::image($pathurl."/img/drag.png");  ?></span>
 							<span onclick="popupdetialSub(this)"><?php echo CHtml::image($pathurl."/img/edit_content.png","edit");  ?></span>
 							<span onclick="popdetialHideSub(this)"><?php echo CHtml::image($pathurl."/img/refresh.png","refresh");  ?></span>
 							<span onclick="removeSubMenu(this)"><?php echo CHtml::image($pathurl."/img/trash_icon.png","remove");  ?></span>
@@ -256,6 +257,7 @@ function addNewLi(arg)
 	$liid += "<div class='wrapperli'>";
 	$liid += "<a href='"+baseurl+"/index.php?r=applicationnew/customizeSubModuleContent&sub_module_id="+arg[2]+"&num_articles=0' id='"+arg[1]+"' >"+sssimage+arg[0]+"</a>";
 	$liid += "<div class='pull-right edit_icon'>"
+	$liid += "<span class='drag'><img src='"+themeurl+"/img/drag.png' alt='edit'></span>"; 	
 	$liid += "<span onclick='popupdetialSub(this)' ><img src='"+themeurl+"/img/edit_content.png' alt='edit'></span>"; 
 	$liid += " <span onclick='popdetialHideSub(this)' ><img src='"+themeurl+"/img/refresh.png' alt='refresh'></span>";
 	$liid += "<span onclick='removeSubMenu(this)' ><img src='"+themeurl+"/img/trash_icon.png' alt='remove'></span>";

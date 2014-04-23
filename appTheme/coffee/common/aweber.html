@@ -71,15 +71,15 @@ jQuery(document).ready(function(){
 
 				if(arg.success==1)
 				{
-					$('.squeeze_wrapper').html("");
-					$('.squeeze_wrapper').html("<div class='no_data'>Submit Successfully</div>");
+					$('.squeeze_wrapper').hide();
+					$('.thankyou_msg').show();
 				}
 				else
 				{
 					$('.squeeze_wrapper').html("");
 					$('.squeeze_wrapper').html("<div class='no_data'>Error ! Please try after sometime</div>");
 				}
-	        	//popdetialHideOther(arg);
+	        	
 	        },
 	    }); 
 	}
@@ -110,8 +110,9 @@ img {
  	<div class="squeeze_wrapper">
    
 <div class="squeeze_desc">
-<!--DescriptionEnter-->
+	<!--DescriptionEnter-->
 </div>
+<div class="squeeze_desc aweber_note">
     <form action="<!--url-->" method="POST" id='module-form-aweber'>
 	    <input name="aweberapp_id" type="hidden" value="<!--aweberapp_id-->" />
 	    <input name="list_id" type="hidden"  value="<!--list_id-->" />
@@ -121,12 +122,20 @@ img {
 	    <input name="module_name" type="hidden"  value="<!--module_name-->" />
 	    <input name="name" type="text" placeholder="Name" />
 	    <input name="email" type="text" placeholder="Email" />
+		
     	<input type="submit" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini" value="Submit" />
+    	<!--Legaltext-->
     </form>
+    </div>
     </div>
  <div id="testing" class="testing" ></div>
   <!-- Squeeze Page Ends here -->
   
+  
+  <!-- thank you message -->
+  <div class="thankyou_msg"><!--Thankyou--></div>
+  
+  <!-- Thankyou message ends here -->
 </div>
 <!-- /page --> 
 

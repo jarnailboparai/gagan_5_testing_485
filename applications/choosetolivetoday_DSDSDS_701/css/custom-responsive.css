@@ -13,6 +13,7 @@
     padding-top:4%;
     width: 410px;
 	}
+	
 }
 
 @media (max-width: 480px){
@@ -22,14 +23,9 @@
 	}	
 }
 
-@media (max-width: 350px){
+@media (max-width: 320px){
 	.logo {
     padding-top: 25%;
     width: 262px;
-	}
-	.app_feature_list {
-		margin: 0 5% 0px;	}
-	.grid_menu{
-		width:320px;
 	}
 }
