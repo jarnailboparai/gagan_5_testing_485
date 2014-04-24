@@ -6,28 +6,33 @@
 	background:url(../images/header_bg.png);
 }
 .staticPage{
-	background:url(../images/header_bg.png);
+	background:url(../images/title_bg.png);
 	margin:4% auto 2%;
 	padding:3%;
 	/*width: 91%;*/
 	word-wrap: break-word;
-	color:#fff;
+	color:#333;
 	text-shadow:none;
 }
 .staticpage_content p{
-	color:#070301;
+	color:#333;
 	font-size:14px;
 	line-height:20px;
 	text-align:justify;
-	text-shadow:1px 0px 0px #333;
+	text-shadow:none;
 }
 .staticPageList .ui-btn{
-	background:url(../images/list_bg.png) !important;
-	border-color:#6D3619;
+	background:none !important;
+	border-color:#fff;
+	border-bottom:1px solid #fff !important;
 }
 .staticPageList{
-	
+	/*margin:4% 2% 2%;*/
 	margin:1% 0% 2%;
+}
+.staticPageList .ui-btn:hover,.staticPageList .ui-btn:focus,.staticPageList .ui-btn:active{
+	background:#fff url(../images/list_bg.png) !important;
+	box-shadow:none;
 }
 .staticPageList .ui-listview li a.ui-btn-active{
 	color:#333;
@@ -35,8 +40,8 @@
 	background:none;
 	border-color:#ddd;
 }
-.staticPageList .ui-btn:hover,.staticPageList .ui-btn:focus,.staticPageList .ui-btn:active{
-	background:#fff url(../images/list_bg.png) !important;
+.staticPageList .ui-btn:hover,.staticPageList .ui-btn:focus,.staticPageList .ui-btn:active,.staticPageList .ui-btn{
+	background:url(../images/title_bg.png) !important;
 	box-shadow:none;
 }
 
@@ -47,9 +52,8 @@
 .social_media .ui-listview > li.ui-first-child, .social_media .ui-listview > li.ui-first-child > a.ui-btn,.social_media .ui-listview > li.ui-last-child, .social_media .ui-listview > li.ui-last-child > a.ui-btn {
 	border-radius:0px;
 }
-
-.staticPageList .ui-listview > li p br{
-	display: none;
+.staticPageList .ui-btn{
+	text-shadow:none !important;
 }
 /* Social Media Page Setting Ends Here */
 
@@ -66,7 +70,5 @@ a.item{
 	max-width: 5.5em;
 	max-height:none;
 }
-.ui-listview > li a h2,.ui-listview > li p{
-	color:#444 !important;
-}
+
 /* Social Media Page Setting Ends Here */

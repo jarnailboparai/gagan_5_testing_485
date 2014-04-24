@@ -1,28 +1,28 @@
-body,body.ui-overlay-a{
 
-	background:url("../images/repeat_bg.jpg") repeat-y scroll 0 0 rgba(0, 0, 0, 0) !important;
-
-	background-size:100% 100% !important;
-
-}
 
 .theme_bg{
 
-	background:url(../images/theme_background.jpg) center bottom no-repeat;
+	background-image:url(../images/main_bg.jpg);
+
+	background-position:center bottom;
+
+	background-repeat:no-repeat;
 
 	min-width:320px;
 
-	background-size:100% ;
+	background-color:#fff;
+
+	background-size: auto 100%;
 
 }
 
 .logo{
 
-	padding-top:28%;
-
 	transition:all ease .3s;
 
 	margin: 0 auto;
+
+	padding-top: 28%;
 
 }
 
@@ -50,23 +50,27 @@ body,body.ui-overlay-a{
 
 	display:table-cell;
 
-	background:url(../images/icon_bg.png) no-repeat;
+	/*background:url(../images/icon_bg.png) no-repeat;*/
 
 	vertical-align:middle;
 
 	text-align:center;
 
-	background-size:100% 100%;
-
 }
 
 .ui-header{
 
-	background:url(../images/header_bg.png) !important;
+	background:#dce1e5 !important;
 
 	border:none !important;
 
-	
+	background-size:auto 100% !important;
+
+}
+
+.ui-header a{
+
+	box-shadow:none;
 
 }
 
@@ -74,13 +78,15 @@ body,body.ui-overlay-a{
 
 	text-shadow:none !important;
 
-	color:#fff !important;
+	color:#0A2654 !important;
 
-	font-size:24px;
+	font-family:Arial, Helvetica, sans-serif;
 
-	font-weight:normal;
+	font-weight:bold;
 
-	margin:0 25%;
+	font-size:26px;
+
+	margin:0 23%;
 
 }
 
@@ -149,4 +155,8 @@ body,body.ui-overlay-a{
 	background-size:cover;	
 	background: rgb(9, 220, 192);
 }
+
+
+
+
 
