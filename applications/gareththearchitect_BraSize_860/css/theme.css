@@ -2,13 +2,13 @@
 
 .theme_bg{
 
-	background:#22a201;
+	background:#a6250f;
 
 	min-width:320px;
 
-	background-size:100% ;
+	background-size:100%;
 
-	background-position: top center;
+	background-position:center center;
 
 }
 
@@ -56,11 +56,9 @@
 
 .ui-header{
 
-	background:url("../images/header_bg.png") repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+	background:url(../images/header_bg.png)  !important;
 
 	border:none !important;
-
-	border-bottom:none !important;
 
 	
 
@@ -142,16 +140,21 @@
 
 }
 
+@media (min-width: 400px) {
 .theme_bg
 {
-	background-image:none;
+	background-image:url(../images/app860land.jpg) ;
 	background-repeat:no-repeat;
 	background-size:cover;	
-	background: radial-gradient(center , circle cover , rgb(0, 0, 0) 1% , rgb(14, 9, 142) 70%);
-background: -o-radial-gradient(center , circle cover , rgb(0, 0, 0) 1% , rgb(14, 9, 142) 70%);
-background: -ms-radial-gradient(center , circle cover , rgb(0, 0, 0) 1% , rgb(14, 9, 142) 70%);
-background: -moz-radial-gradient(center , circle cover , rgb(0, 0, 0) 1% , rgb(14, 9, 142) 70%);
-background: -webkit-radial-gradient(center , circle cover , rgb(0, 0, 0) 1% , rgb(14, 9, 142) 70%);
+}
+}
+@media (min-width: 100px) and (max-width: 399px) {
+.theme_bg
+{
+	background-image:url(../images/app860port.jpg) ;
+	background-repeat:no-repeat;
+	background-size:cover;	
+}
 }
 
 

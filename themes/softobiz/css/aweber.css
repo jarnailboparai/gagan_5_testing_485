@@ -202,3 +202,39 @@
 .aweber_form .msg_wrapper textarea{
 	height:46px;
 }
+
+
+/* tutorial page setting */
+
+.aweber_form.tutorials .nav.nav-tabs li a {
+    background: url("../images/play_list_icon.png") no-repeat scroll 26px 7px rgba(0, 0, 0, 0);
+    font-size: 16px;
+    padding: 6px 12px 6px 49px;
+}
+.aweber_form.tutorials .nav.nav-tabs li a:hover,.aweber_form.tutorials .nav.nav-tabs li.active a{
+	background:#0088CC  url(../images/play_list_icon_hover.png) 26px 7px no-repeat !important;
+}
+.title_list {
+    background: none repeat scroll 0 0 #e8e6e6 !important;
+	color: #333;
+	padding: 10px;
+	width: 278px !important;
+	margin: 7px 0 !important;
+	text-indent: 6px;
+	font-size:16px;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+}
+.aweber_form.tutorials .tutorial_title_list {
+	background: #015885 !important;
+	padding: 12px 0px;
+	text-indent: 12px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 6px 6px 0 0;
+	margin-bottom:7px !important;
+}
+.aweber_form.tutorials .left_api_list{
+	padding:0px;
+}

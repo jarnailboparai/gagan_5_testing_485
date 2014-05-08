@@ -1,12 +1,14 @@
-body{
 
-	overflow-x:hidden;
-
-}
 
 .theme_bg{
 
-	background:url(../images/theme_background.jpg) center top;
+	background:#22a201;
+
+	min-width:320px;
+
+	background-size:100% ;
+
+	background-position: top center;
 
 }
 
@@ -44,11 +46,7 @@ body{
 
 	display:table-cell;
 
-	background-image:url('../images/icon_bg.png');
-
-	background-repeat:no-repeat;
-
-	background-size:100% 100%;
+	/*background:url(../images/icon_bg.png) no-repeat;*/
 
 	vertical-align:middle;
 
@@ -58,11 +56,19 @@ body{
 
 .ui-header{
 
-	background:url(../images/header_bg.png) !important;
+	background:url("../images/header_bg.png") repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
 
 	border:none !important;
 
+	border-bottom:none !important;
+
 	
+
+}
+
+.ui-header a{
+
+	box-shadow:none;
 
 }
 
@@ -76,7 +82,7 @@ body{
 
 	font-weight:normal;
 
-	margin:0 2%;
+	margin:0 23%;
 
 }
 
@@ -126,23 +132,9 @@ body{
 
 
 
-.app_feature_list a{
+/* custom setting of icons */
 
-	color:#fff !important;
-
-	text-decoration:none;
-
-	cursor:pointer !important;
-
-}
-
-.app_feature_list a label{
-
-	cursor:pointer !important;
-
-}
-
-.app_feature_list a.item  img{
+.app_feature_list a img{
 
 	max-height:32px;
 
@@ -150,23 +142,17 @@ body{
 
 }
 
-/* EDIT BY AMITOJ 18-Feb */
-
-
-
 .theme_bg
 {
 	background-image:none;
 	background-repeat:no-repeat;
 	background-size:cover;	
-	background: linear-gradient(left , rgb(212, 41, 41) 4% , rgb(1, 2, 1) 49% , rgb(204, 68, 68) 98%);
-background: -o-linear-gradient(left , rgb(212, 41, 41) 4% , rgb(1, 2, 1) 49% , rgb(204, 68, 68) 98%);
-background: -ms-linear-gradient(left , rgb(212, 41, 41) 4% , rgb(1, 2, 1) 49% , rgb(204, 68, 68) 98%);
-background: -moz-linear-gradient(left , rgb(212, 41, 41) 4% , rgb(1, 2, 1) 49% , rgb(204, 68, 68) 98%);
-background: -webkit-linear-gradient(left , rgb(212, 41, 41) 4% , rgb(1, 2, 1) 49% , rgb(204, 68, 68) 98%);
+	background: linear-gradient(top , rgb(11, 154, 35) 1% , rgb(195, 88, 147) 1% , rgb(13, 149, 52) 80% , rgb(81, 205, 63) 88%);
+background: -o-linear-gradient(top , rgb(11, 154, 35) 1% , rgb(195, 88, 147) 1% , rgb(13, 149, 52) 80% , rgb(81, 205, 63) 88%);
+background: -ms-linear-gradient(top , rgb(11, 154, 35) 1% , rgb(195, 88, 147) 1% , rgb(13, 149, 52) 80% , rgb(81, 205, 63) 88%);
+background: -moz-linear-gradient(top , rgb(11, 154, 35) 1% , rgb(195, 88, 147) 1% , rgb(13, 149, 52) 80% , rgb(81, 205, 63) 88%);
+background: -webkit-linear-gradient(top , rgb(11, 154, 35) 1% , rgb(195, 88, 147) 1% , rgb(13, 149, 52) 80% , rgb(81, 205, 63) 88%);
 }
-
-
 
 
 

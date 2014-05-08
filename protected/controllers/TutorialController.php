@@ -19,7 +19,7 @@ class TutorialController extends Controller
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
 						'actions'=>array('create','update','appkeycreate','applelist','certificatecreate','orderlist','changeappbg','videodetail','Editvideodetail','videodetailgallery','image','imagebackground','uploadbackground','image_resize','uploadimage_background','buildapp','appbg','uploadfilenew','image_resize_bg'
-								,'Image_background','Image_backgroundcolor','app_bgcolor','remove_appbg','check_appbg','rss','aweber','export','subpageorderlist'),
+								,'Image_background','Image_backgroundcolor','app_bgcolor','remove_appbg','check_appbg','rss','aweber','export','subpageorderlist','admob'),
 						'users'=>array('@'),
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -706,6 +706,10 @@ class TutorialController extends Controller
 			{
 				$app_id = $_POST['app_id'];
 				$model_data = ThemeSettingBackground::model()->findByAttributes(array('module_id'=>0,'app_id'=>$app_id,'sub_module_id'=>0));
+				if(count($model_data)){
+					$model_data->bg_type = $flag;
+					$model_data->update();
+				}
 				$id=$app_id;
 			}
 
@@ -796,10 +800,17 @@ class TutorialController extends Controller
 				$port_image = $model_data->color;
 				if(!empty($port_image))
 				{
-				$detail = $this->color_detail($port_image);
-				$color_type = $detail['type'];
-				$color_direction = $detail['direction'];
-				$layer = $detail['layer'];
+					$detail = $this->color_detail($port_image);
+					
+					if(count($detail))
+					{
+						$color_type = $detail['type'];
+						$color_direction = $detail['direction'];
+						$layer = $detail['layer'];
+					}else{
+						//empty($port_image);
+						$port_image = null;
+					}
 				}	
 			
 					
@@ -1108,72 +1119,78 @@ class TutorialController extends Controller
 	private function color_detail($color)
 	{
 		$color_detail = array();
+		
 		$pieces = explode(";", $color);
-		$val = $pieces[0];
-
-		$arr = explode("rgb", $val);
-		$type = array_shift($arr);
-
-		$type = explode("gradient(", $type);
-		$type_c = explode(",", $type[1]);
-		$c_direction = $type_c[0];
-		$c_type = $type_c[1];
-
-
-		$data = explode(" ", trim($c_type));
-		$color_type = trim($data[0]);
-		$color_detail['type']=$color_type;
-		$color_direction = trim($type_c[0]);
-		if ($color_direction=='center')
-		{
-			$color_direction =  "center center";
+		if(count($pieces) > 6 ){
+			$val = $pieces[0];
+	
+			$arr = explode("rgb", $val);
+			$type = array_shift($arr);
+	
+			$type = explode("gradient(", $type);
+			$type_c = explode(",", $type[1]);
+			$c_direction = $type_c[0];
+			$c_type = $type_c[1];
+	
+	
+			$data = explode(" ", trim($c_type));
+			$color_type = trim($data[0]);
+			$color_detail['type']=$color_type;
+			$color_direction = trim($type_c[0]);
+			if ($color_direction=='center')
+			{
+				$color_direction =  "center center";
+			}
+	
+			$color_detail['direction']= $color_direction ;
+	
+			$a =array();
+			foreach ($arr as $r)
+			{
+				$a[]=explode(") ", $r);
+	
+			}
+			$color = array();
+			$per = array();
+			foreach ($a as $a)
+			{
+				$color[]=$a[0];
+				$per[]=$a[1];
+			}
+	
+			foreach ($color as $c)
+			{
+				$color_final[] = "rgb".$c.")";
+			}
+	
+	
+			foreach ($per as $per)
+			{
+				$p[] = explode("%", $per);
+			}
+	
+	
+			foreach ($p as $p)
+			{
+				$size[] = $p[0];
+			}
+	
+			$array_val = array();
+			$i=0;
+			foreach ($color_final as $color)
+			{
+				$array_val[$i]['color'] = $color;
+				$array_val[$i]['position'] = $size[$i];
+				$i++;
+			}
+			$layer =  json_encode ($array_val);
+			$color_detail['layer']= $layer ;
+	
+				return $color_detail;
+		
+		}else{
+			return $color_detail;
 		}
-
-		$color_detail['direction']= $color_direction ;
-
-		$a =array();
-		foreach ($arr as $r)
-		{
-			$a[]=explode(") ", $r);
-
-		}
-		$color = array();
-		$per = array();
-		foreach ($a as $a)
-		{
-			$color[]=$a[0];
-			$per[]=$a[1];
-		}
-
-		foreach ($color as $c)
-		{
-			$color_final[] = "rgb".$c.")";
-		}
-
-
-		foreach ($per as $per)
-		{
-			$p[] = explode("%", $per);
-		}
-
-
-		foreach ($p as $p)
-		{
-			$size[] = $p[0];
-		}
-
-		$array_val = array();
-		$i=0;
-		foreach ($color_final as $color)
-		{
-			$array_val[$i]['color'] = $color;
-			$array_val[$i]['position'] = $size[$i];
-			$i++;
-		}
-		$layer =  json_encode ($array_val);
-		$color_detail['layer']= $layer ;
-
-		return $color_detail;
 
 	}
 	
@@ -1275,6 +1292,51 @@ class TutorialController extends Controller
 		}
 	}
 	
-		
+
+	
+	public function actionAdmob($module_id,$layout=null)
+	{
+	
+	
+		$app_id = Yii::app()->user->getState('app_id');
+		if ($app_id) {
+			$model = Module::model()->findByPk($module_id);
+		} else {
+			Yii::app()->user->setFlash('create_app_error', 'Please Create Application by Filling these Details');
+			$this->redirect(array('details'));
+		}
+	
+		//
+	
+		if (isset($_POST['Module'])) {
+	
+			//$this->pr($_POST); //die;
+	
+			if ($model->name != "admob") {
+				if ($_POST['Module']['tab_icon'] == '')
+					$_POST['Module']['tab_icon'] == null;
+	
+	
+			}
+	
+			$model->attributes = $_POST['Module'];
+	
+			if($model->update())
+			{
+				echo json_encode(array($model->tab_title,$model->name,$model->id)); die;
+			}
+		}
+		//
+		if($model->name == 'admob'){
+	
+			$this->render('/applicationnew/_admob_form', array(
+					'model' => $model,
+					//'style' => $style,
+					//'uploadedImages' => $uploadedImages,
+					//'notificationModel' => $notificationModel
+			));
+	
+		}
+	}
 		
 }

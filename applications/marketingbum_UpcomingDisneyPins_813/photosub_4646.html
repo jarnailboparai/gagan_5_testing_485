@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wooden Theme</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
+
+<link rel="stylesheet" href="css/theme.css" />
+
+<link rel="stylesheet" href="css/common_layout.css" />
+
+<link rel="stylesheet" href="css/imgbg_4646.css" />
+
+<script src="js/jquery-1.6.1.min.js"></script>
+
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script type="text/javascript">
+
+   $(document).ready(function() {
+
+      $('#back-link').click(function() {
+
+         history.go(-1) 
+
+       });
+
+   });
+
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  $(".ui-header h1").addClass("ui-title");
+
+});
+
+</script>
+
+<!-- Photo Gallery settings starts here -->
+
+<link rel="stylesheet" href="css/photoswipe.css" />
+
+<link rel="stylesheet" href="css/styles.css" />
+
+<script type="text/javascript" src="js/simple-inheritance.min.js"></script>
+
+<script type="text/javascript" src="js/code-photoswipe-1.0.11.js"></script>
+
+<script type="text/javascript">
+
+		
+
+		/*
+
+		 This example shows how to set up the gallery without
+
+		 using the Code.photoSwipe() helper or the $.photoSwipe() jQuery plugin.
+
+		 
+
+		 The example finds the Gallery container, then finds all anchor tags in 
+
+		 the container (thumbnails).
+
+		 
+
+		 It then sets a click event listener on the container.
+
+		 
+
+		 When the user clicks the container, it checks to see if an image has been
+
+		 clicked (i.e. a thumbnail).
+
+		 
+
+		 It then attempts to find the index number of the thumbnail clicked 
+
+		 (from our list of thumbnails) and starts PhotoSwipe at that index.
+
+		 */
+
+		 
+
+		if(typeof document.querySelectorAll === 'function') {
+
+			
+
+			document.addEventListener('DOMContentLoaded', function(){
+
+				
+
+				// Find the element holding our photos
+
+				var galleryEl = document.getElementById('Gallery');
+
+				
+
+				
+
+				// Find all the photos in our gallery
+
+				var thumbEls = galleryEl.querySelectorAll('a');
+
+				
+
+				if (thumbEls.length < 1) {
+
+					return;
+
+				}
+
+				
+
+				// Set options (optional)
+
+				Code.PhotoSwipe.Current.setOptions({
+
+					loop: false
+
+				});
+
+				
+
+				
+
+				// Tell PhotoSwipe about the photos
+
+				Code.PhotoSwipe.Current.setImages(thumbEls);
+
+				
+
+				
+
+				// Listen out for when the user clicks the gallery
+
+				galleryEl.addEventListener('click', function(e){
+
+					
+
+					// If we clicked an image, start the gallery at that image
+
+					if (e.target.nodeName !== 'IMG'){
+
+						return;
+
+					}
+
+					
+
+					e.preventDefault();
+
+					
+
+					var linkEl = e.target.parentNode;
+
+					
+
+					var startingIndex = 0;
+
+					for (startingIndex; startingIndex<thumbEls.length; startingIndex++){
+
+						if (thumbEls[startingIndex] === linkEl){
+
+							break;
+
+						}
+
+					}
+
+					
+
+					// Start PhotoSwipe
+
+					Code.PhotoSwipe.Current.show(startingIndex);
+
+				
+
+				}, false);
+
+			
+
+			
+
+			}, false); 
+
+			
+
+		}
+
+		
+
+	</script>
+
+<!-- Photo Gallery Settings Ends Here -->
+
+
+
+<style type="text/css">
+
+img {
+
+	max-width:100%;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body class="theme_bg" style="background-position:center 0px !important;background-size:cover;">
+
+<!-- Start of first page -->
+
+<div data-role="page" id="theme_layout"> 
+
+  
+
+  <!-- Header Starts Here 
+
+  <div data-role="header"> <a class="refresh_link" id="back-link" href="#"><img src="images/home_icon.png" alt="refresh icon" /></a>
+
+    <h1>DLR Releases</h1>
+
+    <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>-->
+
+	
+
+    <!-- Header Starts Here -->
+
+  <div data-role="header" role="banner" class="ui-header ui-bar-inherit"> 
+
+  <a href="index.html" class="refresh_link ui-link ui-btn-left ui-btn ui-shadow ui-corner-all" data-role="button" rel="external" data-ajax="false" role="button"><img alt="home icon" src="images/home_icon.png"></a>
+
+    <h1>DLR Releases</h1>
+
+    <a class="help_link ui-link ui-btn-right ui-btn ui-shadow ui-corner-all" data-role="button" role="button"><img alt="help icon" src="images/help_icon.png"></a> </div>
+
+  <!-- /header ends here --> 
+
+  <!-- Photo Gallery Starts Here -->
+
+  <div id="Gallery">
+
+	<!-- Gallery Code Starts Here -->
+
+		<div class="gallery-row">
+
+	
+
+			<div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896827952619312.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896827952619312_256x256.jpg"></a><div class="img_title">2014-05-01 - National Teacher Day 2014.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896827975123450.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896827975123450_256x256.jpg"></a><div class="img_title">2014-05-01 - World of Color Mickey Fountain.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896827983148909.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896827983148909_256x256.jpg"></a><div class="img_title">2014-05-04 - May the Fourth be with You.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828031136107.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828031136107_256x256.jpg"></a><div class="img_title">2014-05-04 - Revenge of the Fifth.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828148343476.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828148343476_256x256.jpg"></a><div class="img_title">2014-05-08 - Monsters University Booster Set.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828181011940.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828181011940_256x256.jpg"></a><div class="img_title">2014-05-15 - Eau De Magique Collection - May.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828290396839.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828290396839_256x256.jpg"></a><div class="img_title">2014-05-15 - Graduation Day 2014.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828298346808.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828298346808_256x256.jpg"></a><div class="img_title">2014-05-15 - Funny Business Collection - May.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828377849012.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828377849012_256x256.jpg"></a><div class="img_title">2014-05-15 - Monsters University Deluxe Lanyard.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828356121852.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828356121852_256x256.jpg"></a><div class="img_title">2014-05-15 - Hanging Pin Passholder Collection - May.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828442970530.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828442970530_256x256.jpg"></a><div class="img_title">2014-05-15 - Olaf OE Pin.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828512317573.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828512317573_256x256.jpg"></a><div class="img_title">2014-05-15 - Sleeping Beauty Castle - Balloons.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828587605521.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828587605521_256x256.jpg"></a><div class="img_title">2014-05-15 - Summer 2014 - Hades.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828615108974.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828615108974_256x256.jpg"></a><div class="img_title">2014-05-22 - Disney California Adventure Park Annual Passholder Minnie.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828769282069.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828769282069_256x256.jpg"></a><div class="img_title">2014-05-22 - Disney Resort - Star Wars Series 3 Vinylmation Mystery Pin Set.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828769890429.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828769890429_256x256.jpg"></a><div class="img_title">2014-05-22 - Disney Vacation Club Stitch Pin.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828714851625.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828714851625_256x256.jpg"></a><div class="img_title">2014-05-22 - Disneyland Resort Happily Ever After Mystery Set.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129/marketingbum_139896828936685498.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/marketingbum_129//thumb/marketingbum_139896828936685498_256x256.jpg"></a><div class="img_title">2014-05-22 - Disneys Maleficent - Opening Day.jpg</div></div> 
+
+            
+
+		</div>
+
+        
+
+        </div>
+
+  <!-- Gallery Code Ends Here -->
+
+  
+
+  
+
+  
+
+  <!-- Photo Gallery Ends Here --> 
+
+  
+
+</div>
+
+<!-- /page --> 
+
+
+
+</body>
+
+</html>
+
+

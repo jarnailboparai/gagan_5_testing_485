@@ -39,6 +39,7 @@ body {
 	overflow:hidden;
 	font-size:13px;
 	word-wrap: break-word;
+	cursor:pointer;
 }
 
 .no_data,.thankyou_msg{
@@ -78,7 +79,6 @@ a.item{
 }
 .white_wrap .app_feature_list label{
 	height:auto;
-	cursor:pointer;
 }
 .app_feature_list a{
 	color:#fff !important;

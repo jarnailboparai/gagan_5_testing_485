@@ -29,7 +29,7 @@ body {
 	text-shadow:none;
 	float:left;
 	font-weight:normal;
-	color:#fff;
+	color:#fff !important;
 	width:70px;
 	/*font-family:Open Sans Semibold,sans-serif;*/
 	font-family:Arial, Helvetica, sans-serif !important;
@@ -39,9 +39,10 @@ body {
 	overflow:hidden;
 	font-size:13px;
 	word-wrap: break-word;
+	cursor:pointer;
 }
 
-.no_data{
+.no_data,.thankyou_msg{
 	background: url(../images/header_bg.png);
     border-radius: 6px;
     display: block;
@@ -51,10 +52,11 @@ body {
     width: 80%;
     text-shadow:none !important;
     text-transform: capitalize;
+	color:#fff;
 }
 a.item{
 
-    background-image: url("../images/icon_bg.png");
+   /* background-image: url("../images/icon_bg.png");*/
 	background-repeat:no-repeat;
 	background-size:100% 100%;
     display: table-cell;
@@ -62,7 +64,12 @@ a.item{
     text-align: center;
     vertical-align: middle;
     width: 70px;
+	color:#fff !important;
 
+}
+.app_feature_list a,.app_feature_list label{
+	color:#fff;
+	text-decoration:none;
 }
 .logo{
 	padding:0px !important;
@@ -70,10 +77,14 @@ a.item{
 .logo img{
 	display:none;
 }
-@media (max-width: 330px){
-	.ui-header .ui-title, .ui-footer .ui-title{
-		margin: 0 22%;
-	}
+.white_wrap .app_feature_list label{
+	height:auto;
+}
+.app_feature_list a{
+	color:#fff !important;
+	text-decoration:none;
+	outline:none;
+	cursor:pointer;
 }
 
 /* loader setting */

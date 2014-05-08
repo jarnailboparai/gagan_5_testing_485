@@ -56,6 +56,7 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/validate.js"></script> 
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/additional_validate.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-alert.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-tab.js"></script>
 <script>
       jQuery(document).ready(function ($) {
         "use strict";
