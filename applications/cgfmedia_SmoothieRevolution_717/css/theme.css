@@ -147,11 +147,11 @@
 	background-image:none;
 	background-repeat:no-repeat;
 	background-size:cover;	
-	background: linear-gradient(top , rgb(11, 154, 35) 1% , rgb(195, 88, 147) 1% , rgb(13, 149, 52) 80% , rgb(81, 205, 63) 88%);
-background: -o-linear-gradient(top , rgb(11, 154, 35) 1% , rgb(195, 88, 147) 1% , rgb(13, 149, 52) 80% , rgb(81, 205, 63) 88%);
-background: -ms-linear-gradient(top , rgb(11, 154, 35) 1% , rgb(195, 88, 147) 1% , rgb(13, 149, 52) 80% , rgb(81, 205, 63) 88%);
-background: -moz-linear-gradient(top , rgb(11, 154, 35) 1% , rgb(195, 88, 147) 1% , rgb(13, 149, 52) 80% , rgb(81, 205, 63) 88%);
-background: -webkit-linear-gradient(top , rgb(11, 154, 35) 1% , rgb(195, 88, 147) 1% , rgb(13, 149, 52) 80% , rgb(81, 205, 63) 88%);
+	background: linear-gradient(left , rgb(42, 151, 55) 1% , rgb(10, 156, 10) 80%);
+background: -o-linear-gradient(left , rgb(42, 151, 55) 1% , rgb(10, 156, 10) 80%);
+background: -ms-linear-gradient(left , rgb(42, 151, 55) 1% , rgb(10, 156, 10) 80%);
+background: -moz-linear-gradient(left , rgb(42, 151, 55) 1% , rgb(10, 156, 10) 80%);
+background: -webkit-linear-gradient(left , rgb(42, 151, 55) 1% , rgb(10, 156, 10) 80%);
 }
 
 

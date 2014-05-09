@@ -157,7 +157,7 @@ body{
 @media (min-width: 400px) {
 .theme_bg
 {
-	background-image:url(../images/app868land.png) ;
+	background-image:url(../images/app868land.jpg) ;
 	background-repeat:no-repeat;
 	background-size:cover;	
 }
@@ -165,7 +165,7 @@ body{
 @media (min-width: 100px) and (max-width: 399px) {
 .theme_bg
 {
-	background-image:url(../images/app868port.png) ;
+	background-image:url(../images/app868port.jpg) ;
 	background-repeat:no-repeat;
 	background-size:cover;	
 }
