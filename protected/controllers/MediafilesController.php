@@ -165,7 +165,39 @@ class MediafilesController extends Controller
 		
 		
 	}
-
+    public function actionIndex_appicon($layout=null,$module_id=null,$app_icon_new=null)
+	{
+		   if(isset($layout)){
+			$this->layout = false;
+		}
+		
+		/*$selected = array();
+		if(isset($module_id)) {
+			$dataSelectedImages  = SubModules::model()->findAllByAttributes(array('module_id'=>$module_id));
+			
+			foreach ($dataSelectedImages as $image){
+				
+				$selected[$image->attributes['id']] =  $image->attributes['media_files_id'];
+				//print_r($image->filemedia->attributes['id']);
+			}
+			
+		}*/
+		//$dataProvider = MediaFiles::model()->findAllByAttributes(array('user_id'=>Yii::app()->user->id));
+		
+		//$fileUrl = Yii::app()->baseUrl.'/mediafiles/'.Yii::app()->user->getState('username').'_'.Yii::app()->user->id.'/app_icon/';
+		if(isset($app_icon_new) && ($app_icon_new == 1))
+		{
+			$this->render('//applicationnew/_app_icon_list',array( ));
+		}
+		else{
+			  $this->render('_iconlist',array(/*
+				  'dataProvider'=>$dataProvider,
+				  'fileUrl'=>$fileUrl,
+				  'module_id'=>$module_id,
+				  'selected' =>$selected*/
+			  ));
+		}
+	}
 	/**
 	 * Manages all models.
 	 */
@@ -316,6 +348,84 @@ class MediafilesController extends Controller
  		$layoutLayer128->save($dest_path,$filnameArray['filename'].'_128x128.jpg', true, null, 95);
 		
 		
+	}
+	
+	private function app_icon($path)
+	{
+		$dest_path = Yii::app()->basePath. '/../mediafiles/' . Yii::app()->user->getState('username').'_'.Yii::app()->user->id.'/';
+		
+		$dest_path .= 'app_icon/' ;
+		
+		if (!file_exists($dest_path))
+				mkdir($dest_path);
+		
+		Yii::import('ext.PHPImageWorkshop.*');
+		
+		$filnameArray = pathinfo($path);
+		
+		$layoutLayer = ImageWorkshop::initFromPath($path);
+		
+		list($thumbWidth, $thumbHeight, $conserveProportion, $positionX, $positionY, $position) =
+		
+		array(48,48,false,0,0,'MM');
+		
+		$layoutLayer->resizeInPixel($thumbWidth, $thumbHeight, $conserveProportion, $positionX, $positionY, $position);
+		
+		$layoutLayer->save($dest_path,$filnameArray['filename'].'_48x48.png', true, null, 95);
+		
+		/*$layoutLayer128 = ImageWorkshop::initFromPath($path);
+
+ 		list($thumbWidth, $thumbHeight, $conserveProportion, $positionX, $positionY, $position) =
+		
+ 		array(128,128,false,0,0,'MM');
+		
+ 		$layoutLayer128->resizeInPixel($thumbWidth, $thumbHeight, $conserveProportion, $positionX, $positionY, $position);
+		
+ 		$layoutLayer128->save($dest_path,$filnameArray['filename'].'_128x128.jpg', true, null, 95);*/
+		
+		
+	}
+	
+	public function actionSelecticons()
+	{
+		//print_r($_POST);	die;
+		
+		
+		
+		if($_POST['module_id'])
+		{
+		
+			$modeldd = new SubModules();
+			
+			$modeldd->deleteAllByAttributes(array('module_id'=>$_POST['module_id']));
+			
+			if(isset($_POST['selected']))
+			{
+				foreach($_POST['selected'] as $select )
+				{
+					$model = new SubModules();
+					$model->module_id = $_POST['module_id'];
+					$model->media_files_id = $select;
+					$model->activated = 'yes';
+					$model->name = 'photo';
+					if($model->save())
+					{
+						//echo "done";
+					}else{
+						//CVarDumper::dump($model->errors,10,true);
+					}
+				}
+			}else{
+				echo "stop"; die;
+			}
+			//echo json_encode($_POST);
+
+			$dataSelectedImages  = SubModules::model()->findAllByAttributes(array('module_id'=>$_POST['module_id']));
+			
+			echo $this->renderPartial('//mediafiles/_imagelist' ,array("dataProvider"=>$dataSelectedImages));
+			
+			die;
+		}
 	}
 	
 	private function createMedia($data)
@@ -505,6 +615,37 @@ class MediafilesController extends Controller
 		));
 	}
 	
+	public function actionUploadIcon($layout=null,$module_id=null,$app_icon_new=null)
+	{
+		if(isset($layout)){
+			$this->layout = false;
+		}
+		
+		$selected = array();
+		if(isset($module_id)) {
+			$dataSelectedImages  = SubModules::model()->findAllByAttributes(array('module_id'=>$module_id));
+		
+			foreach ($dataSelectedImages as $image){
+				
+				$selected[$image->attributes['id']] =  $image->attributes['media_files_id'];
+				//print_r($image->filemedia->attributes['id']);
+			}
+			
+		}
+		
+		//$dataProvider = MediaFiles::model()->findAllByAttributes(array('user_id'=>Yii::app()->user->id));
+		
+		//$fileUrl = Yii::app()->baseUrl.'/mediafiles/'.Yii::app()->user->getState('username').'_'.Yii::app()->user->id.'/app_icon/';
+		
+		$this->render('nameuploadicon',array(
+			/*'dataProvider'=>$dataProvider,
+			'fileUrl'=>$fileUrl,*/
+			'module_id'=>$module_id,
+			'app_icon_new'=>$app_icon_new
+			//'selected' =>$selected
+		));
+	}
+	
 	public function actionUploadfilenew()
 	{
 		$this->layout = false;
@@ -560,6 +701,83 @@ class MediafilesController extends Controller
 						$data['MediaFiles']['updated']			=   date('Y-m-d',time());
 							
 						$this->createMedia($data);
+							
+					}
+	
+				} else {
+	
+					echo 'Invalid file type.';
+	
+				}
+					
+				die;
+			}
+		}
+	
+		$this->render('uploadfile');
+	}
+	
+	public function actionUploadiconnew($app_icon_new=null)
+	{
+		$this->layout = false;
+		if(isset($_POST)){
+	
+			print_r($_POST);
+			//$session_data = explode('&',$_POST['images']);
+			parse_str($_POST['images'],$session_data);
+			//print_r($session_data);
+			//die;
+			$dest_path = Yii::app()->basePath. '/../mediafiles/' . Yii::app()->user->getState('username').'_'.Yii::app()->user->id.'/';
+			if (!file_exists($dest_path))
+				mkdir($dest_path,0777, true);
+				
+			$uploadDir = $dest_path;
+			if(isset($app_icon_new) && ($app_icon_new == 1))
+			{	
+			$fileTypes = array('png'); // Allowed file extensions
+			}
+			else
+			{
+				//$fileTypes = array('jpg', 'jpeg', 'gif', 'png'); // Allowed file extension
+				$fileTypes = array('png');
+			}
+			//$verifyToken = md5('unique_salt' . $_POST['timestamp']);
+	
+			//if ((!empty($_FILES) && $_POST['token'] == $verifyToken ) || 1) {
+			echo "<pre>"; print_r($_FILES);
+			if (!empty($_FILES)) {
+				$keyee = str_replace(' ', '_', $_FILES['Filedata']['name']);
+				$keyee = str_replace('.', '_', $keyee);
+				
+				$tempFile   = $_FILES['Filedata']['tmp_name'];
+	
+				// Validate the filetype
+				$fileParts = pathinfo($_FILES['Filedata']['name']);
+				
+				mt_srand();
+				$idimagenew = mt_rand(10000000, 99999999);
+					
+				$targetFile = $uploadDir . Yii::app()->user->getState('username') .'_'. time() . $idimagenew .'.'. strtolower($fileParts['extension']) ;
+					
+				if (in_array(strtolower($fileParts['extension']), $fileTypes)) {
+	
+					// Save the file
+					if(move_uploaded_file($tempFile, $targetFile))
+					{
+							
+						$this->app_icon($targetFile);
+							
+						/*$data['MediaFiles']['user_id'] 			= 	Yii::app()->user->id;
+						$data['MediaFiles']['type']				=	$_FILES['Filedata']['type'];
+						$data['MediaFiles']['filename'] 		= 	basename($targetFile);
+						//$data['MediaFiles']['original_name'] 	= 	$fileParts['filename'];
+						$data['MediaFiles']['original_name'] 	= 	$session_data['nameoriginal_'.$keyee];
+						$data['MediaFiles']['size']				=   $_FILES['Filedata']['size'];
+						$data['MediaFiles']['extension']		=   $fileParts['extension'];
+						$data['MediaFiles']['created']			=   date('Y-m-d',time());
+						$data['MediaFiles']['updated']			=   date('Y-m-d',time());*/
+							
+						//$this->createMedia($data);
 							
 					}
 	

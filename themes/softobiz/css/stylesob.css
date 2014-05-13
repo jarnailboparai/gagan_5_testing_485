@@ -805,7 +805,7 @@ footer{ padding:13px;}
 }
 
 /* loader setting */
-.loading_content,.loading_content2
+.loading_content,.loading_content2 
 {
 	background: none repeat scroll 0 0 #FFFFFF;
     height: 100%;
@@ -862,6 +862,10 @@ footer{ padding:13px;}
 .address_map input#address,.address_map input#rss_feed_url {
 	border:1px solid #ddd;
 	padding: 1% 0.9%;
+}
+.admob .address_map input#address,.admob .address_map input#rss_feed_url
+{
+    padding: 2% 0.7%;
 }
 .address_map input#rss_feed_url {
 	margin-bottom:10px;
@@ -1051,6 +1055,16 @@ footer{ padding:13px;}
 	float:right;
 	width:42%;
 	margin-right:10px;
+}
+#queueOpen .uploadifive-queue-item .fileinfo{
+	float:left;
+	margin-top:7px;
+}
+.uploadifive-queue-item input[type="text"]
+{
+   float: left;
+    margin-left: 10px;
+    width: 270px;
 }
 #queueOpen .uploadifive-queue-item {
 	padding-bottom:3px;
@@ -1538,3 +1552,28 @@ min-width: 261px;
 .select_list .btn.app_info.selected{
 	background:#fff !important;
 }
+
+/* icons settings starts here */
+.select_icon.change_icon_block_image_wrapper .btn{
+	padding: 0px 1px;
+	background:none !important;
+	border:none;
+	box-shadow:none;
+}
+.select_icon.change_icon_block_image_wrapper .btn img{
+	max-height:32px;
+	max-width:32px;
+}
+
+.current_icon_block_image_wrapper{
+	padding: 0px 1px;
+	background:none !important;
+	border:none;
+	box-shadow:none;
+}
+
+.current_icon_block_image_wrapper  img{
+max-height: 32px;
+max-width: 32px;
+}
+/* icon settings ends here */

@@ -8,6 +8,15 @@ $pathurl = Yii::app()->theme->baseUrl;
 	window.IframeUrlSrc = "<?php echo $url.'/applications/'.Yii::app()->user->getState('username') . "_" . $application_model->title . "_" . $application_model->id.'/index.html' ?>";
 </script>
 <script>
+
+   /*$(document).ready(function() {
+       
+		   if ($('input[name="Module[tab_icon]"]').val() != '')
+		   {
+            $('#list_icon_img img').attr('src', $('input[name="Module[tab_icon]"]').val());
+		   }
+    });*/
+	
 	bgapp_type = "";
 	bgapp_appid = ""
 	bgapp_moduleid ="";
@@ -111,6 +120,7 @@ $pathurl = Yii::app()->theme->baseUrl;
          	<!-- Add feature wrapper starts here -->
             
         <!--  <div class="add_feature_wrapper">  -->
+        <?php //echo $form->hiddenField($model, 'tab_icon'); ?>
         <div class="sub_list_wrapper">
           <a href="#" class="add_features main_listing selected_tab">Add Features</a>
           <?php echo $this->renderPartial('_carsoulwrap',array('pathurl'=>$pathurl ,'model'=>$modelSelectAA,'data'=>$dataSelectAA,'url'=>$url));?>
@@ -119,8 +129,10 @@ $pathurl = Yii::app()->theme->baseUrl;
             <div class="featurelist">
 	<ul id="sortable">
 		<?php 
-		$li = "<li  id='module_%s' ><div class='wrapperli'><a class='tab_title' href='%s' id='%s' ><span class='content_list_icon'><img src='%s/img/%s.png'></span>%s</a><div class='pull-right edit_icon'><span class='drag'><img src='%s/img/drag.png' alt='drag'></span><span onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='popdetialHide(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div></li>"; 
-		$liid = "<li  id='module_%s' ><div class='wrapperli'><a href='%s' id='%s' ><span class='content_list_icon' ><img src='%s/img/%s.png'></span>%s</a><div class='pull-right edit_icon'><span class='drag'><img src='%s/img/drag.png' alt='drag'></span><span id='staticPageFormButton_%s'   onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='javascript:popupdetial(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div> </li>";
+		$li = "<li  id='module_%s' ><div class='wrapperli'><a class='tab_title' href='%s' id='%s' ><span class='content_list_icon'><img  src='%s'></span>%s</a><div class='pull-right edit_icon'><span class='drag'><img src='%s/img/drag.png' alt='drag'></span><span onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='popdetialHide(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div></li>"; 
+	
+		$liid = "<li  id='module_%s' ><div class='wrapperli'><a href='%s' id='%s' ><span class='content_list_icon'><img  src='%s'></span>%s</a><div class='pull-right edit_icon'><span class='drag'><img src='%s/img/drag.png' alt='drag'></span><span id='staticPageFormButton_%s'   onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='javascript:popupdetial(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div> </li>";
+		
 		foreach($model as $fea)
 		{
 			if ($fea->tab_title == NULL)
@@ -141,13 +153,34 @@ $pathurl = Yii::app()->theme->baseUrl;
 			}
 			
 			if(strpos($fea->name, 'staticpage') !== false){
-				printf($liid,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizeModuleContent","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$fea->id,$pathurl,$pathurl,$pathurl);
+				
+				if(isset($fea->tab_icon) && $fea->tab_icon != NULL)
+				{
+				   $icon_url = $fea->tab_icon;
+				}
+				else{ $icon_url = $pathurl.'/img/'.$fea->name.'.png'; }
+				printf($liid,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizeModuleContent","module_id"=>$fea->id)),$fea->name,$icon_url,$title,$pathurl,$fea->id,$pathurl,$pathurl,$pathurl);
 			}else if(strpos($fea->name, 'photo') !== false){
-				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$pathurl,$pathurl,$pathurl);
+				if(isset($fea->tab_icon) && $fea->tab_icon != NULL)
+				{
+				   $icon_url = $fea->tab_icon;
+				}
+				else{ $icon_url = $pathurl.'/img/'.$fea->name.'.png'; }
+				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$icon_url,$title,$pathurl,$pathurl,$pathurl,$pathurl);
 			}else if(strpos($fea->name, 'video') !== false){
-				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$pathurl,$pathurl,$pathurl);
+				if(isset($fea->tab_icon) && $fea->tab_icon != NULL)
+				{
+				   $icon_url = $fea->tab_icon;
+				}
+				else{ $icon_url = $pathurl.'/img/'.$fea->name.'.png'; }
+				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$icon_url,$title,$pathurl,$pathurl,$pathurl,$pathurl);
 			}else{
-				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnew","module_id"=>$fea->id)),$fea->name,$pathurl,$fea->name,$title,$pathurl,$pathurl,$pathurl,$pathurl);
+				if(isset($fea->tab_icon) && $fea->tab_icon != NULL)
+				{
+				   $icon_url = $fea->tab_icon;
+				}
+				else{ $icon_url = $pathurl.'/img/'.$fea->name.'.png'; }
+				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnew","module_id"=>$fea->id)),$fea->name,$icon_url,$title,$pathurl,$pathurl,$pathurl,$pathurl);
 			}
 			
 //echo CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnew","module_id"=>$fea->id))	;		 
@@ -217,6 +250,7 @@ $pathurl = Yii::app()->theme->baseUrl;
 
 
 <script type="text/javascript">
+
 var loaderDivji = '<div class="loading_content2" style="display:block;"><img src="<?php echo $pathurl?>/img/loading_page.gif"></div>';
 function popupdetial(arg,flag){
 
@@ -241,7 +275,7 @@ function popupdetial(arg,flag){
 	}
 	
  	flagloader = true;
-
+    //jQuery('.loading_content').show();
  	var aaLoader = $(arg).parent().parent();
 
  	//console.log(aaLoader.append($(loaderDivji).show()));
@@ -270,14 +304,15 @@ function popupdetial(arg,flag){
 		type : "POST",
 		url: $(arg).parent().parent().find('a').attr('href'),
 		beforeSend : (function(){
-			jQuery('.loading_content').show();	
+			jQuery('.loading_content').show();
 			//$(arg).parent().parent().find('div#formId').html(loaderDivji);
 			//console.log("amrit",'sdf');
-			
+			  
 		}),
+		
 		}).done(function(response) {
 
-
+            //alert(response);
 			$('#content_listing').hide();
 			
 			//$(arg).parent().parent().find('div#formId').remove();
@@ -299,10 +334,13 @@ function popupdetial(arg,flag){
 			$(arg).parent().parent().find('div#formId').removeAttr('style');
 			//$(arg).parent().parent().find('div#formId').css('position','none');
 			//$('.loading_content2').hide();
+			//alert("syed");
 			flagloader = false;
 			window.TabFlagOpen = window.TabFlagOpen + 1;
-			
+		
 			ulData(window.TabFlagOpen);
+			//alert('abcd12');
+			$('.loading_content').hide();
 		});
 
 	
@@ -310,6 +348,86 @@ function popupdetial(arg,flag){
 	$(arg).attr('onclick','popdetialHide(this)');
 	
 }
+
+   // var flagloader = false;
+$(document).ready(function() {
+
+
+	var s = $("#app_preview");
+	var pos = s.position();					   
+	$(window).scroll(function() {
+		var windowpos = $(window).scrollTop();
+		//console.log("Distance from top:" + pos.top + "<br />Scroll position: " + windowpos);
+		if (windowpos >= pos.top) {
+			s.addClass("stick");
+		} else {
+			s.removeClass("stick");	
+		}
+	});
+    
+	$( document ).ajaxStart(function( event,request, settings ) {
+		//alert(flagloader);
+		//alert("abc1");
+			if(flagloader){
+				//alert("asdf");
+				//$('.loading_content2').show();
+				//flagloader = false;
+			}else{
+				//alert("not add nea");
+				$('.loading_content').show();
+			}
+		});
+
+	$( document ).ajaxSuccess(function( event,request, settings ) {
+		//alert(flagloader);
+		//alert("abc2");
+		if(flagloader){
+			//$('.loading_content2').hide();
+			//flagloader = false;
+			//alert("abc3");
+		}else{
+			$('.loading_content').hide();
+			console.log(settings.url);
+			
+		}
+
+/*		if(window.TabFlagOpen < 0 )
+			window.TabFlagOpen = 0 ;
+		else
+			window.TabFlagOpen = window.TabFlagOpen - 1 ;
+
+		if(window.TabFlagOpen < 0 )
+			window.TabFlagOpen = 0 ;
+*/		
+		ulData(window.TabFlagOpen);
+
+		console.log('suvcces',window.TabFlagOpen);
+
+		});
+	
+	$( document ).ajaxComplete(function( event,request, settings ) {
+		//alert("abc4");
+		//alert(flagloader);
+		if(flagloader){
+			//$('.loading_content2').hide();
+		}else{
+			$('.loading_content2').hide();
+		}
+
+		console.log('comllepl',window.TabFlagOpen);
+		
+		});
+
+	$( document ).ajaxError(function( event,request, settings ) {
+		if(flagloader){
+			//$('.loading_content2').hide();
+		}else{
+			$('.loading_content').hide();
+		}
+		
+		});
+	
+});
 
 function popdetialHide(arg)
 {
@@ -417,99 +535,7 @@ function removeModule(arg){
 </script>
 
 <script type="text/javascript">
-   // var flagloader = false;
-$(document).ready(function() {
 
-	/*  
-	$(window).scroll(function() {
-		
-		var s = $(".app_preview");
-
-		var pos = s.position();	
-		
-		var windowpos = $(window).scrollTop();
-		
-		console.log('POS',pos,'windowpos',windowpos);
-
-		if (windowpos >= pos.top) {
-			s.addClass("stick");
-			console.log('working');
-		} else {
-			s.removeClass("stick");	
-			console.log('ongint');
-		}
-	});
-
-	*/
-
-	var s = $("#app_preview");
-	var pos = s.position();					   
-	$(window).scroll(function() {
-		var windowpos = $(window).scrollTop();
-		//console.log("Distance from top:" + pos.top + "<br />Scroll position: " + windowpos);
-		if (windowpos >= pos.top) {
-			s.addClass("stick");
-		} else {
-			s.removeClass("stick");	
-		}
-	});
-
-	$( document ).ajaxStart(function( event,request, settings ) {
-			if(flagloader){
-				//alert("asdf");
-				//$('.loading_content2').show();
-				//flagloader = false;
-			}else{
-				//alert("not add nea");
-				$('.loading_content').show();
-			}
-		});
-
-	$( document ).ajaxSuccess(function( event,request, settings ) {
-		if(flagloader){
-			//$('.loading_content2').hide();
-			//flagloader = false;
-		}else{
-			$('.loading_content').hide();
-			console.log(settings.url);
-			
-		}
-
-/*		if(window.TabFlagOpen < 0 )
-			window.TabFlagOpen = 0 ;
-		else
-			window.TabFlagOpen = window.TabFlagOpen - 1 ;
-
-		if(window.TabFlagOpen < 0 )
-			window.TabFlagOpen = 0 ;
-*/		
-		ulData(window.TabFlagOpen);
-
-		console.log('suvcces',window.TabFlagOpen);
-
-		});
-	
-	$( document ).ajaxComplete(function( event,request, settings ) {
-		if(flagloader){
-			//$('.loading_content2').hide();
-		}else{
-			$('.loading_content2').hide();
-		}
-
-		console.log('comllepl',window.TabFlagOpen);
-		
-		});
-
-	$( document ).ajaxError(function( event,request, settings ) {
-		if(flagloader){
-			//$('.loading_content2').hide();
-		}else{
-			$('.loading_content').hide();
-		}
-		
-		});
-	
-});
 
 function refresh_iframe()
 {
@@ -571,6 +597,7 @@ function ulData(arg)
 		$( "#sortable" ).sortable( "option", "disabled", true );
 	}else{
 		$( "#sortable" ).sortable( "option", "disabled", false );
+		//$('.loading_content').hide();
 	}
 }
 

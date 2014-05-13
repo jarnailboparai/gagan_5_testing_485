@@ -726,6 +726,8 @@ class TutorialController extends Controller
 				$port_image = $model_data->port_media_id;
 				$land_image = $model_data->land_media_id;
 				$image_id = $model_data->id;
+				
+				//$image_id = $flag;
 
 				if(!empty($port_image) || $port_image!=0)
 				{

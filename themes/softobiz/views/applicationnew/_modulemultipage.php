@@ -1,6 +1,6 @@
 <!--  Single page tab design starts here -->
 <link href="/members/wizard/themes/softobiz/css/media_gallery.css" rel="stylesheet" type="text/css"></link>
-
+<link href="/members/wizard/themes/softobiz/css/icons.css" rel="stylesheet" type="text/css"></link>
 <div class="single_page multiple_setting">
 	<?php
 	$form = $this->beginWidget('CActiveForm', array(
@@ -49,7 +49,8 @@
 			</td>
 			<td width="76px">
 			 <?php echo $form->hiddenField($model, 'tab_icon'); ?>
-			<span class="icon_wrapper">
+             <?php echo $this->render('//mediafiles/index_appicon',array('module_id'=>$model->id));?>
+			<?php /*?><span class="icon_wrapper">
 <!--                   <div title="Select Icon" class="select_icon"></div> -->
                   
                   <span class="select_icon change_icon_block_image_wrapper image">
@@ -103,7 +104,7 @@
                   
                   
                   
-             </span>
+             </span><?php */?>
 			</td>
 			<td>
 				<div class="button_panel">
@@ -190,7 +191,7 @@ jQuery(document).ready(function(){
             if ($('#customizePreview').css('display') == 'none')
                 $('#customizePreview').slideDown('slow');
         });
-        if ($('input[name="Module[tab_icon]"]').val() != '')
+       /* if ($('input[name="Module[tab_icon]"]').val() != '')
             $('.change_icon_block_image_wrapper img').attr('src', $('input[name="Module[tab_icon]"]').val());
 
         $('.change_icon_block_tabs li').click(function() {
@@ -213,7 +214,7 @@ jQuery(document).ready(function(){
 
        $('.change_icon_block_popup em').click(function() {
             $('.change_icon_block_popup').fadeOut();
-        });
+        });*/
 
 
 
@@ -226,13 +227,13 @@ jQuery(document).ready(function(){
  */
 
         
-        $('.change_icon_block_tabs_content img').click(function() {
+        /*$('.change_icon_block_tabs_content img').click(function() {
             $('.change_icon_block_image_wrapper img').attr('src', $(this).attr('src'));
             $('.change_icon_block_popup').fadeOut();
             $('input[name="Module[tab_icon]"]').val($(this).attr('src'));
             //var iframeObj = $('#myframe').contents();
             //iframeObj.find('#tab2 .ui-icon').css('background', 'url("../../' + $('.change_icon_block_image_wrapper img').attr('src') + '")  50% 50% no-repeat');
-        });
+        });*/
         /********Iframe-begin********/
 
     });

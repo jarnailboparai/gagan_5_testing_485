@@ -60,7 +60,19 @@ if(count($model) > 0  ){
             <?php /*  code comment by sob_k?>
             <img src="<?= $url ?>/images/app_thumb.jpg" alt="app thumb" />
             <? */ ?>
-            <?php $path = (!empty($m['icon'])) ? $url."/app_images/".$m['icon'] : $url."/images/app_thumb.jpg" ?> 
+           <?php /*?> <?php $path = (!empty($m['icon'])) ? $url."/app_images/".$m['icon'] : $url."/images/app_thumb.jpg" ?><?php */?> 
+            <?php $icon_path = explode("/",$m['icon']);
+			      
+			 ?>
+            <?php 
+			      if(count($icon_path) > 1) {
+			 $path = (!empty($m['icon'])) ? $url."/".$m['icon'] : $url."/images/app_thumb.jpg" ;
+				  } 
+				  else
+				  {
+			 $path = (!empty($m['icon'])) ? $url."/app_images/".$m['icon'] : $url."/images/app_thumb.jpg";		  
+				   }
+			 ?>
             <img src="<?= $path ?>" alt="app thumb" />
             </div>
             <div class="app_title">
@@ -70,6 +82,11 @@ if(count($model) > 0  ){
            <?php }elseif(count($obj->applinkdata) == 0){?>
            	<div class="links_prog pull-right">Inprogress<br/><a class='generateappnew' href="<?php echo CHtml::normalizeUrl(array('tutorial/buildapp','id'=>$m['id']));?>">Refresh</a></div>
            <?php } ?>
+           <?php  if(count($obj->applinkdata) > 0 && $obj->applinkdata->attributes['ios'] == null  ){  ?>
+            	 <div class="links_prog pull-right"><a href="<?php echo CHtml::normalizeUrl(array('tutorial/buildapp','id'=>$m['id']));?>">Build Ios</a></div>
+          	<?php }elseif(count($obj->applinkdata) > 0 && $obj->applinkdata->attributes['android'] == null){ ?>
+            	 <div class="links_prog pull-right"><a href="<?php echo CHtml::normalizeUrl(array('tutorial/buildapp','id'=>$m['id']));?>">Build Android</a></div>
+            <?php } ?>
             <div class="clearfix"></div>
             </div>
             <div class="date">November 06 2013</div>
@@ -144,11 +161,11 @@ if(count($model) > 0  ){
             </div>
             
             <!-- No of Leads ends -->
-            <?php  if(count($obj->applinkdata) > 0 && $obj->applinkdata->attributes['ios'] == null  ){  ?>
+            <?php /*  if(count($obj->applinkdata) > 0 && $obj->applinkdata->attributes['ios'] == null  ){  ?>
             	<a href="<?php echo CHtml::normalizeUrl(array('tutorial/buildapp','id'=>$m['id'])); ?>" class="pull-right build_ios btn btn-primary generateappnew">Build IOS APP</a>
             <?php }elseif(count($obj->applinkdata) > 0 && $obj->applinkdata->attributes['android'] == null){ ?>
             	<a href="<?php echo CHtml::normalizeUrl(array('tutorial/buildapp','id'=>$m['id'])); ?>" class="pull-right build_ios btn btn-primary generateappnew">Build APK APP</a>
-            <?php }?>
+            <?php } */ ?>
             <div class="app_icon pull-right rebuild" >
            
             <?php

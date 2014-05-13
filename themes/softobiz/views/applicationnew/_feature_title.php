@@ -1,3 +1,13 @@
+<script>
+$(document).ready(function() {
+       
+		   if ($('input[name="Module[tab_icon]"]').val() != '')
+		   {
+            $('#_icon img').attr('src', $('input[name="Module[tab_icon]"]').val());
+		   }
+    });
+    
+</script>
 <?php  $title = '';
         $module_info = ModuleFile::model()->findByAttributes(array('name' => $model->name));
        	if(count($module_info)){
@@ -12,7 +22,7 @@
         ?>
         
 <div class="individual_title theme_title">
-		<span class="content_list_icon"><img src='<?php echo $src;?>'></span>
+		<span class="content_list_icon" id="_icon"><img src='<?php echo $src;?>'></span>
 		<?php echo $title; ?>
 		<input class="btn btn-primary cancel_singlepage pull-right" type="button" value="Back to Features List" name="yt1" onclick="feature_listing()">
 	<div class="clearfix"></div>

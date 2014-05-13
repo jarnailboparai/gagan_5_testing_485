@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="<?= Yii::app()->request->baseUrl; ?>/themes/softobiz/css/customize_module_details.css">
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/scroller/jquery.mousewheel.js"></script>
 <link href="<?php echo $pathurl; ?>/css/media_gallery.css" rel="stylesheet" type="text/css"></link>
+<link href="<?php echo $pathurl; ?>/css/icons.css" rel="stylesheet" type="text/css"></link>
 
 <style type="text/css">
       html { height: 100% }
@@ -104,7 +105,9 @@ jQuery(document).ready(function(){
  
 		    <?php echo $form->textField($model, 'tab_title', array('placeholder' => 'Title', 'value' => $title)); ?>
 		    <?php echo $form->hiddenField($model, 'tab_icon'); ?>
-		     <span class="icon_wrapper">
+            <?php echo $this->render('//mediafiles/index_appicon',array('module_id'=>$model->id));?>
+             
+		     <?php /*?><span class="icon_wrapper">
 
                   <span class="select_icon change_icon_block_image_wrapper image">
 
@@ -157,7 +160,7 @@ jQuery(document).ready(function(){
                   
                   
                   
-             </span>
+             </span><?php */?>
              
             
               <div class="clearfix"></div>
@@ -180,7 +183,7 @@ jQuery(document).ready(function(){
 
               </div>
                  <?php $this->endWidget(); ?>
-                
+                  
                 </div>
 
 <?php
@@ -198,7 +201,7 @@ else
             if ($('#customizePreview').css('display') == 'none')
                 $('#customizePreview').slideDown('slow');
         });
-        if ($('input[name="Module[tab_icon]"]').val() != '')
+        /*if ($('input[name="Module[tab_icon]"]').val() != '')
             $('.change_icon_block_image_wrapper img').attr('src', $('input[name="Module[tab_icon]"]').val());
 
         $('.change_icon_block_tabs li').click(function() {
@@ -230,7 +233,7 @@ else
             $('.change_icon_block_image_wrapper img').attr('src', $(this).attr('src'));
             $('.change_icon_block_popup').fadeOut();
             $('input[name="Module[tab_icon]"]').val($(this).attr('src'));
-                  });
+                  });*/
        
 
     });

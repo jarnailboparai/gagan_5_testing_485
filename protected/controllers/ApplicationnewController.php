@@ -206,9 +206,11 @@ class ApplicationnewController extends Controller
 		//$this->render('home');
 	}
 
+	
+	
 	public function actionDashboard()
 	{
-		$user_id = Yii::app()->user->id;
+	    $user_id = Yii::app()->user->id;
 
 		$model = Application::model()->findAllByAttributes(array('user_id' => $user_id));
 		/* print_r($model); die;
@@ -1480,6 +1482,10 @@ class ApplicationnewController extends Controller
 			
 			if(file_exists(Yii::app()->basePath.'/../app_images/'.$app_model->icon)){
 				copy(Yii::app()->basePath.'/../app_images/'.$app_model->icon, $dest_path . '/icon.png');
+				//die("app icon image");
+			}
+			if(file_exists(Yii::app()->basePath.'/../'.$app_model->icon)){
+				copy(Yii::app()->basePath.'/../'.$app_model->icon, $dest_path . '/icon.png');
 				//die("app icon image");
 			}
 			//print_r($sub->videomedia->filemediaImage->attributes);
@@ -3131,7 +3137,7 @@ class ApplicationnewController extends Controller
 						'rss_feeds'=>'RSS',
 						//'aweber'=>'Squeeze Page',
 						'aweber'=>'Optin Forms',
-						'optin_forms'=>'Optin Forms',
+						//'optin_forms'=>'Optin Forms',
 						'contact_us_page'=>'Contact us page',
 						'social_sharing_features'=>'Social Sharing features',
 						'in_app_rating_feature'=>'In-app rating feature',
@@ -3361,11 +3367,12 @@ class ApplicationnewController extends Controller
 				'rss_feeds'=>'Rss',
 			//	'aweber'=>'Squeeze Page',
 				'aweber'=>'Optin Forms',
-				'optin_forms'=>'Optin Forms',
+				'admob'=>'Admob or tapgage',
+				//'optin_forms'=>'Optin Forms',
 				//'contact_us_page'=>'Contact us page',
 				'social_sharing_features'=>'Social Sharing features',
 				'in_app_rating_feature'=>'In-app rating feature',
-				'admob'=>'Admob or tapgage',
+				//'admob'=>'Admob or tapgage',
 				'notification'=>'Push Notification',
 				
 				);
@@ -3647,6 +3654,15 @@ class ApplicationnewController extends Controller
 					'model_weber'=>$model_weber,
 					//'notificationModel' => $notificationModel
 			));
+			
+			}elseif($model->name == 'admob'){
+					
+				$this->render('_admob_form', array(
+						'model' => $model,
+						'style' => $style,
+						'uploadedImages' => $uploadedImages,
+						'notificationModel' => $notificationModel
+				));
 			
 		}else{
 	
@@ -4371,9 +4387,11 @@ class ApplicationnewController extends Controller
 					$uploadedImages = 0;
 		
 					$style['customize_modules'] = 'class="current"';
-		
+					
+		             
 					if($model->name == 'photosub')
 					{
+						
 						$this->render('_photo_form', array(
 								'model' => $model,
 								'style' => $style,
@@ -4842,7 +4860,7 @@ class ApplicationnewController extends Controller
 	
 			$apps[0]['android_status'] = $getApp_status->status->android;
 	
-			$apps[0]['ios_link'] = $phonegap->getDownloadLink($app_model->pg_appid, 'ios');
+			//$apps[0]['ios_link'] = $phonegap->getDownloadLink($app_model->pg_appid, 'ios');
 	
 			$apps[0]['ios_status'] = $getApp_status->status->ios;
 	
@@ -4862,7 +4880,11 @@ class ApplicationnewController extends Controller
 			$modelApp->application_id = $app_model->id;
 			$modelApp->phonegap_id = $app_model->pg_appid;
 			$modelApp->android = $phonegap->getDownloadLink($app_model->pg_appid, 'android');
-			$modelApp->ios = $phonegap->getDownloadLink($app_model->pg_appid, 'ios');
+			
+			$ios_profile_model = AppleProfile::model()->findByAttributes(array('user_id' => Yii::app()->user->id));
+			
+			if(count($ios_profile_model))
+				$modelApp->ios = $phonegap->getDownloadLink($app_model->pg_appid, 'ios');
 			
 			if(!count($modelAppLink)){
 				$modelApp->save();
@@ -5195,8 +5217,11 @@ class ApplicationnewController extends Controller
 		//print_r($res);
 		if($res)
 		{
-			$model->phonegap_id = $res->id;
-			$model->update();
+			if(property_exists($res, 'id'))
+			{
+				$model->phonegap_id = $res->id;
+				$model->update();
+			}
 			return true;
 		}else{
 			return false;

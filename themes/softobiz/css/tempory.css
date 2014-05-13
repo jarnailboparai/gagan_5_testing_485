@@ -87,10 +87,10 @@
 
 
 /* remove optin form tab */
-.crosel_invisible_wrap ul li:nth-child(7),#jCarouselLiteDemo .carousel.main li:nth-child(7){
+/*.crosel_invisible_wrap ul li:nth-child(7),#jCarouselLiteDemo .carousel.main li:nth-child(7){
 	display:none;
 }
 .slidetheme #jCarouselLiteDemo .carousel.main li:nth-child(7){
 	display:block;
 }
-/* remove optin form tab ends here */
+ remove optin form tab ends here */

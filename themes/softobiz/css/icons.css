@@ -1,0 +1,138 @@
+.icon_select {
+    left: 50%;
+    margin-left: -482px;
+    width: 965px;
+}
+.icon_select .modal-body  ul{
+	padding:0px;
+	box-shadow:0px;
+}
+.icon_select .icon_container ul li{
+	margin-bottom:1px;
+	background:none;
+	box-shadow:none;
+	position:relative;
+}
+.custom_icon_tabs li,.custom_icon_tabs{
+		box-shadow:none !important;
+}
+
+.custom_icon_tabs {
+    padding: 0 !important;
+}
+.icon_select,.icon_select *{
+	border-radius:0px;
+}
+
+/* tabs setting */
+.custom_icon_tabs{
+	border-bottom:2px solid #e3e3e3;
+	list-style:none;
+	height:28px;
+	margin:0px;
+}
+.custom_icon_tabs li{
+	float:left;
+	margin-right:1px;
+	background:none;
+}
+.custom_icon_tabs li a{
+	padding:4px 10px;
+	display:block;
+	outline:none;
+	color:#444;
+}
+.custom_icon_tabs li.active a,.custom_icon_tabs li:hover a{
+	
+	border-bottom:2px solid red;
+	text-decoration:none;
+	color:#000;
+}
+
+.icon_container .tab-content{
+	padding:15px 0 0 0;
+}
+.white_icon{
+	background-image:url(../../../images/white_icon_bg.jpg);
+}
+.colored_icon{
+	background-image:url(../../../images/colored_icon_bg.jpg);
+}
+.black_icon{
+	background-image:url(../../../images/black_icon.jpg);
+}
+/* common icon layout */
+.icon_layout{
+	list-style:none;
+	margin:0px;
+	float:left;
+	width: 918px;
+}
+.icon_layout li {
+    display: inline-block;
+    float: left;
+    height: 53px;
+    line-height: 53px;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    text-align: center;
+    width: 53px;
+}
+.icon_layout li img{
+	max-height:32px;
+	max-width:32px;
+}
+.icon_layout li:hover{
+	background-image:url(../../../images/title_bg.png);
+	box-shadow:0px 0px 3px #333333 inset;
+	cursor:pointer;
+}
+.icon_layout li img{
+	max-height:32px;
+	max-width:32px;
+}
+.icon_select .modal-footer{
+	text-align:left;
+}
+
+/* over right confliction */
+.icon_container .custom_icon_tabs,.icon_layout {
+	width:918px !important;
+}
+
+/* modal settings */
+
+.icon_select .modal-body
+{
+	padding:15px 0 15px !important;
+}
+.icon_container {
+	margin: 0 auto;
+    width: 918px;
+}
+
+.icon_container .select_feature{
+	line-height:0px;
+}
+/* modal settings */
+.modal-backdrop, .modal-backdrop.fade.in{
+	z-index: 1000001;
+}
+.modal.hide.fade.in{z-index: 1000002;}
+.app_info_select .change_icon_block_image_wrapper {
+    background: none repeat scroll 0 0 #FFF3DD;
+    float: left;
+    height: 46px;
+    line-height: 43px;
+    margin: 3px 11px 0 0;
+    text-align: center;
+    width: 46px;
+	border:1px solid #C4A775;
+}
+.app_info_select .change_icon_block_image_wrapper img{
+	max-height:32px;
+	max-width:32px;
+}
+.modal-header h3{
+	color:#333;
+}

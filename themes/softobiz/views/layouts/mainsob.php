@@ -39,6 +39,10 @@
         <!--        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI4_1EiCrW3c3pzqq5fLLMQkD0EwwD9pc&sensor=false"> -->
         <!--     </script> -->
         <!-- <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script> -->
+        
+        <!--[if IE 8]>
+   			<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/ie8.css" />
+ 		<![endif]-->
         </head>
 
         <body>

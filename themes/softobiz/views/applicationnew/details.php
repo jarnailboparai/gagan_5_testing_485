@@ -1,6 +1,8 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/validate_detail.js"></script>
+<?php $url =  Yii::app()->getBaseUrl(true); $pathurl = Yii::app()->theme->baseUrl; ?>
+<link href="<?php echo $pathurl; ?>/css/icons.css" rel="stylesheet" type="text/css"></link>
 <?php
-$pathurl = Yii::app()->theme->baseUrl;
+//$pathurl = Yii::app()->theme->baseUrl;
 // if (isset($disabled))
 //     $this->renderPartial("app_menu", array('style' => $style, 'disabled' => $disabled));
 // else
@@ -62,7 +64,17 @@ $pathurl = Yii::app()->theme->baseUrl;
                 <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Icon</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="Please upload a 114x114 PNG image to avoid distortion.
                         Note: Apple does not allow transparency in iPhone app icons" ><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
                 <div class="controls">
-                    <?php echo $form->fileField($model, 'icon', array('class' => 'input-file', 'id' => 'uploadedFile')); ?>
+                    <?php /*?><a data-target="#myModalMediaImage" href="<?php echo CHtml::normalizeUrl(array('mediafiles/index','module_id'=>$model->id,'layout'=>1))?>" role="button" class="btn btn-primary big_btn" data-toggle="modal" >Add Icon</a><?php */?>
+                    
+                    <?php //echo $this->render('//mediafiles/index_appicon',array('module_id'=>$model->id));?>
+                    
+                    <!---->
+                    
+                         <?php echo $this->renderPartial('//applicationnew/_app_icon',array('module_id'=>$model->id,'app_icon_new'=>1));?>
+                    <!---->
+                   
+                    <?php echo $form->hiddenField($model, 'icon',array('value'=>'')); ?>
+                    <?php //echo $form->fileField($model, 'icon', array('class' => 'input-file', 'id' => 'uploadedFile')); ?>
                     <br/><br/>
                     <?php echo $form->error($model, 'icon',array('class'=>'alert alert-error')); ?>
 <!--                     <p class="help-block">Please upload a 114x114 PNG image to avoid distortion.<br> -->

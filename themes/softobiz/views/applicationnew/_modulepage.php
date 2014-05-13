@@ -1,6 +1,6 @@
 <!--  Single page tab design starts here -->
 <link href="/members/wizard/themes/softobiz/css/media_gallery.css" rel="stylesheet" type="text/css"></link>
-
+<link href="/members/wizard/themes/softobiz/css/icons.css" rel="stylesheet" type="text/css"></link>
 <div class="single_page">
 	<?php
 	$form = $this->beginWidget('CActiveForm', array(
@@ -49,7 +49,8 @@
 			</td>
 			<td>
 			 <?php echo $form->hiddenField($model, 'tab_icon'); ?>
-			<span class="icon_wrapper">
+             <?php echo $this->render('//mediafiles/index_appicon',array('module_id'=>$model->id));?>
+			<?php /*?><span class="icon_wrapper">
 <!--                   <div title="Select Icon" class="select_icon"></div> -->
                   
                   <span class="select_icon change_icon_block_image_wrapper image">
@@ -103,7 +104,7 @@
                   
                   
                   
-             </span>
+             </span><?php */?>
 			</td>
 		</tr>
 	</table>

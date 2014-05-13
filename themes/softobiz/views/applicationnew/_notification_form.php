@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="<?= Yii::app()->request->baseUrl; ?>/themes/softobiz/css/customize_module_details.css">
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/scroller/jquery.mousewheel.js"></script>
 <link href="<?php echo $pathurl; ?>/css/media_gallery.css" rel="stylesheet" type="text/css"></link>
-
+<link href="<?php echo $pathurl; ?>/css/icons.css" rel="stylesheet" type="text/css"></link>
 <script>
 
 jQuery(document).ready(function(){
@@ -96,7 +96,10 @@ jQuery(document).ready(function(){
 <!-- 		   <input type="text" placeholder="Title"> -->
 		    <?php echo $form->textField($model, 'tab_title', array('placeholder' => 'Title', 'value' => $title)); ?>
 		    <?php echo $form->hiddenField($model, 'tab_icon'); ?>
-		     <span class="icon_wrapper">
+            
+            <?php echo $this->render('//mediafiles/index_appicon',array('module_id'=>$model->id));?>
+            
+		     <?php /*?><span class="icon_wrapper">
 <!--                   <div title="Select Icon" class="select_icon"></div> -->
                   
                   <span class="select_icon change_icon_block_image_wrapper image">
@@ -150,7 +153,7 @@ jQuery(document).ready(function(){
                   
                   
                   
-             </span>
+             </span><?php */?>
              
             
               <div class="clearfix"></div>
@@ -271,7 +274,7 @@ else
             if ($('#customizePreview').css('display') == 'none')
                 $('#customizePreview').slideDown('slow');
         });
-        if ($('input[name="Module[tab_icon]"]').val() != '')
+       /* if ($('input[name="Module[tab_icon]"]').val() != '')
             $('.change_icon_block_image_wrapper img').attr('src', $('input[name="Module[tab_icon]"]').val());
 
         $('.change_icon_block_tabs li').click(function() {
@@ -294,7 +297,7 @@ else
 
        $('.change_icon_block_popup em').click(function() {
             $('.change_icon_block_popup').fadeOut();
-        });
+        });*/
 
 
 
@@ -307,13 +310,13 @@ else
  */
 
         
-        $('.change_icon_block_tabs_content img').click(function() {
+      /*  $('.change_icon_block_tabs_content img').click(function() {
             $('.change_icon_block_image_wrapper img').attr('src', $(this).attr('src'));
             $('.change_icon_block_popup').fadeOut();
             $('input[name="Module[tab_icon]"]').val($(this).attr('src'));
             //var iframeObj = $('#myframe').contents();
             //iframeObj.find('#tab2 .ui-icon').css('background', 'url("../../' + $('.change_icon_block_image_wrapper img').attr('src') + '")  50% 50% no-repeat');
-        });
+        });*/
         /********Iframe-begin********/
 
     });

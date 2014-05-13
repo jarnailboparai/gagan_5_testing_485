@@ -601,3 +601,8 @@
 #myModalVideoCustom .limited_modal .input-prepend #prependedInput.span10{
 	margin-top:5px;
 }
+/* 12 may */
+.custom_modal .uploadifive-queue-item input[type="text"]{
+	height:auto !important;
+	width: 91% !important;
+}

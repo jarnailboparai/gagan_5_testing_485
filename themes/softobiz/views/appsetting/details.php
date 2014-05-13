@@ -1,4 +1,6 @@
 <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/edit_detail.js"></script>
+<?php $pathurl = Yii::app()->theme->baseUrl; ?>
+<link href="<?php echo $pathurl; ?>/css/icons.css" rel="stylesheet" type="text/css"></link>
 <?php
 
 $pathurl = Yii::app()->theme->baseUrl;
@@ -65,7 +67,12 @@ $pathurl = Yii::app()->theme->baseUrl;
                 <label class="control-label ctrl_style" style="width:100%;float:left;"><span style="float:left;margin-right:10px;">App Icon</span><span style="float:left;"><a href="#" class="eeee" data-toggle="tooltip" data-placement="right" title="" data-original-title="Please upload a 114x114 PNG image to avoid distortion.
                         Note: Apple does not allow transparency in iPhone app icons" ><img src="<?= $pathurl?>/img/app_info_icon.png" ></a></span></label>
                 <div class="controls">
-                    <?php echo $form->fileField($model, 'icon', array('class' => 'input-file', 'id' => 'uploadedFile')); ?>
+                     <!---->
+                    
+                         <?php echo $this->renderPartial('//appsetting/_app_icon',array('module_id'=>$model->id,'app_icon_img'=>$model->icon,'app_icon_new'=>1));?>
+                    <!---->
+                    <?php echo $form->hiddenField($model, 'icon'); ?>
+                    <?php //echo $form->fileField($model, 'icon', array('class' => 'input-file', 'id' => 'uploadedFile')); ?>
                     <br/><br/>
                     <?php echo $form->error($model, 'icon',array('class'=>'alert alert-error')); ?>
 <!--                     <p class="help-block">Please upload a 114x114 PNG image to avoid distortion.<br> -->
