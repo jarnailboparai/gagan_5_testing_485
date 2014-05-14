@@ -31,7 +31,6 @@ jQuery(document).ready(function(){
 	   
 	});
 	       
-    
 });
 
 </script>
@@ -92,7 +91,7 @@ jQuery(document).ready(function(){
 		    <?php echo $form->textField($model, 'tab_title', array('placeholder' => 'Title', 'value' => $title)); ?>
 		    <?php echo $form->hiddenField($model, 'tab_icon'); ?>
 		     
-             <?php echo $this->render('//mediafiles/index_appicon',array('module_id'=>$model->id));?>
+             <?php echo $this->render('//mediafiles/index_appicon',array('module_id'=>$model->id,'module_name'=>$model->name));?>
              
 <!--               <a href="#myModal" role="button" data-toggle="modal" class="btn btn-primary big_btn">Add Images</a> -->
               

@@ -7,9 +7,9 @@
 }
 .staticPage{
 	background:#fff url(../images/header_bg.png);
-	margin:4% 2% 2%;
+	margin:1% 0% 1%;
 	padding:3%;
-	width: 91%;
+	/*width: 91%;*/
 	word-wrap: break-word;
 }
 .staticpage_content p{
@@ -20,12 +20,12 @@
 	text-shadow:none;
 }
 .staticPageList .ui-btn{
-	background:url(../images/list_bg.png) !important;
+	background:#fff url(../images/list_bg.png) !important;
 	border-color:#6D3619;
 }
 .staticPageList{
-	
-	margin:4% 2% 2%;
+	/*margin:4% 2% 2%;*/
+	margin:1% 0% 2%;
 }
 .staticPageList .ui-btn:hover,.staticPageList .ui-btn:focus,.staticPageList .ui-btn:active{
 	background:#fff url(../images/list_bg.png) !important;
@@ -56,4 +56,10 @@
 }
 a.item{
 	width:auto !important;
+}
+.staticPageList .ui-listview .ui-li-has-thumb > img:first-child,.staticPageList .ui-listview .ui-li-has-thumb > .ui-btn > img:first-child, .staticPageList .ui-listview .ui-li-has-thumb .ui-li-thumb
+{
+	height:92px;
+	max-width: 5.5em;
+	max-height:none;
 }

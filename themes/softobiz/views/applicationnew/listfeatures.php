@@ -129,9 +129,9 @@ $pathurl = Yii::app()->theme->baseUrl;
             <div class="featurelist">
 	<ul id="sortable">
 		<?php 
-		$li = "<li  id='module_%s' ><div class='wrapperli'><a class='tab_title' href='%s' id='%s' ><span class='content_list_icon'><img  src='%s'></span>%s</a><div class='pull-right edit_icon'><span class='drag'><img src='%s/img/drag.png' alt='drag'></span><span onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='popdetialHide(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div></li>"; 
+		$li = "<li  id='module_%s' ><div class='wrapperli'><a class='tab_title' href='%s' id='%s' ><span class='content_list_icon'><img id='img_%s' src='%s'></span>%s</a><div class='pull-right edit_icon'><span class='drag'><img src='%s/img/drag.png' alt='drag'></span><span onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='popdetialHide(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div></li>"; 
 	
-		$liid = "<li  id='module_%s' ><div class='wrapperli'><a href='%s' id='%s' ><span class='content_list_icon'><img  src='%s'></span>%s</a><div class='pull-right edit_icon'><span class='drag'><img src='%s/img/drag.png' alt='drag'></span><span id='staticPageFormButton_%s'   onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='javascript:popupdetial(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div> </li>";
+		$liid = "<li  id='module_%s' ><div class='wrapperli'><a href='%s' id='%s' ><span class='content_list_icon'><img id='img_%s' src='%s'></span>%s</a><div class='pull-right edit_icon'><span class='drag'><img src='%s/img/drag.png' alt='drag'></span><span id='staticPageFormButton_%s'   onclick='javascript:popupdetial(this)' ><img src='%s/img/edit_content.png' alt='edit'></span>  <span onclick='javascript:popupdetial(this)' ><img src='%s/img/refresh.png' alt='refresh'></span> <span onclick='removeModule(this)' ><img src='%s/img/trash_icon.png' alt='remove'></span></div></div> </li>";
 		
 		foreach($model as $fea)
 		{
@@ -159,28 +159,28 @@ $pathurl = Yii::app()->theme->baseUrl;
 				   $icon_url = $fea->tab_icon;
 				}
 				else{ $icon_url = $pathurl.'/img/'.$fea->name.'.png'; }
-				printf($liid,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizeModuleContent","module_id"=>$fea->id)),$fea->name,$icon_url,$title,$pathurl,$fea->id,$pathurl,$pathurl,$pathurl);
+				printf($liid,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizeModuleContent","module_id"=>$fea->id)),$fea->name,$fea->id,$icon_url,$title,$pathurl,$fea->id,$pathurl,$pathurl,$pathurl);
 			}else if(strpos($fea->name, 'photo') !== false){
 				if(isset($fea->tab_icon) && $fea->tab_icon != NULL)
 				{
 				   $icon_url = $fea->tab_icon;
 				}
 				else{ $icon_url = $pathurl.'/img/'.$fea->name.'.png'; }
-				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$icon_url,$title,$pathurl,$pathurl,$pathurl,$pathurl);
+				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$fea->id,$icon_url,$title,$pathurl,$pathurl,$pathurl,$pathurl);
 			}else if(strpos($fea->name, 'video') !== false){
 				if(isset($fea->tab_icon) && $fea->tab_icon != NULL)
 				{
 				   $icon_url = $fea->tab_icon;
 				}
 				else{ $icon_url = $pathurl.'/img/'.$fea->name.'.png'; }
-				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$icon_url,$title,$pathurl,$pathurl,$pathurl,$pathurl);
+				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnewdesign","module_id"=>$fea->id)),$fea->name,$fea->id,$icon_url,$title,$pathurl,$pathurl,$pathurl,$pathurl);
 			}else{
 				if(isset($fea->tab_icon) && $fea->tab_icon != NULL)
 				{
 				   $icon_url = $fea->tab_icon;
 				}
 				else{ $icon_url = $pathurl.'/img/'.$fea->name.'.png'; }
-				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnew","module_id"=>$fea->id)),$fea->name,$icon_url,$title,$pathurl,$pathurl,$pathurl,$pathurl);
+				printf($li,$fea->id,CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnew","module_id"=>$fea->id)),$fea->name,$fea->id,$icon_url,$title,$pathurl,$pathurl,$pathurl,$pathurl);
 			}
 			
 //echo CHtml::normalizeUrl(array("applicationnew/customizemoduledetailsnew","module_id"=>$fea->id))	;		 
@@ -467,10 +467,10 @@ function popdetialHideOther(arg)
 	
 	//$('#module_'+arg[2]).find('a').html(arg[0]);
 
-	$s = '<span class="content_list_icon"><img src="'+themeurl+'/img/'+arg[1]+'.png"></span>'+arg[0];
+	//$s = '<span class="content_list_icon"><img src="'+themeurl+'/img/'+arg[1]+'.png"></span>'+arg[0];
 
 	//console.log(arg);
-	$('#module_'+arg[2]).find('a').html($s);
+	//$('#module_'+arg[2]).find('a').html($s);
 
 	window.TabFlagOpen = window.TabFlagOpen - 1;
 

@@ -105,19 +105,26 @@ class PhoneagpApi {
     public function getDownloadLink($id, $plateform) {
         if ($id) {
             $app = $this->getApp($id);
-            if ($app->status->{$plateform} == 'complete') {
-                $url = "https://build.phonegap.com" . $app->download->{$plateform};
-                curl_setopt($this->ch, CURLOPT_URL, $url);
-                $data = curl_exec($this->ch);
-                $data = json_decode($data);
-                if (is_object($data) && isset($data->location)) {
-                    return $data->location;
-                } else {
-                    false;
-                }
+            if(property_exists($app, 'status'))
+            {
+            	
+	            if ($app->status->{$plateform} == 'complete') {
+	            	
+	                $url = "https://build.phonegap.com" . $app->download->{$plateform};
+	                curl_setopt($this->ch, CURLOPT_URL, $url);
+	                $data = curl_exec($this->ch);
+	                $data = json_decode($data);
+	                if (is_object($data) && isset($data->location)) {
+	                    return $data->location;
+	                } else {
+	                   return false;
+	                }
+	            }
+            }else{
+            	return false;
             }
         } else {
-            false;
+            return false;
         }
     }
 

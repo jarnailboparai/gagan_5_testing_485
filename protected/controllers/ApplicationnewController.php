@@ -4854,18 +4854,18 @@ class ApplicationnewController extends Controller
 	
 		//        echo $getApp_status->status->android; exit;
 	
-		if ($getApp_status) {
+		//if ($getApp_status) {
 	
-			$apps[0]['android_link'] = $phonegap->getDownloadLink($app_model->pg_appid, 'android');
+			//$apps[0]['android_link'] = $phonegap->getDownloadLink($app_model->pg_appid, 'android');
 	
-			$apps[0]['android_status'] = $getApp_status->status->android;
+			//$apps[0]['android_status'] = $getApp_status->status->android;
 	
 			//$apps[0]['ios_link'] = $phonegap->getDownloadLink($app_model->pg_appid, 'ios');
 	
-			$apps[0]['ios_status'] = $getApp_status->status->ios;
+			//$apps[0]['ios_status'] = $getApp_status->status->ios;
 	
-			$apps[0]['time'] = '';
-		}
+			//$apps[0]['time'] = '';
+		//}
 		
 		//$modelApp=new Applink;
 		
@@ -4876,21 +4876,30 @@ class ApplicationnewController extends Controller
 		}else{
 			$modelApp=new Applink;
 		}
-		sleep(20);
+		//sleep(20);
 			$modelApp->application_id = $app_model->id;
 			$modelApp->phonegap_id = $app_model->pg_appid;
-			$modelApp->android = $phonegap->getDownloadLink($app_model->pg_appid, 'android');
+			$modelApp->flag = 1;
+			//$modelApp->save();
+			if($phonegap->getDownloadLink($app_model->pg_appid, 'android') !== false){
+				$modelApp->android = $phonegap->getDownloadLink($app_model->pg_appid, 'android');
+			}
 			
 			$ios_profile_model = AppleProfile::model()->findByAttributes(array('user_id' => Yii::app()->user->id));
 			
-			if(count($ios_profile_model))
-				$modelApp->ios = $phonegap->getDownloadLink($app_model->pg_appid, 'ios');
+			if(count($ios_profile_model)){
+				if($phonegap->getDownloadLink($app_model->pg_appid, 'ios') !==false){
+					$modelApp->ios = $phonegap->getDownloadLink($app_model->pg_appid, 'ios');
+				}
+				
+			}
 			
 			if(!count($modelAppLink)){
 				$modelApp->save();
 				$this->redirect(array('dashboard'));
 			}else{
 				$modelApp->flag = 1;
+				//$modelApp->save();
 				$modelApp->update();
 				$this->redirect(array('dashboard'));
 			}

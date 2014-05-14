@@ -542,10 +542,7 @@
             //$('input[name="Module[tab_icon]"]').val($(this).attr('src'));
 			$('input[name="Module[tab_icon]"]').val(icon_url);
         //});
-		     //var app_icon_url = $('#_icon img').attr('src');
-		 
-			//$('#module_<?php echo $module_id ?>').find("img").attr('src', icon_url);
-			
+			 $("img#img_<?php echo $module_id; ?>").attr('src', icon_url);
 		    $('#icon_select').modal('hide');
    }
 	

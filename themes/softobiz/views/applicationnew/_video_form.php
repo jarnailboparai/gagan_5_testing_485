@@ -114,7 +114,7 @@ function openListModalVideo(arg)
 		<?php echo $form->textField($model, 'tab_title', array('placeholder' => 'Title', 'value' => $title)); ?>
 		<?php echo $form->hiddenField($model, 'tab_icon'); ?>
         
-        <?php echo $this->render('//mediafiles/index_appicon',array('module_id'=>$model->id));?>
+        <?php echo $this->render('//mediafiles/index_appicon',array('module_id'=>$model->id,'module_name'=>$model->name));?>
 		<?php /*?><span class="icon_wrapper"> <!--                   <div title="Select Icon" class="select_icon"></div> -->
 
 			<span class="select_icon change_icon_block_image_wrapper video"> <img

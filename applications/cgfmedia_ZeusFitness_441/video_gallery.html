@@ -4,19 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Wooden Theme Video Gallery</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
 <link rel="stylesheet" href="css/wooden_theme.css" />
 <link rel="stylesheet" href="css/common_layout.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="js/jquery_1.9.1.js"></script>
 <script src="js/jquery.mobile-1.4.0.js"></script>
-<script type="text/javascript">
-   $(document).ready(function() {
-      $('#back-link').click(function() {
-         history.go(-1) 
-       });
-   });
-</script>
 <!-- Photo Gallery settings starts here -->
 <link rel="stylesheet" href="css/photoswipe.css" />
 <link rel="stylesheet" href="css/styles.css" />
@@ -109,56 +101,31 @@ img {
 <div data-role="page" id="theme_layout" class="theme_bg"> 
   
   <!-- Header Starts Here -->
-  <div data-role="header"> <a class="refresh_link" id="back-link" href="#"><img src="images/home_icon.png" alt="home icon" /></a>
+  <div data-role="header"> <a class="refresh_link" id="back-link" href="index.html" rel="external" data-ajax="false"><img src="images/home_icon.png" alt="home icon" /></a>
     <h1>Video Gallery</h1>
     <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>
   <!-- /header ends here --> 
   <!-- Video Gallery Starts Here -->
-  <div id="Gallery">
+  <div id="Gallery" class="video_gallery_new">
 	<!-- Gallery Code Starts Here -->
-		<div class="gallery-row">
-	
-			<div class="gallery-item"><a href="../bottom/images/full/001.jpg"><img src="../bottom/images/thumb/001.jpg" alt="Image 001" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Paris City</div>
-            </div>
-			
-			<div class="gallery-item"><a href="../bottom/images/full/002.jpg"><img src="../bottom/images/thumb/002.jpg" alt="Image 002" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-			
-			<div class="gallery-item"><a href="../bottom/images/full/003.jpg"><img src="../bottom/images/thumb/003.jpg" alt="Image 003" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-			<div class="gallery-item"><a href="../bottom/images/full/004.jpg"><img src="../bottom/images/thumb/004.jpg" alt="Image 004" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Paris City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/005.jpg"><img src="../bottom/images/thumb/005.jpg" alt="Image 005" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/006.jpg"><img src="../bottom/images/thumb/006.jpg" alt="Image 006" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Paris City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/007.jpg"><img src="../bottom/images/thumb/007.jpg" alt="Image 007" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/008.jpg"><img src="../bottom/images/thumb/008.jpg" alt="Image 008" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/009.jpg"><img src="../bottom/images/thumb/009.jpg" alt="Image 009" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Paris City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/010.jpg"><img src="../bottom/images/thumb/010.jpg" alt="Image 010" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/011.jpg"><img src="../bottom/images/thumb/011.jpg" alt="Image 011" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/012.jpg"><img src="../bottom/images/thumb/012.jpg" alt="Image 012" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/013.jpg"><img src="../bottom/images/thumb/013.jpg" alt="Image 013" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/014.jpg"><img src="../bottom/images/thumb/014.jpg" alt="Image 014" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Paris City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/015.jpg"><img src="../bottom/images/thumb/015.jpg" alt="Image 015" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/016.jpg"><img src="../bottom/images/thumb/016.jpg" alt="Image 016" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/017.jpg"><img src="../bottom/images/thumb/017.jpg" alt="Image 017" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Paris City</div></div>
-            <div class="gallery-item"><a href="../bottom/images/full/018.jpg"><img src="../bottom/images/thumb/018.jpg" alt="Image 018" /></a><div class="play_video_icon"><img src="images/play_icon.png" /></div><div class="img_title">
-            Sydney City</div></div>
-            
-		</div>
+    
+		<ul data-role="listview">
+    <li><a href="#popupVideo" data-rel="popup" data-position-to="window">
+        <img src="images/thumb/015.jpg">
+    <h2>Broken Bells</h2>
+    <p>Broken Bells</p></a>
+    </li>
+    <li><a href="#">
+        <img src="images/thumb/014.jpg">
+    <h2>Warning</h2>
+    <p>Hot Chip</p></a>
+    </li>
+    <li><a href="#">
+        <img src="images/thumb/013.jpg">
+    <h2>Wolfgang Amadeus Phoenix</h2>
+    <p>Phoenix</p></a>
+    </li>
+</ul>
         
         </div>
   <!-- Gallery Code Ends Here -->

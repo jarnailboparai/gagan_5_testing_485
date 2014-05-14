@@ -17,7 +17,8 @@ font-weight:normal;
 font-style:normal;
 }
 body {
-	font-family:Open Sans,sans-serif;
+	/*font-family:Open Sans,sans-serif;*/
+	font-family:Arial, Helvetica, sans-serif !important;
 	min-width:313px;
 }
 .clr{
@@ -30,15 +31,17 @@ body {
 	font-weight:normal;
 	color:#fff;
 	width:70px;
-	font-family:Open Sans Semibold,sans-serif;
+	/*font-family:Open Sans Semibold,sans-serif;*/
+	font-family:Arial, Helvetica, sans-serif !important;
 }
 .app_feature_list label{
-	height:42px;
+	height:36px;
 	overflow:hidden;
 	font-size:13px;
+	word-wrap: break-word;
 }
 
-.no_data{
+.no_data,.thankyou_msg{
 	background: url(../images/header_bg.png);
     border-radius: 6px;
     display: block;
@@ -61,13 +64,44 @@ a.item{
     width: 70px;
 
 }
+.logo{
+	padding:0px !important;
+}
+.logo img{
+	display:none;
+}
 @media (max-width: 330px){
 	.ui-header .ui-title, .ui-footer .ui-title{
 		margin: 0 22%;
 	}
 }
 
-/* tempory */
-.logo {
-	display:none !important;
+/* loader setting */
+.ui-loader-default{
+	background: none repeat scroll 0 0 #000000;
+    height: 100%;
+    left: 0;
+    opacity: 0.4;
+    position: fixed;
+    top: 0 !important;
+    width: 100%;
+	margin:0px !important;
+}
+
+
+.ui-loader .ui-icon-loading {
+    position:absolute;
+	top:50%;
+	left:50%;
+	margin:-23px 0 0 -23px;
+}
+
+
+.thankyou_msg{
+	display:none;
+}
+.aweber_note {
+    font-size: 12px;
+    text-shadow: none;
+	font-style:italic;
 }

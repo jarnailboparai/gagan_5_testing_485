@@ -136,7 +136,7 @@
 
 				if(arg.success){
 
-					var imageData = '<span class="content_list_icon"><img src="'+themeurl+'/img/'+arg.data.name+'.png'+'"></span>'+arg.data.tab_title; 
+					var imageData = '<span class="content_list_icon"><img id="img_'+arg.data.id+'" src="'+themeurl+'/img/'+arg.data.name+'.png'+'"></span>'+arg.data.tab_title; 
 					
 					jQuery(dataAdd).attr('id','module_'+arg.data.id);
 					jQuery(dataAdd).find('.wrapperli a:first').attr('id',arg.data.name);
