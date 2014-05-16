@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wooden Theme</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="../../assets/css/fonts.css" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
+
+<link rel="stylesheet" href="css/theme.css" />
+
+<link rel="stylesheet" href="css/common_layout.css" />
+
+<link rel="stylesheet" href="css/squeeze.css" />
+
+<!--ThemeSettingSubpage-->
+
+<!--ThemeSetting-->
+
+<script src="cordova.js"></script>
+
+<script src="js/jquery_1.9.1.js"></script>
+
+<script src="js/validate.js"></script>
+
+<script src="js/validate_aweber.js"></script>
+
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script>
+
+jQuery( document ).bind( "mobileinit", function() {
+
+    // Make your jQuery Mobile framework configuration changes here!
+
+
+
+    jQuery.mobile.allowCrossDomainPages = true;
+
+
+
+});
+
+
+
+$(document).ajaxStart(function() {
+
+    $.mobile.loading('show');
+
+});
+
+
+
+$(document).ajaxStop(function() {
+
+    $.mobile.loading('hide');
+
+});
+
+
+
+jQuery(document).ready(function(){
+
+	
+
+	jQuery('#module-form-aweber').on('submit',function(e){
+
+		e.preventDefault();
+
+	    var postData = $(this).serialize();
+
+	    var actionUrl = document.getElementById('module-form-aweber');
+
+	 	console.log(actionUrl.action);
+
+		if($("#module-form-aweber").valid())	{
+
+	    $.ajax({
+
+	        type: 'POST',
+
+	       	url: actionUrl.action,
+
+	       	//crossDomain:true,
+
+	      	dataType:'application/json; charset=utf-8',
+
+	        data: postData,
+
+	        success: function(response){
+
+					
+
+	        	var argtt = response.responseText;
+
+				var arg = JSON.parse(response.responseText);
+
+
+
+				if(arg.success==1)
+
+				{
+
+					$('.squeeze_wrapper').html("");
+
+					$('.squeeze_wrapper').html("<div class='no_data'>Submit Successfully</div>");
+
+				}
+
+				else
+
+				{
+
+					$('.squeeze_wrapper').html("");
+
+					$('.squeeze_wrapper').html("<div class='no_data'>Error ! Please try after sometime</div>");
+
+				}
+
+	        	//popdetialHideOther(arg);
+
+	        },
+
+	        error: function(response){
+
+				
+
+	        	var argtt = response.responseText;
+
+				var arg = JSON.parse(response.responseText);
+
+
+
+				if(arg.success==1)
+
+				{
+
+					$('.squeeze_wrapper').hide();
+
+					$('.thankyou_msg').show();
+
+				}
+
+				else
+
+				{
+
+					$('.squeeze_wrapper').html("");
+
+					$('.squeeze_wrapper').html("<div class='no_data'>Error ! Please try after sometime</div>");
+
+				}
+
+	        	
+
+	        },
+
+	    }); 
+
+	}
+
+	});
+
+
+
+	
+
+	
+
+});
+
+
+
+</script>
+
+<style type="text/css">
+
+img {
+
+	max-width:100%;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<!-- Start of first page -->
+
+<div data-role="page" id="theme_layout" class="theme_bg"> 
+
+  
+
+  <!-- Header Starts Here -->
+
+  <div data-role="header"> <a href="index.html" class="refresh_link" data-role="button" rel="external" data-ajax="false" role="button"><img src="images/home_icon.png" alt="home icon" /></a>
+
+    <h1>Here! A Free Gift!</h1>
+
+    <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>
+
+  <!-- /header ends here --> 
+
+  <!-- Squeeze Page starts here -->
+
+ 	<div class="squeeze_wrapper">
+
+   
+
+<div class="squeeze_desc">
+
+	<div style="text-align: center;"><font size="4"><b><i>Give-away</i></b></font><b><i><font size="4">&nbsp;One</font></i></b></div><div style="text-align: center;"><br></div><div style="text-align: center;">&nbsp; &nbsp;<img src="http://i.imgur.com/YAP3gIN.png" width="125">&nbsp;</div><div style="text-align: center;"><br></div><div style="text-align: center;"><b><font size="4">If you want to know what not to do! This is a great FREE! E-book.</font></b><br></div><div style="text-align: center;"><b><font size="4"><br></font></b></div><div style="text-align: center;"><font size="4"><b><i>Give-away</i></b></font><b><i><font size="4">&nbsp;Two</font></i></b></div><div style="text-align: center;"><br></div><div style="text-align: center;"><img src="http://i.imgur.com/nUQFBNl.png" width="125"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;"><b><i><font size="4">Here are a few things you should know about PLR</font></i></b></div><div style="text-align: center;"><b><i><font size="4"><br></font></i></b></div><div style="text-align: left;"><b><font size="6">This is a great &nbsp; &nbsp; &nbsp; &nbsp; give-away!</font></b></div><div style="text-align: center;"><b><font size="4">&nbsp;</font></b></div><div style="text-align: center;"><font size="4"><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Leave your name and email! &nbsp;</b></font></div><div style="text-align: right;"><font size="4"><b><br></b></font></div><div style="text-align: center;"><b><font size="5">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; That Is It! &nbsp; &nbsp; &nbsp;&nbsp;</font></b></div><div style="text-align: center;"><b><font size="4">Do no more.</font></b></div><div style="text-align: center;"><b><font size="4"><br></font></b></div><div style="text-align: center;"><img src="http://i.imgur.com/WizDsXh.png" width="180"><b><font size="4"><br></font></b></div><div style="text-align: center;"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;"><i>My Name Is Christian, among other things I earn money on-line!&nbsp;</i></div><div style="text-align: center;"><i>I am the founder of my company.</i></div><div style="text-align: center;"><i>The Christian Empire!</i></div><div style="text-align: center;"><i><br></i></div><div style="text-align: center;"><i>Hello and Welcome!</i></div>
+
+</div>
+
+<div class="squeeze_desc aweber_note">
+
+    <form action="http://app-gorilla.com/members/wizard/index.php?r=aweber/addusertolist" method="POST" id='module-form-aweber'>
+
+	    <input name="aweberapp_id" type="hidden" value="0" />
+
+	    <input name="list_id" type="hidden"  value="0" />
+
+	    <input name="app_id" type="hidden" value="932" />
+
+	    <input name="user_id" type="hidden"  value="340" />
+
+	    <input name="module_id" type="hidden" value="5016" />
+
+	    <input name="module_name" type="hidden"  value="Here! A Free Gift!" />
+
+	    <input name="name" type="text" placeholder="Name" />
+
+	    <input name="email" type="text" placeholder="Email" />
+
+		
+
+    	<input type="submit" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini" value="Submit" />
+
+    	We respect your privacy. Your email will never be sold. We hate spam as much as you. From time to time we will also email you with more tips and information.
+
+    </form>
+
+    </div>
+
+    </div>
+
+ <div id="testing" class="testing" ></div>
+
+  <!-- Squeeze Page Ends here -->
+
+  
+
+  
+
+  <!-- thank you message -->
+
+  <div class="thankyou_msg"><b><i>Thank you! Check your inbox for our email. We will be sending you the information you requested now. If you don't see it then be sure to check your spam folder. &nbsp;</i> &nbsp; &nbsp;</b><div><br></div><div><br></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i><font size="4">&nbsp;Glad you thought I could help!&nbsp;</font></i></b></div><div><br></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<font color="#ff0000"> As a special one time Offer</font></div><div style="text-align: center;"><b><i><font size="3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; because I like to help!</font></i></b><br></div><div style="text-align: center;"><b><i><font size="3"><br></font></i></b></div><div style="text-align: center;"><img src="http://i.imgur.com/wqSMtAL.png" width="300"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;">&nbsp; &nbsp;&nbsp;<img src="http://i.imgur.com/Ov6uKY0.png" width="400"><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div></div>
+
+  
+
+  <!-- Thankyou message ends here -->
+
+</div>
+
+<!-- /page --> 
+
+
+
+</body>
+
+</html>

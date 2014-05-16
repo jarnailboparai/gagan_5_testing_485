@@ -154,16 +154,13 @@ body{
 
 
 
+@media (min-width: 100px) and (max-width: 399px) {
 .theme_bg
 {
-	background-image:none;
+	background-image:url(../images/app717port.jpg) ;
 	background-repeat:no-repeat;
 	background-size:cover;	
-	background: linear-gradient(left , rgb(0, 0, 0) 1% , rgb(0, 0, 0) 80%);
-background: -o-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(0, 0, 0) 80%);
-background: -ms-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(0, 0, 0) 80%);
-background: -moz-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(0, 0, 0) 80%);
-background: -webkit-linear-gradient(left , rgb(0, 0, 0) 1% , rgb(0, 0, 0) 80%);
+}
 }
 
 

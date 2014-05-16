@@ -1577,3 +1577,8 @@ max-height: 32px;
 max-width: 32px;
 }
 /* icon settings ends here */
+/*16th may style HTML button issue on static page*/
+.content_editor{
+	position:relative;
+	z-index:100;
+}

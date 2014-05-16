@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wooden Theme</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="../../assets/css/fonts.css" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
+
+<link rel="stylesheet" href="css/theme.css" />
+
+<link rel="stylesheet" href="css/common_layout.css" />
+
+<link rel="stylesheet" href="css/static_page.css" />
+
+<link rel="stylesheet" href="css/imgbg_4889.css" />
+
+<!--ThemeSetting-->
+
+<script src="js/jquery_1.9.1.js"></script>
+
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script type="text/javascript">
+
+   $(document).ready(function() {
+
+      $('#back-link').click(function() {
+
+         history.go(-1) 
+
+       });
+
+   });
+
+</script>
+
+
+
+
+
+<style type="text/css">
+
+img {
+
+	max-width:100%;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<!-- Start of first page -->
+
+<div data-role="page" id="theme_layout" class="theme_bg"> 
+
+  
+
+  <!-- Header Starts Here -->
+
+  <div data-role="header"> <a class="refresh_link" id="back-link" href="#"><img src="images/back_btn.png" alt="home icon" /></a>
+
+    <h1>Step Five</h1>
+
+    <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>
+
+  <!-- /header ends here --> 
+
+  <!-- Static Page starts here -->
+
+  
+
+  <div class="staticPage">
+
+  
+
+  <h2>Install WordPress</h2><p><br></p><p>Let Me Start by Saying Installing Wordpress is as easy as a one button installation. Afew Years ago this was a more complex task. Now, Over 90% of WebHosting Companies have a one button install button for Wordpress.</p><p>Most of the Below Info will NOT be needed but I included it for those who want more detailed descriptions on your blog and setting it up.</p><p><br></p><p><img src="http://i.imgur.com/I0xPZdr.jpg" width="600"><br></p><p><br></p><strong><a name="requirements">Requirements:</a></strong>
+<p>To run WordPress your host just needs a couple of things:</p> 
+
+<ul><li><a href="http://www.php.net/">PHP</a> version 4.3 or greater</li><li><a href="http://www.mysql.com/">MySQL</a> version 4.1.2 or greater</li></ul> 
+
+
+
+<strong><a name="database">Create a Database</a></strong><br>
+You can usually do this in your hosting control panel. If you aren't 
+sure how to do this, ask your hosting company.  After you have set it 
+up, you should have 4 pieces of information about the database.<br>
+1. <b>Database Name</b> - The name of your database.<br>
+2. <b>Username</b> - your database user name.<br>
+3. <b>Password</b> - Your database password.<br>
+4. <b>Host name</b> - This is going to be a host name.  It  might be something like mysql.mydomain.com, or just localhost.
+<p>Without these 4 things, you won't be able to set up WordPress.  
+Again, contact your hosting company's tech support if you have any 
+trouble with this.</p>
+
+<p><strong><a name="download">Download the current version of WordPress.</a></strong><br>
+This is easy.  Just go to <a href="http://wordpress.org/download/">wordpress.org/download/</a>,
+ and download the current version.  You have a choice between the ZIP 
+file or the TAR.GZ file.  I think the TAR.GZ file may be smaller, but I 
+always download the ZIP.<br>
+<strong>Uncompress the WordPress ZIP file.</strong><br>
+Again this is easy.</p>
+
+
+<p><strong><a name="wp-config">Configure WordPress</a></strong><br>
+Open the WordPress folder and rename the file <strong>wp-config-sample.php</strong> to just <strong>wp-config.php</strong>.  Now open it and insert the 4 pieces of information about your database into the 4 fields below.</p>
+<p>Change:</p>
+<blockquote><p>
+define('DB_NAME', 'database_name_here');    // The name of the database<br>
+define('DB_USER', 'username_here');     // Your MySQL username<br>
+define('DB_PASSWORD', 'password_here'); // ... and password<br>
+define('DB_HOST', 'localhost');    // 99% chance you won't need to change this value</p></blockquote>
+
+
+
+<p>to</p>
+<blockquote><p>define('DB_NAME', 'yourDatabaseName');    // The name of the database<br>
+define('DB_USER', 'your-username');     // Your MySQL username<br>
+define('DB_PASSWORD', 'your-password'); // ... and password<br>
+
+define('DB_HOST', 'your-hostname');    // 99% chance you won't need to change this value</p></blockquote>
+
+
+
+
+<p><strong><a name="upload">Choose Your Install Directory and Upload Everything</a></strong><br>
+If you want your WordPress blog in a separate directory of your website,
+ like “yourdomain.com/blog”, then rename the “wordpress” folder to 
+“blog” and upload it to the root directory with an ftp program.</p>
+
+<p>If you want your blog to be in the root directory of your site, 
+meaning the blog will be located at “yourdomain.com”, then just open the
+ wordpress folder and upload all the files and folders into your web 
+root.  If you already have a file called index.html, or index.php, 
+you'll need to rename it or get rid of it before you uploading 
+everything.</p>
+
+
+<p><strong><a name="install">Finish and Install</a></strong><br>
+
+</p><p>8. In a browser, go to the domain where you uploaded WordPress, 
+and then to /wp-admin/install.php, and follow the simple directions 
+there.</p>
+<p>You will be given a username and password.  Save it in a safe place.</p>
+<p>That's it.  You now have a new blog. You can now log in with your username and password, and start writing.</p>
+
+
+
+
+
+<p><strong>Download a WordPress theme</strong><br>
+This is the fun part.  Picking a WordPress theme. There are many places to find <a href="http://howtostartablog.org/wordpress-themes.html">WordPress Themes</a>. When you find one you like, just download it and unzip it just like you did with the WordPress ZIP file.</p>
+
+  </div>
+
+  
+
+  <!-- Static Page Ends here -->
+
+  
+
+</div>
+
+<!-- /page --> 
+
+
+
+</body>
+
+</html>

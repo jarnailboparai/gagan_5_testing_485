@@ -1,0 +1,41 @@
+
+
+@media (min-width: 400px) {
+
+.theme_bg
+
+{
+
+	/*background-image:url(../images/land.jpg);*/
+
+	background-image:url(../images/13101land.png);
+
+	background-repeat:no-repeat;
+
+	background-size:cover;	
+
+	background-position:center;
+
+}
+
+}
+
+@media (min-width: 100px) and (max-width: 399px) {
+
+.theme_bg
+
+{
+
+	/*background-image:url(../images/port.jpg);*/
+
+	background-image:url(../images/13101port.png);
+
+	background-repeat:no-repeat;
+
+	background-size:cover;	
+
+	background-position:center;
+
+}
+
+}

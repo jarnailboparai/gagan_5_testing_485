@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Wooden Theme</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.css" />
+
+<link rel="stylesheet" href="css/theme.css" />
+
+<link rel="stylesheet" href="css/common_layout.css" />
+
+<!--ThemeSetting-->
+
+<script src="js/jquery-1.6.1.min.js"></script>
+
+<script src="js/jquery.mobile-1.4.0.js"></script>
+
+<script type="text/javascript">
+
+   $(document).ready(function() {
+
+      $('#back-link').click(function() {
+
+         history.go(-1) 
+
+       });
+
+   });
+
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  $(".ui-header h1").addClass("ui-title");
+
+});
+
+</script>
+
+<!-- Photo Gallery settings starts here -->
+
+<link rel="stylesheet" href="css/photoswipe.css" />
+
+<link rel="stylesheet" href="css/styles.css" />
+
+<script type="text/javascript" src="js/simple-inheritance.min.js"></script>
+
+<script type="text/javascript" src="js/code-photoswipe-1.0.11.js"></script>
+
+<script type="text/javascript">
+
+		
+
+		/*
+
+		 This example shows how to set up the gallery without
+
+		 using the Code.photoSwipe() helper or the $.photoSwipe() jQuery plugin.
+
+		 
+
+		 The example finds the Gallery container, then finds all anchor tags in 
+
+		 the container (thumbnails).
+
+		 
+
+		 It then sets a click event listener on the container.
+
+		 
+
+		 When the user clicks the container, it checks to see if an image has been
+
+		 clicked (i.e. a thumbnail).
+
+		 
+
+		 It then attempts to find the index number of the thumbnail clicked 
+
+		 (from our list of thumbnails) and starts PhotoSwipe at that index.
+
+		 */
+
+		 
+
+		if(typeof document.querySelectorAll === 'function') {
+
+			
+
+			document.addEventListener('DOMContentLoaded', function(){
+
+				
+
+				// Find the element holding our photos
+
+				var galleryEl = document.getElementById('Gallery');
+
+				
+
+				
+
+				// Find all the photos in our gallery
+
+				var thumbEls = galleryEl.querySelectorAll('a');
+
+				
+
+				if (thumbEls.length < 1) {
+
+					return;
+
+				}
+
+				
+
+				// Set options (optional)
+
+				Code.PhotoSwipe.Current.setOptions({
+
+					loop: false
+
+				});
+
+				
+
+				
+
+				// Tell PhotoSwipe about the photos
+
+				Code.PhotoSwipe.Current.setImages(thumbEls);
+
+				
+
+				
+
+				// Listen out for when the user clicks the gallery
+
+				galleryEl.addEventListener('click', function(e){
+
+					
+
+					// If we clicked an image, start the gallery at that image
+
+					if (e.target.nodeName !== 'IMG'){
+
+						return;
+
+					}
+
+					
+
+					e.preventDefault();
+
+					
+
+					var linkEl = e.target.parentNode;
+
+					
+
+					var startingIndex = 0;
+
+					for (startingIndex; startingIndex<thumbEls.length; startingIndex++){
+
+						if (thumbEls[startingIndex] === linkEl){
+
+							break;
+
+						}
+
+					}
+
+					
+
+					// Start PhotoSwipe
+
+					Code.PhotoSwipe.Current.show(startingIndex);
+
+				
+
+				}, false);
+
+			
+
+			
+
+			}, false); 
+
+			
+
+		}
+
+		
+
+	</script>
+
+<!-- Photo Gallery Settings Ends Here -->
+
+
+
+<style type="text/css">
+
+img {
+
+	max-width:100%;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body class="theme_bg">
+
+<!-- Start of first page -->
+
+<div data-role="page" id="theme_layout"> 
+
+  
+
+  <!-- Header Starts Here 
+
+  <div data-role="header"> <a class="refresh_link" id="back-link" href="#"><img src="images/home_icon.png" alt="refresh icon" /></a>
+
+    <h1>Photos</h1>
+
+    <a class="help_link"><img src="images/help_icon.png" alt="help icon" /></a> </div>-->
+
+	
+
+    <!-- Header Starts Here -->
+
+  <div data-role="header" role="banner" class="ui-header ui-bar-inherit"> 
+
+  <a href="index.html" class="refresh_link ui-link ui-btn-left ui-btn ui-shadow ui-corner-all" data-role="button" rel="external" data-ajax="false" role="button"><img alt="home icon" src="images/home_icon.png"></a>
+
+    <h1>Photos</h1>
+
+    <a class="help_link ui-link ui-btn-right ui-btn ui-shadow ui-corner-all" data-role="button" role="button"><img alt="help icon" src="images/help_icon.png"></a> </div>
+
+  <!-- /header ends here --> 
+
+  <!-- Photo Gallery Starts Here -->
+
+  <div id="Gallery">
+
+	<!-- Gallery Code Starts Here -->
+
+		<div class="gallery-row">
+
+	
+
+			<div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009316721350289.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009316721350289_256x256.jpg"></a><div class="img_title">1313134906_211678781_1-Fotos-de--Curso-taller-Masaje-Profesional.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009316951753947.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009316951753947_256x256.jpg"></a><div class="img_title">descarga (1).jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009317162003208.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009317162003208_256x256.jpg"></a><div class="img_title">15265213-mujer-que-consigue-un-masaje-relajante-en-el-salon-de-obtener.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009317299446107.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009317299446107_256x256.jpg"></a><div class="img_title">descarga (2).jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009317317185212.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009317317185212_256x256.jpg"></a><div class="img_title">descarga.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009317358075310.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009317358075310_256x256.jpg"></a><div class="img_title">images.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009317753027281.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009317753027281_256x256.jpg"></a><div class="img_title">descarga (3).jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009317987404199.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009317987404199_256x256.jpg"></a><div class="img_title">atlante.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009318327524999.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009318327524999_256x256.jpg"></a><div class="img_title">arnica22.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009318423566905.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009318423566905_256x256.jpg"></a><div class="img_title">masaje-imagen.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009318549538871.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009318549538871_256x256.jpg"></a><div class="img_title">masaje_3.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009318899758310.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009318899758310_256x256.jpg"></a><div class="img_title">masaje-para-caderas.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009318874737253.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009318874737253_256x256.jpg"></a><div class="img_title">masaje.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009318853985465.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009318853985465_256x256.jpg"></a><div class="img_title">masaje-correctivo-profundo.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009319181841069.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009319181841069_256x256.jpg"></a><div class="img_title">masajes.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009319344030931.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009319344030931_256x256.jpg"></a><div class="img_title">masaje-piedras-calientes.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009319580465534.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009319580465534_256x256.jpg"></a><div class="img_title">Masaje-relajante-espalda.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009319773804661.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009319773804661_256x256.jpg"></a><div class="img_title">masaje-japones.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009319827926964.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009319827926964_256x256.jpg"></a><div class="img_title">masajes-mexico-df-antiestres.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009319846402180.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009319846402180_256x256.jpg"></a><div class="img_title">masajes-orientales.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009320049015807.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009320049015807_256x256.jpg"></a><div class="img_title">Masaje-Relajante-Mexico.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009320152285470.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009320152285470_256x256.jpg"></a><div class="img_title">Masaje-Sueco-Mexico.jpg</div></div><div class="gallery-item"><a href="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323/carlosbello2002_140009320432081129.jpg" class="image_click" style="position: relative"><img src="http://app-gorilla.com/members/wizard/mediafiles/carlosbello2002_323//thumb/carlosbello2002_140009320432081129_256x256.jpg"></a><div class="img_title">masaje-y-sistema-nervioso.jpg</div></div> 
+
+            
+
+		</div>
+
+        
+
+        </div>
+
+  <!-- Gallery Code Ends Here -->
+
+  
+
+  
+
+  
+
+  <!-- Photo Gallery Ends Here --> 
+
+  
+
+</div>
+
+<!-- /page --> 
+
+
+
+</body>
+
+</html>
+
+
