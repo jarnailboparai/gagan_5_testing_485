@@ -84,7 +84,7 @@ marker = new google.maps.Marker({
 
 position: latlng,
 
-title:'',
+title:'Madrid',
 
 });
 
@@ -110,7 +110,7 @@ getLo(event.latLng);
 
 });
 
-var address = '';
+var address = 'Madrid';
 
 geocoder.geocode( { 'address': address}, function(results, status) {
 
@@ -150,7 +150,7 @@ console.log(marker);
 
 function codeAddress() {
 
-var address = '';
+var address = 'Madrid';
 
 geocoder.geocode( { 'address': address}, function(results, status) {
 
@@ -288,7 +288,7 @@ setTimeout(loadScript,3000);
 
   <!-- Location Address -->
 
-  <div class="location_address"><p></p></div> 
+  <div class="location_address"><p>Madrid<br>The building in which the apartment is situated offers full time doormen, attended elevators, a parking garage, a swimming pool, a basketball court, a squash court an a fitness center. It’s a great place for a family home. The apartment itself offers many</p></div> 
 
   <!-- Location Address Ends Here -->
 
